@@ -149,9 +149,9 @@
     ```
 
   <a name="es6-computed-properties"></a><a name="3.4"></a>
-  - [3.2](#es6-computed-properties) Используйте вычисляемые имена свойств, когда создаете объекты с динамическими именами свойств
+  - [3.2](#es6-computed-properties) Используйте вычисляемые имена свойств, когда создаете объекты с динамическими именами свойств.
 
-    > Почему? Онипозволяют вам определеить все свойства в объекте в одном месте.
+    > Почему? Они позволяют вам определеить все свойства в объекте в одном месте.
 
     ```javascript
 
@@ -198,9 +198,9 @@
     ```
 
   <a name="es6-object-concise"></a><a name="3.6"></a>
-  - [3.4](#es6-object-concise) Используйте сокращенную запись свойства объекта. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+  - [3.4](#es6-object-concise) Используйте сокращенную запись свойств объекта. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
 
-    > Почему? It is shorter to write and descriptive.
+    > Почему? Это короче и понятнее.
 
     ```javascript
     const lukeSkywalker = 'Luke Skywalker';
@@ -217,9 +217,9 @@
     ```
 
   <a name="objects--grouped-shorthand"></a><a name="3.7"></a>
-  - [3.5](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
+  - [3.5](#objects--grouped-shorthand) Группируйте ваши сокращенные записи свойств в начале объявления объекта.
 
-    > Почему? It's easier to tell which properties are using the shorthand.
+    > Почему? Проще сказать какие свойства используют сокращенную форму записи.
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
@@ -247,9 +247,9 @@
     ```
 
   <a name="objects--quoted-props"></a><a name="3.8"></a>
-  - [3.6](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
+  - [3.6](#objects--quoted-props) Только недопустимые идентификаторы помещаются в кавычки. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
 
-  > Почему? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
+  > Почему? В целом мы считаем, что это субъективно легче читать. Это улучшает подстветку синтаксиса, а также облегчает оптимизацию для многих JS движков.
 
   ```javascript
   // плохо
@@ -268,7 +268,7 @@
   ```
 
   <a name="objects--prototype-builtins"></a>
-  - [3.7](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`.
+  - [3.7](#objects--prototype-builtins) Не вызывать напрямую методы `Object.prototype`, а также `hasOwnProperty`, `propertyIsEnumerable`, и `isPrototypeOf`.
 
   > Почему? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
 
@@ -279,22 +279,22 @@
   // хорошо
   console.log(Object.prototype.hasOwnProperty.call(object, key));
 
-  // best
-  const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
-  /* or */
+  // отлично
+  const has = Object.prototype.hasOwnProperty; // Кэшируем запрос в рамках модуля.
+  /* или */
   import has from 'has';
   …
   console.log(has.call(object, key));
   ```
 
   <a name="objects--rest-spread"></a>
-  - [3.8](#objects--rest-spread) Prefer the object spread operator over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
+  - [3.8](#objects--rest-spread) Выбирайте spread оператор вместо [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) для поверхностного копирования объектов. Используйте rest оператор, чтобы получить новый объект с некоторыми опущенными свойствами.
 
   ```javascript
   // very bad
   const original = { a: 1, b: 2 };
-  const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
-  delete copy.a; // so does this
+  const copy = Object.assign(original, { c: 3 }); // эта переменная изменяет `original` ಠ_ಠ
+  delete copy.a; // если делать так
 
   // плохо
   const original = { a: 1, b: 2 };
@@ -433,7 +433,7 @@
       return `${firstName} ${lastName}`;
     }
 
-    // best
+    // отлично
     function getFullName({ firstName, lastName }) {
       return `${firstName} ${lastName}`;
     }
@@ -1149,7 +1149,7 @@
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     export default AirbnbStyleGuide.es6;
 
-    // best
+    // отлично
     import { es6 } from './AirbnbStyleGuide';
     export default es6;
     ```
@@ -1310,7 +1310,7 @@
     numbers.forEach(num => sum += num);
     sum === 15;
 
-    // best (use the functional force)
+    // отлично (use the functional force)
     const sum = numbers.reduce((total, num) => total + num, 0);
     sum === 15;
 
@@ -1324,7 +1324,7 @@
     const increasedByOne = [];
     numbers.forEach(num => modified.push(num + 1));
 
-    // best (keeping it functional)
+    // отлично (keeping it functional)
     const increasedByOne = numbers.map(num => num + 1);
     ```
 
@@ -1811,7 +1811,7 @@
       ? 'bar'
       : maybeNull;
 
-    // best
+    // отлично
     const maybeNull = value1 > value2 ? 'baz' : null;
 
     const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
@@ -2603,7 +2603,7 @@
     // хорошо
     const hasAge = Boolean(age);
 
-    // best
+    // отлично
     const hasAge = !!age;
     ```
 
@@ -2789,10 +2789,10 @@
       // ...
     ];
 
-    // best
+    // отлично
     import TextMessageContainer from './containers/TextMessageContainer';
 
-    // best
+    // отлично
     const Requests = [
       // ...
     ];
