@@ -1,4 +1,4 @@
-# Стиль написания JavaScript кода от компании [Airbnb](https://github.com/airbnb/javascript/)() {
+# Руководство по написанию JavaScript кода от компании [Airbnb](https://github.com/airbnb/javascript/)() {
 
 *Наиболее разумный подход к написанию JavaScript кода*
 
@@ -31,18 +31,18 @@
   1. [Точки с запятой](#semicolons)
   1. [Приведение типов](#type-casting--coercion)
   1. [Соглашение об именовании](#naming-conventions)
-  1. [Accessors](#accessors)
+  1. [Аксессоры](#accessors)
   1. [События](#events)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Совместимость](#ecmascript-5-compatibility)
-  1. [ECMAScript 6+ (ES 2015+) Стили](#ecmascript-6-es-2015-styles)
+  1. [ECMAScript 6+ (ES 2015+) Стиль](#ecmascript-6-es-2015-styles)
   1. [Тестирование](#testing)
   1. [Производительность](#performance)
   1. [Ресурсы](#resources)
   1. [В реальном мире](#in-the-wild)
   1. [Переводы](#translation)
-  1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
-  1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
+  1. [Руководство по руководству](#the-javascript-style-guide-guide)
+  1. [Пообщаться с разработчиками о JS](#chat-with-us-about-javascript)
   1. [Помощники](#contributors)
   1. [Лицензия](#license)
 
