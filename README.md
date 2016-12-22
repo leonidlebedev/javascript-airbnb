@@ -82,7 +82,7 @@
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 ## <a name="references">Ссылки</a>
 
@@ -133,7 +133,7 @@
     console.log(b); // ReferenceError
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 ## <a name="objects">Объекты</a>
 
@@ -307,7 +307,7 @@
   const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
   ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 ## Arrays
 
@@ -409,7 +409,7 @@
     });
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 ## Destructuring
 
@@ -479,7 +479,7 @@
     ```
 
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 ## Strings
 
@@ -562,7 +562,7 @@
     const foo = `my name is '${name}'`;
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Functions
@@ -837,7 +837,7 @@
     );
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 ## Arrow Functions
 
@@ -961,7 +961,7 @@
     };
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Classes & Constructors
@@ -1130,7 +1130,7 @@
     ```
 
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Modules
@@ -1284,7 +1284,7 @@
     import barCss from 'bar.css';
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 ## Iterators and Generators
 
@@ -1377,7 +1377,7 @@
     }
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Properties
@@ -1414,7 +1414,7 @@
     const isJedi = getProp('jedi');
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Variables
@@ -1584,7 +1584,7 @@
       const truthyCount = array.filter(Boolean).length;
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Hoisting
@@ -1684,7 +1684,7 @@
 
   - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) by [Ben Cherry](http://www.adequatelygood.com/).
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Comparison Operators & Equality
@@ -1834,7 +1834,7 @@
     const baz = !c;
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Blocks
@@ -1887,7 +1887,7 @@
     ```
 
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Comments
@@ -2028,7 +2028,7 @@
     }
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Whitespace
@@ -2355,7 +2355,7 @@
       .fail(() => console.log('You have failed this city.'));
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 ## Commas
 
@@ -2490,7 +2490,7 @@
     )
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Semicolons
@@ -2520,7 +2520,7 @@
 
     [Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214).
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Type Casting & Coercion
@@ -2607,7 +2607,7 @@
     const hasAge = !!age;
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Naming Conventions
@@ -2798,7 +2798,7 @@
     ];
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Accessors
@@ -2868,7 +2868,7 @@
     }
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Events
@@ -2900,7 +2900,7 @@
     });
     ```
 
-  **[⬆ back to top](#Оглавление)**
+  **[⬆ к оглавлению](#Оглавление)**
 
 
 ## jQuery
@@ -2970,7 +2970,7 @@
     $sidebar.find('ul').hide();
     ```
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## ECMAScript 5 Compatibility
@@ -2978,7 +2978,7 @@
   <a name="es5-compat--kangax"></a><a name="26.1"></a>
   - [26.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 <a name="ecmascript-6-styles"></a>
 ## ECMAScript 6+ (ES 2015+) Styles
@@ -3005,7 +3005,7 @@
 
     > Почему? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 ## Testing
 
@@ -3027,7 +3027,7 @@
    - 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
    - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Performance
@@ -3042,7 +3042,7 @@
   - [Are Javascript functions like `map()`, `reduce()`, and `filter()` optimized for traversing arrays?](https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta)
   - Loading...
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## Resources
@@ -3124,7 +3124,7 @@
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
 
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 ## In the Wild
 
@@ -3209,7 +3209,7 @@
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 ## Translation
 
@@ -3269,7 +3269,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[⬆ back to top](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 ## Amendments
 
