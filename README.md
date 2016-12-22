@@ -46,7 +46,7 @@
   1. [Помощники](#contributors)
   1. [Лицензия](#license)
 
-## Типы
+## <a name="types">Типы</a>
 
   <a name="types--primitives"></a><a name="1.1"></a>
   - [1.1](#types--primitives) **Primitives**: When you access a primitive type you work directly on its value.
@@ -3276,5 +3276,3 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 We encourage you to fork this guide and change the rules to fit your team's style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
 
 # };
-
-
