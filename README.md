@@ -35,14 +35,14 @@
   1. [События](#events)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Совместимость](#ecmascript-5-compatibility)
-  1. [ECMAScript 6+ (ES 2015+) Стиль](#ecmascript-6-es-2015-styles)
+  1. [ECMAScript 6+ (ES 2015+) Стили](#ecmascript-6-es-2015-styles)
   1. [Тестирование](#testing)
   1. [Производительность](#performance)
   1. [Ресурсы](#resources)
   1. [В реальном мире](#in-the-wild)
   1. [Переводы](#translation)
-  1. [Руководство по руководству](#the-javascript-style-guide-guide)
-  1. [Пообщаться с разработчиками о JS](#chat-with-us-about-javascript)
+  1. [Руководство по этому руководству](#the-javascript-style-guide-guide)
+  1. [Пообщаться о JS с разработчиками Airbnb](#chat-with-us-about-javascript)
   1. [Помощники](#contributors)
   1. [Лицензия](#license)
 
@@ -151,26 +151,26 @@
   <a name="es6-computed-properties"></a><a name="3.4"></a>
   - [3.2](#es6-computed-properties) Используйте вычисляемые имена свойств, когда создаете объекты с динамическими именами свойств.
 
-    > Почему? Они позволяют вам определеить все свойства в объекте в одном месте.
+    > Почему? Они позволяют вам определить все свойства объекта в одном месте.
 
     ```javascript
 
     function getKey(k) {
-      return `Ключ по имени ${k}`;
+      return `a key named ${k}`;
     }
 
     // плохо
     const obj = {
       id: 5,
-      name: 'Санкт-Петербург',
+      name: 'San Francisco',
     };
-    obj[getKey('включен')] = true;
+    obj[getKey('enabled')] = true;
 
     // хорошо
     const obj = {
       id: 5,
-      name: 'Санкт-Петербург',
-      [getKey('включен')]: true,
+      name: 'San Francisco',
+      [getKey('enabled')]: true,
     };
     ```
 
@@ -291,7 +291,7 @@
   - [3.8](#objects--rest-spread) Выбирайте spread оператор вместо [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) для поверхностного копирования объектов. Используйте rest оператор, чтобы получить новый объект с некоторыми опущенными свойствами.
 
   ```javascript
-  // very bad
+  // очень плохо
   const original = { a: 1, b: 2 };
   const copy = Object.assign(original, { c: 3 }); // эта переменная изменяет `original` ಠ_ಠ
   delete copy.a; // если делать так
@@ -309,10 +309,10 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Arrays
+## <a name="array">Массивы</a>
 
   <a name="arrays--literals"></a><a name="4.1"></a>
-  - [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
+  - [4.1](#arrays--literals) Для создания массива используйте литеральную нотацию. eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
 
     ```javascript
     // плохо
@@ -323,7 +323,7 @@
     ```
 
   <a name="arrays--push"></a><a name="4.2"></a>
-  - [4.2](#arrays--push) Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
+  - [4.2](#arrays--push) Для добавления элемента в массив используйте [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) вместо прямого присваивания.
 
     ```javascript
     const someStack = [];
@@ -336,7 +336,7 @@
     ```
 
   <a name="es6-array-spreads"></a><a name="4.3"></a>
-  - [4.3](#es6-array-spreads) Use array spreads `...` to copy arrays.
+  - [4.3](#es6-array-spreads) Для копирования массивов используйте оператор расширения `...`.
 
     ```javascript
     // плохо
@@ -353,7 +353,7 @@
     ```
 
   <a name="arrays--from"></a><a name="4.4"></a>
-  - [4.4](#arrays--from) To convert an array-like object to an array, use [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+  - [4.4](#arrays--from) Чтобы преобразовать массиво-подобный объект в массив, используйте [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
@@ -361,7 +361,7 @@
     ```
 
   <a name="arrays--callback-return"></a><a name="4.5"></a>
-  - [4.5](#arrays--callback-return) Use return statements in array method callbacks. It's ok to omit the return if the function body consists of a single statement following [8.2](#8.2). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
+  - [4.5](#arrays--callback-return) Используйте операторы return внутри функций обратного вызова в методах массива. Нормально пропускать return, если тело функции состоит из одной инструкции [8.2](#8.2). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
 
     ```javascript
     // хорошо
@@ -411,12 +411,12 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Destructuring
+## <a name="destructuring">Деструктуризация</a>
 
   <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
+  - [5.1](#destructuring--object) При обращении или использовании нескольких свойств объекта используйте деструктивное присваивание объекта. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
 
-    > Почему? Destructuring saves you from creating temporary references for those properties.
+    > Почему? Деструктуризация сохраняет вас от создания временных ссылок для этих свойств.
 
     ```javascript
     // плохо
@@ -440,7 +440,7 @@
     ```
 
   <a name="destructuring--array"></a><a name="5.2"></a>
-  - [5.2](#destructuring--array) Use array destructuring. jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
+  - [5.2](#destructuring--array) Используйте деструктивное присваивание массивов. jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
 
     ```javascript
     const arr = [1, 2, 3, 4];
@@ -454,43 +454,43 @@
     ```
 
   <a name="destructuring--object-over-array"></a><a name="5.3"></a>
-  - [5.3](#destructuring--object-over-array) Use object destructuring for multiple return values, not array destructuring. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
+  - [5.3](#destructuring--object-over-array) Используйте деструктивное присваивание объекта для множества возвращаемых значений, но не делайте тоже с массивами. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
 
-    > Почему? You can add new properties over time or change the order of things without breaking call sites.
+    > Почему? Вы можете добавить новые свойства через некоторое время или изменить порядок без последствий.
 
     ```javascript
     // плохо
     function processInput(input) {
-      // then a miracle occurs
+      // затем происходит чудо
       return [left, right, top, bottom];
     }
 
-    // the caller needs to think about the order of return data
+    // При вызове нужно подумать о порядке возвращаемых данных
     const [left, __, top] = processInput(input);
 
     // хорошо
     function processInput(input) {
-      // then a miracle occurs
+      // затем происходит чудо
       return { left, right, top, bottom };
     }
 
-    // the caller selects only the data they need
+    // При вызове выбираем только необходимые данные
     const { left, top } = processInput(input);
     ```
 
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Strings
+## <a name="strings">Строки</a>
 
   <a name="strings--quotes"></a><a name="6.1"></a>
-  - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
+  - [6.1](#strings--quotes) Используйте одинарные кавычки `''` для строк. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
 
     ```javascript
     // плохо
     const name = "Capt. Janeway";
 
-    // плохо - template literals should contain interpolation or newlines
+    // плохо - литерал шаблонной строки должен содержать интерполяцию или переводы строк
     const name = `Capt. Janeway`;
 
     // хорошо
@@ -498,7 +498,7 @@
     ```
 
   <a name="strings--line-length"></a><a name="6.2"></a>
-  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
+  - [6.2](#strings--line-length) Строки, у которых в строчке содержится более 100 символов, не пишутся на нескольких строчках с использованием конкатенации.
 
     > Почему? Broken strings are painful to work with and make code less searchable.
 
@@ -518,10 +518,10 @@
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
     ```
 
-  <a name="es6-template-literals"></a><a name="6.4"></a>
-  - [6.3](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
+  <a name="es6-template-literals"></a><a name="6.3"></a>
+  - [6.3](#es6-template-literals) При создании строки программным путем, используйте шаблонные строки вместо конкатенации. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
 
-    > Почему? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+    > Почему? Шаблонные строки дают вам читабельность, лаконичный синтаксис с правильными символами перевода строк и функциями интерполяции строки.
 
     ```javascript
     // плохо
@@ -545,13 +545,13 @@
     }
     ```
 
-  <a name="strings--eval"></a><a name="6.5"></a>
+  <a name="strings--eval"></a><a name="6.4"></a>
   - [6.4](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities.
 
-  <a name="strings--escaping"></a>
-  - [6.5](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
+  <a name="strings--escaping"></a><a name="6.5"></a>
+  - [6.5](#strings--escaping) Не используйте необязательные экранирующие символы в строках. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
 
-    > Почему? Backslashes harm readability, thus they should only be present when necessary.
+    > Почему? Обрытные косые черты ухудшают читабельность, поэтом они должны присутствовать только при необходимости.
 
     ```javascript
     // плохо
@@ -1358,7 +1358,7 @@
     function *foo() {
     }
 
-    // very bad
+    // очень плохо
     function
     *
     foo() {
