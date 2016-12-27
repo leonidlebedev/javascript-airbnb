@@ -249,7 +249,7 @@
   <a name="objects--quoted-props"></a><a name="3.8"></a>
   - [3.6](#objects--quoted-props) Только недопустимые идентификаторы помещаются в кавычки. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
 
-  > Почему? В целом мы считаем, что это субъективно легче читать. Это улучшает подстветку синтаксиса, а также облегчает оптимизацию для многих JS движков.
+  > Почему? В целом мы считаем, что это субъективно легче читать. Это улучшает подсветку синтаксиса, а также облегчает оптимизацию для многих JS движков.
 
   ```javascript
   // плохо
@@ -361,7 +361,7 @@
     ```
 
   <a name="arrays--callback-return"></a><a name="4.5"></a>
-  - [4.5](#arrays--callback-return) Используйте операторы return внутри функций обратного вызова в методах массива. Нормально пропускать return, если тело функции состоит из одной инструкции [8.2](#8.2). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
+  - [4.5](#arrays--callback-return) Используйте операторы return внутри функций обратного вызова в методах массива. Нормально пропускать `return`, если тело функции состоит из одной инструкции [8.2](#8.2). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
 
     ```javascript
     // хорошо
@@ -500,7 +500,7 @@
   <a name="strings--line-length"></a><a name="6.2"></a>
   - [6.2](#strings--line-length) Строки, у которых в строчке содержится более 100 символов, не пишутся на нескольких строчках с использованием конкатенации.
 
-    > Почему? Broken strings are painful to work with and make code less searchable.
+    > Почему? Работать с разбитыми строками неудобно и это делает код трудным для поиска.
 
     ```javascript
     // плохо
@@ -602,7 +602,7 @@
   - [7.3](#functions--in-blocks) Никогда не объявляйте фукнции в нефункциональном блоке (if, while, etc). Вместо это присвойте функцию переменной. Браузеры позволяют выполнить ваш код, но все они интерпретируют его по-разному. eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
 
   <a name="functions--note-on-blocks"></a><a name="7.4"></a>
-  - [7.4](#functions--note-on-blocks) **Note:** ECMA-262 определяет блок как список инструкций. Объявление функции не является инструкцией. [Подробнее в документе ECMA-262](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - [7.4](#functions--note-on-blocks) **Примечание:** ECMA-262 определяет блок как список инструкций. Объявление функции не является инструкцией. [Подробнее в документе ECMA-262](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
     // плохо
@@ -622,7 +622,7 @@
     ```
 
   <a name="functions--arguments-shadow"></a><a name="7.5"></a>
-  - [7.5](#functions--arguments-shadow) Никогда не называйте параметр `arguments`. Он будет более приоритетным над объектом arguments, который доступен для каждой функции.
+  - [7.5](#functions--arguments-shadow) Никогда не называйте параметр `arguments`. Он будет более приоритетным над объектом `arguments`, который доступен для каждой функции.
 
     ```javascript
     // плохо
@@ -661,7 +661,7 @@
     // очень плохо
     function handleThings(opts) {
       // Нет! Мы не должны изменять аргументы функции.
-      // Плохо вдвойне: если opts будет ложным, то он присвоит переменной объект, а не то что
+      // Плохо вдвойне: если переменная opts будет ложной, то ей присвоится пустой объект, а не то что
       // вы хотели. Это приведет к коварным ошибкам.
       opts = opts || {};
       // ...
