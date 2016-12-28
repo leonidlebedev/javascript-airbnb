@@ -1288,7 +1288,7 @@
 
 ## Итераторы и генераторы
 
-  <a name="iterators--nope"></a><a name="11.1"></a>
+  <a name="iterators-and-generators"></a><a name="11.1"></a>
   - [11.1](#iterators--nope) Не используйте итераторы. Лучше использовать функции высокого порядка, вместо таких циклов как `for-in` or `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
 
     > Почему? Стараемся использовать правила имутабельности (immutable). Работать с чистыми функциями лучше для понимания, чем с фукциями с side effect-ами.
