@@ -1286,14 +1286,14 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Iterators and Generators
+## Итераторы и генераторы
 
   <a name="iterators--nope"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Don't use iterators. Prefer JavaScript's higher-order functions instead of loops like `for-in` or `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
+  - [11.1](#iterators--nope) Не используйте итераторы. Лучше использовать функции высокого порядка, вместо таких циклов как `for-in` or `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
 
-    > Почему? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
+    > Почему? Стараемся использовать правила имутабельности (immutable). Работать с чистыми функциями лучше для понимания, чем с фукциями с side effect-ами.
 
-    > Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.
+    > Используйте `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... для итерации по массивам, а `Object.keys()` / `Object.values()` / `Object.entries()` для создания массивов, с помощью которых, можно итерироваться по объектам.
 
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
@@ -1329,14 +1329,14 @@
     ```
 
   <a name="generators--nope"></a><a name="11.2"></a>
-  - [11.2](#generators--nope) Don't use generators for now.
+  - [11.2](#generators--nope) Не используйте генераторы пока.
 
-    > Почему? They don't transpile well to ES5.
+    > Почему? Они не очень хорошо транспилируются в ES5.
 
   <a name="generators--spacing"></a>
-  - [11.3](#generators--spacing) If you must use generators, or if you disregard [our advice](#generators--nope), make sure their function signature is spaced properly. eslint: [`generator-star-spacing`](http://eslint.org/docs/rules/generator-star-spacing)
+  - [11.3](#generators--spacing) Если все таки нужно использовать генераторы, или не обратили внимания на [наш совет](#generators--nope), убедитесь, что * у функции генератора расположена должным образом. eslint: [`generator-star-spacing`](http://eslint.org/docs/rules/generator-star-spacing)
 
-    > Почему? `function` and `*` are part of the same conceptual keyword - `*` is not a modifier for `function`, `function*` is a unique construct, different from `function`.
+    > Почему? `function` и `*` два разные зарезервированные конструкции. `*` не является модификатором для `function`, `function*` является уникальной конструкцией, отличается от `function`.
 
     ```js
     // плохо
