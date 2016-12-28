@@ -1289,9 +1289,9 @@
 ## Итераторы и генераторы
 
   <a name="iterators-and-generators"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Не используйте итераторы. Лучше использовать функции высокого порядка, вместо таких циклов как `for-in` or `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
+  - [11.1](#iterators--nope) Не используйте итераторы. Лучше использовать функции высшего порядка, вместо таких циклов как `for-in` или `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
 
-    > Почему? Стараемся использовать правила имутабельности (immutable). Работать с чистыми функциями лучше для понимания, чем с фукциями с side effect-ами.
+    > Почему? Лучше использовать правила имутабельности (immutable). Работать с чистыми функциями лучше для понимания, чем с фукциями с side effect-ами.
 
     > Используйте `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... для итерации по массивам, а `Object.keys()` / `Object.values()` / `Object.entries()` для создания массивов, с помощью которых, можно итерироваться по объектам.
 
@@ -1310,7 +1310,7 @@
     numbers.forEach(num => sum += num);
     sum === 15;
 
-    // отлично (use the functional force)
+    // отлично (используй функциональную силу)
     const sum = numbers.reduce((total, num) => total + num, 0);
     sum === 15;
 
@@ -1324,12 +1324,12 @@
     const increasedByOne = [];
     numbers.forEach(num => modified.push(num + 1));
 
-    // отлично (keeping it functional)
+    // отлично (и тут используй функциональную силу)
     const increasedByOne = numbers.map(num => num + 1);
     ```
 
   <a name="generators--nope"></a><a name="11.2"></a>
-  - [11.2](#generators--nope) Не используйте генераторы пока.
+  - [11.2](#generators--nope) Не используйте пока генераторы.
 
     > Почему? Они не очень хорошо транспилируются в ES5.
 
