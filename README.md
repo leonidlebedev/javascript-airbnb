@@ -270,7 +270,7 @@
   <a name="objects--prototype-builtins"></a>
   - [3.7](#objects--prototype-builtins) Не вызывайте напрямую методы `Object.prototype`, такие как `hasOwnProperty`, `propertyIsEnumerable`, и `isPrototypeOf`.
 
-  > Почему? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
+  > Почему? Эти методы могут быть переопределены в свойствах объекта, который мы проверяем `{ hasOwnProperty: false }`, или этот объект может быть `null` (`Object.create(null)`).
 
   ```javascript
   // плохо
@@ -288,7 +288,7 @@
   ```
 
   <a name="objects--rest-spread"></a>
-  - [3.8](#objects--rest-spread) Выбирайте spread оператор вместо [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) для поверхностного копирования объектов. Используйте rest оператор, чтобы получить новый объект с некоторыми опущенными свойствами.
+  - [3.8](#objects--rest-spread) Выбирайте оператор spread вместо [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) для поверхностного копирования объектов. Используйте оператор rest, чтобы получить новый объект с некоторыми опущенными свойствами.
 
   ```javascript
   // очень плохо
