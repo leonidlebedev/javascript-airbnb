@@ -1133,12 +1133,12 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Modules
+## <a name="modules">Модули</a>
 
   <a name="modules--use-them"></a><a name="10.1"></a>
-  - [10.1](#modules--use-them) Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
+  - [10.1](#modules--use-them) Всегда используйте модули (`import`/`export`) вместо нестандартных модульных систем. Вы всегда сможете транспилировать в вашу предпочтительную модульную систему.
 
-    > Почему? Modules are the future, let's start using the future now.
+    > Почему? Модули — это будущее. Давайте начнем использовать будущее уже сейчас!
 
     ```javascript
     // плохо
@@ -1155,9 +1155,9 @@
     ```
 
   <a name="modules--no-wildcard"></a><a name="10.2"></a>
-  - [10.2](#modules--no-wildcard) Do not use wildcard imports.
+  - [10.2](#modules--no-wildcard) Не используйте импорт через `*`.
 
-    > Почему? This makes sure you have a single default export.
+    > Почему? Это гарантирует, что у вас есть единственный экспорт по умолчанию.
 
     ```javascript
     // плохо
@@ -1168,30 +1168,30 @@
     ```
 
   <a name="modules--no-export-from-import"></a><a name="10.3"></a>
-  - [10.3](#modules--no-export-from-import) And do not export directly from an import.
+  - [10.3](#modules--no-export-from-import) И не экспортируйте прямо из импорта.
 
-    > Почему? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
+    > Почему? Несмотря на то, что запись в одну строку является краткой, разделение на отдельные строки делает вещи последовательными.
 
     ```javascript
     // плохо
-    // filename es6.js
+    // файл es6.js
     export { es6 as default } from './AirbnbStyleGuide';
 
     // хорошо
-    // filename es6.js
+    // файл es6.js
     import { es6 } from './AirbnbStyleGuide';
     export default es6;
     ```
 
   <a name="modules--no-duplicate-imports"></a>
-  - [10.4](#modules--no-duplicate-imports) Only import from a path in one place.
+  - [10.4](#modules--no-duplicate-imports) Один импорт для пути в одном месте.
  eslint: [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports)
-    > Почему? Having multiple lines that import from the same path can make code harder to maintain.
+    > Почему? Наличие нескольких строк, которые импортируют из одного и того же пути, может сделать код неподдерживаемым.
 
     ```javascript
     // плохо
     import foo from 'foo';
-    // … some other imports … //
+    // … какие-то другие импорты … //
     import { named1, named2 } from 'foo';
 
     // хорошо
@@ -1205,9 +1205,9 @@
     ```
 
   <a name="modules--no-mutable-exports"></a>
-  - [10.5](#modules--no-mutable-exports) Do not export mutable bindings.
+  - [10.5](#modules--no-mutable-exports) Не экспортируйте изменяемые связи.
  eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
-    > Почему? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.
+    > Почему? Вообще следует избегать мутации, в особенности, при экспорте изменяемых сущностей. Несмотря на то, что эта техника может быть необходима для некоторых случаев, в целом, только константа может быть экспортирована.
 
     ```javascript
     // плохо
@@ -1220,7 +1220,7 @@
     ```
 
   <a name="modules--prefer-default-export"></a>
-  - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
+  - [10.6](#modules--prefer-default-export) В модулях с единственным экспортом предпочтительнее использовать экспорт по умолчанию, а не экспорт по имени.
  eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
 
     ```javascript
@@ -1232,9 +1232,9 @@
     ```
 
   <a name="modules--imports-first"></a>
-  - [10.7](#modules--imports-first) Put all `import`s above non-import statements.
+  - [10.7](#modules--imports-first) Поместите все импорты выше остальных инструкций.
  eslint: [`import/first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md)
-    > Почему? Since `import`s are hoisted, keeping them all at the top prevents surprising behavior.
+    > Почему? Так как `import` имеют свойство «подъем», то хранение их всех в начале файла предотвращает от неожиданного поведения.
 
     ```javascript
     // плохо
@@ -1251,9 +1251,9 @@
     ```
 
   <a name="modules--multiline-imports-over-newlines"></a>
-  - [10.8](#modules--multiline-imports-over-newlines) Multiline imports should be indented just like multiline array and object literals.
+  - [10.8](#modules--multiline-imports-over-newlines) Импорты на нескольких строках должны быть с отступами как у многострочных литералов массива и объекта.
 
-    > Почему? The curly braces follow the same indentation rules as every other curly brace block in the style guide, as do the trailing commas.
+    > Почему? Фигурные скобки следуют тем же правилам отступа как и любая другая фигурная скобка блока в этом руководстве, тоже самое и о висячих запятых.
 
     ```javascript
     // плохо
@@ -1270,9 +1270,9 @@
     ```
 
   <a name="modules--no-webpack-loader-syntax"></a>
-  - [10.9](#modules--no-webpack-loader-syntax) Disallow Webpack loader syntax in module import statements.
+  - [10.9](#modules--no-webpack-loader-syntax) Запретите синтаксис загрузчика Webpack в импорте.
  eslint: [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
-    > Почему? Since using Webpack syntax in the imports couples the code to a module bundler. Prefer using the loader syntax in `webpack.config.js`.
+    > Почему? Так как использование Webpack синтаксиса связывает код с упаковщиком модулей. Предпочитайте использовать синтаксис загрузчика в `webpack.config.js`.
 
     ```javascript
     // плохо
