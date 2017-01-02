@@ -1021,7 +1021,7 @@
     ```
 
   <a name="constructors--chaining"></a><a name="9.3"></a>
-  - [9.3](#constructors--chaining) Методы могут возвращать `this`, чтобы помочь делать цепочки вызовов.
+  - [9.3](#constructors--chaining) Методы могут возвращать `this`, чтобы делать цепочки вызовов.
 
     ```javascript
     // плохо
@@ -1059,7 +1059,7 @@
 
 
   <a name="constructors--tostring"></a><a name="9.4"></a>
-  - [9.4](#constructors--tostring) Это нормально, написать свой собственный метод `toString()`, просто убедитесь, что она успешно работает и не вызывает никаких побочных эффектов.
+  - [9.4](#constructors--tostring) Это нормально, написать свой собственный метод `toString()`, просто убедитесь, что он успешно работает и не создает никаких побочных эффектов.
 
     ```javascript
     class Jedi {
@@ -1078,7 +1078,7 @@
     ```
 
   <a name="constructors--no-useless"></a><a name="9.5"></a>
-  - [9.5](#constructors--no-useless) У классов есть конструктор по умолчанию, если не указан другой конструктор. Не надо пустому конструктору или другому делегировать родительскому классу. eslint: [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
+  - [9.5](#constructors--no-useless) У классов есть конструктор по умолчанию, если он не задан явно. Пустой конструктор или конструктор, который только делегирует выполнение родительскому классу, можно опустить. eslint: [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
 
     ```javascript
     // плохо
