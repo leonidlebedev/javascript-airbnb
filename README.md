@@ -1207,7 +1207,7 @@
   <a name="modules--no-mutable-exports"></a>
   - [10.5](#modules--no-mutable-exports) Не экспортируйте изменяемые связи.
  eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
-    > Почему? В целом следует избегать мутации, в частности, при экспорте изменяемых связей. Несмотря на то, что эта техника может быть необходима для некоторых случаем, в целом, только константная ссылка может быть экспортирована.
+    > Почему? В целом следует избегать мутации, в частности, при экспорте изменяемых связей. Несмотря на то, что эта техника может быть необходима для некоторых случаев, в целом, только константная ссылка может быть экспортирована.
 
     ```javascript
     // плохо
@@ -1220,7 +1220,7 @@
     ```
 
   <a name="modules--prefer-default-export"></a>
-  - [10.6](#modules--prefer-default-export) В модулях с единственным экспортом, предпочтительнее использовать экспорт по умолчанию, а не экспорт по имени.
+  - [10.6](#modules--prefer-default-export) В модулях с единственным экспортом предпочтительнее использовать экспорт по умолчанию, а не экспорт по имени.
  eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
 
     ```javascript
