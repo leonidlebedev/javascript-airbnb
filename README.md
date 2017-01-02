@@ -414,9 +414,9 @@
 ## <a name="destructuring">Деструктуризация</a>
 
   <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) При обращении или использовании нескольких свойств объекта используйте деструктивное присваивание объекта. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
+  - [5.1](#destructuring--object) При обращении к нескольким свойствам объекта используйте деструктивное присваивание объекта. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
 
-    > Почему? Деструктуризация сохраняет вас от создания временных ссылок для этих свойств.
+    > Почему? Деструктуризация избавляет вас от создания временных переменных для этих свойств.
 
     ```javascript
     // плохо
@@ -465,7 +465,7 @@
       return [left, right, top, bottom];
     }
 
-    // При вызове нужно подумать о порядке возвращаемых данных
+    // при вызове нужно подумать о порядке возвращаемых данных
     const [left, __, top] = processInput(input);
 
     // хорошо
@@ -474,7 +474,7 @@
       return { left, right, top, bottom };
     }
 
-    // При вызове выбираем только необходимые данные
+    // при вызове выбираем только необходимые данные
     const { left, top } = processInput(input);
     ```
 
