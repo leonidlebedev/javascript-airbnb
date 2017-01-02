@@ -1900,8 +1900,8 @@
     // make() возвращает новый элемент
     // соответствующий переданному названию тега
     //
-    // @param {String} тег
-    // @return {Element} элемент
+    // @param {String} tag
+    // @return {Element} element
     function make(tag) {
 
       // ...немного кода...
