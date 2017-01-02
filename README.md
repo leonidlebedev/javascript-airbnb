@@ -28,7 +28,7 @@
   1. [Комментарии](#comments)
   1. [Пробелы](#whitespace)
   1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
+  1. [Точка с запятой](#semicolons)
   1. [Type Casting & Coercion](#type-casting--coercion)
   1. [Naming Conventions](#naming-conventions)
   1. [Accessors](#accessors)
@@ -2492,10 +2492,10 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Semicolons
+## <a name="semicolons">Точка с запятой</a>
 
   <a name="semicolons--required"></a><a name="20.1"></a>
-  - [20.1](#20.1) **Yup.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
+  - [20.1](#20.1) **Да.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
 
     ```javascript
     // плохо
@@ -2510,14 +2510,14 @@
       return name;
     }());
 
-    // хорошо, but legacy (guards against the function becoming an argument when two files with IIFEs are concatenated)
+    // хорошо, но уже устарело (такая защита функций нужна когда конкатернируются два файла, содержащие немедленно вызываемые функции)
     ;(() => {
       const name = 'Skywalker';
       return name;
     }());
     ```
 
-    [Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214).
+    [Читать подробнее](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214).
 
 **[⬆ к оглавлению](#Оглавление)**
 
