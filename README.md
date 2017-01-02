@@ -24,8 +24,8 @@
   1. [Variables](#variables)
   1. [Hoisting](#hoisting)
   1. [Comparison Operators & Equality](#comparison-operators--equality)
-  1. [Blocks](#blocks)
-  1. [Comments](#comments)
+  1. [Блоки](#blocks)
+  1. [Комментарии](#comments)
   1. [Whitespace](#whitespace)
   1. [Commas](#commas)
   1. [Semicolons](#semicolons)
@@ -627,12 +627,12 @@
     ```javascript
     // плохо
     function nope(name, options, arguments) {
-      // ...stuff...
+      // ...немного кода...
     }
 
     // хорошо
     function yup(name, options, args) {
-      // ...stuff...
+      // ...немного кода...
     }
     ```
 
@@ -1715,32 +1715,32 @@
     ```javascript
     // плохо
     if (isValid === true) {
-      // ...stuff...
+      // ...немного кода...
     }
 
     // хорошо
     if (isValid) {
-      // ...stuff...
+      // ...немного кода...
     }
 
     // плохо
     if (name) {
-      // ...stuff...
+      // ...немного кода...
     }
 
     // хорошо
     if (name !== '') {
-      // ...stuff...
+      // ...немного кода...
     }
 
     // плохо
     if (collection.length) {
-      // ...stuff...
+      // ...немного кода...
     }
 
     // хорошо
     if (collection.length > 0) {
-      // ...stuff...
+      // ...немного кода...
     }
     ```
 
@@ -1837,10 +1837,10 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Blocks
+## <a name="blocks">Блоки</a>
 
   <a name="blocks--braces"></a><a name="16.1"></a>
-  - [16.1](#blocks--braces) Use braces with all multi-line blocks.
+  - [16.1](#blocks--braces) Используйте фигурные скобки, когда блок кода занимает несколько строк.
 
     ```javascript
     // плохо
@@ -1865,7 +1865,7 @@
     ```
 
   <a name="blocks--cuddled-elses"></a><a name="16.2"></a>
-  - [16.2](#blocks--cuddled-elses) If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your `if` block's closing brace. eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) jscs:  [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements)
+  - [16.2](#blocks--cuddled-elses) Если блоки кода в условии `if` и `else` занимают несколько строк, расположите оператор `else` на той же строчке, где находится закрывающая фигурная скобка блока `if`. eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) jscs:  [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements)
 
     ```javascript
     // плохо
@@ -1890,53 +1890,53 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Comments
+## <a name="comments">Комментарии</a>
 
   <a name="comments--multiline"></a><a name="17.1"></a>
-  - [17.1](#comments--multiline) Use `/** ... */` for multi-line comments.
+  - [17.1](#comments--multiline) Используйте конструкцию `/** ... */` для многострочных комментариев.
 
     ```javascript
     // плохо
-    // make() returns a new element
-    // based on the passed in tag name
+    // make() возвращает новый элемент
+    // соответствующий переданному названию тега
     //
     // @param {String} tag
     // @return {Element} element
     function make(tag) {
 
-      // ...stuff...
+      // ...немного кода...
 
       return element;
     }
 
     // хорошо
     /**
-     * make() returns a new element
-     * based on the passed-in tag name
+     * make() возвращает новый элемент
+     * соответствующий переданному названию тега
      */
     function make(tag) {
 
-      // ...stuff...
+      // ...немного кода...
 
       return element;
     }
     ```
 
   <a name="comments--singleline"></a><a name="17.2"></a>
-  - [17.2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
+  - [17.2](#comments--singleline) Используйте символы `//` для однострочных комментариев. Располагайте такие комментарии отдельной строкой над кодом, который хотите пояснить. Если комментарий не является первой строкой блока, добавьте сверху пустую строку.
 
     ```javascript
     // плохо
-    const active = true;  // is current tab
+    const active = true;  // это текущая вкладка
 
     // хорошо
-    // is current tab
+    // это текущая вкладка
     const active = true;
 
     // плохо
     function getType() {
       console.log('fetching type...');
-      // set the default type to 'no type'
+      // установить по умолчанию тип 'no type'
       const type = this._type || 'no type';
 
       return type;
@@ -1946,83 +1946,83 @@
     function getType() {
       console.log('fetching type...');
 
-      // set the default type to 'no type'
+      // установить по умолчанию тип 'no type'
       const type = this._type || 'no type';
 
       return type;
     }
 
-    // also good
+    // тоже хорошо
     function getType() {
-      // set the default type to 'no type'
+      // установить по умолчанию тип 'no type'
       const type = this._type || 'no type';
 
       return type;
     }
     ```
 
-  - [17.3](#comments--spaces) Start all comments with a space to make it easier to read. eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
+  - [17.3](#comments--spaces) Начинайте все комментарии с пробела, так их проще читать. eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
 
     ```javascript
     // плохо
-    //is current tab
+    //это текущая вкладка
     const active = true;
 
     // хорошо
-    // is current tab
+    // это текущая вкладка
     const active = true;
 
     // плохо
     /**
-     *make() returns a new element
-     *based on the passed-in tag name
+     *make() возвращает новый элемент
+     *соответствующий переданному названию тега
      */
     function make(tag) {
 
-      // ...stuff...
+      // ...немного кода...
 
       return element;
     }
 
     // хорошо
     /**
-     * make() returns a new element
-     * based on the passed-in tag name
+     * make() возвращает новый элемент
+     * соответствующий переданному названию тега
      */
     function make(tag) {
 
-      // ...stuff...
+      // ...немного кода...
 
       return element;
     }
     ```
 
   <a name="comments--actionitems"></a><a name="17.3"></a>
-  - [17.4](#comments--actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
+  - [17.4](#comments--actionitems) Если комментарий начинается со слов `FIXME` или `TODO`, это помогает другим разработчикам быстро понять, когда вы хотите указать на проблему, которую надо решить, или когда вы предлагаете решение проблемы, которое надо реализовать. Такие комментарии, в отличие от обычных, побуждают к действию: `FIXME: -- нужно разобраться с этим`, или `TODO: -- нужно реализовать`.
 
   <a name="comments--fixme"></a><a name="17.4"></a>
-  - [17.5](#comments--fixme) Use `// FIXME:` to annotate problems.
+  - [17.5](#comments--fixme) Используйте `// FIXME:`, чтобы описать проблему.
 
     ```javascript
     class Calculator extends Abacus {
       constructor() {
         super();
 
-        // FIXME: shouldn't use a global here
+        // FIXME: здесь не должна использоваться глобальная переменная
         total = 0;
       }
     }
     ```
 
   <a name="comments--todo"></a><a name="17.5"></a>
-  - [17.6](#comments--todo) Use `// TODO:` to annotate solutions to problems.
+  - [17.6](#comments--todo) Используйте `// TODO:`, чтобы описать решение проблемы.
 
     ```javascript
     class Calculator extends Abacus {
       constructor() {
         super();
 
-        // TODO: total should be configurable by an options param
+        // TODO: нужна возможность задать total через параметры
         this.total = 0;
       }
     }
@@ -2618,7 +2618,7 @@
     ```javascript
     // плохо
     function q() {
-      // ...stuff...
+      // ...немного кода...
     }
 
     // хорошо
@@ -2927,7 +2927,7 @@
     function setSidebar() {
       $('.sidebar').hide();
 
-      // ...stuff...
+      // ...немного кода...
 
       $('.sidebar').css({
         'background-color': 'pink'
@@ -2939,7 +2939,7 @@
       const $sidebar = $('.sidebar');
       $sidebar.hide();
 
-      // ...stuff...
+      // ...немного кода...
 
       $sidebar.css({
         'background-color': 'pink'
