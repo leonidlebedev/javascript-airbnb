@@ -9,7 +9,7 @@
 
 ## Оглавление
 
-  1. [Types](#types)
+  1. [Типы](#types)
   1. [References](#references)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
@@ -46,10 +46,10 @@
   1. [Contributors](#contributors)
   1. [License](#license)
 
-## Types
+## <a name="types">Типы</a>
 
   <a name="types--primitives"></a><a name="1.1"></a>
-  - [1.1](#types--primitives) **Primitives**: When you access a primitive type you work directly on its value.
+  - [1.1](#types--primitives) **Простые типы**: Когда вы взаимодействуете с простым типом, вы напрямую работаете с его значением.
 
     + `string`
     + `number`
@@ -67,7 +67,7 @@
     ```
 
   <a name="types--complex"></a><a name="1.2"></a>
-  - [1.2](#types--complex)  **Complex**: When you access a complex type you work on a reference to its value.
+  - [1.2](#types--complex)  **Сложные типы**: Когда вы взаимодействуете со сложными типом, вы работаете с ссылкой на его значение.
 
     + `object`
     + `array`
