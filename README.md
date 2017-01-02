@@ -24,8 +24,8 @@
   1. [Variables](#variables)
   1. [Hoisting](#hoisting)
   1. [Comparison Operators & Equality](#comparison-operators--equality)
-  1. [Blocks](#blocks)
-  1. [Comments](#comments)
+  1. [Блоки](#blocks)
+  1. [Комментарии](#comments)
   1. [Whitespace](#whitespace)
   1. [Commas](#commas)
   1. [Semicolons](#semicolons)
@@ -1837,10 +1837,10 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Блоки
+## <a name="blocks">Блоки</a>
 
   <a name="blocks--braces"></a><a name="16.1"></a>
-  - [16.1](#blocks--braces) Используйте скобки, когда блок кода занимает несколько строк.
+  - [16.1](#blocks--braces) Используйте фигурные скобки, когда блок кода занимает несколько строк.
 
     ```javascript
     // плохо
@@ -1865,7 +1865,7 @@
     ```
 
   <a name="blocks--cuddled-elses"></a><a name="16.2"></a>
-  - [16.2](#blocks--cuddled-elses) Если блоки кода в условии `if` и `else` занимают несколько строк, расположите оператор `else` на той же строчке, где находится закрывающая скобка блока `if`. eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) jscs:  [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements)
+  - [16.2](#blocks--cuddled-elses) Если блоки кода в условии `if` и `else` занимают несколько строк, расположите оператор `else` на той же строчке, где находится закрывающая фигурная скобка блока `if`. eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html) jscs:  [`disallowNewlineBeforeBlockStatements`](http://jscs.info/rule/disallowNewlineBeforeBlockStatements)
 
     ```javascript
     // плохо
@@ -1890,7 +1890,7 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Комментарии
+## <a name="comments">Комментарии</a>
 
   <a name="comments--multiline"></a><a name="17.1"></a>
   - [17.1](#comments--multiline) Используйте конструкцию `/** ... */` для многострочных комментариев.
@@ -1927,10 +1927,10 @@
 
     ```javascript
     // плохо
-    const active = true;  // является ли выбранной вкладкой
+    const active = true;  // это текущая вкладка
 
     // хорошо
-    // является ли выбранной вкладкой
+    // это текущая вкладка
     const active = true;
 
     // плохо
@@ -1965,11 +1965,11 @@
 
     ```javascript
     // плохо
-    //является ли выбранной вкладкой
+    //это текущая вкладка
     const active = true;
 
     // хорошо
-    // является ли выбранной вкладкой
+    // это текущая вкладка
     const active = true;
 
     // плохо
@@ -1998,10 +1998,10 @@
     ```
 
   <a name="comments--actionitems"></a><a name="17.3"></a>
-  - [17.4](#comments--actionitems) Если комментарий начинается со слов `FIXME` или `TODO`, это помогает другим разработчикам быстро понять, когда вы хотите указать на проблему, которую надо решить, или когда вы предлагаете решение проблемы, которое надо реализовать. Такие комментарии, в отличие от обычных, побуждают к действию: `FIXME: -- надо выяснить, что тут происходит`, или `TODO: -- нужно написать код, который решит задачу`.
+  - [17.4](#comments--actionitems) Если комментарий начинается со слов `FIXME` или `TODO`, это помогает другим разработчикам быстро понять, когда вы хотите указать на проблему, которую надо решить, или когда вы предлагаете решение проблемы, которое надо реализовать. Такие комментарии, в отличие от обычных, побуждают к действию: `FIXME: -- нужно разобраться с этим`, или `TODO: -- нужно реализовать`.
 
   <a name="comments--fixme"></a><a name="17.4"></a>
-  - [17.5](#comments--fixme) Используйте `// FIXME:`, чтобы обозначить проблему.
+  - [17.5](#comments--fixme) Используйте `// FIXME:`, чтобы описать проблему.
 
     ```javascript
     class Calculator extends Abacus {
@@ -2015,7 +2015,7 @@
     ```
 
   <a name="comments--todo"></a><a name="17.5"></a>
-  - [17.6](#comments--todo) Используйте `// TODO:`, чтобы описать функционал, который нужно реализовать.
+  - [17.6](#comments--todo) Используйте `// TODO:`, чтобы описать решение проблемы.
 
     ```javascript
     class Calculator extends Abacus {
