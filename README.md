@@ -13,7 +13,7 @@
   1. [References](#references)
   1. [Объекты](#objects)
   1. [Массивы](#arrays)
-  1. [Destructuring](#destructuring)
+  1. [Деструктуризация](#destructuring)
   1. [Strings](#strings)
   1. [Functions](#functions)
   1. [Arrow Functions](#arrow-functions)
@@ -411,12 +411,12 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Destructuring
+## <a name="destructuring">Деструктуризация</a>
 
   <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
+  - [5.1](#destructuring--object) При обращении к нескольким свойствам объекта используйте деструктивное присваивание объекта. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
 
-    > Why? Destructuring saves you from creating temporary references for those properties.
+    > Почему? Деструктуризация избавляет вас от создания временных переменных для этих свойств.
 
     ```javascript
     // плохо
@@ -440,7 +440,7 @@
     ```
 
   <a name="destructuring--array"></a><a name="5.2"></a>
-  - [5.2](#destructuring--array) Use array destructuring. jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
+  - [5.2](#destructuring--array) Используйте деструктивное присваивание массивов. jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
 
     ```javascript
     const arr = [1, 2, 3, 4];
@@ -454,27 +454,27 @@
     ```
 
   <a name="destructuring--object-over-array"></a><a name="5.3"></a>
-  - [5.3](#destructuring--object-over-array) Use object destructuring for multiple return values, not array destructuring. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
+  - [5.3](#destructuring--object-over-array) Используйте деструктивное присваивание объекта для множества возвращаемых значений, но не делайте тоже с массивами. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
 
-    > Why? You can add new properties over time or change the order of things without breaking call sites.
+    > Почему? Вы можете добавить новые свойства через некоторое время или изменить порядок без последствий.
 
     ```javascript
     // плохо
     function processInput(input) {
-      // then a miracle occurs
+      // затем происходит чудо
       return [left, right, top, bottom];
     }
 
-    // the caller needs to think about the order of return data
+    // при вызове нужно подумать о порядке возвращаемых данных
     const [left, __, top] = processInput(input);
 
     // хорошо
     function processInput(input) {
-      // then a miracle occurs
+      // затем происходит чудо
       return { left, right, top, bottom };
     }
 
-    // the caller selects only the data they need
+    // при вызове выбираем только необходимые данные
     const { left, top } = processInput(input);
     ```
 
