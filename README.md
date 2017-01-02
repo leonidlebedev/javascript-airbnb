@@ -10,7 +10,7 @@
 ## Оглавление
 
   1. [Types](#types)
-  1. [References](#references)
+  1. [Ссылки](#references)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
   1. [Destructuring](#destructuring)
@@ -84,12 +84,12 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## References
+## <a name="references">Ссылки</a>
 
   <a name="references--prefer-const"></a><a name="2.1"></a>
-  - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
+  - [2.1](#references--prefer-const) Используйте `const` для всех ваших ссылок; избегайте `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
 
-    > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
+    > Почему? Это гарантирует, что вы не сможете переназначить ваши ссылки, которые могут привести к ошибкам и к усложнению понимания кода.
 
     ```javascript
     // плохо
@@ -102,9 +102,9 @@
     ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
-  - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
+  - [2.2](#references--disallow-var) Если вам необходимо переназначить ссылки, используйте `let` вместо `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
 
-    > Why? `let` is block-scoped rather than function-scoped like `var`.
+    > Почему? Область видимости `let` — блок, у `var` — функция.
 
     ```javascript
     // плохо
@@ -113,7 +113,7 @@
       count += 1;
     }
 
-    // хорошо, use the let.
+    // хорошо, используйте let.
     let count = 1;
     if (true) {
       count += 1;
@@ -121,10 +121,10 @@
     ```
 
   <a name="references--block-scope"></a><a name="2.3"></a>
-  - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
+  - [2.3](#references--block-scope) Помните, что у `let` и `const` блочная область видимости.
 
     ```javascript
-    // const and let only exist in the blocks they are defined in.
+    // const и let существуют только в том блоке, в котором они определены
     {
       let a = 1;
       const b = 1;
