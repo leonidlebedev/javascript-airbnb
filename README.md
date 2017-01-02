@@ -2325,7 +2325,7 @@
     ```
 
   <a name="whitespace--max-len"></a><a name="18.12"></a>
-  - [18.12](#whitespace--max-len) Старайтесь не допускать, чтобы строки были длиннее 100 символов (включая пробелы). Замечание: согласно [above](#strings--line-length), длинные строки с текстом освобождаются от этого правила и не должны разбиваться на несколько строк. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
+  - [18.12](#whitespace--max-len) Старайтесь не допускать, чтобы строки были длиннее 100 символов (включая пробелы). Замечание: согласно [пункту выше](#strings--line-length), длинные строки с текстом освобождаются от этого правила и не должны разбиваться на несколько строк. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
 
     > Почему? Это обеспечивает удобство чтения и поддержки кода.
 
