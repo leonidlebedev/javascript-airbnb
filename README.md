@@ -29,7 +29,7 @@
   1. [Пробелы](#whitespace)
   1. [Commas](#commas)
   1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-casting--coercion)
+  1. [Приведение типов](#type-casting--coercion)
   1. [Naming Conventions](#naming-conventions)
   1. [Accessors](#accessors)
   1. [Events](#events)
@@ -2522,29 +2522,29 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Type Casting & Coercion
+## <a name="type-casting--coercion">Приведение типов</a>
 
   <a name="coercion--explicit"></a><a name="21.1"></a>
-  - [21.1](#coercion--explicit) Perform type coercion at the beginning of the statement.
+  - [21.1](#coercion--explicit) Выполняйте приведение типов в начале инструкции.
 
   <a name="coercion--strings"></a><a name="21.2"></a>
-  - [21.2](#coercion--strings)  Strings:
+  - [21.2](#coercion--strings)  Строки:
 
     ```javascript
     // => this.reviewScore = 9;
 
     // плохо
-    const totalScore = this.reviewScore + ''; // invokes this.reviewScore.valueOf()
+    const totalScore = this.reviewScore + ''; // вызывает this.reviewScore.valueOf()
 
     // плохо
-    const totalScore = this.reviewScore.toString(); // isn't guaranteed to return a string
+    const totalScore = this.reviewScore.toString(); // нет гарантии что вернется строка
 
     // хорошо
     const totalScore = String(this.reviewScore);
     ```
 
   <a name="coercion--numbers"></a><a name="21.3"></a>
-  - [21.3](#coercion--numbers) Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings. eslint: [`radix`](http://eslint.org/docs/rules/radix)
+  - [21.3](#coercion--numbers) Числа: Используйте `Number` и `parseInt` с основанием системы счисления. eslint: [`radix`](http://eslint.org/docs/rules/radix)
 
     ```javascript
     const inputValue = '4';
@@ -2569,20 +2569,20 @@
     ```
 
   <a name="coercion--comment-deviations"></a><a name="21.4"></a>
-  - [21.4](#coercion--comment-deviations) If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](https://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+  - [21.4](#coercion--comment-deviations) Если по какой-то причине вы делаете что-то безумное и `parseInt` является слабым местом, то нужно использовать побитовый сдвиг из-за [вопросов производительности](https://jsperf.com/coercion-vs-casting/3). Оставьте комментарий объясняющий почему и что вы делаете
 
     ```javascript
     // хорошо
     /**
-     * parseInt was the reason my code was slow.
-     * Bitshifting the String to coerce it to a
-     * Number made it a lot faster.
+     * этот код медленно работал из-за parseInt.
+     * побитовый сдвиг строки, для приведения ее к числу,
+     * работает значительно быстрее.
      */
     const val = inputValue >> 0;
     ```
 
   <a name="coercion--bitwise"></a><a name="21.5"></a>
-  - [21.5](#coercion--bitwise) **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](https://es5.github.io/#x4.3.19), but bitshift operations always return a 32-bit integer ([source](https://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+  - [21.5](#coercion--bitwise) **Примечание:** Будьте осторожны с побитовыми операциями.Числа в JavaScript являются [64-битными значениями](https://es5.github.io/#x4.3.19), но побитовые операции всегда возвращают 32-битные значенения ([источник](https://es5.github.io/#x11.7)). Побитовый сдвиг может привести к неожиданному поведению для значений больше, чем 32 бита. [Discussion](https://github.com/airbnb/javascript/issues/109). Верхний предел — 2,147,483,647:
 
     ```javascript
     2147483647 >> 0 //=> 2147483647
@@ -2591,7 +2591,7 @@
     ```
 
   <a name="coercion--booleans"></a><a name="21.6"></a>
-  - [21.6](#coercion--booleans) Booleans:
+  - [21.6](#coercion--booleans) Логические типы:
 
     ```javascript
     const age = 0;
