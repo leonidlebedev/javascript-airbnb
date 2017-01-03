@@ -10,7 +10,7 @@
 ## Оглавление
 
   1. [Types](#types)
-  1. [Ссылки](#references)
+  1. [Объявление переменных](#references)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
   1. [Destructuring](#destructuring)
@@ -84,12 +84,12 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## <a name="references">Ссылки</a>
+## <a name="references">Объявление переменных</a>
 
   <a name="references--prefer-const"></a><a name="2.1"></a>
-  - [2.1](#references--prefer-const) Используйте `const` для всех ваших ссылок; избегайте `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
+  - [2.1](#references--prefer-const) Используйте `const` для объявления переменных; избегайте `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
 
-    > Почему? Это гарантирует, что вы не сможете переназначить ваши ссылки, которые могут привести к ошибкам и к усложнению понимания кода.
+    > Почему? Это гарантирует, что вы не сможете переопределять значения, т.к. это может привести к ошибкам и к усложнению понимания кода.
 
     ```javascript
     // плохо
@@ -102,7 +102,7 @@
     ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
-  - [2.2](#references--disallow-var) Если вам необходимо переназначить ссылки, используйте `let` вместо `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
+  - [2.2](#references--disallow-var) Если вам необходимо переопределять значения, используйте `let` вместо `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
 
     > Почему? Область видимости `let` — блок, у `var` — функция.
 
@@ -124,7 +124,7 @@
   - [2.3](#references--block-scope) Помните, что у `let` и `const` блочная область видимости.
 
     ```javascript
-    // const и let существуют только в том блоке, в котором они определены
+    // const и let существуют только в том блоке, в котором они определены.
     {
       let a = 1;
       const b = 1;
