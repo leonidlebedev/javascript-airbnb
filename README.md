@@ -23,7 +23,7 @@
   1. [Свойства](#properties)
   1. [Variables](#variables)
   1. [Hoisting](#hoisting)
-  1. [Comparison Operators & Equality](#comparison-operators--equality)
+  1. [Операторы сравнения и равенства](#comparison-operators--equality)
   1. [Блоки](#blocks)
   1. [Комментарии](#comments)
   1. [Пробелы](#whitespace)
@@ -1687,30 +1687,29 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Comparison Operators & Equality
+## <a name="comparison-operators--equality">Операторы сравнения и равенства</a>
 
   <a name="comparison--eqeqeq"></a><a name="15.1"></a>
-  - [15.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
+  - [15.1](#comparison--eqeqeq) Используйте `===` и `!==` вместо `==` и `!=`. eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
 
   <a name="comparison--if"></a><a name="15.2"></a>
-  - [15.2](#comparison--if) Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
-
-    + **Objects** evaluate to **true**
-    + **Undefined** evaluates to **false**
-    + **Null** evaluates to **false**
-    + **Booleans** evaluate to **the value of the boolean**
-    + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+  - [15.2](#comparison--if) Условные операторы, такие как `if`, вычисляются путем приведения к логическому типу `Boolean` через абстрактный метод `ToBoolean` и всегда следуют следующим правилам:
+    + **Object** соответствует **true**
+    + **Undefined** соответствует **false**
+    + **Null** соответствует **false**
+    + **Boolean** соответствует **значению булева типа**
+    + **Number** соответствует **false**, если **+0, -0, or NaN**, в остальных случаях **true**
+    + **String** соответствует **false**, если строка пустая `''`, в остальных случаях **true**
 
     ```javascript
     if ([0] && []) {
       // true
-      // an array (even an empty one) is an object, objects will evaluate to true
+      // Массив (даже пустой) является объектом, а объекты возвращают true
     }
     ```
 
   <a name="comparison--shortcuts"></a><a name="15.3"></a>
-  - [15.3](#comparison--shortcuts) Use shortcuts for booleans, but explicit comparisons for strings and numbers.
+  - [15.3](#comparison--shortcuts) Используйте сокращения для булевских типов, а для строк и чисел применяйте явное сравнение.
 
     ```javascript
     // плохо
@@ -1745,12 +1744,12 @@
     ```
 
   <a name="comparison--moreinfo"></a><a name="15.4"></a>
-  - [15.4](#comparison--moreinfo) For more information see [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+  - [15.4](#comparison--moreinfo) Для большей информации посмотрите статью [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) от Angus Croll.
 
   <a name="comparison--switch-blocks"></a><a name="15.5"></a>
-  - [15.5](#comparison--switch-blocks) Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`).
+  - [15.5](#comparison--switch-blocks) Используйте фигурные скобки при создания блоков для `case` и `default`, которые содержат лексические определения переменных (например, `let`, `const`, `function`, и `class`).
 
-  > Почему? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
+  > Почему? Лексические определения переменных видны во всем `switch` блоке, но инициализируются только при присваивании, которое происходит при входе в `case`. Возникают проблемы, когда множество `case` пытаются определить одно и тоже.
 
   eslint rules: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations.html).
 
@@ -1794,7 +1793,7 @@
     ```
 
   <a name="comparison--nested-ternaries"></a><a name="15.6"></a>
-  - [15.6](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions.
+  - [15.6](#comparison--nested-ternaries) Тернарные операторы не должны быть вложены и располагайте их на одной линии.
 
     eslint rules: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html).
 
@@ -1804,7 +1803,7 @@
       ? "bar"
       : value1 > value2 ? "baz" : null;
 
-    // better
+    // лучше
     const maybeNull = value1 > value2 ? 'baz' : null;
 
     const foo = maybe1 > maybe2
@@ -1818,7 +1817,7 @@
     ```
 
   <a name="comparison--unneeded-ternary"></a><a name="15.7"></a>
-  - [15.7](#comparison--unneeded-ternary) Avoid unneeded ternary statements.
+  - [15.7](#comparison--unneeded-ternary) Избегайте не нужных тернарных операторов.
 
     eslint rules: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html).
 
