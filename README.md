@@ -30,7 +30,7 @@
   1. [Commas](#commas)
   1. [Semicolons](#semicolons)
   1. [Type Casting & Coercion](#type-casting--coercion)
-  1. [Naming Conventions](#naming-conventions)
+  1. [Соглашение об именовании](#naming-conventions)
   1. [Accessors](#accessors)
   1. [Events](#events)
   1. [jQuery](#jquery)
@@ -2609,10 +2609,10 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Naming Conventions
+## <a name="naming-conventions">Соглашение об именовании</a>
 
   <a name="naming--descriptive"></a><a name="22.1"></a>
-  - [22.1](#naming--descriptive) Avoid single letter names. Be descriptive with your naming. eslint: [`id-length`](http://eslint.org/docs/rules/id-length)
+  - [22.1](#naming--descriptive) Избегайте названий из одной буквы. Имя должно быть наглядным. eslint: [`id-length`](http://eslint.org/docs/rules/id-length)
 
     ```javascript
     // плохо
@@ -2627,7 +2627,7 @@
     ```
 
   <a name="naming--camelCase"></a><a name="22.2"></a>
-  - [22.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
+  - [22.2](#naming--camelCase) Используйте `camelCase` для именования объектов, функций и экземпляров. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
 
     ```javascript
     // плохо
@@ -2641,7 +2641,7 @@
     ```
 
   <a name="naming--PascalCase"></a><a name="22.3"></a>
-  - [22.3](#naming--PascalCase) Use PascalCase only when naming constructors or classes. eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html) jscs: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors)
+  - [22.3](#naming--PascalCase) Используйте `PascalCase` только для именования конструкторов и классов. eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html) jscs: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors)
 
     ```javascript
     // плохо
@@ -2666,9 +2666,9 @@
     ```
 
   <a name="naming--leading-underscore"></a><a name="22.4"></a>
-  - [22.4](#naming--leading-underscore) Do not use trailing or leading underscores. eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html) jscs: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores)
+  - [22.4](#naming--leading-underscore) Не используйте `_`. eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html) jscs: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores)
 
-    > Почему? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won't count as breaking, or that tests aren't needed. tl;dr: if you want something to be “private”, it must not be observably present.
+    > Почему? JavaScript не имеет концепции приватности свойств или методов. Хотя, подчеркивание в начале имени является общим соглашнием, которое показывает “приватность”, фактически, эти свойства являются такими же доступными, как и часть вашего публичного API. Это соглашение может привести к тому, что разработчики ошибочно думают, что изменения не приведут к поломке или что тесты не нужны. Итог: если вы хотите, что что-то было “приватным”, то это не должно быть заметно представлено.
 
     ```javascript
     // плохо
@@ -2681,7 +2681,7 @@
     ```
 
   <a name="naming--self-this"></a><a name="22.5"></a>
-  - [22.5](#naming--self-this) Don't save references to `this`. Use arrow functions or [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
+  - [22.5](#naming--self-this) Не сохраняйте ссылку на `this`. Используйте стрелочные функции или [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
 
     ```javascript
     // плохо
@@ -2709,22 +2709,22 @@
     ```
 
   <a name="naming--filename-matches-export"></a><a name="22.6"></a>
-  - [22.6](#naming--filename-matches-export) A base filename should exactly match the name of its default export.
+  - [22.6](#naming--filename-matches-export) Название файла точно должно совпадать с именем его экспорта по умолчанию.  
 
     ```javascript
-    // file 1 contents
+    // содержание файла 1
     class CheckBox {
       // ...
     }
     export default CheckBox;
 
-    // file 2 contents
+    // содержание файла 2
     export default function fortyTwo() { return 42; }
 
-    // file 3 contents
+    // содержание файла 3
     export default function insideDirectory() {}
 
-    // in some other file
+    // в других файлах
     // плохо
     import CheckBox from './checkBox'; // PascalCase import/export, camelCase filename
     import FortyTwo from './FortyTwo'; // PascalCase import/filename, camelCase export
@@ -2741,12 +2741,11 @@
     import CheckBox from './CheckBox'; // PascalCase export/import/filename
     import fortyTwo from './fortyTwo'; // camelCase export/import/filename
     import insideDirectory from './insideDirectory'; // camelCase export/import/directory name/implicit "index"
-    // ^ supports both insideDirectory.js and insideDirectory/index.js
+    // ^ поддерживает оба варианта: insideDirectory.js и insideDirectory/index.js
     ```
 
   <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
-  - [22.7](#naming--camelCase-default-export) Use camelCase when you export-default a function. Your filename should be identical to your function's name.
-
+  - [22.7](#naming--camelCase-default-export) Используйте `camelCase`, когда экспортируете функцию по умолчанию. Ваш файл должен называться также, как и имя функции.
     ```javascript
     function makeStyleGuide() {
     }
@@ -2755,7 +2754,7 @@
     ```
 
   <a name="naming--PascalCase-singleton"></a><a name="22.8"></a>
-  - [22.8](#naming--PascalCase-singleton) Use PascalCase when you export a constructor / class / singleton / function library / bare object.
+  - [22.8](#naming--PascalCase-singleton) Используйте `PascalCase`, когда экспортируете конструктор / класс / синглтон / библиотечную функцию / объект.
 
     ```javascript
     const AirbnbStyleGuide = {
@@ -2767,9 +2766,9 @@
     ```
 
   <a name="naming--Acronyms-and-Initialisms"></a>
-  - [22.9](#naming--Acronyms-and-Initialisms) Acronyms and initialisms should always be all capitalized, or all lowercased.
+  - [22.9](#naming--Acronyms-and-Initialisms) Сокращения или буквенные аббревиатуры всегда должны писаться заглавными буквами или строчными
 
-    > Почему? Names are for readability, not to appease a computer algorithm.
+    > Почему? Имена для удобства чтения, а не для удовлетворения компьютерных алгоритмов.
 
     ```javascript
     // плохо
