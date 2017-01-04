@@ -27,7 +27,7 @@
   1. [Блоки](#blocks)
   1. [Комментарии](#comments)
   1. [Пробелы](#whitespace)
-  1. [Commas](#commas)
+  1. [Запятые](#commas)
   1. [Semicolons](#semicolons)
   1. [Type Casting & Coercion](#type-casting--coercion)
   1. [Naming Conventions](#naming-conventions)
@@ -2356,10 +2356,10 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Commas
+## <a name="commas">Запятые</a>
 
 <a name="commas--leading-trailing"></a><a name="19.1"></a>
-  - [19.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
+  - [19.1](#commas--leading-trailing) Не начинайте строку с запятой. eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
 
     ```javascript
     // плохо
@@ -2394,12 +2394,12 @@
     ```
 
   <a name="commas--dangling"></a><a name="19.2"></a>
-  - [19.2](#commas--dangling) Additional trailing comma: **Yup.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
+  - [19.2](#commas--dangling) Добавляйте висячие запятые. eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
 
-    > Почему? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
+    > Почему? Такой подход дает понятную разницу при просмотре изменений. Кроме того, транспиляторы типа Babel удалят висячие запятые из собранного кода, поэтому вы можете не беспокоиться о [проблемах](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) в старых браузерах.
 
     ```diff
-    // плохо - git diff without trailing comma
+    // плохо - git diff без висячей запятой
     const hero = {
          firstName: 'Florence',
     -    lastName: 'Nightingale'
@@ -2407,7 +2407,7 @@
     +    inventorOf: ['coxcomb chart', 'modern nursing']
     };
 
-    // хорошо - git diff with trailing comma
+    // хорошо - git diff с висячей запятой
     const hero = {
          firstName: 'Florence',
          lastName: 'Nightingale',
@@ -2444,7 +2444,7 @@
       lastName,
       inventorOf
     ) {
-      // does nothing
+      // ничего не делает
     }
 
     // хорошо
@@ -2453,17 +2453,17 @@
       lastName,
       inventorOf,
     ) {
-      // does nothing
+      // ничего не делает
     }
 
-    // хорошо (note that a comma must not appear after a "rest" element)
+    // хорошо (обратите внимание, что висячей запятой не должно быть после "rest"-параметра)
     function createHero(
       firstName,
       lastName,
       inventorOf,
       ...heroArgs
     ) {
-      // does nothing
+      // ничего не делает
     }
 
     // плохо
@@ -2480,7 +2480,7 @@
       inventorOf,
     );
 
-    // хорошо (note that a comma must not appear after a "rest" element)
+    // хорошо (обратите внимание, что висячей запятой не должно быть после "rest"-параметра)
     createHero(
       firstName,
       lastName,
