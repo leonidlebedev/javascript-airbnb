@@ -568,7 +568,7 @@
 ## <a name="functions">Функции</a>
 
   <a name="functions--declarations"></a><a name="7.1"></a>
-  - [7.1](#functions--declarations) Используйте функциональное выражение вместо объявлений функций. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`requireFunctionDeclarations`](http://jscs.info/rule/requireFunctionDeclarations)
+  - [7.1](#functions--declarations) Используйте функциональные выражения вместо объявлений функций. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`requireFunctionDeclarations`](http://jscs.info/rule/requireFunctionDeclarations)
 
     > Почему? У объявлений функций есть подъем. Это означает, что можно использовать функцию до того, как она определена в файле. Это вредит читабельности и поддержке. Если вы обнаружите, что определение функции является большим или достаточно сложным, что мешает понимать остальную часть файла, то, возможно, пришло время извлечь его в отдельный модуль! Не забывайте называть функциональные выражения - анонимные функции усложняют поиск проблемы в стеке вызовов. ([Discussion](https://github.com/airbnb/javascript/issues/794))
 
@@ -587,12 +587,12 @@
     ```
 
   <a name="functions--iife"></a><a name="7.2"></a>
-  - [7.2](#functions--iife) Оборачивайте в скобки самовызывающиеся функции. eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
+  - [7.2](#functions--iife) Оборачивайте в скобки немедленно вызываемые функции. eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
 
-    > Почему? Самовызывающееся функциональное выражение представляет собой единый блок. Чтобы четко показать это, оберните его само и вызывающие скобки в еще одни скобки. Обратите внимание, что в мире с модулями вам больше не нужны самовызывающееся функциональные выражения.
+    > Почему? Немедленно вызываемое функциональное выражение представляет собой единый блок. Чтобы четко показать это, оберните выражение и вызывающие скобки в еще одни скобки. Обратите внимание, что в мире с модулями вам больше не нужны немедленно вызываемые функциональные выражения.
 
     ```javascript
-    // Самовызывающееся функциональное выражение
+    // Немедленно вызываемое функциональное выражение
     (function () {
       console.log('Welcome to the Internet. Please follow me.');
     }());
