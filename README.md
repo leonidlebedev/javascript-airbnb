@@ -16,7 +16,7 @@
   1. [Деструктуризация](#destructuring)
   1. [Строки](#strings)
   1. [Functions](#functions)
-  1. [Arrow Functions](#arrow-functions)
+  1. [Стрелочные функции](#arrow-functions)
   1. [Classes & Constructors](#classes--constructors)
   1. [Modules](#modules)
   1. [Iterators and Generators](#iterators-and-generators)
@@ -839,14 +839,14 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Arrow Functions
+## <a name="arrow-functions">Стрелочные функции</a>
 
   <a name="arrows--use-them"></a><a name="8.1"></a>
-  - [8.1](#arrows--use-them) When you must use function expressions (as when passing an anonymous function), use arrow function notation. eslint: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions)
+  - [8.1](#arrows--use-them) Когда вам необходимо использовать функциональное выражение (например, анонимную функцию), используйте стрелочную функцию. eslint: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions)
 
-    > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
+    > Почему? Таким образом создается функция, которая выполняется в контексте `this`, который мы обычно хотим, а также это более короткий синтаксис.
 
-    > Why not? If you have a fairly complicated function, you might move that logic out into its own function declaration.
+    > Почему бы и нет? Если у вас есть довольно сложная функция, вы можете переместить её логику внутрь собственного объявления.
 
     ```javascript
     // плохо
@@ -863,9 +863,9 @@
     ```
 
   <a name="arrows--implicit-return"></a><a name="8.2"></a>
-  - [8.2](#arrows--implicit-return) If the function body consists of a single expression, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
+  - [8.2](#arrows--implicit-return) Если тело функции состоит из одного выражения, то опустите фигурные скобки и используйте неявное возвращение. В противном случае, сохраните фигурные скобки и используйте оператор `return`. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
 
-    > Why? Syntactic sugar. It reads well when multiple functions are chained together.
+    > Почему? Синтаксический сахар. Когда несколько функций соединены вместе, то это читается лучше.
 
     ```javascript
     // плохо
@@ -890,9 +890,9 @@
     ```
 
   <a name="arrows--paren-wrap"></a><a name="8.3"></a>
-  - [8.3](#arrows--paren-wrap) In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+  - [8.3](#arrows--paren-wrap) В случае, если выражение располагается на нескольких строках, то необходимо обернуть его в скобки для лучшей читаемости.
 
-    > Why? It shows clearly where the function starts and ends.
+    > Почему? Это четко показывает, где функция начинается и где заканчивается.
 
     ```js
     // плохо
@@ -912,9 +912,9 @@
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
+  - [8.4](#arrows--one-arg-parens) Если ваша функция принимает один аргумент и не использует фигурные скобки, то опустите круглые скобки. В противном случае, всегда оборачивайте аргументы круглыми скобками. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
 
-    > Why? Less visual clutter.
+    > Почему? Меньше визуального беспорядка.
 
     ```js
     // плохо
@@ -942,7 +942,7 @@
     ```
 
   <a name="arrows--confusing"></a><a name="8.5"></a>
-  - [8.5](#arrows--confusing) Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`). eslint: [`no-confusing-arrow`](http://eslint.org/docs/rules/no-confusing-arrow)
+  - [8.5](#arrows--confusing) Избегайте схожести стрелочной функции (`=>`) с операторами сравнения (`<=`, `>=`). eslint: [`no-confusing-arrow`](http://eslint.org/docs/rules/no-confusing-arrow)
 
     ```js
     // плохо
