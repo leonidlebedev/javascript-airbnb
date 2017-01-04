@@ -1744,12 +1744,12 @@
     ```
 
   <a name="comparison--moreinfo"></a><a name="15.4"></a>
-  - [15.4](#comparison--moreinfo) Для большей информации посмотрите статью [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) от Angus Croll.
+  - [15.4](#comparison--moreinfo) Более подробную информацию можно узнать в статье [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) от Angus Croll.
 
   <a name="comparison--switch-blocks"></a><a name="15.5"></a>
-  - [15.5](#comparison--switch-blocks) Используйте фигурные скобки при создания блоков для `case` и `default`, которые содержат лексические определения переменных (например, `let`, `const`, `function`, и `class`).
+  - [15.5](#comparison--switch-blocks) Используйте фигурные скобки для `case` и `default`, они содержат лексические декларации (например, `let`, `const`, `function`, и `class`).
 
-  > Почему? Лексические определения переменных видны во всем `switch` блоке, но инициализируются только при присваивании, которое происходит при входе в `case`. Возникают проблемы, когда множество `case` пытаются определить одно и тоже.
+  > Почему? Лексические декларации видны во всем `switch` блоке, но инициализируются только при присваивании, которое происходит при входе в блок `case`. Возникают проблемы, когда множество `case` пытаются определить одно и тоже.
 
   eslint rules: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations.html).
 
@@ -1793,7 +1793,7 @@
     ```
 
   <a name="comparison--nested-ternaries"></a><a name="15.6"></a>
-  - [15.6](#comparison--nested-ternaries) Тернарные операторы не должны быть вложены и располагайте их на одной линии.
+  - [15.6](#comparison--nested-ternaries) Тернарные операторы не должны быть вложены и в большинстве случаев должны быть расположены на одной строке.
 
     eslint rules: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html).
 
