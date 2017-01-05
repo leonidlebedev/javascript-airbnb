@@ -10,13 +10,13 @@
 ## Оглавление
 
   1. [Типы](#types)
-  1. [References](#references)
+  1. [Объявление переменных](#references)
   1. [Объекты](#objects)
   1. [Массивы](#arrays)
   1. [Деструктуризация](#destructuring)
-  1. [Strings](#strings)
+  1. [Строки](#strings)
   1. [Functions](#functions)
-  1. [Arrow Functions](#arrow-functions)
+  1. [Стрелочные функции](#arrow-functions)
   1. [Classes & Constructors](#classes--constructors)
   1. [Modules](#modules)
   1. [Iterators and Generators](#iterators-and-generators)
@@ -27,7 +27,7 @@
   1. [Блоки](#blocks)
   1. [Комментарии](#comments)
   1. [Пробелы](#whitespace)
-  1. [Commas](#commas)
+  1. [Запятые](#commas)
   1. [Точка с запятой](#semicolons)
   1. [Type Casting & Coercion](#type-casting--coercion)
   1. [Naming Conventions](#naming-conventions)
@@ -84,12 +84,12 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## References
+## <a name="references">Объявление переменных</a>
 
   <a name="references--prefer-const"></a><a name="2.1"></a>
-  - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
+  - [2.1](#references--prefer-const) Используйте `const` для объявления переменных; избегайте `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
 
-    > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
+    > Почему? Это гарантирует, что вы не сможете переопределять значения, т.к. это может привести к ошибкам и к усложнению понимания кода.
 
     ```javascript
     // плохо
@@ -102,9 +102,9 @@
     ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
-  - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
+  - [2.2](#references--disallow-var) Если вам необходимо переопределять значения, используйте `let` вместо `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
 
-    > Why? `let` is block-scoped rather than function-scoped like `var`.
+    > Почему? Область видимости `let` — блок, у `var` — функция.
 
     ```javascript
     // плохо
@@ -113,7 +113,7 @@
       count += 1;
     }
 
-    // хорошо, use the let.
+    // хорошо, используйте let.
     let count = 1;
     if (true) {
       count += 1;
@@ -121,10 +121,10 @@
     ```
 
   <a name="references--block-scope"></a><a name="2.3"></a>
-  - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
+  - [2.3](#references--block-scope) Помните, что у `let` и `const` блочная область видимости.
 
     ```javascript
-    // const and let only exist in the blocks they are defined in.
+    // const и let существуют только в том блоке, в котором они определены.
     {
       let a = 1;
       const b = 1;
@@ -481,16 +481,16 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Strings
+## <a name="strings">Строки</a>
 
   <a name="strings--quotes"></a><a name="6.1"></a>
-  - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
+  - [6.1](#strings--quotes) Используйте одинарные кавычки `''` для строк. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
 
     ```javascript
     // плохо
     const name = "Capt. Janeway";
 
-    // плохо - template literals should contain interpolation or newlines
+    // плохо - литерал шаблонной строки должен содержать интерполяцию или переводы строк
     const name = `Capt. Janeway`;
 
     // хорошо
@@ -498,9 +498,9 @@
     ```
 
   <a name="strings--line-length"></a><a name="6.2"></a>
-  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
+  - [6.2](#strings--line-length) Строки, у которых в строчке содержится более 100 символов, не пишутся на нескольких строчках с использованием конкатенации.
 
-    > Why? Broken strings are painful to work with and make code less searchable.
+    > Почему? Работать с разбитыми строками неудобно и это делает код трудным для поиска.
 
     ```javascript
     // плохо
@@ -518,10 +518,10 @@
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
     ```
 
-  <a name="es6-template-literals"></a><a name="6.4"></a>
-  - [6.3](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
+  <a name="es6-template-literals"></a><a name="6.3"></a>
+  - [6.3](#es6-template-literals) При создании строки программным путем, используйте шаблонные строки вместо конкатенации. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
 
-    > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+    > Почему? Шаблонные строки дают вам читабельность, лаконичный синтаксис с правильными символами перевода строк и функции интерполяции строки.
 
     ```javascript
     // плохо
@@ -545,13 +545,13 @@
     }
     ```
 
-  <a name="strings--eval"></a><a name="6.5"></a>
-  - [6.4](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities.
+  <a name="strings--eval"></a><a name="6.4"></a>
+  - [6.4](#strings--eval) Никогда не используйте `eval()`, т.к. это открывает множество уязвимостей.
 
-  <a name="strings--escaping"></a>
-  - [6.5](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
+  <a name="strings--escaping"></a><a name="6.5"></a>
+  - [6.5](#strings--escaping) Не используйте в строках необязательные экранирующие символы. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
 
-    > Why? Backslashes harm readability, thus they should only be present when necessary.
+    > Почему? Обратные косые черты ухудшают читабельность, поэтому они должны присутствовать только при необходимости.
 
     ```javascript
     // плохо
@@ -839,14 +839,14 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Arrow Functions
+## <a name="arrow-functions">Стрелочные функции</a>
 
   <a name="arrows--use-them"></a><a name="8.1"></a>
-  - [8.1](#arrows--use-them) When you must use function expressions (as when passing an anonymous function), use arrow function notation. eslint: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions)
+  - [8.1](#arrows--use-them) Когда вам необходимо использовать функциональное выражение (например, анонимную функцию), используйте стрелочную функцию. eslint: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions)
 
-    > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
+    > Почему? Таким образом создается функция, которая выполняется в контексте `this`, который мы обычно хотим, а также это более короткий синтаксис.
 
-    > Why not? If you have a fairly complicated function, you might move that logic out into its own function declaration.
+    > Почему бы и нет? Если у вас есть довольно сложная функция, вы можете переместить её логику внутрь собственного объявления.
 
     ```javascript
     // плохо
@@ -863,9 +863,9 @@
     ```
 
   <a name="arrows--implicit-return"></a><a name="8.2"></a>
-  - [8.2](#arrows--implicit-return) If the function body consists of a single expression, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
+  - [8.2](#arrows--implicit-return) Если тело функции состоит из одного выражения, то опустите фигурные скобки и используйте неявное возвращение. В противном случае, сохраните фигурные скобки и используйте оператор `return`. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
 
-    > Why? Syntactic sugar. It reads well when multiple functions are chained together.
+    > Почему? Синтаксический сахар. Когда несколько функций соединены вместе, то это читается лучше.
 
     ```javascript
     // плохо
@@ -890,9 +890,9 @@
     ```
 
   <a name="arrows--paren-wrap"></a><a name="8.3"></a>
-  - [8.3](#arrows--paren-wrap) In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+  - [8.3](#arrows--paren-wrap) В случае, если выражение располагается на нескольких строках, то необходимо обернуть его в скобки для лучшей читаемости.
 
-    > Why? It shows clearly where the function starts and ends.
+    > Почему? Это четко показывает, где функция начинается и где заканчивается.
 
     ```js
     // плохо
@@ -912,9 +912,9 @@
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
+  - [8.4](#arrows--one-arg-parens) Если ваша функция принимает один аргумент и не использует фигурные скобки, то опустите круглые скобки. В противном случае, всегда оборачивайте аргументы круглыми скобками. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
 
-    > Why? Less visual clutter.
+    > Почему? Меньше визуального беспорядка.
 
     ```js
     // плохо
@@ -942,7 +942,7 @@
     ```
 
   <a name="arrows--confusing"></a><a name="8.5"></a>
-  - [8.5](#arrows--confusing) Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`). eslint: [`no-confusing-arrow`](http://eslint.org/docs/rules/no-confusing-arrow)
+  - [8.5](#arrows--confusing) Избегайте схожести стрелочной функции (`=>`) с операторами сравнения (`<=`, `>=`). eslint: [`no-confusing-arrow`](http://eslint.org/docs/rules/no-confusing-arrow)
 
     ```js
     // плохо
@@ -2356,10 +2356,10 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Commas
+## <a name="commas">Запятые</a>
 
 <a name="commas--leading-trailing"></a><a name="19.1"></a>
-  - [19.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
+  - [19.1](#commas--leading-trailing) Не начинайте строку с запятой. eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
 
     ```javascript
     // плохо
@@ -2394,12 +2394,12 @@
     ```
 
   <a name="commas--dangling"></a><a name="19.2"></a>
-  - [19.2](#commas--dangling) Additional trailing comma: **Yup.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
+  - [19.2](#commas--dangling) Добавляйте висячие запятые. eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
 
-    > Почему? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
+    > Почему? Такой подход дает понятную разницу при просмотре изменений. Кроме того, транспиляторы типа Babel удалят висячие запятые из собранного кода, поэтому вы можете не беспокоиться о [проблемах](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) в старых браузерах.
 
     ```diff
-    // плохо - git diff without trailing comma
+    // плохо - git diff без висячей запятой
     const hero = {
          firstName: 'Florence',
     -    lastName: 'Nightingale'
@@ -2407,7 +2407,7 @@
     +    inventorOf: ['coxcomb chart', 'modern nursing']
     };
 
-    // хорошо - git diff with trailing comma
+    // хорошо - git diff с висячей запятой
     const hero = {
          firstName: 'Florence',
          lastName: 'Nightingale',
@@ -2444,7 +2444,7 @@
       lastName,
       inventorOf
     ) {
-      // does nothing
+      // ничего не делает
     }
 
     // хорошо
@@ -2453,17 +2453,17 @@
       lastName,
       inventorOf,
     ) {
-      // does nothing
+      // ничего не делает
     }
 
-    // хорошо (note that a comma must not appear after a "rest" element)
+    // хорошо (обратите внимание, что висячей запятой не должно быть после "rest"-параметра)
     function createHero(
       firstName,
       lastName,
       inventorOf,
       ...heroArgs
     ) {
-      // does nothing
+      // ничего не делает
     }
 
     // плохо
@@ -2480,7 +2480,7 @@
       inventorOf,
     );
 
-    // хорошо (note that a comma must not appear after a "rest" element)
+    // хорошо (обратите внимание, что висячей запятой не должно быть после "rest"-параметра)
     createHero(
       firstName,
       lastName,
