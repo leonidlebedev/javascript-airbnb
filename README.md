@@ -31,7 +31,7 @@
   1. [Точка с запятой](#semicolons)
   1. [Type Casting & Coercion](#type-casting--coercion)
   1. [Naming Conventions](#naming-conventions)
-  1. [Accessors](#accessors)
+  1. [Аксессоры](#accessors)
   1. [События](#events)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
@@ -2799,13 +2799,13 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Accessors
+## <a name="accessors">Аксессоры</a>
 
   <a name="accessors--not-required"></a><a name="23.1"></a>
-  - [23.1](#accessors--not-required) Accessor functions for properties are not required.
+  - [23.1](#accessors--not-required) Функции-аксессоры для свойств объекта больше не нужны.
 
   <a name="accessors--no-getters-setters"></a><a name="23.2"></a>
-  - [23.2](#accessors--no-getters-setters) Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use getVal() and setVal('hello').
+  - [23.2](#accessors--no-getters-setters) Не используйте геттеры/сеттеры, т.к. они вызывают неожиданные побочные эффекты, а также их тяжело тестировать, поддерживать и понимать. Вместо этого, если вы делаете функции-аксессоры, используйте `getVal()` и `setVal('hello')`.
 
     ```javascript
     // плохо
@@ -2832,7 +2832,7 @@
     ```
 
   <a name="accessors--boolean-prefix"></a><a name="23.3"></a>
-  - [23.3](#accessors--boolean-prefix) If the property/method is a `boolean`, use `isVal()` or `hasVal()`.
+  - [23.3](#accessors--boolean-prefix) Если свойство/метод возвращает логический тип, то используйте названия `isVal()` или `hasVal()`.
 
     ```javascript
     // плохо
@@ -2847,7 +2847,7 @@
     ```
 
   <a name="accessors--consistent"></a><a name="23.4"></a>
-  - [23.4](#accessors--consistent) It's okay to create get() and set() functions, but be consistent.
+  - [23.4](#accessors--consistent) Можно создавать функции `get()` и `set()`, но нужно быть последовательным.
 
     ```javascript
     class Jedi {
