@@ -17,7 +17,7 @@
   1. [Строки](#strings)
   1. [Функции](#functions)
   1. [Стрелочные функции](#arrow-functions)
-  1. [Classes & Constructors](#classes--constructors)
+  1. [Классы и конструкторы](#classes--constructors)
   1. [Modules](#modules)
   1. [Iterators and Generators](#iterators-and-generators)
   1. [Свойства](#properties)
@@ -964,12 +964,12 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Classes & Constructors
+## <a name="classes--constructors">Классы и конструкторы</a>
 
   <a name="constructors--use-class"></a><a name="9.1"></a>
-  - [9.1](#constructors--use-class) Always use `class`. Avoid manipulating `prototype` directly.
+  - [9.1](#constructors--use-class) Всегда используйте `class`. Избегайте прямых манипуляций с `prototype`.
 
-    > Почему? `class` syntax is more concise and easier to reason about.
+    > Почему? Синтаксис `class` является более кратким и понятным.
 
     ```javascript
     // плохо
@@ -997,9 +997,9 @@
     ```
 
   <a name="constructors--extends"></a><a name="9.2"></a>
-  - [9.2](#constructors--extends) Use `extends` for inheritance.
+  - [9.2](#constructors--extends) Используйте `extends` для наследования.
 
-    > Почему? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
+    > Почему? Это встроенный способ, чтоб наследовать функциональность прототипа, не нарушая `instanceof`.
 
     ```javascript
     // плохо
@@ -1021,7 +1021,7 @@
     ```
 
   <a name="constructors--chaining"></a><a name="9.3"></a>
-  - [9.3](#constructors--chaining) Methods can return `this` to help with method chaining.
+  - [9.3](#constructors--chaining) Методы могут возвращать `this`, чтобы делать цепочки вызовов.
 
     ```javascript
     // плохо
@@ -1059,7 +1059,7 @@
 
 
   <a name="constructors--tostring"></a><a name="9.4"></a>
-  - [9.4](#constructors--tostring) It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - [9.4](#constructors--tostring) Это нормально, написать свой собственный метод `toString()`, просто убедитесь, что он успешно работает и не создает никаких побочных эффектов.
 
     ```javascript
     class Jedi {
@@ -1078,7 +1078,7 @@
     ```
 
   <a name="constructors--no-useless"></a><a name="9.5"></a>
-  - [9.5](#constructors--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. eslint: [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
+  - [9.5](#constructors--no-useless) У классов есть конструктор по умолчанию, если он не задан явно. Пустой конструктор или конструктор, который только делегирует выполнение родительскому классу, можно опустить. eslint: [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
 
     ```javascript
     // плохо
@@ -1107,9 +1107,9 @@
     ```
 
   <a name="classes--no-duplicate-members"></a>
-  - [9.6](#classes--no-duplicate-members) Avoid duplicate class members. eslint: [`no-dupe-class-members`](http://eslint.org/docs/rules/no-dupe-class-members)
+  - [9.6](#classes--no-duplicate-members) Избегайте дублирующих членов класса. eslint: [`no-dupe-class-members`](http://eslint.org/docs/rules/no-dupe-class-members)
 
-    > Почему? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
+    > Почему? Если объявление члена класса повторяется, без предупреждения будет использовано последнее. Наличие дубликатов скорее всего приведет к ошибке.
 
     ```javascript
     // плохо
