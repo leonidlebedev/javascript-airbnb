@@ -15,7 +15,7 @@
   1. [Массивы](#arrays)
   1. [Деструктуризация](#destructuring)
   1. [Строки](#strings)
-  1. [Functions](#functions)
+  1. [Функции](#functions)
   1. [Стрелочные функции](#arrow-functions)
   1. [Classes & Constructors](#classes--constructors)
   1. [Modules](#modules)
@@ -565,12 +565,12 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Functions
+## <a name="functions">Функции</a>
 
   <a name="functions--declarations"></a><a name="7.1"></a>
-  - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
+  - [7.1](#functions--declarations) Используйте функциональные выражения вместо объявлений функций. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`requireFunctionDeclarations`](http://jscs.info/rule/requireFunctionDeclarations)
 
-    > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to name the expression - anonymous functions can make it harder to locate the problem in an Error's call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
+    > Почему? У объявлений функций есть подъем. Это означает, что можно использовать функцию до того, как она определена в файле. Это вредит читабельности и поддержке. Если вы обнаружите, что определение функции является большим или достаточно сложным, что мешает понимать остальную часть файла, то, возможно, пришло время извлечь его в отдельный модуль! Не забывайте называть функциональные выражения - анонимные функции усложняют поиск проблемы в стеке вызовов. ([Discussion](https://github.com/airbnb/javascript/issues/794))
 
     ```javascript
     // плохо
@@ -587,22 +587,22 @@
     ```
 
   <a name="functions--iife"></a><a name="7.2"></a>
-  - [7.2](#functions--iife) Wrap immediately invoked function expressions in parentheses. eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
+  - [7.2](#functions--iife) Оборачивайте в скобки немедленно вызываемые функции. eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
 
-    > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
+    > Почему? Немедленно вызываемая функция представляет собой единый блок. Чтобы четко показать это, оберните функцию и вызывающие скобки в еще одни скобки. Обратите внимание, что в мире с модулями вам больше не нужны немедленно вызываемые функции.
 
     ```javascript
-    // immediately-invoked function expression (IIFE)
+    // Немедленно вызываемая функция
     (function () {
       console.log('Welcome to the Internet. Please follow me.');
     }());
     ```
 
   <a name="functions--in-blocks"></a><a name="7.3"></a>
-  - [7.3](#functions--in-blocks) Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
+  - [7.3](#functions--in-blocks) Никогда не объявляйте фукнции в нефункциональном блоке (`if`, `while`, и т.д.). Вместо это присвойте функцию переменной. Браузеры позволяют выполнить ваш код, но все они интерпретируют его по-разному. eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
 
   <a name="functions--note-on-blocks"></a><a name="7.4"></a>
-  - [7.4](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - [7.4](#functions--note-on-blocks) **Примечание:** ECMA-262 определяет `блок` как список инструкций. Объявление функции не является инструкцией. [Подробнее в документе ECMA-262](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
     // плохо
@@ -622,7 +622,7 @@
     ```
 
   <a name="functions--arguments-shadow"></a><a name="7.5"></a>
-  - [7.5](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+  - [7.5](#functions--arguments-shadow) Никогда не называйте параметр `arguments`. Он будет более приоритетным над объектом `arguments`, который доступен для каждой функции.
 
     ```javascript
     // плохо
@@ -637,9 +637,9 @@
     ```
 
   <a name="es6-rest"></a><a name="7.6"></a>
-  - [7.6](#es6-rest) Never use `arguments`, opt to use rest syntax `...` instead. eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
+  - [7.6](#es6-rest) Никогда не используйте `arguments`, вместо этого используйте оператор расширения `...`. eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
 
-    > Why? `...` is explicit about which arguments you want pulled. Plus, rest arguments are a real Array, and not merely Array-like like `arguments`.
+    > Почему? `...` явно говорит о том, какие именно аргументы вы хотите вытащить. Кроме того, аргументы оператора расширения являются настоящим массивом, а не массиво-подобным объектом как `arguments`.
 
     ```javascript
     // плохо
@@ -655,19 +655,19 @@
     ```
 
   <a name="es6-default-parameters"></a><a name="7.7"></a>
-  - [7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
+  - [7.7](#es6-default-parameters) Используйте синтаксис записи аргументов по умолчанию, а не изменяйте аргументы функции.
 
     ```javascript
-    // really bad
+    // очень плохо
     function handleThings(opts) {
-      // No! We shouldn't mutate function arguments.
-      // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
+      // Нет! Мы не должны изменять аргументы функции.
+      // Плохо вдвойне: если переменная opts будет ложной, то ей присвоится пустой объект, а не то что
+      // вы хотели. Это приведет к коварным ошибкам.
       opts = opts || {};
       // ...
     }
 
-    // still bad
+    // все еще плохо
     function handleThings(opts) {
       if (opts === void 0) {
         opts = {};
@@ -682,9 +682,9 @@
     ```
 
   <a name="functions--default-side-effects"></a><a name="7.8"></a>
-  - [7.8](#functions--default-side-effects) Avoid side effects with default parameters.
+  - [7.8](#functions--default-side-effects) Избегайте побочных эффектов с параметрами по умолчанию.
 
-    > Why? They are confusing to reason about.
+    > Почему? И так все понятно.
 
     ```javascript
     var b = 1;
@@ -699,7 +699,7 @@
     ```
 
   <a name="functions--defaults-last"></a><a name="7.9"></a>
-  - [7.9](#functions--defaults-last) Always put default parameters last.
+  - [7.9](#functions--defaults-last) Всегда вставляйте последними параметры по умолчанию.
 
     ```javascript
     // плохо
@@ -714,22 +714,22 @@
     ```
 
   <a name="functions--constructor"></a><a name="7.10"></a>
-  - [7.10](#functions--constructor) Never use the Function constructor to create a new function. eslint: [`no-new-func`](http://eslint.org/docs/rules/no-new-func)
+  - [7.10](#functions--constructor) Никогда не используйте конструктор функций для создания новых функий. eslint: [`no-new-func`](http://eslint.org/docs/rules/no-new-func)
 
-    > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
+    > Почему? Создание функции в таком духе вычисляет строку подобно eval(), из-за чего открываются уязвимости.
 
     ```javascript
     // плохо
     var add = new Function('a', 'b', 'return a + b');
 
-    // still bad
+    // всё ещё плохо
     var subtract = Function('a', 'b', 'return a - b');
     ```
 
   <a name="functions--signature-spacing"></a><a name="7.11"></a>
-  - [7.11](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
+  - [7.11](#functions--signature-spacing) Оступы при определении функции. eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
 
-    > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
+    > Почему? Однородность кода — это хорошо. Вам не надо будет добавлять или удалять пробел при манипуляции с именем.
 
     ```javascript
     // плохо
@@ -743,9 +743,9 @@
     ```
 
   <a name="functions--mutate-params"></a><a name="7.12"></a>
-  - [7.12](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.12](#functions--mutate-params) Никогда не изменяйте параметры. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+    > Почему? Манипуляция объектами, приходящими в параметры, может вызывать нежелательные побочные эффекты в вызывающей функции.
 
     ```javascript
     // плохо
@@ -760,9 +760,9 @@
     ```
 
   <a name="functions--reassign-params"></a><a name="7.13"></a>
-  - [7.13](#functions--reassign-params) Never reassign parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.13](#functions--reassign-params) Никогда не перезначайте параметры. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
+    > Почему? Переназначенные параметры могут привести к неожиданному поведению, особенно при обращении к `arguments`. Это также может вызывать проблемы оптимизации, особенно в V8.
 
     ```javascript
     // плохо
@@ -784,9 +784,9 @@
     ```
 
   <a name="functions--spread-vs-apply"></a><a name="7.14"></a>
-  - [7.14](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. eslint: [`prefer-spread`](http://eslint.org/docs/rules/prefer-spread)
+  - [7.14](#functions--spread-vs-apply) Предпочитайте использовать оператор расширения `...` при вызове вариативной функции. eslint: [`prefer-spread`](http://eslint.org/docs/rules/prefer-spread)
 
-    > Why? It's cleaner, you don't need to supply a context, and you can not easily compose `new` with `apply`.
+    > Почему? Это чище, вам не нужно предоставлять контекст, и не так просто составить `new` с `apply`.
 
     ```javascript
     // плохо
@@ -805,14 +805,14 @@
     ```
 
   <a name="functions--signature-invocation-indentation"></a>
-  - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item.
+  - [7.15](#functions--signature-invocation-indentation) Функции с многострочним определением или запуском, должны содержать отступы как и другие многострочные списки в этом руководстве: с каждым элементом на отдельной строке, с запятой в конце элемента.
 
     ```javascript
     // плохо
     function foo(bar,
                  baz,
                  quux) {
-      // body
+      // тело функции
     }
 
     // хорошо
@@ -821,7 +821,7 @@
       baz,
       quux,
     ) {
-      // body
+      // тело функции
     }
 
     // плохо
