@@ -10,29 +10,29 @@
 ## Оглавление
 
   1. [Типы](#types)
-  1. [References](#references)
+  1. [Объявление переменных](#references)
   1. [Объекты](#objects)
   1. [Массивы](#arrays)
   1. [Деструктуризация](#destructuring)
   1. [Строки](#strings)
-  1. [Functions](#functions)
-  1. [Arrow Functions](#arrow-functions)
-  1. [Classes & Constructors](#classes--constructors)
+  1. [Функции](#functions)
+  1. [Стрелочные функции](#arrow-functions)
+  1. [Классы и конструкторы](#classes--constructors)
   1. [Modules](#modules)
   1. [Iterators and Generators](#iterators-and-generators)
   1. [Свойства](#properties)
   1. [Variables](#variables)
   1. [Подъем](#hoisting)
-  1. [Comparison Operators & Equality](#comparison-operators--equality)
+  1. [Операторы сравнения и равенства](#comparison-operators--equality)
   1. [Блоки](#blocks)
   1. [Комментарии](#comments)
   1. [Пробелы](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-casting--coercion)
+  1. [Запятые](#commas)
+  1. [Точка с запятой](#semicolons)
+  1. [Приведение типов](#type-casting--coercion)
   1. [Naming Conventions](#naming-conventions)
-  1. [Accessors](#accessors)
-  1. [Events](#events)
+  1. [Аксессоры](#accessors)
+  1. [События](#events)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
@@ -84,12 +84,12 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## References
+## <a name="references">Объявление переменных</a>
 
   <a name="references--prefer-const"></a><a name="2.1"></a>
-  - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
+  - [2.1](#references--prefer-const) Используйте `const` для объявления переменных; избегайте `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
 
-    > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
+    > Почему? Это гарантирует, что вы не сможете переопределять значения, т.к. это может привести к ошибкам и к усложнению понимания кода.
 
     ```javascript
     // плохо
@@ -102,9 +102,9 @@
     ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
-  - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
+  - [2.2](#references--disallow-var) Если вам необходимо переопределять значения, используйте `let` вместо `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
 
-    > Why? `let` is block-scoped rather than function-scoped like `var`.
+    > Почему? Область видимости `let` — блок, у `var` — функция.
 
     ```javascript
     // плохо
@@ -113,7 +113,7 @@
       count += 1;
     }
 
-    // хорошо, use the let.
+    // хорошо, используйте let.
     let count = 1;
     if (true) {
       count += 1;
@@ -121,10 +121,10 @@
     ```
 
   <a name="references--block-scope"></a><a name="2.3"></a>
-  - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
+  - [2.3](#references--block-scope) Помните, что у `let` и `const` блочная область видимости.
 
     ```javascript
-    // const and let only exist in the blocks they are defined in.
+    // const и let существуют только в том блоке, в котором они определены.
     {
       let a = 1;
       const b = 1;
@@ -565,12 +565,12 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Functions
+## <a name="functions">Функции</a>
 
   <a name="functions--declarations"></a><a name="7.1"></a>
-  - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
+  - [7.1](#functions--declarations) Используйте функциональные выражения вместо объявлений функций. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`requireFunctionDeclarations`](http://jscs.info/rule/requireFunctionDeclarations)
 
-    > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to name the expression - anonymous functions can make it harder to locate the problem in an Error's call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
+    > Почему? У объявлений функций есть подъем. Это означает, что можно использовать функцию до того, как она определена в файле. Это вредит читабельности и поддержке. Если вы обнаружите, что определение функции является большим или достаточно сложным, что мешает понимать остальную часть файла, то, возможно, пришло время извлечь его в отдельный модуль! Не забывайте называть функциональные выражения - анонимные функции усложняют поиск проблемы в стеке вызовов. ([Discussion](https://github.com/airbnb/javascript/issues/794))
 
     ```javascript
     // плохо
@@ -587,22 +587,22 @@
     ```
 
   <a name="functions--iife"></a><a name="7.2"></a>
-  - [7.2](#functions--iife) Wrap immediately invoked function expressions in parentheses. eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
+  - [7.2](#functions--iife) Оборачивайте в скобки немедленно вызываемые функции. eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
 
-    > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
+    > Почему? Немедленно вызываемая функция представляет собой единый блок. Чтобы четко показать это, оберните функцию и вызывающие скобки в еще одни скобки. Обратите внимание, что в мире с модулями вам больше не нужны немедленно вызываемые функции.
 
     ```javascript
-    // immediately-invoked function expression (IIFE)
+    // Немедленно вызываемая функция
     (function () {
       console.log('Welcome to the Internet. Please follow me.');
     }());
     ```
 
   <a name="functions--in-blocks"></a><a name="7.3"></a>
-  - [7.3](#functions--in-blocks) Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
+  - [7.3](#functions--in-blocks) Никогда не объявляйте фукнции в нефункциональном блоке (`if`, `while`, и т.д.). Вместо это присвойте функцию переменной. Браузеры позволяют выполнить ваш код, но все они интерпретируют его по-разному. eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
 
   <a name="functions--note-on-blocks"></a><a name="7.4"></a>
-  - [7.4](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - [7.4](#functions--note-on-blocks) **Примечание:** ECMA-262 определяет `блок` как список инструкций. Объявление функции не является инструкцией. [Подробнее в документе ECMA-262](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
     // плохо
@@ -622,7 +622,7 @@
     ```
 
   <a name="functions--arguments-shadow"></a><a name="7.5"></a>
-  - [7.5](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+  - [7.5](#functions--arguments-shadow) Никогда не называйте параметр `arguments`. Он будет более приоритетным над объектом `arguments`, который доступен для каждой функции.
 
     ```javascript
     // плохо
@@ -637,9 +637,9 @@
     ```
 
   <a name="es6-rest"></a><a name="7.6"></a>
-  - [7.6](#es6-rest) Never use `arguments`, opt to use rest syntax `...` instead. eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
+  - [7.6](#es6-rest) Никогда не используйте `arguments`, вместо этого используйте оператор расширения `...`. eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
 
-    > Why? `...` is explicit about which arguments you want pulled. Plus, rest arguments are a real Array, and not merely Array-like like `arguments`.
+    > Почему? `...` явно говорит о том, какие именно аргументы вы хотите вытащить. Кроме того, аргументы оператора расширения являются настоящим массивом, а не массиво-подобным объектом как `arguments`.
 
     ```javascript
     // плохо
@@ -655,19 +655,19 @@
     ```
 
   <a name="es6-default-parameters"></a><a name="7.7"></a>
-  - [7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
+  - [7.7](#es6-default-parameters) Используйте синтаксис записи аргументов по умолчанию, а не изменяйте аргументы функции.
 
     ```javascript
-    // really bad
+    // очень плохо
     function handleThings(opts) {
-      // No! We shouldn't mutate function arguments.
-      // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
+      // Нет! Мы не должны изменять аргументы функции.
+      // Плохо вдвойне: если переменная opts будет ложной, то ей присвоится пустой объект, а не то что
+      // вы хотели. Это приведет к коварным ошибкам.
       opts = opts || {};
       // ...
     }
 
-    // still bad
+    // все еще плохо
     function handleThings(opts) {
       if (opts === void 0) {
         opts = {};
@@ -682,9 +682,9 @@
     ```
 
   <a name="functions--default-side-effects"></a><a name="7.8"></a>
-  - [7.8](#functions--default-side-effects) Avoid side effects with default parameters.
+  - [7.8](#functions--default-side-effects) Избегайте побочных эффектов с параметрами по умолчанию.
 
-    > Why? They are confusing to reason about.
+    > Почему? И так все понятно.
 
     ```javascript
     var b = 1;
@@ -699,7 +699,7 @@
     ```
 
   <a name="functions--defaults-last"></a><a name="7.9"></a>
-  - [7.9](#functions--defaults-last) Always put default parameters last.
+  - [7.9](#functions--defaults-last) Всегда вставляйте последними параметры по умолчанию.
 
     ```javascript
     // плохо
@@ -714,22 +714,22 @@
     ```
 
   <a name="functions--constructor"></a><a name="7.10"></a>
-  - [7.10](#functions--constructor) Never use the Function constructor to create a new function. eslint: [`no-new-func`](http://eslint.org/docs/rules/no-new-func)
+  - [7.10](#functions--constructor) Никогда не используйте конструктор функций для создания новых функий. eslint: [`no-new-func`](http://eslint.org/docs/rules/no-new-func)
 
-    > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
+    > Почему? Создание функции в таком духе вычисляет строку подобно eval(), из-за чего открываются уязвимости.
 
     ```javascript
     // плохо
     var add = new Function('a', 'b', 'return a + b');
 
-    // still bad
+    // всё ещё плохо
     var subtract = Function('a', 'b', 'return a - b');
     ```
 
   <a name="functions--signature-spacing"></a><a name="7.11"></a>
-  - [7.11](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
+  - [7.11](#functions--signature-spacing) Оступы при определении функции. eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
 
-    > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
+    > Почему? Однородность кода — это хорошо. Вам не надо будет добавлять или удалять пробел при манипуляции с именем.
 
     ```javascript
     // плохо
@@ -743,9 +743,9 @@
     ```
 
   <a name="functions--mutate-params"></a><a name="7.12"></a>
-  - [7.12](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.12](#functions--mutate-params) Никогда не изменяйте параметры. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+    > Почему? Манипуляция объектами, приходящими в параметры, может вызывать нежелательные побочные эффекты в вызывающей функции.
 
     ```javascript
     // плохо
@@ -760,9 +760,9 @@
     ```
 
   <a name="functions--reassign-params"></a><a name="7.13"></a>
-  - [7.13](#functions--reassign-params) Never reassign parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.13](#functions--reassign-params) Никогда не перезначайте параметры. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
+    > Почему? Переназначенные параметры могут привести к неожиданному поведению, особенно при обращении к `arguments`. Это также может вызывать проблемы оптимизации, особенно в V8.
 
     ```javascript
     // плохо
@@ -784,9 +784,9 @@
     ```
 
   <a name="functions--spread-vs-apply"></a><a name="7.14"></a>
-  - [7.14](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. eslint: [`prefer-spread`](http://eslint.org/docs/rules/prefer-spread)
+  - [7.14](#functions--spread-vs-apply) Предпочитайте использовать оператор расширения `...` при вызове вариативной функции. eslint: [`prefer-spread`](http://eslint.org/docs/rules/prefer-spread)
 
-    > Why? It's cleaner, you don't need to supply a context, and you can not easily compose `new` with `apply`.
+    > Почему? Это чище, вам не нужно предоставлять контекст, и не так просто составить `new` с `apply`.
 
     ```javascript
     // плохо
@@ -805,14 +805,14 @@
     ```
 
   <a name="functions--signature-invocation-indentation"></a>
-  - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item.
+  - [7.15](#functions--signature-invocation-indentation) Функции с многострочним определением или запуском, должны содержать отступы как и другие многострочные списки в этом руководстве: с каждым элементом на отдельной строке, с запятой в конце элемента.
 
     ```javascript
     // плохо
     function foo(bar,
                  baz,
                  quux) {
-      // body
+      // тело функции
     }
 
     // хорошо
@@ -821,7 +821,7 @@
       baz,
       quux,
     ) {
-      // body
+      // тело функции
     }
 
     // плохо
@@ -839,14 +839,14 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Arrow Functions
+## <a name="arrow-functions">Стрелочные функции</a>
 
   <a name="arrows--use-them"></a><a name="8.1"></a>
-  - [8.1](#arrows--use-them) When you must use function expressions (as when passing an anonymous function), use arrow function notation. eslint: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions)
+  - [8.1](#arrows--use-them) Когда вам необходимо использовать функциональное выражение (например, анонимную функцию), используйте стрелочную функцию. eslint: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions)
 
-    > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
+    > Почему? Таким образом создается функция, которая выполняется в контексте `this`, который мы обычно хотим, а также это более короткий синтаксис.
 
-    > Why not? If you have a fairly complicated function, you might move that logic out into its own function declaration.
+    > Почему бы и нет? Если у вас есть довольно сложная функция, вы можете переместить её логику внутрь собственного объявления.
 
     ```javascript
     // плохо
@@ -863,9 +863,9 @@
     ```
 
   <a name="arrows--implicit-return"></a><a name="8.2"></a>
-  - [8.2](#arrows--implicit-return) If the function body consists of a single expression, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
+  - [8.2](#arrows--implicit-return) Если тело функции состоит из одного выражения, то опустите фигурные скобки и используйте неявное возвращение. В противном случае, сохраните фигурные скобки и используйте оператор `return`. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
 
-    > Why? Syntactic sugar. It reads well when multiple functions are chained together.
+    > Почему? Синтаксический сахар. Когда несколько функций соединены вместе, то это читается лучше.
 
     ```javascript
     // плохо
@@ -890,9 +890,9 @@
     ```
 
   <a name="arrows--paren-wrap"></a><a name="8.3"></a>
-  - [8.3](#arrows--paren-wrap) In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+  - [8.3](#arrows--paren-wrap) В случае, если выражение располагается на нескольких строках, то необходимо обернуть его в скобки для лучшей читаемости.
 
-    > Why? It shows clearly where the function starts and ends.
+    > Почему? Это четко показывает, где функция начинается и где заканчивается.
 
     ```js
     // плохо
@@ -912,9 +912,9 @@
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
+  - [8.4](#arrows--one-arg-parens) Если ваша функция принимает один аргумент и не использует фигурные скобки, то опустите круглые скобки. В противном случае, всегда оборачивайте аргументы круглыми скобками. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
 
-    > Why? Less visual clutter.
+    > Почему? Меньше визуального беспорядка.
 
     ```js
     // плохо
@@ -942,7 +942,7 @@
     ```
 
   <a name="arrows--confusing"></a><a name="8.5"></a>
-  - [8.5](#arrows--confusing) Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`). eslint: [`no-confusing-arrow`](http://eslint.org/docs/rules/no-confusing-arrow)
+  - [8.5](#arrows--confusing) Избегайте схожести стрелочной функции (`=>`) с операторами сравнения (`<=`, `>=`). eslint: [`no-confusing-arrow`](http://eslint.org/docs/rules/no-confusing-arrow)
 
     ```js
     // плохо
@@ -964,12 +964,12 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Classes & Constructors
+## <a name="classes--constructors">Классы и конструкторы</a>
 
   <a name="constructors--use-class"></a><a name="9.1"></a>
-  - [9.1](#constructors--use-class) Always use `class`. Avoid manipulating `prototype` directly.
+  - [9.1](#constructors--use-class) Всегда используйте `class`. Избегайте прямых манипуляций с `prototype`.
 
-    > Почему? `class` syntax is more concise and easier to reason about.
+    > Почему? Синтаксис `class` является более кратким и понятным.
 
     ```javascript
     // плохо
@@ -997,9 +997,9 @@
     ```
 
   <a name="constructors--extends"></a><a name="9.2"></a>
-  - [9.2](#constructors--extends) Use `extends` for inheritance.
+  - [9.2](#constructors--extends) Используйте `extends` для наследования.
 
-    > Почему? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
+    > Почему? Это встроенный способ, чтоб наследовать функциональность прототипа, не нарушая `instanceof`.
 
     ```javascript
     // плохо
@@ -1021,7 +1021,7 @@
     ```
 
   <a name="constructors--chaining"></a><a name="9.3"></a>
-  - [9.3](#constructors--chaining) Methods can return `this` to help with method chaining.
+  - [9.3](#constructors--chaining) Методы могут возвращать `this`, чтобы делать цепочки вызовов.
 
     ```javascript
     // плохо
@@ -1059,7 +1059,7 @@
 
 
   <a name="constructors--tostring"></a><a name="9.4"></a>
-  - [9.4](#constructors--tostring) It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - [9.4](#constructors--tostring) Это нормально, написать свой собственный метод `toString()`, просто убедитесь, что он успешно работает и не создает никаких побочных эффектов.
 
     ```javascript
     class Jedi {
@@ -1078,7 +1078,7 @@
     ```
 
   <a name="constructors--no-useless"></a><a name="9.5"></a>
-  - [9.5](#constructors--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. eslint: [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
+  - [9.5](#constructors--no-useless) У классов есть конструктор по умолчанию, если он не задан явно. Пустой конструктор или конструктор, который только делегирует выполнение родительскому классу, можно опустить. eslint: [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
 
     ```javascript
     // плохо
@@ -1107,9 +1107,9 @@
     ```
 
   <a name="classes--no-duplicate-members"></a>
-  - [9.6](#classes--no-duplicate-members) Avoid duplicate class members. eslint: [`no-dupe-class-members`](http://eslint.org/docs/rules/no-dupe-class-members)
+  - [9.6](#classes--no-duplicate-members) Избегайте дублирующих членов класса. eslint: [`no-dupe-class-members`](http://eslint.org/docs/rules/no-dupe-class-members)
 
-    > Почему? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
+    > Почему? Если объявление члена класса повторяется, без предупреждения будет использовано последнее. Наличие дубликатов скорее всего приведет к ошибке.
 
     ```javascript
     // плохо
@@ -1687,30 +1687,29 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Comparison Operators & Equality
+## <a name="comparison-operators--equality">Операторы сравнения и равенства</a>
 
   <a name="comparison--eqeqeq"></a><a name="15.1"></a>
-  - [15.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
+  - [15.1](#comparison--eqeqeq) Используйте `===` и `!==` вместо `==` и `!=`. eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
 
   <a name="comparison--if"></a><a name="15.2"></a>
-  - [15.2](#comparison--if) Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
-
-    + **Objects** evaluate to **true**
-    + **Undefined** evaluates to **false**
-    + **Null** evaluates to **false**
-    + **Booleans** evaluate to **the value of the boolean**
-    + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+  - [15.2](#comparison--if) Условные операторы, такие как `if`, вычисляются путем приведения к логическому типу `Boolean` через абстрактный метод `ToBoolean` и всегда следуют следующим правилам:
+    + **Object** соответствует **true**
+    + **Undefined** соответствует **false**
+    + **Null** соответствует **false**
+    + **Boolean** соответствует **значению булева типа**
+    + **Number** соответствует **false**, если **+0, -0, or NaN**, в остальных случаях **true**
+    + **String** соответствует **false**, если строка пустая `''`, в остальных случаях **true**
 
     ```javascript
     if ([0] && []) {
       // true
-      // an array (even an empty one) is an object, objects will evaluate to true
+      // Массив (даже пустой) является объектом, а объекты возвращают true
     }
     ```
 
   <a name="comparison--shortcuts"></a><a name="15.3"></a>
-  - [15.3](#comparison--shortcuts) Use shortcuts for booleans, but explicit comparisons for strings and numbers.
+  - [15.3](#comparison--shortcuts) Используйте сокращения для булевских типов, а для строк и чисел применяйте явное сравнение.
 
     ```javascript
     // плохо
@@ -1745,12 +1744,12 @@
     ```
 
   <a name="comparison--moreinfo"></a><a name="15.4"></a>
-  - [15.4](#comparison--moreinfo) For more information see [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+  - [15.4](#comparison--moreinfo) Более подробную информацию можно узнать в статье [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) от Angus Croll.
 
   <a name="comparison--switch-blocks"></a><a name="15.5"></a>
-  - [15.5](#comparison--switch-blocks) Use braces to create blocks in `case` and `default` clauses that contain lexical declarations (e.g. `let`, `const`, `function`, and `class`).
+  - [15.5](#comparison--switch-blocks) Используйте фигурные скобки для `case` и `default`, они содержат лексические декларации (например, `let`, `const`, `function`, и `class`).
 
-  > Почему? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
+  > Почему? Лексические декларации видны во всем `switch` блоке, но инициализируются только при присваивании, которое происходит при входе в блок `case`. Возникают проблемы, когда множество `case` пытаются определить одно и тоже.
 
   eslint rules: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations.html).
 
@@ -1794,7 +1793,7 @@
     ```
 
   <a name="comparison--nested-ternaries"></a><a name="15.6"></a>
-  - [15.6](#comparison--nested-ternaries) Ternaries should not be nested and generally be single line expressions.
+  - [15.6](#comparison--nested-ternaries) Тернарные операторы не должны быть вложены и в большинстве случаев должны быть расположены на одной строке.
 
     eslint rules: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html).
 
@@ -1804,7 +1803,7 @@
       ? "bar"
       : value1 > value2 ? "baz" : null;
 
-    // better
+    // лучше
     const maybeNull = value1 > value2 ? 'baz' : null;
 
     const foo = maybe1 > maybe2
@@ -1818,7 +1817,7 @@
     ```
 
   <a name="comparison--unneeded-ternary"></a><a name="15.7"></a>
-  - [15.7](#comparison--unneeded-ternary) Avoid unneeded ternary statements.
+  - [15.7](#comparison--unneeded-ternary) Избегайте не нужных тернарных операторов.
 
     eslint rules: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html).
 
@@ -2356,10 +2355,10 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Commas
+## <a name="commas">Запятые</a>
 
 <a name="commas--leading-trailing"></a><a name="19.1"></a>
-  - [19.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
+  - [19.1](#commas--leading-trailing) Не начинайте строку с запятой. eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
 
     ```javascript
     // плохо
@@ -2394,12 +2393,12 @@
     ```
 
   <a name="commas--dangling"></a><a name="19.2"></a>
-  - [19.2](#commas--dangling) Additional trailing comma: **Yup.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
+  - [19.2](#commas--dangling) Добавляйте висячие запятые. eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
 
-    > Почему? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
+    > Почему? Такой подход дает понятную разницу при просмотре изменений. Кроме того, транспиляторы типа Babel удалят висячие запятые из собранного кода, поэтому вы можете не беспокоиться о [проблемах](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) в старых браузерах.
 
     ```diff
-    // плохо - git diff without trailing comma
+    // плохо - git diff без висячей запятой
     const hero = {
          firstName: 'Florence',
     -    lastName: 'Nightingale'
@@ -2407,7 +2406,7 @@
     +    inventorOf: ['coxcomb chart', 'modern nursing']
     };
 
-    // хорошо - git diff with trailing comma
+    // хорошо - git diff с висячей запятой
     const hero = {
          firstName: 'Florence',
          lastName: 'Nightingale',
@@ -2444,7 +2443,7 @@
       lastName,
       inventorOf
     ) {
-      // does nothing
+      // ничего не делает
     }
 
     // хорошо
@@ -2453,17 +2452,17 @@
       lastName,
       inventorOf,
     ) {
-      // does nothing
+      // ничего не делает
     }
 
-    // хорошо (note that a comma must not appear after a "rest" element)
+    // хорошо (обратите внимание, что висячей запятой не должно быть после "rest"-параметра)
     function createHero(
       firstName,
       lastName,
       inventorOf,
       ...heroArgs
     ) {
-      // does nothing
+      // ничего не делает
     }
 
     // плохо
@@ -2480,7 +2479,7 @@
       inventorOf,
     );
 
-    // хорошо (note that a comma must not appear after a "rest" element)
+    // хорошо (обратите внимание, что висячей запятой не должно быть после "rest"-параметра)
     createHero(
       firstName,
       lastName,
@@ -2492,10 +2491,10 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Semicolons
+## <a name="semicolons">Точка с запятой</a>
 
   <a name="semicolons--required"></a><a name="20.1"></a>
-  - [20.1](#20.1) **Yup.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
+  - [20.1](#20.1) **Да.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
 
     ```javascript
     // плохо
@@ -2510,41 +2509,41 @@
       return name;
     }());
 
-    // хорошо, but legacy (guards against the function becoming an argument when two files with IIFEs are concatenated)
+    // хорошо, но уже устарело (такая защита функций нужна когда конкатернируются два файла, содержащие немедленно вызываемые функции)
     ;(() => {
       const name = 'Skywalker';
       return name;
     }());
     ```
 
-    [Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214).
+    [Читать подробнее](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214).
 
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Type Casting & Coercion
+## <a name="type-casting--coercion">Приведение типов</a>
 
   <a name="coercion--explicit"></a><a name="21.1"></a>
-  - [21.1](#coercion--explicit) Perform type coercion at the beginning of the statement.
+  - [21.1](#coercion--explicit) Выполняйте приведение типов в начале инструкции.
 
   <a name="coercion--strings"></a><a name="21.2"></a>
-  - [21.2](#coercion--strings)  Strings:
+  - [21.2](#coercion--strings)  Строки:
 
     ```javascript
     // => this.reviewScore = 9;
 
     // плохо
-    const totalScore = this.reviewScore + ''; // invokes this.reviewScore.valueOf()
+    const totalScore = this.reviewScore + ''; // вызывает this.reviewScore.valueOf()
 
     // плохо
-    const totalScore = this.reviewScore.toString(); // isn't guaranteed to return a string
+    const totalScore = this.reviewScore.toString(); // нет гарантии что вернется строка
 
     // хорошо
     const totalScore = String(this.reviewScore);
     ```
 
   <a name="coercion--numbers"></a><a name="21.3"></a>
-  - [21.3](#coercion--numbers) Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings. eslint: [`radix`](http://eslint.org/docs/rules/radix)
+  - [21.3](#coercion--numbers) Числа: Используйте `Number` и `parseInt` с основанием системы счисления. eslint: [`radix`](http://eslint.org/docs/rules/radix)
 
     ```javascript
     const inputValue = '4';
@@ -2569,20 +2568,20 @@
     ```
 
   <a name="coercion--comment-deviations"></a><a name="21.4"></a>
-  - [21.4](#coercion--comment-deviations) If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](https://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+  - [21.4](#coercion--comment-deviations) Если по какой-то причине вы делаете что-то безумное и `parseInt` является слабым местом, то нужно использовать побитовый сдвиг из-за [вопросов производительности](https://jsperf.com/coercion-vs-casting/3). Оставьте комментарий объясняющий почему и что вы делаете
 
     ```javascript
     // хорошо
     /**
-     * parseInt was the reason my code was slow.
-     * Bitshifting the String to coerce it to a
-     * Number made it a lot faster.
+     * этот код медленно работал из-за parseInt.
+     * побитовый сдвиг строки, для приведения ее к числу,
+     * работает значительно быстрее.
      */
     const val = inputValue >> 0;
     ```
 
   <a name="coercion--bitwise"></a><a name="21.5"></a>
-  - [21.5](#coercion--bitwise) **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](https://es5.github.io/#x4.3.19), but bitshift operations always return a 32-bit integer ([source](https://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+  - [21.5](#coercion--bitwise) **Примечание:** Будьте осторожны с побитовыми операциями.Числа в JavaScript являются [64-битными значениями](https://es5.github.io/#x4.3.19), но побитовые операции всегда возвращают 32-битные значенения ([источник](https://es5.github.io/#x11.7)). Побитовый сдвиг может привести к неожиданному поведению для значений больше, чем 32 бита. [Discussion](https://github.com/airbnb/javascript/issues/109). Верхний предел — 2,147,483,647:
 
     ```javascript
     2147483647 >> 0 //=> 2147483647
@@ -2591,7 +2590,7 @@
     ```
 
   <a name="coercion--booleans"></a><a name="21.6"></a>
-  - [21.6](#coercion--booleans) Booleans:
+  - [21.6](#coercion--booleans) Логические типы:
 
     ```javascript
     const age = 0;
@@ -2800,13 +2799,13 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Accessors
+## <a name="accessors">Аксессоры</a>
 
   <a name="accessors--not-required"></a><a name="23.1"></a>
-  - [23.1](#accessors--not-required) Accessor functions for properties are not required.
+  - [23.1](#accessors--not-required) Функции-аксессоры для свойств объекта больше не нужны.
 
   <a name="accessors--no-getters-setters"></a><a name="23.2"></a>
-  - [23.2](#accessors--no-getters-setters) Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use getVal() and setVal('hello').
+  - [23.2](#accessors--no-getters-setters) Не используйте геттеры/сеттеры, т.к. они вызывают неожиданные побочные эффекты, а также их тяжело тестировать, поддерживать и понимать. Вместо этого, если вы делаете функции-аксессоры, используйте `getVal()` и `setVal('hello')`.
 
     ```javascript
     // плохо
@@ -2833,7 +2832,7 @@
     ```
 
   <a name="accessors--boolean-prefix"></a><a name="23.3"></a>
-  - [23.3](#accessors--boolean-prefix) If the property/method is a `boolean`, use `isVal()` or `hasVal()`.
+  - [23.3](#accessors--boolean-prefix) Если свойство/метод возвращает логический тип, то используйте названия `isVal()` или `hasVal()`.
 
     ```javascript
     // плохо
@@ -2848,7 +2847,7 @@
     ```
 
   <a name="accessors--consistent"></a><a name="23.4"></a>
-  - [23.4](#accessors--consistent) It's okay to create get() and set() functions, but be consistent.
+  - [23.4](#accessors--consistent) Можно создавать функции `get()` и `set()`, но нужно быть последовательным.
 
     ```javascript
     class Jedi {
@@ -2870,10 +2869,10 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Events
+## <a name="events">События</a>
 
   <a name="events--hash"></a><a name="24.1"></a>
-  - [24.1](#events--hash) When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+  - [24.1](#events--hash) Когда подключаете данные к событию (например, DOM события или какие-то собственные события, как `Backbone` события), передавайте объект вместо простой переменной. Это позволяет другим разработчикам добавлять больше данных без поиска и изменения каждого обработчика события. К примеру, вместо:
 
     ```javascript
     // плохо
@@ -2882,11 +2881,11 @@
     ...
 
     $(this).on('listingUpdated', (e, listingId) => {
-      // do something with listingId
+      // делает что-то с listingId
     });
     ```
 
-    prefer:
+    предпочитайте:
 
     ```javascript
     // хорошо
@@ -2895,7 +2894,7 @@
     ...
 
     $(this).on('listingUpdated', (e, data) => {
-      // do something with data.listingId
+      // делает что-то с data.listingId
     });
     ```
 
