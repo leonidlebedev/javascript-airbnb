@@ -32,7 +32,7 @@
   1. [Type Casting & Coercion](#type-casting--coercion)
   1. [Naming Conventions](#naming-conventions)
   1. [Accessors](#accessors)
-  1. [Events](#events)
+  1. [События](#events)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
@@ -2869,10 +2869,10 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Events
+## <a name="events">События</a>
 
   <a name="events--hash"></a><a name="24.1"></a>
-  - [24.1](#events--hash) When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+  - [24.1](#events--hash) Когда подключаете данные к событию (например, DOM события или какие-то собственные события, как `Backbone` события), передавайте объект вместо простой переменной. Это позволяет другим разработчикам добавлять больше данных без поиска и изменения каждого обработчика события. К примеру, вместо:
 
     ```javascript
     // плохо
@@ -2881,11 +2881,11 @@
     ...
 
     $(this).on('listingUpdated', (e, listingId) => {
-      // do something with listingId
+      // делает что-то с listingId
     });
     ```
 
-    prefer:
+    предпочитайте:
 
     ```javascript
     // хорошо
@@ -2894,7 +2894,7 @@
     ...
 
     $(this).on('listingUpdated', (e, data) => {
-      // do something with data.listingId
+      // делает что-то с data.listingId
     });
     ```
 
