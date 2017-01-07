@@ -36,7 +36,7 @@
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
-  1. [Testing](#testing)
+  1. [Тестирование](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
   1. [In the Wild](#in-the-wild)
@@ -3004,10 +3004,10 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Testing
+## <a name="testing">Тестирование</a>
 
   <a name="testing--yup"></a><a name="28.1"></a>
-  - [28.1](#testing--yup) **Yup.**
+  - [28.1](#testing--yup) **Ага.**
 
     ```javascript
     function foo() {
@@ -3016,13 +3016,13 @@
     ```
 
   <a name="testing--for-real"></a><a name="28.2"></a>
-  - [28.2](#testing--for-real) **No, but seriously**:
-   - Whichever testing framework you use, you should be writing tests!
-   - Strive to write many small pure functions, and minimize where mutations occur.
-   - Be cautious about stubs and mocks - they can make your tests more brittle.
-   - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Airbnb. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
-   - 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
-   - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
+  - [28.2](#testing--for-real) **Нет, но серьезно**:
+   - Какой бы фреймворк вы не использовали, вы должны писать тесты!
+   - Стремитесь к тому, чтобы написать много маленьких чистых функций, и к тому, чтобы свести к минимуму там, где происходят мутации.
+   - Будьте осторожны со стабами (stubs) и моками (mocks) — они могут сделать ваше тестирование более хрупким.
+   - Мы в первую очередь советуем вам использовать [`mocha`](https://www.npmjs.com/package/mocha) от Airbnb. [`tape`](https://www.npmjs.com/package/tape) также иногда используется для небольших, отдельных модулей.
+   - 100% покрытие тестами — это хорошая цель, к которой надо стремиться, даже если это не всегда практично.
+   - Всякий раз, когда вы исправляете ошибку, _пишите регрессионный тест_. Исправленная ошибка без регрессионного тестирования почти наверняка всплывет в будущем.
 
 **[⬆ к оглавлению](#Оглавление)**
 
