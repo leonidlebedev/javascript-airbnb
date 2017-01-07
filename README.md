@@ -18,11 +18,11 @@
   1. [Функции](#functions)
   1. [Стрелочные функции](#arrow-functions)
   1. [Классы и конструкторы](#classes--constructors)
-  1. [Modules](#modules)
+  1. [Модули](#modules)
   1. [Iterators and Generators](#iterators-and-generators)
   1. [Свойства](#properties)
   1. [Переменные](#variables)
-  1. [Hoisting](#hoisting)
+  1. [Подъем](#hoisting)
   1. [Операторы сравнения и равенства](#comparison-operators--equality)
   1. [Блоки](#blocks)
   1. [Комментарии](#comments)
@@ -30,7 +30,7 @@
   1. [Запятые](#commas)
   1. [Точка с запятой](#semicolons)
   1. [Приведение типов](#type-casting--coercion)
-  1. [Naming Conventions](#naming-conventions)
+  1. [Соглашение об именовании](#naming-conventions)
   1. [Аксессоры](#accessors)
   1. [События](#events)
   1. [jQuery](#jquery)
@@ -1587,52 +1587,52 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Hoisting
+## <a name="hoisting">Подъем</a>
 
   <a name="hoisting--about"></a><a name="14.1"></a>
-  - [14.1](#hoisting--about) `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
+  - [14.1](#hoisting--about) Объявления `var` поднимаются к началу своей области видимости, но не их присвоение. Объявления `const` и `let` работают по новой концепции называемой [Временные Мертвые Зоны (Temporal Dead Zone)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). Это важно знать, почему использовать [typeof больше не безапасно](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
 
     ```javascript
-    // we know this wouldn't work (assuming there
-    // is no notDefined global variable)
+    // мы знаем, что это не будет работать
+    // (если нет глобальной переменной notDefined)
     function example() {
-      console.log(notDefined); // => throws a ReferenceError
+      console.log(notDefined); // => выбросит ошибку ReferenceError
     }
 
-    // creating a variable declaration after you
-    // reference the variable will work due to
-    // variable hoisting. Note: the assignment
-    // value of `true` is not hoisted.
+    // обращение к переменной до ее создания
+    // будет работать из-за подъема.
+    // Примечание: значение true не поднимается.
     function example() {
       console.log(declaredButNotAssigned); // => undefined
       var declaredButNotAssigned = true;
     }
 
-    // the interpreter is hoisting the variable
-    // declaration to the top of the scope,
-    // which means our example could be rewritten as:
+    // интерпретатор понимает объявление
+    // переменной в начало области видимости.
+    // это означает, что наш пример
+    // можно переписать таким образом:
     function example() {
       let declaredButNotAssigned;
       console.log(declaredButNotAssigned); // => undefined
       declaredButNotAssigned = true;
     }
 
-    // using const and let
+    // использование const и let
     function example() {
-      console.log(declaredButNotAssigned); // => throws a ReferenceError
-      console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
+      console.log(declaredButNotAssigned); // => выбросит ошибку ReferenceError
+      console.log(typeof declaredButNotAssigned); // => выбросит ошибку ReferenceError
       const declaredButNotAssigned = true;
     }
     ```
 
   <a name="hoisting--anon-expressions"></a><a name="14.2"></a>
-  - [14.2](#hoisting--anon-expressions) Anonymous function expressions hoist their variable name, but not the function assignment.
+  - [14.2](#hoisting--anon-expressions) Для анонимных функциональных выражений наверх области видимости поднимается название их переменой, но не ее значение.
 
     ```javascript
     function example() {
       console.log(anonymous); // => undefined
 
-      anonymous(); // => TypeError anonymous is not a function
+      anonymous(); // => TypeError anonymous не является функцией
 
       var anonymous = function () {
         console.log('anonymous function expression');
@@ -1641,27 +1641,27 @@
     ```
 
   <a name="hoisting--named-expresions"></a><a name="14.3"></a>
-  - [14.3](#hoisting--named-expresions) Named function expressions hoist the variable name, not the function name or the function body.
+  - [14.3](#hoisting--named-expresions) Для именованных функциональных выражений наверх области видимости поднимается название их переменой, но не имя или тело функции.
 
     ```javascript
     function example() {
       console.log(named); // => undefined
 
-      named(); // => TypeError named is not a function
+      named(); // => TypeError named не является функцией
 
-      superPower(); // => ReferenceError superPower is not defined
+      superPower(); // => ReferenceError superPower не определена
 
       var named = function superPower() {
         console.log('Flying');
       };
     }
 
-    // the same is true when the function name
-    // is the same as the variable name.
+    // тоже самое справедливо, когда имя функции
+    // совпадает с именем переменной.
     function example() {
       console.log(named); // => undefined
 
-      named(); // => TypeError named is not a function
+      named(); // => TypeError named не является функцией
 
       var named = function named() {
         console.log('named');
@@ -1670,7 +1670,7 @@
     ```
 
   <a name="hoisting--declarations"></a><a name="14.4"></a>
-  - [14.4](#hoisting--declarations) Function declarations hoist their name and the function body.
+  - [14.4](#hoisting--declarations) Для объявлений функций наверх области видимости поднимается их имя и тело функции.
 
     ```javascript
     function example() {
@@ -1682,7 +1682,7 @@
     }
     ```
 
-  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) by [Ben Cherry](http://www.adequatelygood.com/).
+  - Более подробно можно прочитать в статье [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) от [Ben Cherry](http://www.adequatelygood.com/).
 
 **[⬆ к оглавлению](#Оглавление)**
 
@@ -2608,10 +2608,10 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Naming Conventions
+## <a name="naming-conventions">Соглашение об именовании</a>
 
   <a name="naming--descriptive"></a><a name="22.1"></a>
-  - [22.1](#naming--descriptive) Avoid single letter names. Be descriptive with your naming. eslint: [`id-length`](http://eslint.org/docs/rules/id-length)
+  - [22.1](#naming--descriptive) Избегайте названий из одной буквы. Имя должно быть наглядным. eslint: [`id-length`](http://eslint.org/docs/rules/id-length)
 
     ```javascript
     // плохо
@@ -2626,7 +2626,7 @@
     ```
 
   <a name="naming--camelCase"></a><a name="22.2"></a>
-  - [22.2](#naming--camelCase) Use camelCase when naming objects, functions, and instances. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
+  - [22.2](#naming--camelCase) Используйте `camelCase` для именования объектов, функций и экземпляров. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
 
     ```javascript
     // плохо
@@ -2640,7 +2640,7 @@
     ```
 
   <a name="naming--PascalCase"></a><a name="22.3"></a>
-  - [22.3](#naming--PascalCase) Use PascalCase only when naming constructors or classes. eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html) jscs: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors)
+  - [22.3](#naming--PascalCase) Используйте `PascalCase` только для именования конструкторов и классов. eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html) jscs: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors)
 
     ```javascript
     // плохо
@@ -2665,9 +2665,9 @@
     ```
 
   <a name="naming--leading-underscore"></a><a name="22.4"></a>
-  - [22.4](#naming--leading-underscore) Do not use trailing or leading underscores. eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html) jscs: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores)
+  - [22.4](#naming--leading-underscore) Не используйте `_` в начале или конце названий. eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html) jscs: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores)
 
-    > Почему? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won't count as breaking, or that tests aren't needed. tl;dr: if you want something to be “private”, it must not be observably present.
+    > Почему? JavaScript не имеет концепции приватности свойств или методов. Хотя подчеркивание в начале имени является общим соглашением, которое показывает “приватность”, фактически, эти свойства являются такими же доступными, как и часть вашего публичного API. Это соглашение может привести к тому, что разработчики будут ошибочно думать, что изменения не приведут к поломке или что тесты не нужны. Итог: если вы хотите, что что-то было “приватным”, то оно не должно быть доступно извне.
 
     ```javascript
     // плохо
@@ -2680,7 +2680,7 @@
     ```
 
   <a name="naming--self-this"></a><a name="22.5"></a>
-  - [22.5](#naming--self-this) Don't save references to `this`. Use arrow functions or [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
+  - [22.5](#naming--self-this) Не сохраняйте ссылку на `this`. Используйте стрелочные функции или [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
 
     ```javascript
     // плохо
@@ -2708,22 +2708,22 @@
     ```
 
   <a name="naming--filename-matches-export"></a><a name="22.6"></a>
-  - [22.6](#naming--filename-matches-export) A base filename should exactly match the name of its default export.
+  - [22.6](#naming--filename-matches-export) Название файла точно должно совпадать с именем его экспорта по умолчанию.  
 
     ```javascript
-    // file 1 contents
+    // содержание файла 1
     class CheckBox {
       // ...
     }
     export default CheckBox;
 
-    // file 2 contents
+    // содержание файла 2
     export default function fortyTwo() { return 42; }
 
-    // file 3 contents
+    // содержание файла 3
     export default function insideDirectory() {}
 
-    // in some other file
+    // в других файлах
     // плохо
     import CheckBox from './checkBox'; // PascalCase import/export, camelCase filename
     import FortyTwo from './FortyTwo'; // PascalCase import/filename, camelCase export
@@ -2740,12 +2740,11 @@
     import CheckBox from './CheckBox'; // PascalCase export/import/filename
     import fortyTwo from './fortyTwo'; // camelCase export/import/filename
     import insideDirectory from './insideDirectory'; // camelCase export/import/directory name/implicit "index"
-    // ^ supports both insideDirectory.js and insideDirectory/index.js
+    // ^ поддерживает оба варианта: insideDirectory.js и insideDirectory/index.js
     ```
 
   <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
-  - [22.7](#naming--camelCase-default-export) Use camelCase when you export-default a function. Your filename should be identical to your function's name.
-
+  - [22.7](#naming--camelCase-default-export) Используйте `camelCase`, когда экспортируете функцию по умолчанию. Ваш файл должен называться также, как и имя функции.
     ```javascript
     function makeStyleGuide() {
     }
@@ -2754,7 +2753,7 @@
     ```
 
   <a name="naming--PascalCase-singleton"></a><a name="22.8"></a>
-  - [22.8](#naming--PascalCase-singleton) Use PascalCase when you export a constructor / class / singleton / function library / bare object.
+  - [22.8](#naming--PascalCase-singleton) Используйте `PascalCase`, когда экспортируете конструктор / класс / синглтон / библиотечную функцию / объект.
 
     ```javascript
     const AirbnbStyleGuide = {
@@ -2766,9 +2765,9 @@
     ```
 
   <a name="naming--Acronyms-and-Initialisms"></a>
-  - [22.9](#naming--Acronyms-and-Initialisms) Acronyms and initialisms should always be all capitalized, or all lowercased.
+  - [22.9](#naming--Acronyms-and-Initialisms) Сокращения или буквенные аббревиатуры всегда должны писаться заглавными буквами или строчными
 
-    > Почему? Names are for readability, not to appease a computer algorithm.
+    > Почему? Имена для удобства чтения, а не для удовлетворения компьютерных алгоритмов.
 
     ```javascript
     // плохо
