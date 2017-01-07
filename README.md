@@ -2918,7 +2918,7 @@
     ```
 
   <a name="jquery--cache"></a><a name="25.2"></a>
-  - [25.2](#jquery--cache) Кешируйте jQuery-поиски.
+  - [25.2](#jquery--cache) Кэшируйте jQuery-поиски.
 
     ```javascript
     // плохо
@@ -2946,7 +2946,7 @@
     ```
 
   <a name="jquery--queries"></a><a name="25.3"></a>
-  - [25.3](#jquery--queries) Для поиска в DOM используйте каскады `$('.sidebar ul')` или отношения родитель > ребенок `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - [25.3](#jquery--queries) Для поиска в DOM используйте каскады `$('.sidebar ul')` или селектор родитель > ребенок `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
 
   <a name="jquery--find"></a><a name="25.4"></a>
   - [25.4](#jquery--find) Используйте функцию `find` для поиска в сохраненных jQuery-объектах.
