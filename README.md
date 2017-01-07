@@ -34,7 +34,7 @@
   1. [Аксессоры](#accessors)
   1. [События](#events)
   1. [jQuery](#jquery)
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
+  1. [Поддержка ECMAScript 5](#ecmascript-5-compatibility)
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
   1. [Testing](#testing)
   1. [Performance](#performance)
@@ -2970,10 +2970,10 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## ECMAScript 5 Compatibility
+## <a name="ecmascript-5-compatibility">Поддержка ECMAScript 5</a>
 
   <a name="es5-compat--kangax"></a><a name="26.1"></a>
-  - [26.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
+  - [26.1](#es5-compat--kangax) Можно посмотреть в [таблице поддержки](https://kangax.github.io/es5-compat-table/) ES5 от пользователя [Kangax](https://twitter.com/kangax/) .
 
 **[⬆ к оглавлению](#Оглавление)**
 
