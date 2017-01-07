@@ -21,7 +21,7 @@
   1. [Модули](#modules)
   1. [Iterators and Generators](#iterators-and-generators)
   1. [Свойства](#properties)
-  1. [Variables](#variables)
+  1. [Переменные](#variables)
   1. [Подъем](#hoisting)
   1. [Операторы сравнения и равенства](#comparison-operators--equality)
   1. [Блоки](#blocks)
@@ -34,9 +34,9 @@
   1. [Аксессоры](#accessors)
   1. [События](#events)
   1. [jQuery](#jquery)
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
+  1. [Поддержка ECMAScript 5](#ecmascript-5-compatibility)
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
-  1. [Testing](#testing)
+  1. [Тестирование](#testing)
   1. [Производительность](#performance)
   1. [Ресурсы](#resources)
   1. [Пообщаться с разработчиками Airbnb](#chat-with-us-about-javascript)
@@ -1414,10 +1414,10 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Variables
+## <a name="variables">Переменные</a>
 
   <a name="variables--const"></a><a name="13.1"></a>
-  - [13.1](#variables--const) Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
+  - [13.1](#variables--const) Всегда используйте `const` для объявления переменных. Невыполнение этого требования приведет к появлению глобальных переменных. Необходимо избегать загрязнения глобального пространства имен. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
 
     ```javascript
     // плохо
@@ -1428,9 +1428,9 @@
     ```
 
   <a name="variables--one-const"></a><a name="13.2"></a>
-  - [13.2](#variables--one-const) Use one `const` declaration per variable. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
+  - [13.2](#variables--one-const) Используйте объявление `const` для каждой переменной. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
 
-    > Почему? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
+    > Почему? Таким образом проще добавить новые переменные. Также вы никогда не будете беспокоиться о перемещении `;` и `,` и об отображении изменений в пунктуации. Вы также можете пройтись по каждому объявлению с помощью откладчика, вместо того, чтобы прыгать через все сразу.
 
     ```javascript
     // плохо
@@ -1439,7 +1439,7 @@
         dragonball = 'z';
 
     // плохо
-    // (compare to above, and try to spot the mistake)
+    // (сравните с кодом выше и попытайтесь найти ошибку)
     const items = getItems(),
         goSportsTeam = true;
         dragonball = 'z';
@@ -1451,9 +1451,9 @@
     ```
 
   <a name="variables--const-let-group"></a><a name="13.3"></a>
-  - [13.3](#variables--const-let-group) Group all your `const`s and then group all your `let`s.
+  - [13.3](#variables--const-let-group) В первую очередь, группируйте все ваши `const`, а затем все ваши `let`.
 
-    > Почему? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+    > Почему? Это полезно, когда в будущем вам понадобится создать переменную, зависимую от предудыщих.
 
     ```javascript
     // плохо
@@ -1477,12 +1477,12 @@
     ```
 
   <a name="variables--define-where-used"></a><a name="13.4"></a>
-  - [13.4](#variables--define-where-used) Assign variables where you need them, but place them in a reasonable place.
+  - [13.4](#variables--define-where-used) Создавайте переменные там, где они вам необходимы, но помещайте их в подходящее место.
 
-    > Почему? `let` and `const` are block scoped and not function scoped.
+    > Почему? `let` и `const` имеют блочную область видимости, а не функциональную.
 
     ```javascript
-    // плохо - unnecessary function call
+    // плохо - вызов ненужной функции
     function checkName(hasName) {
       const name = getName();
 
@@ -1515,17 +1515,17 @@
     }
     ```
   <a name="variables--no-chain-assignment"></a><a name="13.5"></a>
-  - [13.5](#variables--no-chain-assignment) Don't chain variable assignments.
+  - [13.5](#variables--no-chain-assignment) Не создавайте цепочки присваивания переменных.
 
-    > Почему? Chaining variable assignments creates implicit global variables.
+    > Почему? Цепочки присваивания переменных создают неявные глобальные переменные.
 
     ```javascript
     // плохо
     (function example() {
-      // JavaScript interprets this as
+      // JavaScript интерпретирует это, как
       // let a = ( b = ( c = 1 ) );
-      // The let keyword only applies to variable a; variables b and c become
-      // global variables.
+      // Ключевое слово let применится только к переменной a;
+      // переменные b и c станут глобальными.
       let a = b = c = 1;
     }());
 
@@ -1544,13 +1544,13 @@
     console.log(b); // undefined
     console.log(c); // undefined
 
-    // the same applies for `const`
+    // тоже самое и для `const`
     ```
 
   <a name="variables--unary-increment-decrement"></a><a name="13.6"></a>
-  - [13.6](#variables--unary-increment-decrement) Avoid using unary increments and decrements (++, --). eslint [`no-plusplus`](http://eslint.org/docs/rules/no-plusplus)
+  - [13.6](#variables--unary-increment-decrement) Избегайте использования унарных инкрементов и декрементов (++, --). eslint [`no-plusplus`](http://eslint.org/docs/rules/no-plusplus)
 
-    > Почему? Per the eslint documentation, unary increment and decrement statements are subject to automatic semicolon insertion and can cause silent errors with incrementing or decrementing values within an application. It is also more expressive to mutate your values with statements like `num += 1` instead of `num++` or `num ++`. Disallowing unary increment and decrement statements also prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
+    > Почему? Согласно eslint документации, унарные инкремент и декремент автоматически вставляют точку с запятой, что может стать причиной к трудноуловимым ошибкам при инкрементировании и декрементировании значений. Также нагляднее изменять ваши значения таким образом `num += 1` вместо `num++` или `num ++`. Запрет на унарные инкремент и декремент ограждают вас от непреднамеренных преинкрементаций/предекрементаций значений, которые могут привести к непредсказуемому поведению вашей программы.
 
     ```javascript
       // плохо
@@ -2897,10 +2897,10 @@
   **[⬆ к оглавлению](#Оглавление)**
 
 
-## jQuery
+## <a name="jquery">jQuery</a>
 
   <a name="jquery--dollar-prefix"></a><a name="25.1"></a>
-  - [25.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$`. jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
+  - [25.1](#jquery--dollar-prefix) Начинайте названия переменных, хранящих объект jQuery, со знака `$`. jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
 
     ```javascript
     // плохо
@@ -2914,7 +2914,7 @@
     ```
 
   <a name="jquery--cache"></a><a name="25.2"></a>
-  - [25.2](#jquery--cache) Cache jQuery lookups.
+  - [25.2](#jquery--cache) Кэшируйте jQuery-поиски.
 
     ```javascript
     // плохо
@@ -2942,10 +2942,10 @@
     ```
 
   <a name="jquery--queries"></a><a name="25.3"></a>
-  - [25.3](#jquery--queries) For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - [25.3](#jquery--queries) Для поиска в DOM используйте каскады `$('.sidebar ul')` или селектор родитель > ребенок `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
 
   <a name="jquery--find"></a><a name="25.4"></a>
-  - [25.4](#jquery--find) Use `find` with scoped jQuery object queries.
+  - [25.4](#jquery--find) Используйте функцию `find` для поиска в сохраненных jQuery-объектах.
 
     ```javascript
     // плохо
@@ -2967,10 +2967,10 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## ECMAScript 5 Compatibility
+## <a name="ecmascript-5-compatibility">Поддержка ECMAScript 5</a>
 
   <a name="es5-compat--kangax"></a><a name="26.1"></a>
-  - [26.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
+  - [26.1](#es5-compat--kangax) Можно посмотреть в [таблице поддержки](https://kangax.github.io/es5-compat-table/) ES5 от пользователя [Kangax](https://twitter.com/kangax/) .
 
 **[⬆ к оглавлению](#Оглавление)**
 
@@ -3001,10 +3001,10 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Testing
+## <a name="testing">Тестирование</a>
 
   <a name="testing--yup"></a><a name="28.1"></a>
-  - [28.1](#testing--yup) **Yup.**
+  - [28.1](#testing--yup) **Ага.**
 
     ```javascript
     function foo() {
@@ -3013,13 +3013,13 @@
     ```
 
   <a name="testing--for-real"></a><a name="28.2"></a>
-  - [28.2](#testing--for-real) **No, but seriously**:
-   - Whichever testing framework you use, you should be writing tests!
-   - Strive to write many small pure functions, and minimize where mutations occur.
-   - Be cautious about stubs and mocks - they can make your tests more brittle.
-   - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Airbnb. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
-   - 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
-   - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
+  - [28.2](#testing--for-real) **Нет, но серьезно**:
+   - Какой бы фреймворк вы не использовали, вы должны писать тесты!
+   - Стремитесь к тому, чтобы написать много маленьких чистых функций, и к тому, чтобы свести к минимуму места, где происходят мутации.
+   - Будьте осторожны со стабами (stubs) и моками (mocks) — они могут сделать ваше тестирование более хрупким.
+   - Мы в первую очередь советуем вам использовать [`mocha`](https://www.npmjs.com/package/mocha) от Airbnb. [`tape`](https://www.npmjs.com/package/tape) также иногда используется для небольших, отдельных модулей.
+   - 100% покрытие тестами — это хорошая цель, к которой надо стремиться, даже если это не всегда практично.
+   - Всякий раз, когда вы исправляете ошибку, _пишите регрессионный тест_. Исправленная ошибка без регрессионного тестирования почти наверняка всплывет в будущем.
 
 **[⬆ к оглавлению](#Оглавление)**
 
