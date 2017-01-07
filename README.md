@@ -3120,16 +3120,16 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Пообщаться с разработчиками Airbnb
+## <a name="chat-with-us-about-javascript">Пообщаться с разработчиками Airbnb</a>
 
   - Найдите их на [gitter](https://gitter.im/airbnb/javascript).
 
-## Участники
+## <a name="contributors">Участники перевода</a>
 
   - [Посмотреть всех](https://github.com/leonidlebedev/javascript-airbnb/graphs/contributors)
 
 
-## Лицензия
+## <a name="license">Лицензия</a>
 
 (The MIT License)
 
