@@ -34,7 +34,7 @@
   1. [Аксессоры](#accessors)
   1. [События](#events)
   1. [jQuery](#jquery)
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
+  1. [Поддержка ECMAScript 5](#ecmascript-5-compatibility)
   1. [Возможности ECMAScript 6+ (ES 2015+)](#ecmascript-6-es-2015-styles)
   1. [Testing](#testing)
   1. [Performance](#performance)
@@ -2900,10 +2900,10 @@
   **[⬆ к оглавлению](#Оглавление)**
 
 
-## jQuery
+## <a name="jquery">jQuery</a>
 
   <a name="jquery--dollar-prefix"></a><a name="25.1"></a>
-  - [25.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$`. jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
+  - [25.1](#jquery--dollar-prefix) Начинайте названия переменных, хранящих объект jQuery, со знака `$`. jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
 
     ```javascript
     // плохо
@@ -2917,7 +2917,7 @@
     ```
 
   <a name="jquery--cache"></a><a name="25.2"></a>
-  - [25.2](#jquery--cache) Cache jQuery lookups.
+  - [25.2](#jquery--cache) Кэшируйте jQuery-поиски.
 
     ```javascript
     // плохо
@@ -2945,10 +2945,10 @@
     ```
 
   <a name="jquery--queries"></a><a name="25.3"></a>
-  - [25.3](#jquery--queries) For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - [25.3](#jquery--queries) Для поиска в DOM используйте каскады `$('.sidebar ul')` или селектор родитель > ребенок `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
 
   <a name="jquery--find"></a><a name="25.4"></a>
-  - [25.4](#jquery--find) Use `find` with scoped jQuery object queries.
+  - [25.4](#jquery--find) Используйте функцию `find` для поиска в сохраненных jQuery-объектах.
 
     ```javascript
     // плохо
@@ -2970,10 +2970,10 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## ECMAScript 5 Compatibility
+## <a name="ecmascript-5-compatibility">Поддержка ECMAScript 5</a>
 
   <a name="es5-compat--kangax"></a><a name="26.1"></a>
-  - [26.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
+  - [26.1](#es5-compat--kangax) Можно посмотреть в [таблице поддержки](https://kangax.github.io/es5-compat-table/) ES5 от пользователя [Kangax](https://twitter.com/kangax/) .
 
 **[⬆ к оглавлению](#Оглавление)**
 
