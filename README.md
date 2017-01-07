@@ -37,14 +37,11 @@
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
   1. [Testing](#testing)
-  1. [Performance](#performance)
-  1. [Resources](#resources)
-  1. [In the Wild](#in-the-wild)
-  1. [Translation](#translation)
-  1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
-  1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
-  1. [Contributors](#contributors)
-  1. [License](#license)
+  1. [Производительность](#performance)
+  1. [Ресурсы](#resources)
+  1. [Пообщаться с разработчиками Airbnb](#chat-with-us-about-javascript)
+  1. [Помощники](#contributors)
+  1. [Лицензия](#license)
 
 ## <a name="types">Типы</a>
 
@@ -3027,7 +3024,7 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Performance
+## <a name="performance">Производительность</a>
 
   - [On Layout & Web Performance](https://www.kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](https://jsperf.com/string-vs-array-concat/2)
@@ -3037,45 +3034,45 @@
   - [innerHTML vs textContent for script text](https://jsperf.com/innerhtml-vs-textcontent-for-script-text)
   - [Long String Concatenation](https://jsperf.com/ya-string-concat)
   - [Are Javascript functions like `map()`, `reduce()`, and `filter()` optimized for traversing arrays?](https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta)
-  - Loading...
+  - Загрузка...
 
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Resources
+## <a name="resources">Ресурсы</a>
 
-**Learning ES6**
+**Изучение ES6**
 
   - [Draft ECMA 2015 (ES6) Spec](https://people.mozilla.org/~jorendorff/es6-draft.html)
   - [ExploringJS](http://exploringjs.com/)
   - [ES6 Compatibility Table](https://kangax.github.io/compat-table/es6/)
   - [Comprehensive Overview of ES6 Features](http://es6-features.org/)
 
-**Read This**
+**Почитайте это**
 
   - [Standard ECMA-262](http://www.ecma-international.org/ecma-262/6.0/index.html)
 
-**Tools**
+**Инструменты**
 
   - Code Style Linters
     + [ESlint](http://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
     + [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/.jshintrc)
     + [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json)
 
-**Other Style Guides**
+**Другие руководства**
 
   - [Google JavaScript Style Guide](https://google.github.io/styleguide/javascriptguide.xml)
   - [jQuery Core Style Guidelines](https://contribute.jquery.org/style-guide/js/)
   - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwaldron/idiomatic.js)
 
-**Other Styles**
+**Другие стили**
 
   - [Naming this in nested functions](https://gist.github.com/cjohansen/4135065) - Christian Johansen
   - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) - Ross Allen
   - [Popular JavaScript Coding Conventions on GitHub](http://sideeffect.kr/popularconvention/#javascript) - JeongHoon Byun
   - [Multiple var statements in JavaScript, not superfluous](http://benalman.com/news/2012/05/multiple-var-statements-javascript/) - Ben Alman
 
-**Further Reading**
+**Дальнейшее чтение**
 
   - [Understanding JavaScript Closures](https://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
   - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
@@ -3083,7 +3080,7 @@
   - [ES6 Features](https://github.com/lukehoban/es6features) - Luke Hoban
   - [Frontend Guidelines](https://github.com/bendc/frontend-guidelines) - Benjamin De Cock
 
-**Books**
+**Книги**
 
   - [JavaScript: The Good Parts](https://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
   - [JavaScript Patterns](https://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
@@ -3102,7 +3099,7 @@
   - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke
   - [You Don't Know JS: ES6 & Beyond](http://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson
 
-**Blogs**
+**Блоги**
 
   - [JavaScript Weekly](http://javascriptweekly.com/)
   - [JavaScript, JavaScript...](https://javascriptweblog.wordpress.com/)
@@ -3115,7 +3112,7 @@
   - [Dustin Diaz](http://dustindiaz.com/)
   - [nettuts](http://code.tutsplus.com/?s=javascript)
 
-**Podcasts**
+**Подкасты**
 
   - [JavaScript Air](https://javascriptair.com/)
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
@@ -3123,129 +3120,20 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## In the Wild
+## Пообщаться с разработчиками Airbnb
 
-  This is a list of organizations that are using this style guide. Send us a pull request and we'll add you to the list.
+  - Найдите их на [gitter](https://gitter.im/airbnb/javascript).
 
-  - **4Catalyzer**: [4Catalyzer/javascript](https://github.com/4Catalyzer/javascript)
-  - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
-  - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
-  - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
-  - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
-  - **Ascribe**: [ascribe/javascript](https://github.com/ascribe/javascript)
-  - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
-  - **Avant**: [avantcredit/javascript](https://github.com/avantcredit/javascript)
-  - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
-  - **Bisk**: [bisk/javascript](https://github.com/Bisk/javascript/)
-  - **Blendle**: [blendle/javascript](https://github.com/blendle/javascript)
-  - **Bonhomme**: [bonhommeparis/javascript](https://github.com/bonhommeparis/javascript)
-  - **Brainshark**: [brainshark/javascript](https://github.com/brainshark/javascript)
-  - **Chartboost**: [ChartBoost/javascript-style-guide](https://github.com/ChartBoost/javascript-style-guide)
-  - **ComparaOnline**: [comparaonline/javascript](https://github.com/comparaonline/javascript-style-guide)
-  - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
-  - **DailyMotion**: [dailymotion/javascript](https://github.com/dailymotion/javascript)
-  - **DoSomething**: [DoSomething/eslint-config](https://github.com/DoSomething/eslint-config)
-  - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
-  - **Ecosia**: [ecosia/javascript](https://github.com/ecosia/javascript)
-  - **Evernote**: [evernote/javascript-style-guide](https://github.com/evernote/javascript-style-guide)
-  - **Evolution Gaming**: [evolution-gaming/javascript](https://github.com/evolution-gaming/javascript)
-  - **EvozonJs**: [evozonjs/javascript](https://github.com/evozonjs/javascript)
-  - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
-  - **Expensify** [Expensify/Style-Guide](https://github.com/Expensify/Style-Guide/blob/master/javascript.md)
-  - **Flexberry**: [Flexberry/javascript-style-guide](https://github.com/Flexberry/javascript-style-guide)
-  - **Gawker Media**: [gawkermedia/javascript](https://github.com/gawkermedia/javascript)
-  - **General Electric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
-  - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
-  - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
-  - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript-style-guide)
-  - **Huballin**: [huballin/javascript](https://github.com/huballin/javascript)
-  - **HubSpot**: [HubSpot/javascript](https://github.com/HubSpot/javascript)
-  - **Hyper**: [hyperoslo/javascript-playbook](https://github.com/hyperoslo/javascript-playbook/blob/master/style.md)
-  - **InfoJobs**: [InfoJobs/JavaScript-Style-Guide](https://github.com/InfoJobs/JavaScript-Style-Guide)
-  - **Intent Media**: [intentmedia/javascript](https://github.com/intentmedia/javascript)
-  - **Jam3**: [Jam3/Javascript-Code-Conventions](https://github.com/Jam3/Javascript-Code-Conventions)
-  - **JeopardyBot**: [kesne/jeopardy-bot](https://github.com/kesne/jeopardy-bot/blob/master/STYLEGUIDE.md)
-  - **JSSolutions**: [JSSolutions/javascript](https://github.com/JSSolutions/javascript)
-  - **KickorStick**: [kickorstick/javascript](https://github.com/kickorstick/javascript)
-  - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/Javascript-style-guide)
-  - **Lonely Planet**: [lonelyplanet/javascript](https://github.com/lonelyplanet/javascript)
-  - **M2GEN**: [M2GEN/javascript](https://github.com/M2GEN/javascript)
-  - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
-  - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
-  - **MitocGroup**: [MitocGroup/javascript](https://github.com/MitocGroup/javascript)
-  - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
-  - **Money Advice Service**: [moneyadviceservice/javascript](https://github.com/moneyadviceservice/javascript)
-  - **Muber**: [muber/javascript](https://github.com/muber/javascript)
-  - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
-  - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
-  - **Nimbl3**: [nimbl3/javascript](https://github.com/nimbl3/javascript)
-  - **Nulogy**: [nulogy/javascript](https://github.com/nulogy/javascript)
-  - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
-  - **OutBoxSoft**: [OutBoxSoft/javascript](https://github.com/OutBoxSoft/javascript)
-  - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
-  - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
-  - **reddit**: [reddit/styleguide/javascript](https://github.com/reddit/styleguide/tree/master/javascript)
-  - **React**: [/facebook/react/blob/master/CONTRIBUTING.md#style-guide](https://github.com/facebook/react/blob/master/CONTRIBUTING.md#style-guide)
-  - **REI**: [reidev/js-style-guide](https://github.com/rei/code-style-guides/blob/master/docs/javascript.md)
-  - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
-  - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
-  - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
-  - **Springload**: [springload/javascript](https://github.com/springload/javascript)
-  - **StratoDem Analytics**: [stratodem/javascript](https://github.com/stratodem/javascript)
-  - **SteelKiwi Development**: [steelkiwi/javascript](https://github.com/steelkiwi/javascript)
-  - **StudentSphere**: [studentsphere/javascript](https://github.com/studentsphere/guide-javascript)
-  - **SysGarage**: [sysgarage/javascript-style-guide](https://github.com/sysgarage/javascript-style-guide)
-  - **Syzygy Warsaw**: [syzygypl/javascript](https://github.com/syzygypl/javascript)
-  - **Target**: [target/javascript](https://github.com/target/javascript)
-  - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
-  - **The Nerdery**: [thenerdery/javascript-standards](https://github.com/thenerdery/javascript-standards)
-  - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
-  - **VoxFeed**: [VoxFeed/javascript-style-guide](https://github.com/VoxFeed/javascript-style-guide)
-  - **WeBox Studio**: [weboxstudio/javascript](https://github.com/weboxstudio/javascript)
-  - **Weggo**: [Weggo/javascript](https://github.com/Weggo/javascript)
-  - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
-  - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
+## Участники
 
-**[⬆ к оглавлению](#Оглавление)**
-
-## Translation
-
-  This style guide is also available in other languages:
-
-  - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
-  - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
-  - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
-  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese (Simplified)**: [sivan/javascript-style-guide](https://github.com/sivan/javascript-style-guide)
-  - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese (Traditional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript)
-  - ![fr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/France.png) **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
-  - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
-  - ![it](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Italian**: [sinkswim/javascript-style-guide](https://github.com/sinkswim/javascript-style-guide)
-  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide)
-  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
-  - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polish**: [mjurczyk/javascript](https://github.com/mjurczyk/javascript)
-  - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [uprock/javascript](https://github.com/uprock/javascript)
-  - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
-  - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
-  - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnam**: [giangpii/javascript-style-guide](https://github.com/giangpii/javascript-style-guide)
-
-## The JavaScript Style Guide Guide
-
-  - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
-
-## Chat With Us About JavaScript
-
-  - Find us on [gitter](https://gitter.im/airbnb/javascript).
-
-## Contributors
-
-  - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
+  - [Посмотреть всех](https://github.com/leonidlebedev/javascript-airbnb/graphs/contributors)
 
 
-## License
+## Лицензия
 
 (The MIT License)
 
-Copyright (c) 2014-2016 Airbnb
+Copyright (c) 2014-2017 Airbnb
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -3267,9 +3155,5 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 **[⬆ к оглавлению](#Оглавление)**
-
-## Amendments
-
-We encourage you to fork this guide and change the rules to fit your team's style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
 
 # };
