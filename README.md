@@ -21,7 +21,7 @@
   1. [Модули](#modules)
   1. [Iterators and Generators](#iterators-and-generators)
   1. [Свойства](#properties)
-  1. [Variables](#variables)
+  1. [Переменные](#variables)
   1. [Подъем](#hoisting)
   1. [Операторы сравнения и равенства](#comparison-operators--equality)
   1. [Блоки](#blocks)
@@ -1417,10 +1417,10 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Variables
+## <a name="variables">Переменные</a>
 
   <a name="variables--const"></a><a name="13.1"></a>
-  - [13.1](#variables--const) Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
+  - [13.1](#variables--const) Всегда используйте `const` для объявления переменных. Невыполнение этого требования приведет к появлению глобальных переменных. Необходимо избегать загрязнения глобального пространства имен. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
 
     ```javascript
     // плохо
@@ -1431,9 +1431,9 @@
     ```
 
   <a name="variables--one-const"></a><a name="13.2"></a>
-  - [13.2](#variables--one-const) Use one `const` declaration per variable. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
+  - [13.2](#variables--one-const) Используйте объявление `const` для каждой переменной. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
 
-    > Почему? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
+    > Почему? Таким образом проще добавить новые переменные. Также вы никогда не будете беспокоиться о перемещении `;` и `,` и об отображении изменений в пунктуации. Вы также можете пройтись по каждому объявлению с помощью откладчика, вместо того, чтобы прыгать через все сразу.
 
     ```javascript
     // плохо
@@ -1442,7 +1442,7 @@
         dragonball = 'z';
 
     // плохо
-    // (compare to above, and try to spot the mistake)
+    // (сравните с кодом выше и попытайтесь найти ошибку)
     const items = getItems(),
         goSportsTeam = true;
         dragonball = 'z';
@@ -1454,9 +1454,9 @@
     ```
 
   <a name="variables--const-let-group"></a><a name="13.3"></a>
-  - [13.3](#variables--const-let-group) Group all your `const`s and then group all your `let`s.
+  - [13.3](#variables--const-let-group) В первую очередь, группируйте все ваши `const`, а затем все ваши `let`.
 
-    > Почему? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+    > Почему? Это полезно, когда в будущем вам понадобится создать переменную, зависимую от предудыщих.
 
     ```javascript
     // плохо
@@ -1480,12 +1480,12 @@
     ```
 
   <a name="variables--define-where-used"></a><a name="13.4"></a>
-  - [13.4](#variables--define-where-used) Assign variables where you need them, but place them in a reasonable place.
+  - [13.4](#variables--define-where-used) Создавайте переменные там, где они вам необходимы, но помещайте их в подходящее место.
 
-    > Почему? `let` and `const` are block scoped and not function scoped.
+    > Почему? `let` и `const` имеют блочную область видимости, а не функциональную.
 
     ```javascript
-    // плохо - unnecessary function call
+    // плохо - вызов ненужной функции
     function checkName(hasName) {
       const name = getName();
 
@@ -1518,17 +1518,17 @@
     }
     ```
   <a name="variables--no-chain-assignment"></a><a name="13.5"></a>
-  - [13.5](#variables--no-chain-assignment) Don't chain variable assignments.
+  - [13.5](#variables--no-chain-assignment) Не создавайте цепочки присваивания переменных.
 
-    > Почему? Chaining variable assignments creates implicit global variables.
+    > Почему? Цепочки присваивания переменных создают неявные глобальные переменные.
 
     ```javascript
     // плохо
     (function example() {
-      // JavaScript interprets this as
+      // JavaScript интерпретирует это, как
       // let a = ( b = ( c = 1 ) );
-      // The let keyword only applies to variable a; variables b and c become
-      // global variables.
+      // Ключевое слово let применится только к переменной a;
+      // переменные b и c станут глобальными.
       let a = b = c = 1;
     }());
 
@@ -1547,13 +1547,13 @@
     console.log(b); // undefined
     console.log(c); // undefined
 
-    // the same applies for `const`
+    // тоже самое и для `const`
     ```
 
   <a name="variables--unary-increment-decrement"></a><a name="13.6"></a>
-  - [13.6](#variables--unary-increment-decrement) Avoid using unary increments and decrements (++, --). eslint [`no-plusplus`](http://eslint.org/docs/rules/no-plusplus)
+  - [13.6](#variables--unary-increment-decrement) Избегайте использования унарных инкрементов и декрементов (++, --). eslint [`no-plusplus`](http://eslint.org/docs/rules/no-plusplus)
 
-    > Почему? Per the eslint documentation, unary increment and decrement statements are subject to automatic semicolon insertion and can cause silent errors with incrementing or decrementing values within an application. It is also more expressive to mutate your values with statements like `num += 1` instead of `num++` or `num ++`. Disallowing unary increment and decrement statements also prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
+    > Почему? Согласно eslint документации, унарные инкремент и декремент автоматически вставляют точку с запятой, что может стать причиной к трудноуловимым ошибкам при инкрементировании и декрементировании значений. Также нагляднее изменять ваши значения таким образом `num += 1` вместо `num++` или `num ++`. Запрет на унарные инкремент и декремент ограждают вас от непреднамеренных преинкрементаций/предекрементаций значений, которые могут привести к непредсказуемому поведению вашей программы.
 
     ```javascript
       // плохо
