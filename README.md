@@ -22,7 +22,7 @@
   1. [Iterators and Generators](#iterators-and-generators)
   1. [Свойства](#properties)
   1. [Variables](#variables)
-  1. [Hoisting](#hoisting)
+  1. [Подъем](#hoisting)
   1. [Операторы сравнения и равенства](#comparison-operators--equality)
   1. [Блоки](#blocks)
   1. [Комментарии](#comments)
@@ -1587,52 +1587,52 @@
 **[⬆ к оглавлению](#Оглавление)**
 
 
-## Hoisting
+## <a name="hoisting">Подъем</a>
 
   <a name="hoisting--about"></a><a name="14.1"></a>
-  - [14.1](#hoisting--about) `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
+  - [14.1](#hoisting--about) Объявления `var` поднимаются к началу своей области видимости, но не их присвоение. Объявления `const` и `let` работают по новой концепции называемой [Временные Мертвые Зоны (Temporal Dead Zone)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). Это важно знать, почему использовать [typeof больше не безапасно](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
 
     ```javascript
-    // we know this wouldn't work (assuming there
-    // is no notDefined global variable)
+    // мы знаем, что это не будет работать
+    // (если нет глобальной переменной notDefined)
     function example() {
-      console.log(notDefined); // => throws a ReferenceError
+      console.log(notDefined); // => выбросит ошибку ReferenceError
     }
 
-    // creating a variable declaration after you
-    // reference the variable will work due to
-    // variable hoisting. Note: the assignment
-    // value of `true` is not hoisted.
+    // обращение к переменной до ее создания
+    // будет работать из-за подъема.
+    // Примечание: значение true не поднимается.
     function example() {
       console.log(declaredButNotAssigned); // => undefined
       var declaredButNotAssigned = true;
     }
 
-    // the interpreter is hoisting the variable
-    // declaration to the top of the scope,
-    // which means our example could be rewritten as:
+    // интерпретатор понимает объявление
+    // переменной в начало области видимости.
+    // это означает, что наш пример
+    // можно переписать таким образом:
     function example() {
       let declaredButNotAssigned;
       console.log(declaredButNotAssigned); // => undefined
       declaredButNotAssigned = true;
     }
 
-    // using const and let
+    // использование const и let
     function example() {
-      console.log(declaredButNotAssigned); // => throws a ReferenceError
-      console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
+      console.log(declaredButNotAssigned); // => выбросит ошибку ReferenceError
+      console.log(typeof declaredButNotAssigned); // => выбросит ошибку ReferenceError
       const declaredButNotAssigned = true;
     }
     ```
 
   <a name="hoisting--anon-expressions"></a><a name="14.2"></a>
-  - [14.2](#hoisting--anon-expressions) Anonymous function expressions hoist their variable name, but not the function assignment.
+  - [14.2](#hoisting--anon-expressions) Для анонимных функциональных выражений наверх области видимости поднимается название их переменой, но не ее значение.
 
     ```javascript
     function example() {
       console.log(anonymous); // => undefined
 
-      anonymous(); // => TypeError anonymous is not a function
+      anonymous(); // => TypeError anonymous не является функцией
 
       var anonymous = function () {
         console.log('anonymous function expression');
@@ -1641,27 +1641,27 @@
     ```
 
   <a name="hoisting--named-expresions"></a><a name="14.3"></a>
-  - [14.3](#hoisting--named-expresions) Named function expressions hoist the variable name, not the function name or the function body.
+  - [14.3](#hoisting--named-expresions) Для именованных функциональных выражений наверх области видимости поднимается название их переменой, но не имя или тело функции.
 
     ```javascript
     function example() {
       console.log(named); // => undefined
 
-      named(); // => TypeError named is not a function
+      named(); // => TypeError named не является функцией
 
-      superPower(); // => ReferenceError superPower is not defined
+      superPower(); // => ReferenceError superPower не определена
 
       var named = function superPower() {
         console.log('Flying');
       };
     }
 
-    // the same is true when the function name
-    // is the same as the variable name.
+    // тоже самое справедливо, когда имя функции
+    // совпадает с именем переменной.
     function example() {
       console.log(named); // => undefined
 
-      named(); // => TypeError named is not a function
+      named(); // => TypeError named не является функцией
 
       var named = function named() {
         console.log('named');
@@ -1670,7 +1670,7 @@
     ```
 
   <a name="hoisting--declarations"></a><a name="14.4"></a>
-  - [14.4](#hoisting--declarations) Function declarations hoist their name and the function body.
+  - [14.4](#hoisting--declarations) Для объявлений функций наверх области видимости поднимается их имя и тело функции.
 
     ```javascript
     function example() {
@@ -1682,7 +1682,7 @@
     }
     ```
 
-  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) by [Ben Cherry](http://www.adequatelygood.com/).
+  - Более подробно можно прочитать в статье [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) от [Ben Cherry](http://www.adequatelygood.com/).
 
 **[⬆ к оглавлению](#Оглавление)**
 
