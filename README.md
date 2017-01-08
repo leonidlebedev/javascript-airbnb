@@ -1286,14 +1286,14 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Итераторы и генераторы
+## <a name="iterators-and-generators">Итераторы и генераторы</a>
 
-  <a name="iterators-and-generators"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Не используйте итераторы. Лучше использовать функции высшего порядка, вместо таких циклов как `for-in` или `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
+  <a name="iterators--nope"></a><a name="11.1"></a>
+  - [11.1](#iterators--nope) Не используйте итераторы. Применяйте функции высшего порядка, вместо таких циклов как `for-in` или `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
 
-    > Почему? Лучше использовать правила имутабельности (immutable). Работать с чистыми функциями лучше для понимания, чем с фукциями с side effect-ами.
+    > Почему? Это обеспечивает соблюдение нашего правила об иммутабельности. Работать с чистыми функциями, которые возвращают значение, лучше для понимания, чем с функциями с побочными эффектами.
 
-    > Используйте `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... для итерации по массивам, а `Object.keys()` / `Object.values()` / `Object.entries()` для создания массивов, с помощью которых, можно итерироваться по объектам.
+    > Используйте `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... для итерации по массивам, а `Object.keys()` / `Object.values()` / `Object.entries()` для создания массивов, с помощью которых можно итерироваться по объектам.
 
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
@@ -1324,7 +1324,7 @@
     const increasedByOne = [];
     numbers.forEach(num => modified.push(num + 1));
 
-    // отлично (и тут используй функциональную силу)
+    // отлично (продолжайте в том же духе)
     const increasedByOne = numbers.map(num => num + 1);
     ```
 
@@ -1334,9 +1334,9 @@
     > Почему? Они не очень хорошо транспилируются в ES5.
 
   <a name="generators--spacing"></a>
-  - [11.3](#generators--spacing) Если все таки нужно использовать генераторы, или не обратили внимания на [наш совет](#generators--nope), убедитесь, что * у функции генератора расположена должным образом. eslint: [`generator-star-spacing`](http://eslint.org/docs/rules/generator-star-spacing)
+  - [11.3](#generators--spacing) Если все-таки необходимо использовать генераторы, или вы не обратили внимания на [наш совет](#generators--nope), убедитесь, что `*` у функции генератора расположена должным образом. eslint: [`generator-star-spacing`](http://eslint.org/docs/rules/generator-star-spacing)
 
-    > Почему? `function` и `*` два разные зарезервированные конструкции. `*` не является модификатором для `function`, `function*` является уникальной конструкцией, отличается от `function`.
+    > Почему? `function` и `*` являются частью одного и того же ключевого слова. `*` не является модификатором для `function`, `function*` является уникальной конструкцией, отличной от `function`.
 
     ```js
     // плохо
