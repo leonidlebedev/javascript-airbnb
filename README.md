@@ -1289,7 +1289,7 @@
 ## <a name="iterators-and-generators">Итераторы и генераторы</a>
 
   <a name="iterators--nope"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Не используйте итераторы. Применяйте функции высшего порядка, вместо таких циклов как `for-in` или `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
+  - [11.1](#iterators--nope) Не используйте итераторы. Применяйте функции высшего порядка вместо таких циклов как `for-in` или `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
 
     > Почему? Это обеспечивает соблюдение нашего правила об иммутабельности. Работать с чистыми функциями, которые возвращают значение, лучше для понимания, чем с функциями с побочными эффектами.
 
@@ -1310,7 +1310,7 @@
     numbers.forEach(num => sum += num);
     sum === 15;
 
-    // отлично (используй функциональную силу)
+    // отлично (используйте силу функций)
     const sum = numbers.reduce((total, num) => total + num, 0);
     sum === 15;
 
