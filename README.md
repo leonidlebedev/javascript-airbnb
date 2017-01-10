@@ -565,7 +565,7 @@
 ## <a name="functions">Функции</a>
 
   <a name="functions--declarations"></a><a name="7.1"></a>
-  - [7.1](#functions--declarations) Используйте функциональные выражения вместо объявлений функций. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`requireFunctionDeclarations`](http://jscs.info/rule/requireFunctionDeclarations)
+  - [7.1](#functions--declarations) Используйте функциональные выражения вместо объявлений функций. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
 
     > Почему? У объявлений функций есть подъем. Это означает, что можно использовать функцию до того, как она определена в файле. Это вредит читабельности и поддержке. Если вы обнаружите, что определение функции является большим или достаточно сложным, что мешает понимать остальную часть файла, то, возможно, пришло время извлечь его в отдельный модуль! Не забывайте называть функциональные выражения - анонимные функции усложняют поиск проблемы в стеке вызовов. ([Discussion](https://github.com/airbnb/javascript/issues/794))
 
@@ -1314,12 +1314,12 @@
     // плохо
     const increasedByOne = [];
     for (let i = 0; i < numbers.length; i++) {
-      modified.push(numbers[i] + 1);
+      increasedByOne.push(numbers[i] + 1);
     }
 
     // хорошо
     const increasedByOne = [];
-    numbers.forEach(num => modified.push(num + 1));
+    numbers.forEach(num => increasedByOne.push(num + 1));
 
     // отлично (keeping it functional)
     const increasedByOne = numbers.map(num => num + 1);
@@ -1662,7 +1662,7 @@
 
       var named = function named() {
         console.log('named');
-      }
+      };
     }
     ```
 
