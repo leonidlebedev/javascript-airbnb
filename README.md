@@ -35,7 +35,7 @@
   1. [События](#events)
   1. [jQuery](#jquery)
   1. [Поддержка ECMAScript 5](#ecmascript-5-compatibility)
-  1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
+  1. [Возможности ECMAScript 6+ (ES 2015+)](#ecmascript-6-es-2015-styles)
   1. [Тестирование](#testing)
   1. [Производительность](#performance)
   1. [Ресурсы](#resources)
@@ -634,9 +634,9 @@
     ```
 
   <a name="es6-rest"></a><a name="7.6"></a>
-  - [7.6](#es6-rest) Никогда не используйте `arguments`, вместо этого используйте оператор расширения `...`. eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
+  - [7.6](#es6-rest) Никогда не используйте `arguments`, вместо этого используйте синтаксис оставшихся параметров `...`. eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
 
-    > Почему? `...` явно говорит о том, какие именно аргументы вы хотите вытащить. Кроме того, аргументы оператора расширения являются настоящим массивом, а не массиво-подобным объектом как `arguments`.
+    > Почему? `...` явно говорит о том, какие именно аргументы вы хотите извлечь. Кроме того, такой синтаксис создает настоящий массив, а не массиво-подобный объект как `arguments`.
 
     ```javascript
     // плохо
@@ -2974,30 +2974,29 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-<a name="ecmascript-6-styles"></a>
-## ECMAScript 6+ (ES 2015+) Styles
+## <a name="ecmascript-6-es-2015-styles">Возможности ECMAScript 6+ (ES 2015+)</a>
 
   <a name="es6-styles"></a><a name="27.1"></a>
-  - [27.1](#es6-styles) This is a collection of links to the various ES6 features.
+  - [27.1](#es6-styles) Здесь собраны ссылки на различные возможности ES6.
 
-1. [Arrow Functions](#arrow-functions)
-1. [Classes](#classes--constructors)
-1. [Object Shorthand](#es6-object-shorthand)
-1. [Object Concise](#es6-object-concise)
-1. [Object Computed Properties](#es6-computed-properties)
-1. [Template Strings](#es6-template-literals)
-1. [Destructuring](#destructuring)
-1. [Default Parameters](#es6-default-parameters)
-1. [Rest](#es6-rest)
-1. [Array Spreads](#es6-array-spreads)
-1. [Let and Const](#references)
-1. [Iterators and Generators](#iterators-and-generators)
-1. [Modules](#modules)
+1. [Стрелочные функции](#arrow-functions)
+1. [Классы и конструкторы](#classes--constructors)
+1. [Сокращенная запись методов объекта](#es6-object-shorthand)
+1. [Сокращенная запись свойств объекта](#es6-object-concise)
+1. [Вычисляемые имена свойств объекта](#es6-computed-properties)
+1. [Шаблонные строки](#es6-template-literals)
+1. [Деструктуризация](#destructuring)
+1. [Параметры по умолчанию](#es6-default-parameters)
+1. [Оставшиеся параметры](#es6-rest)
+1. [Оператор расширения](#es6-array-spreads)
+1. [Let и Const](#references)
+1. [Итераторы и генераторы](#iterators-and-generators)
+1. [Модули](#modules)
 
   <a name="tc39-proposals"></a>
-  - [27.2](#tc39-proposals) Do not use [TC39 proposals](https://github.com/tc39/proposals) that have not reached stage 3.
+  - [27.2](#tc39-proposals) Не используйте [предложения TC39](https://github.com/tc39/proposals), которые не перешли на 3 стадию.
 
-    > Почему? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
+    > Почему? [Они ещё не закончены](https://tc39.github.io/process-document/) и  могут быть изменены или полностью изъяты. Мы хотим использовать JavaScript, а предложения еще не стали частью JavaScript.
 
 **[⬆ к оглавлению](#Оглавление)**
 
