@@ -19,7 +19,7 @@
   1. [Стрелочные функции](#arrow-functions)
   1. [Классы и конструкторы](#classes--constructors)
   1. [Модули](#modules)
-  1. [Iterators and Generators](#iterators-and-generators)
+  1. [Итераторы и генераторы](#iterators-and-generators)
   1. [Свойства](#properties)
   1. [Переменные](#variables)
   1. [Подъем](#hoisting)
@@ -86,7 +86,7 @@
   <a name="references--prefer-const"></a><a name="2.1"></a>
   - [2.1](#references--prefer-const) Используйте `const` для объявления переменных; избегайте `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
 
-    > Почему? Это гарантирует, что вы не сможете переопределить значения, которые могут привести к ошибкам и к трудночитаемому коду.
+    > Почему? Это гарантирует, что вы не сможете переопределять значения, т.к. это может привести к ошибкам и к усложнению понимания кода.
 
     ```javascript
     // плохо
