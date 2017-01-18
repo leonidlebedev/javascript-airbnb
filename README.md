@@ -572,14 +572,17 @@
     ```javascript
     // плохо
     const foo = function () {
+      // ...
     };
 
     // плохо
     function foo() {
+      // ...
     }
 
     // хорошо
     const foo = function bar() {
+      // ...
     };
     ```
 
@@ -623,13 +626,13 @@
 
     ```javascript
     // плохо
-    function nope(name, options, arguments) {
-      // ...немного кода...
+    function foo(name, options, arguments) {
+      // ...
     }
 
     // хорошо
-    function yup(name, options, args) {
-      // ...немного кода...
+    function foo(name, options, args) {
+      // ...
     }
     ```
 
@@ -766,18 +769,22 @@
     // плохо
     function f1(a) {
       a = 1;
+      // ...
     }
 
     function f2(a) {
       if (!a) { a = 1; }
+      // ...
     }
 
     // хорошо
     function f3(a) {
       const b = a || 1;
+      // ...
     }
 
     function f4(a = 1) {
+      // ...
     }
     ```
 
@@ -796,10 +803,10 @@
     console.log(...x);
 
     // плохо
-    new (Function.prototype.bind.apply(Date, [null, 2016, 08, 05]));
+    new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
 
     // хорошо
-    new Date(...[2016, 08, 05]);
+    new Date(...[2016, 8, 5]);
     ```
 
   <a name="functions--signature-invocation-indentation"></a>
@@ -810,7 +817,7 @@
     function foo(bar,
                  baz,
                  quux) {
-      // тело функции
+      // ...
     }
 
     // хорошо
@@ -819,7 +826,7 @@
       baz,
       quux,
     ) {
-      // тело функции
+      // ...
     }
 
     // плохо
@@ -1339,39 +1346,49 @@
     ```js
     // плохо
     function * foo() {
+      // ...
     }
 
     const bar = function * () {
+      // ...
     }
 
     const baz = function *() {
+      // ...
     }
 
     const quux = function*() {
+      // ...
     }
 
     function*foo() {
+      // ...
     }
 
     function *foo() {
+      // ...
     }
 
     // очень плохо
     function
     *
     foo() {
+      // ...
     }
 
     const wat = function
     *
     () {
+      // ...
     }
 
     // хорошо
     function* foo() {
+      // ...
     }
 
     const foo = function* () {
+      // ...
     }
     ```
 
@@ -1712,32 +1729,32 @@
     ```javascript
     // плохо
     if (isValid === true) {
-      // ...немного кода...
+      // ...
     }
 
     // хорошо
     if (isValid) {
-      // ...немного кода...
+      // ...
     }
 
     // плохо
     if (name) {
-      // ...немного кода...
+      // ...
     }
 
     // хорошо
     if (name !== '') {
-      // ...немного кода...
+      // ...
     }
 
     // плохо
     if (collection.length) {
-      // ...немного кода...
+      // ...
     }
 
     // хорошо
     if (collection.length > 0) {
-      // ...немного кода...
+      // ...
     }
     ```
 
@@ -1759,7 +1776,9 @@
         const y = 2;
         break;
       case 3:
-        function f() {}
+        function f() {
+          // ...
+        }
         break;
       default:
         class C {}
@@ -1776,7 +1795,9 @@
         break;
       }
       case 3: {
-        function f() {}
+        function f() {
+          // ...
+        }
         break;
       }
       case 4:
@@ -1895,7 +1916,7 @@
     // @return {Element} element
     function make(tag) {
 
-      // ...немного кода...
+      // ...
 
       return element;
     }
@@ -1907,7 +1928,7 @@
      */
     function make(tag) {
 
-      // ...немного кода...
+      // ...
 
       return element;
     }
@@ -1970,7 +1991,7 @@
      */
     function make(tag) {
 
-      // ...немного кода...
+      // ...
 
       return element;
     }
@@ -1982,7 +2003,7 @@
      */
     function make(tag) {
 
-      // ...немного кода...
+      // ...
 
       return element;
     }
@@ -2609,12 +2630,12 @@
     ```javascript
     // плохо
     function q() {
-      // ...немного кода...
+      // ...
     }
 
     // хорошо
     function query() {
-      // ..stuff..
+      // ...
     }
     ```
 
@@ -2740,6 +2761,7 @@
   - [22.7](#naming--camelCase-default-export) Используйте `camelCase`, когда экспортируете функцию по умолчанию. Ваш файл должен называться также, как и имя функции.
     ```javascript
     function makeStyleGuide() {
+      // ...
     }
 
     export default makeStyleGuide;
@@ -2917,7 +2939,7 @@
     function setSidebar() {
       $('.sidebar').hide();
 
-      // ...немного кода...
+      // ...
 
       $('.sidebar').css({
         'background-color': 'pink'
@@ -2929,7 +2951,7 @@
       const $sidebar = $('.sidebar');
       $sidebar.hide();
 
-      // ...немного кода...
+      // ...
 
       $sidebar.css({
         'background-color': 'pink'
