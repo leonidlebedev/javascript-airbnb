@@ -248,63 +248,63 @@
   <a name="objects--quoted-props"></a><a name="3.8"></a>
   - [3.6](#objects--quoted-props) Только недопустимые идентификаторы помещаются в кавычки. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
 
-  > Почему? На наш взгляд, такой код легче читать. Это улучшает подсветку синтаксиса, а также облегчает оптимизацию для многих JS движков.
+    > Почему? На наш взгляд, такой код легче читать. Это улучшает подсветку синтаксиса, а также облегчает оптимизацию для многих JS движков.
 
-  ```javascript
-  // плохо
-  const bad = {
-    'foo': 3,
-    'bar': 4,
-    'data-blah': 5,
-  };
+    ```javascript
+    // плохо
+    const bad = {
+      'foo': 3,
+      'bar': 4,
+      'data-blah': 5,
+    };
 
-  // хорошо
-  const good = {
-    foo: 3,
-    bar: 4,
-    'data-blah': 5,
-  };
-  ```
+    // хорошо
+    const good = {
+      foo: 3,
+      bar: 4,
+      'data-blah': 5,
+    };
+    ```
 
   <a name="objects--prototype-builtins"></a>
   - [3.7](#objects--prototype-builtins) Не вызывайте напрямую методы `Object.prototype`, такие как `hasOwnProperty`, `propertyIsEnumerable`, и `isPrototypeOf`.
 
-  > Почему? Эти методы могут быть переопределены в свойствах объекта, который мы проверяем `{ hasOwnProperty: false }`, или этот объект может быть `null` (`Object.create(null)`).
+    > Почему? Эти методы могут быть переопределены в свойствах объекта, который мы проверяем `{ hasOwnProperty: false }`, или этот объект может быть `null` (`Object.create(null)`).
 
-  ```javascript
-  // плохо
-  console.log(object.hasOwnProperty(key));
+    ```javascript
+    // плохо
+    console.log(object.hasOwnProperty(key));
 
-  // хорошо
-  console.log(Object.prototype.hasOwnProperty.call(object, key));
+    // хорошо
+    console.log(Object.prototype.hasOwnProperty.call(object, key));
 
-  // отлично
-  const has = Object.prototype.hasOwnProperty; // Кэшируем запрос в рамках модуля.
-  /* или */
-  import has from 'has';
-  …
-  console.log(has.call(object, key));
-  ```
+    // отлично
+    const has = Object.prototype.hasOwnProperty; // Кэшируем запрос в рамках модуля.
+    /* или */
+    import has from 'has';
+    // ...
+    console.log(has.call(object, key));
+    ```
 
   <a name="objects--rest-spread"></a>
   - [3.8](#objects--rest-spread) Используйте оператор расширения вместо [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) для поверхностного копирования объектов. Используйте синтаксис оставшихся свойств, чтобы получить новый объект с некоторыми опущенными свойствами.
 
-  ```javascript
-  // очень плохо
-  const original = { a: 1, b: 2 };
-  const copy = Object.assign(original, { c: 3 }); // эта переменная изменяет `original` ಠ_ಠ
-  delete copy.a; // если сделать так
+    ```javascript
+    // очень плохо
+    const original = { a: 1, b: 2 };
+    const copy = Object.assign(original, { c: 3 }); // эта переменная изменяет `original` ಠ_ಠ
+    delete copy.a; // если сделать так
 
-  // плохо
-  const original = { a: 1, b: 2 };
-  const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
+    // плохо
+    const original = { a: 1, b: 2 };
+    const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
 
-  // хорошо
-  const original = { a: 1, b: 2 };
-  const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
+    // хорошо
+    const original = { a: 1, b: 2 };
+    const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
 
-  const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
-  ```
+    const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
+    ```
 
 **[⬆ к оглавлению](#Оглавление)**
 
@@ -754,12 +754,12 @@
     // плохо
     function f1(obj) {
       obj.key = 1;
-    };
+    }
 
     // хорошо
     function f2(obj) {
       const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
-    };
+    }
     ```
 
   <a name="functions--reassign-params"></a><a name="7.13"></a>
@@ -892,7 +892,7 @@
 
     // хорошо
     [1, 2, 3].map((number, index) => ({
-      [index]: number
+      [index]: number,
     }));
     ```
 
@@ -901,7 +901,7 @@
 
     > Почему? Это четко показывает, где функция начинается и где заканчивается.
 
-    ```js
+    ```javascript
     // плохо
     ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
@@ -923,7 +923,7 @@
 
     > Почему? Меньше визуального беспорядка.
 
-    ```js
+    ```javascript
     // плохо
     [1, 2, 3].map((x) => x * x);
 
@@ -951,7 +951,7 @@
   <a name="arrows--confusing"></a><a name="8.5"></a>
   - [8.5](#arrows--confusing) Избегайте схожести стрелочной функции (`=>`) с операторами сравнения (`<=`, `>=`). eslint: [`no-confusing-arrow`](http://eslint.org/docs/rules/no-confusing-arrow)
 
-    ```js
+    ```javascript
     // плохо
     const itemHeight = item => item.height > 256 ? item.largeSize : item.smallSize;
 
@@ -1016,13 +1016,13 @@
     }
     inherits(PeekableQueue, Queue);
     PeekableQueue.prototype.peek = function () {
-      return this._queue[0];
-    }
+      return this.queue[0];
+    };
 
     // хорошо
     class PeekableQueue extends Queue {
       peek() {
-        return this._queue[0];
+        return this.queue[0];
       }
     }
     ```
@@ -1219,11 +1219,11 @@
     ```javascript
     // плохо
     let foo = 3;
-    export { foo }
+    export { foo };
 
     // хорошо
     const foo = 3;
-    export { foo }
+    export { foo };
     ```
 
   <a name="modules--prefer-default-export"></a>
@@ -1345,7 +1345,7 @@
 
     > Почему? `function` и `*` являются частью одного и того же ключевого слова. `*` не является модификатором для `function`, `function*` является уникальной конструкцией, отличной от `function`.
 
-    ```js
+    ```javascript
     // плохо
     function * foo() {
       // ...
@@ -1353,15 +1353,15 @@
 
     const bar = function * () {
       // ...
-    }
+    };
 
     const baz = function *() {
       // ...
-    }
+    };
 
     const quux = function*() {
       // ...
-    }
+    };
 
     function*foo() {
       // ...
@@ -1382,7 +1382,7 @@
     *
     () {
       // ...
-    }
+    };
 
     // хорошо
     function* foo() {
@@ -1391,7 +1391,7 @@
 
     const foo = function* () {
       // ...
-    }
+    };
     ```
 
 **[⬆ к оглавлению](#Оглавление)**
@@ -1573,32 +1573,32 @@
     > Почему? Согласно документации eslint, унарные инкремент и декремент автоматически вставляют точку с запятой, что может стать причиной трудноуловимых ошибок при инкрементировании и декрементировании значений. Также нагляднее изменять ваши значения таким образом `num += 1` вместо `num++` или `num ++`. Запрет на унарные инкремент и декремент ограждает вас от непреднамеренных преждевременных инкрементаций/декрементаций значений, которые могут привести к непредсказуемому поведению вашей программы.
 
     ```javascript
-      // плохо
+    // плохо
 
-      let array = [1, 2, 3];
-      let num = 1;
-      num++;
-      --num;
+    let array = [1, 2, 3];
+    let num = 1;
+    num++;
+    --num;
 
-      let sum = 0;
-      let truthyCount = 0;
-      for(let i = 0; i < array.length; i++){
-        let value = array[i];
-        sum += value;
-        if (value) {
-          truthyCount++;
-        }
+    let sum = 0;
+    let truthyCount = 0;
+    for (let i = 0; i < array.length; i++) {
+      let value = array[i];
+      sum += value;
+      if (value) {
+        truthyCount++;
       }
+    }
 
-      // хорошо
+    // хорошо
 
-      let array = [1, 2, 3];
-      let num = 1;
-      num += 1;
-      num -= 1;
+    let array = [1, 2, 3];
+    let num = 1;
+    num += 1;
+    num -= 1;
 
-      const sum = array.reduce((a, b) => a + b, 0);
-      const truthyCount = array.filter(Boolean).length;
+    const sum = array.reduce((a, b) => a + b, 0);
+    const truthyCount = array.filter(Boolean).length;
     ```
 
 **[⬆ к оглавлению](#Оглавление)**
@@ -1766,7 +1766,7 @@
   <a name="comparison--switch-blocks"></a><a name="15.5"></a>
   - [15.5](#comparison--switch-blocks) Используйте фигурные скобки для `case` и `default`, если они содержат лексические декларации (например, `let`, `const`, `function`, и `class`). eslint: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations.html).
 
-  > Почему? Лексические декларации видны во всем `switch` блоке, но инициализируются только при присваивании, которое происходит при входе в блок `case`. Возникают проблемы, когда множество `case` пытаются определить одно и тоже.
+    > Почему? Лексические декларации видны во всем `switch` блоке, но инициализируются только при присваивании, которое происходит при входе в блок `case`. Возникают проблемы, когда множество `case` пытаются определить одно и тоже.
 
     ```javascript
     // плохо
@@ -1951,7 +1951,7 @@
     function getType() {
       console.log('fetching type...');
       // установить по умолчанию тип 'no type'
-      const type = this._type || 'no type';
+      const type = this.type || 'no type';
 
       return type;
     }
@@ -1961,7 +1961,7 @@
       console.log('fetching type...');
 
       // установить по умолчанию тип 'no type'
-      const type = this._type || 'no type';
+      const type = this.type || 'no type';
 
       return type;
     }
@@ -1969,7 +1969,7 @@
     // тоже хорошо
     function getType() {
       // установить по умолчанию тип 'no type'
-      const type = this._type || 'no type';
+      const type = this.type || 'no type';
 
       return type;
     }
@@ -2053,17 +2053,17 @@
     ```javascript
     // плохо
     function foo() {
-    ∙∙∙∙const name;
+    ∙∙∙∙let name;
     }
 
     // плохо
     function bar() {
-    ∙const name;
+    ∙let name;
     }
 
     // хорошо
     function baz() {
-    ∙∙const name;
+    ∙∙let name;
     }
     ```
 
@@ -2500,7 +2500,7 @@
       lastName,
       inventorOf,
       ...heroArgs
-    )
+    );
     ```
 
 **[⬆ к оглавлению](#Оглавление)**
@@ -2526,10 +2526,10 @@
 
     // хорошо, но уже устарело
     // (такая защита функций нужна, когда конкатернируются два файла, содержащие немедленно вызываемые функции)
-    ;(() => {
+    ;((() => {
       const name = 'Skywalker';
       return name;
-    }());
+    })());
     ```
 
     [Читать подробнее](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214).
@@ -2600,9 +2600,9 @@
   - [21.5](#coercion--bitwise) **Примечание:** Будьте осторожны с побитовыми операциями. Числа в JavaScript являются [64-битными значениями](https://es5.github.io/#x4.3.19), но побитовые операции всегда возвращают 32-битные значенения ([источник](https://es5.github.io/#x11.7)). Побитовый сдвиг может привести к неожиданному поведению для значений больше, чем 32 бита. [Discussion](https://github.com/airbnb/javascript/issues/109). Верхний предел — 2 147 483 647:
 
     ```javascript
-    2147483647 >> 0 //=> 2147483647
-    2147483648 >> 0 //=> -2147483648
-    2147483649 >> 0 //=> -2147483647
+    2147483647 >> 0; // => 2147483647
+    2147483648 >> 0; // => -2147483648
+    2147483649 >> 0; // => -2147483647
     ```
 
   <a name="coercion--booleans"></a><a name="21.6"></a>
@@ -2775,7 +2775,7 @@
     ```javascript
     const AirbnbStyleGuide = {
       es6: {
-      }
+      },
     };
 
     export default AirbnbStyleGuide;
@@ -2894,7 +2894,7 @@
     // плохо
     $(this).trigger('listingUpdated', listing.id);
 
-    ...
+    // ...
 
     $(this).on('listingUpdated', (e, listingId) => {
       // делает что-то с listingId
@@ -2907,7 +2907,7 @@
     // хорошо
     $(this).trigger('listingUpdated', { listingId: listing.id });
 
-    ...
+    // ...
 
     $(this).on('listingUpdated', (e, data) => {
       // делает что-то с data.listingId
@@ -2944,7 +2944,7 @@
       // ...
 
       $('.sidebar').css({
-        'background-color': 'pink'
+        'background-color': 'pink',
       });
     }
 
@@ -2956,7 +2956,7 @@
       // ...
 
       $sidebar.css({
-        'background-color': 'pink'
+        'background-color': 'pink',
       });
     }
     ```
