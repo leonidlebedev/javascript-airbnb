@@ -455,7 +455,7 @@
   <a name="destructuring--object-over-array"></a><a name="5.3"></a>
   - [5.3](#destructuring--object-over-array) Используйте деструктуризацию объекта для множества возвращаемых значений, но не делайте тоже самое с массивами. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
 
-    > Почему? Вы можете добавить новые свойства через некоторое время или изменить порядок без последствий.
+    > Почему? Вы cможете добавить новые свойства через некоторое время или изменить порядок без последствий.
 
     ```javascript
     // плохо
@@ -550,7 +550,7 @@
   <a name="strings--escaping"></a><a name="6.5"></a>
   - [6.5](#strings--escaping) Не используйте в строках необязательные экранирующие символы. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
 
-    > Почему? Обратные косые ухудшают читабельность, поэтому они должны быть только при необходимости.
+    > Почему? Обратные слеши ухудшают читабельность, поэтому они должны быть только при необходимости.
 
     ```javascript
     // плохо
@@ -569,7 +569,7 @@
   <a name="functions--declarations"></a><a name="7.1"></a>
   - [7.1](#functions--declarations) Используйте функциональные выражения вместо объявлений функций. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
 
-    > Почему? У объявлений функций есть подъем. Это означает, что можно использовать функцию до того, как она определена в файле, а это вредит читабельности и поддержке. Если вы обнаружите, что определение функции является большим или достаточно сложным, что мешает понимать остальную часть файла, то, возможно, пришло время извлечь его в отдельный модуль! Не забывайте называть функциональные выражения — анонимные функции усложняют поиск проблемы в стеке вызовов. ([Обсуждение](https://github.com/airbnb/javascript/issues/794))
+    > Почему? У объявлений функций есть подъем. Это означает, что можно использовать функцию до того, как она определена в файле, но это вредит читабельности и поддержке. Если вы обнаружили, что определение функции настолько большое или сложное, что мешает понимать остальную часть файла, то, возможно, пришло время извлечь его в отдельный модуль. Не забывайте называть функциональные выражения — анонимные функции усложняют поиск проблемы в стеке вызовов. ([Обсуждение](https://github.com/airbnb/javascript/issues/794))
 
     ```javascript
     // плохо
@@ -748,7 +748,7 @@
   <a name="functions--mutate-params"></a><a name="7.12"></a>
   - [7.12](#functions--mutate-params) Никогда не изменяйте параметры. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Почему? Манипуляция объектами, приходящими в параметры, может вызывать нежелательные побочные эффекты в вызывающей функции.
+    > Почему? Манипуляция объектами, приходящими в качестве параметров, может вызывать нежелательные побочные эффекты в вызывающей функции.
 
     ```javascript
     // плохо
@@ -791,7 +791,7 @@
     ```
 
   <a name="functions--spread-vs-apply"></a><a name="7.14"></a>
-  - [7.14](#functions--spread-vs-apply) Предпочитайте использовать оператор расширения `...` при вызове вариативной функции. eslint: [`prefer-spread`](http://eslint.org/docs/rules/prefer-spread)
+  - [7.14](#functions--spread-vs-apply) Отдавайте предпочтение использованию оператора расширения `...` при вызове вариативной функции. eslint: [`prefer-spread`](http://eslint.org/docs/rules/prefer-spread)
 
     > Почему? Это чище, вам не нужно предоставлять контекст, и не так просто составить `new` с `apply`.
 
@@ -812,7 +812,7 @@
     ```
 
   <a name="functions--signature-invocation-indentation"></a>
-  - [7.15](#functions--signature-invocation-indentation) Функции с многострочним определением или запуском должны содержать такие же отступы, как и другие многострочные списки в этом руководстве: с каждым элементом на отдельной строке, с запятой в конце элемента.
+  - [7.15](#functions--signature-invocation-indentation) Функции с многострочным определением или запуском должны содержать такие же отступы, как и другие многострочные списки в этом руководстве: с каждым элементом на отдельной строке, с запятой в конце элемента.
 
     ```javascript
     // плохо
@@ -1279,7 +1279,7 @@
   <a name="modules--no-webpack-loader-syntax"></a>
   - [10.9](#modules--no-webpack-loader-syntax) Запретите синтаксис загрузчика Webpack в импорте.
  eslint: [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
-    > Почему? Использование Webpack синтаксиса связывает код с упаковщиком модулей. Предпочитайте использовать синтаксис загрузчика в `webpack.config.js`.
+    > Почему? Использование Webpack синтаксиса связывает код с упаковщиком модулей. Предпочтительно использовать синтаксис загрузчика в `webpack.config.js`.
 
     ```javascript
     // плохо
@@ -1473,7 +1473,7 @@
   <a name="variables--const-let-group"></a><a name="13.3"></a>
   - [13.3](#variables--const-let-group) В первую очередь группируйте `const`, а затем `let`.
 
-    > Почему? Это полезно, когда в будущем вам понадобится создать переменную, зависимую от предудыщих.
+    > Почему? Это полезно, когда в будущем вам понадобится создать переменную, зависимую от предыдущих.
 
     ```javascript
     // плохо
@@ -1607,7 +1607,7 @@
 ## <a name="hoisting">Подъем</a>
 
   <a name="hoisting--about"></a><a name="14.1"></a>
-  - [14.1](#hoisting--about) Объявления `var` поднимаются к началу своей области видимости, но не их присвоение. Объявления `const` и `let` работают по новой концепции называемой [Временные Мертвые Зоны (Temporal Dead Zone)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). Важно знать, почему использовать [typeof больше не безапасно](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
+  - [14.1](#hoisting--about) Объявления `var` поднимаются к началу своей области видимости, а их присвоение нет. Объявления `const` и `let` работают по новой концепции называемой [Временные Мертвые Зоны (Temporal Dead Zone)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). Важно знать, почему использовать [typeof больше не безопасно](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
 
     ```javascript
     // мы знаем, что это не будет работать
@@ -1766,7 +1766,7 @@
   <a name="comparison--switch-blocks"></a><a name="15.5"></a>
   - [15.5](#comparison--switch-blocks) Используйте фигурные скобки для `case` и `default`, если они содержат лексические декларации (например, `let`, `const`, `function`, и `class`). eslint: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations.html).
 
-    > Почему? Лексические декларации видны во всем `switch` блоке, но инициализируются только при присваивании, которое происходит при входе в блок `case`. Возникают проблемы, когда множество `case` пытаются определить одно и тоже.
+    > Почему? Лексические декларации видны во всем `switch` блоке, но инициализируются только при присваивании, которое происходит при входе в блок `case`. Возникают проблемы, когда множество `case` пытаются определить одно и то же.
 
     ```javascript
     // плохо
@@ -2760,7 +2760,7 @@
     ```
 
   <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
-  - [22.7](#naming--camelCase-default-export) Используйте `camelCase`, когда экспортируете функцию по умолчанию. Ваш файл должен называться также, как и имя функции.
+  - [22.7](#naming--camelCase-default-export) Используйте `camelCase`, когда экспортируете функцию по умолчанию. Ваш файл должен называться так же, как и имя функции.
     ```javascript
     function makeStyleGuide() {
       // ...
