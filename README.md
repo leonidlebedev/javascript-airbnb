@@ -573,14 +573,14 @@
 
     ```javascript
     // плохо
-    const foo = function () {
-      // ...
-    };
-
-    // плохо
     function foo() {
       // ...
     }
+
+    // плохо
+    const foo = function () {
+      // ...
+    };
 
     // хорошо
     const foo = function bar() {
