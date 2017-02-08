@@ -1,8 +1,8 @@
-# Airbnb React/JSX Style Guide
+# Руководство по написанию React/JSX кода от [Airbnb](https://github.com/airbnb/javascript/react)
 
-*A mostly reasonable approach to React and JSX*
+*В основном разумный подход к написанию React и JSX*
 
-## Table of Contents
+## Оглавление
 
   1. [Basic Rules](#basic-rules)
   1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
@@ -622,4 +622,4 @@
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Español**: [agrcrobles/javascript](https://github.com/agrcrobles/javascript/tree/master/react)
   - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Ukrainian**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript/tree/master/react)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ к оглавлению](#Оглавление)**
