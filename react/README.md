@@ -26,9 +26,9 @@
   - Всегда используйте JSX синтаксис.
   - Не используйте `React.createElement`, если вы только не инициализируете программу из файла, который не является JSX.
 
-## Class против `React.createClass` против компонента без состояний (stateless)
+## Class против `React.createClass` против компонента без состояния (stateless)
 
-  - Если у вас есть внутреннее состояние (`state`) и/или ссылки (`refs`), отдавайте предпочтение `class extends React.Component` вместо `React.createClass`, если у вас нет резких причин использовать миксины. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
+  - Если у вас есть внутреннее состояние (`state`) и/или ссылки (`refs`), отдавайте предпочтение `class extends React.Component` вместо `React.createClass`, если у вас нет веских причин использовать миксины. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
 
     ```jsx
     // плохо
@@ -68,7 +68,6 @@
       return <div>{hello}</div>;
     }
     ```
-
 ## Naming
 
   - **Extensions**: Use `.jsx` extension for React components.
