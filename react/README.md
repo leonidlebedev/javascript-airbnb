@@ -6,7 +6,7 @@
 
   1. [Basic Rules](#basic-rules)
   1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
-  1. [Naming](#naming)
+  1. [Именование](#naming)
   1. [Declaration](#declaration)
   1. [Alignment](#alignment)
   1. [Quotes](#quotes)
@@ -69,11 +69,11 @@
     }
     ```
 
-## Naming
+## <a name="naming">Именование</a>
 
-  - **Extensions**: Use `.jsx` extension for React components.
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
-  - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
+  - **Расширения**: Используйте расширение `.jsx` для компонентов React.
+  - **Названия файлов**: Используйте `PascalCase` для названий файлов, например, `ReservationCard.jsx`.
+  - **Названия переменных**: Используйте `PascalCase` для компонентов React и `camelCase` для их экземпляров. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
     ```jsx
     // bad
@@ -89,7 +89,7 @@
     const reservationItem = <ReservationCard />;
     ```
 
-  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+  - **Названия компонентов**: Называйте файлы также как и компоненты. Например, `ReservationCard.jsx` должен содержать внутри компонент `ReservationCard`. Однако корневые компоненты в директории должны лежать в файле `index.jsx`, в таком случае название папки должно быть таким же, как название компонента:
 
     ```jsx
     // bad
@@ -101,9 +101,9 @@
     // good
     import Footer from './Footer';
     ```
-  - **Higher-order Component Naming**: Use a composite of the higher-order component's name and the passed-in component's name as the `displayName` on the generated component. For example, the higher-order component `withFoo()`, when passed a component `Bar` should produce a component with a `displayName` of `withFoo(Bar)`.
+  - **Названия компонентов высшего порядка**: Составляйте имя из названия компонента высшего порядка и названия переданного компонента, сохраняя его в свойстве `displayName` сгенерированного компонента. Например, из компонента высшего порядка `withFoo()`, которому передан компонент `Bar`, должен получаться компонент с `displayName` равным `withFoo(Bar)`.
 
-  > Why? A component's `displayName` may be used by developer tools or in error messages, and having a value that clearly expresses this relationship helps people understand what is happening.
+  > Почему? Свойство `displayName` может быть использовано в инструментах разработчика или сообщениях об ошибках, и если оно ясно выражает отношения между компонетами, это помогает людям понять, что происходит.
 
     ```jsx
     // bad
@@ -128,9 +128,9 @@
     }
     ```
 
-  - **Props Naming**: Avoid using DOM component prop names for different purposes.
+  - **Названия свойств**: Избегайте использования названий свойств DOM-компонента для других целей.
 
-  > Why? People expect props like `style` and `className` to mean one specific thing. Varying this API for a subset of your app makes the code less readable and less maintainable, and may cause bugs.
+  > Почему? Люди ожидают, что такие свойства как `style` и `className` имеют одно определенное значение. Изменение этого API в вашем приложении ухудшает читабельность и поддержку кода, что может приводить к ошибкам.
 
     ```jsx
     // bad
