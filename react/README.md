@@ -7,7 +7,7 @@
   1. [Basic Rules](#basic-rules)
   1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
   1. [Naming](#naming)
-  1. [Declaration](#declaration)
+  1. [Объявление](#declaration)
   1. [Alignment](#alignment)
   1. [Quotes](#quotes)
   1. [Spacing](#spacing)
@@ -140,15 +140,15 @@
     <MyComponent variant="fancy" />
     ```
 
-## Declaration
+## <a name="declaration">Объявление</a>
 
-  - Do not use `displayName` for naming components. Instead, name the component by reference.
+  - Не используйте свойство `displayName` для названий компонентов. Вместо этого задавайте имя классу компонента.
 
     ```jsx
     // bad
     export default React.createClass({
       displayName: 'ReservationCard',
-      // stuff goes here
+      // здесь начинается работа
     });
 
     // good
