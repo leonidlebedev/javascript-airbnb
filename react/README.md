@@ -8,9 +8,9 @@
   1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
   1. [Naming](#naming)
   1. [Declaration](#declaration)
-  1. [Alignment](#alignment)
-  1. [Quotes](#quotes)
-  1. [Spacing](#spacing)
+  1. [Выравнивание](#alignment)
+  1. [Кавычки](#quotes)
+  1. [Пробелы](#spacing)
   1. [Props](#props)
   1. [Refs](#refs)
   1. [Parentheses](#parentheses)
@@ -155,9 +155,9 @@
     }
     ```
 
-## Alignment
+## <a name="alignment">Выравнивание</a>
 
-  - Follow these alignment styles for JSX syntax. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
+  - Следуйте приведенным ниже стилям для JSX-синтаксиса. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
     ```jsx
     // плохо
@@ -170,10 +170,10 @@
       anotherSuperLongParam="baz"
     />
 
-    // if props fit in one line then keep it on the same line
+    // если свойства помещаются на одну строку, оставляйте их на одной строке
     <Foo bar="bar" />
 
-    // children get indented normally
+    // отступ у дочерних элементов задается как обычно
     <Foo
       superLongParam="bar"
       anotherSuperLongParam="baz"
@@ -182,11 +182,11 @@
     </Foo>
     ```
 
-## Quotes
+## <a name="quotes">Кавычки</a>
 
-  - Always use double quotes (`"`) for JSX attributes, but single quotes (`'`) for all other JS. eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
+  - Всегда используйте двойные кавычки (`"`) для JSX-атрибутов, но одинарные кавычки (`'`) для всего остального JS. eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
 
-  > Why? Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
+  > Почему? Для стандартных HTML-атрибутов обычно используются двойные кавычки, а не одинарные, и JSX-атрибуты тоже следуют этому соглашению.
 
     ```jsx
     // плохо
@@ -202,9 +202,9 @@
     <Foo style={{ left: '20px' }} />
     ```
 
-## Spacing
+## <a name="spacing">Пробелы</a>
 
-  - Always include a single space in your self-closing tag. eslint: [`no-multi-spaces`](http://eslint.org/docs/rules/no-multi-spaces), [`react/jsx-space-before-closing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md)
+  - Всегда вставляйте один пробел в ваш самозакрывающийся тег. eslint: [`no-multi-spaces`](http://eslint.org/docs/rules/no-multi-spaces), [`react/jsx-space-before-closing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md)
 
     ```jsx
     // плохо
@@ -221,7 +221,7 @@
     <Foo />
     ```
 
-  - Do not pad JSX curly braces with spaces. eslint: [`react/jsx-curly-spacing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md)
+  - Не отделяйте фигурные скобки пробелами в JSX. eslint: [`react/jsx-curly-spacing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md)
 
     ```jsx
     // плохо
