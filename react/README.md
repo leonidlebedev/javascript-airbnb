@@ -16,7 +16,7 @@
   1. [Parentheses](#parentheses)
   1. [Tags](#tags)
   1. [Methods](#methods)
-  1. [Ordering](#ordering)
+  1. [Последовательность](#ordering)
   1. [`isMounted`](#ismounted)
 
 ## <a name="basic-rules">Основные правила</a>
@@ -528,11 +528,11 @@
     }
     ```
 
-## Ordering
+## <a name="ordering">Последовательность</a>
 
-  - Ordering for `class extends React.Component`:
+  - Последовательность для `class extends React.Component`:
 
-  1. optional `static` methods
+  1. произвольные `static` методы
   1. `constructor`
   1. `getChildContext`
   1. `componentWillMount`
@@ -542,12 +542,12 @@
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
-  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
-  1. *optional render methods* like `renderNavigation()` or `renderProfilePicture()`
+  1. *обработчики кликов или событий*, такие как `onClickSubmit()` или `onChangeDescription()`
+  1. *getter методы для `render`*, такие как `getSelectReason()` или `getFooterContent()`
+  1. *произвольные render методы*, такие как `renderNavigation()` или `renderProfilePicture()`
   1. `render`
 
-  - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
+  - Как определять `propTypes`, `defaultProps`, `contextTypes`, и т.д.
 
     ```jsx
     import React, { PropTypes } from 'react';
@@ -578,7 +578,7 @@
     export default Link;
     ```
 
-  - Ordering for `React.createClass`: eslint: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md)
+  - Последовательность для `React.createClass`: eslint: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md)
 
   1. `displayName`
   1. `propTypes`
@@ -597,9 +597,9 @@
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
-  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
-  1. *optional render methods* like `renderNavigation()` or `renderProfilePicture()`
+  1. *обработчики кликов или событий*, такие как `onClickSubmit()` или `onChangeDescription()`
+  1. *getter методы для `render`*, такие как `getSelectReason()` или `getFooterContent()`
+  1. *произвольные render методы*, такие как `renderNavigation()` или `renderProfilePicture()`
   1. `render`
 
 ## `isMounted`
