@@ -6,6 +6,7 @@
 
   1. [Основные правила](#basic-rules)
   1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
+  1. [Примеси (mixins)](#mixins)
   1. [Именование](#naming)
   1. [Объявление](#declaration)
   1. [Выравнивание](#alignment)
@@ -28,7 +29,7 @@
 
 ## Class против `React.createClass` против компонента без состояния (stateless)
 
-  - Если у вас есть внутреннее состояние (`state`) и/или ссылки (`refs`), отдавайте предпочтение `class extends React.Component` вместо `React.createClass`, если у вас нет веских причин использовать миксины. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
+  - Если у вас есть внутреннее состояние (`state`) и/или ссылки (`refs`), отдавайте предпочтение `class extends React.Component` вместо `React.createClass`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
 
     ```jsx
     // плохо
@@ -68,6 +69,12 @@
       return <div>{hello}</div>;
     }
     ```
+
+## <a name="mixins">Примеси (mixins)</a>
+
+  - [Не используйте примеси](https://facebook.github.io/react/blog/2016/07/13/mixins-considered-harmful.html).
+
+  > Почему? Примечи вносят неявные зависимости, становятся причиной конфликтов имен и быстрого роста сложностей. Большинство случаев, для которых используется примеси, могут выполняться более эффективными способами через компоненты, компоненты высшего порядка или полезные модули.
 
 ## <a name="naming">Именование</a>
 
