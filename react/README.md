@@ -11,7 +11,7 @@
   1. [Выравнивание](#alignment)
   1. [Кавычки](#quotes)
   1. [Пробелы](#spacing)
-  1. [Props](#props)
+  1. [Свойства (Props)](#props)
   1. [Refs](#refs)
   1. [Parentheses](#parentheses)
   1. [Tags](#tags)
@@ -232,9 +232,9 @@
     <Foo bar={baz} />
     ```
 
-## Props
+## <a name="props">Свойства (Props)</a>
 
-  - Always use camelCase for prop names.
+  - Всегда используйте `camelCase` для названий свойств.
 
     ```jsx
     // плохо
@@ -250,7 +250,7 @@
     />
     ```
 
-  - Omit the value of the prop when it is explicitly `true`. eslint: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md)
+  - Не указывайте значения свойства, когда оно явно `true`. eslint: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md)
 
     ```jsx
     // плохо
@@ -264,7 +264,7 @@
     />
     ```
 
-  - Always include an `alt` prop on `<img>` tags. If the image is presentational, `alt` can be an empty string or the `<img>` must have `role="presentation"`. eslint: [`jsx-a11y/img-has-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-has-alt.md)
+  - Всегда добавляйте свойство `alt` для тегов `<img>`. Если изображение является презентационным, `alt` может быть пустой строкой или `<img>` обязан иметь `role="presentation"`. eslint: [`jsx-a11y/img-has-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-has-alt.md)
 
     ```jsx
     // плохо
@@ -280,9 +280,9 @@
     <img src="hello.jpg" role="presentation" />
     ```
 
-  - Do not use words like "image", "photo", or "picture" in `<img>` `alt` props. eslint: [`jsx-a11y/img-redundant-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md)
+  - Не используйте такие слова как "изображение" ("image"), "фото" ("photo"), или "картинка" ("picture") в свойстве `alt` тега `<img>`. eslint: [`jsx-a11y/img-redundant-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md)
 
-  > Why? Screenreaders already announce `img` elements as images, so there is no need to include this information in the alt text.
+  > Почему? Скринридеры уже сообщают что `img` элементы являются картинками, так что нет необходимости включать эту информацию в текст свойства `alt`.
 
     ```jsx
     // плохо
@@ -292,22 +292,22 @@
     <img src="hello.jpg" alt="Me waving hello" />
     ```
 
-  - Use only valid, non-abstract [ARIA roles](https://www.w3.org/TR/wai-aria/roles#role_definitions). eslint: [`jsx-a11y/aria-role`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md)
+  - Используйте только валидные, не абстрактные [ARIA роли](https://www.w3.org/TR/wai-aria/roles#role_definitions). eslint: [`jsx-a11y/aria-role`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md)
 
     ```jsx
-    // плохо - not an ARIA role
+    // плохо - не ARIA роль
     <div role="datepicker" />
 
-    // плохо - abstract ARIA role
+    // плохо - асбтрактная ARIA роль
     <div role="range" />
 
     // хорошо
     <div role="button" />
     ```
 
-  - Do not use `accessKey` on elements. eslint: [`jsx-a11y/no-access-key`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md)
+  - Не используйте `accessKey` на элементах. eslint: [`jsx-a11y/no-access-key`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md)
 
-  > Why? Inconsistencies between keyboard shortcuts and keyboard commands used by people using screenreaders and keyboards complicate accessibility.
+  > Почему? Несоответствия между сочетанием комбинаций клавиш и командами с клавиатуры, затрудняют доступ для людей, которые пользуются экранными считывателями и клавиатурами.
 
   ```jsx
   // плохо
@@ -317,7 +317,7 @@
   <div />
   ```
 
-  - Avoid using an array index as `key` prop, prefer a unique ID. ([why?](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318))
+  - Избегайте использовать индексы элементов массива в качестве свойства `key`, и отдавайте предпочтение уникальному ID. ([почему?](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318))
 
   ```jsx
   // плохо
@@ -337,9 +337,9 @@
   ))}
   ```
 
-  - Always define explicit defaultProps for all non-required props.
+  - Всегда указывайте явные `defaultProps` для всех свойств, которые не указаны как необходимые.
 
-  > Why? propTypes are a form of documentation, and providing defaultProps means the reader of your code doesn’t have to assume as much. In addition, it can mean that your code can omit certain type checks.
+  > Почему? `propTypes` является способом документации, а также предоставление `defaultProps` позволяет читателю вашего кода не иметь множество неясностей. Кроме того, это может означать, что ваш код может пропустить определенные проверки типов.
 
   ```jsx
   // плохо
