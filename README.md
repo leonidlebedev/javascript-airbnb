@@ -308,7 +308,7 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## <a name="array">Массивы</a>
+## <a name="arrays">Массивы</a>
 
   <a name="arrays--literals"></a><a name="4.1"></a>
   - [4.1](#arrays--literals) Для создания массива используйте литеральную нотацию. eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
