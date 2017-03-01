@@ -413,7 +413,7 @@
 
 ## <a name="tags">Теги</a>
 
-  - Всегда самозакрывайте теги, которые не имеют потомков. eslint: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
+  - Всегда используйте самозакрывающиеся теги, если у элемента нет дочерних. eslint: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
 
     ```jsx
     // плохо
