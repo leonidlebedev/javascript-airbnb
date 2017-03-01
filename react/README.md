@@ -12,7 +12,7 @@
   1. [Кавычки](#quotes)
   1. [Пробелы](#spacing)
   1. [Props](#props)
-  1. [Refs](#refs)
+  1. [Ссылки (Refs)](#refs)
   1. [Parentheses](#parentheses)
   1. [Tags](#tags)
   1. [Methods](#methods)
@@ -368,9 +368,9 @@
   };
   ```
 
-## Refs
+## <a name="refs">Ссылки (Refs)</a>
 
-  - Always use ref callbacks. eslint: [`react/no-string-refs`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md)
+  - Всегда используйте функции обратного вызова. eslint: [`react/no-string-refs`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md)
 
     ```jsx
     // плохо
