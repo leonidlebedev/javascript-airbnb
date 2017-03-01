@@ -13,7 +13,7 @@
   1. [Пробелы](#spacing)
   1. [Props](#props)
   1. [Refs](#refs)
-  1. [Скобки](#parentheses)
+  1. [Круглые скобки](#parentheses)
   1. [Tags](#tags)
   1. [Methods](#methods)
   1. [Ordering](#ordering)
@@ -383,8 +383,7 @@
     />
     ```
 
-## Parentheses
-## <a name="parentheses">Скобки</a>
+## <a name="parentheses">Круглые скобки</a>
 
   - Оборачивайте в скобки JSX теги, когда они занимают больше одной строки. eslint: [`react/jsx-wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md)
 
