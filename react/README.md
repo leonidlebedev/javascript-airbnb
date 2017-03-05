@@ -14,7 +14,7 @@
   1. [Пробелы](#spacing)
   1. [Props](#props)
   1. [Ссылки (Refs)](#refs)
-  1. [Parentheses](#parentheses)
+  1. [Круглые скобки](#parentheses)
   1. [Теги](#tags)
   1. [Methods](#methods)
   1. [Последовательность](#ordering)
@@ -391,9 +391,9 @@
     />
     ```
 
-## Parentheses
+## <a name="parentheses">Круглые скобки</a>
 
-  - Wrap JSX tags in parentheses when they span more than one line. eslint: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md)
+  - Оборачивайте в скобки JSX теги, когда они занимают больше одной строки. eslint: [`react/jsx-wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md)
 
     ```jsx
     // плохо
@@ -412,7 +412,7 @@
       );
     }
 
-    // хорошо, when single line
+    // хорошо, когда одна строка
     render() {
       const body = <div>hello</div>;
       return <MyComponent>{body}</MyComponent>;
