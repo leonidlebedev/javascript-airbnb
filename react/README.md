@@ -6,6 +6,7 @@
 
   1. [Основные правила](#basic-rules)
   1. [Class против `React.createClass` против компонента без состояния (stateless)](#class-vs-reactcreateclass-vs-stateless)
+  1. [Примеси (mixins)](#mixins)
   1. [Именование](#naming)
   1. [Объявление](#declaration)
   1. [Выравнивание](#alignment)
@@ -14,7 +15,7 @@
   1. [Props](#props)
   1. [Ссылки (Refs)](#refs)
   1. [Круглые скобки](#parentheses)
-  1. [Tags](#tags)
+  1. [Теги](#tags)
   1. [Methods](#methods)
   1. [Последовательность](#ordering)
   1. [`isMounted`](#ismounted)
@@ -29,7 +30,7 @@
 
 ## <a name="#class-vs-reactcreateclass-vs-stateless">## Class против `React.createClass` против компонента без состояния (stateless)</a>
 
-  - Если у вас есть внутреннее состояние (`state`) и/или ссылки (`refs`), отдавайте предпочтение `class extends React.Component` вместо `React.createClass`, если у вас нет веских причин использовать миксины. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
+  - Если у вас есть внутреннее состояние (`state`) и/или ссылки (`refs`), отдавайте предпочтение `class extends React.Component` вместо `React.createClass`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
 
     ```jsx
     // плохо
@@ -69,6 +70,12 @@
       return <div>{hello}</div>;
     }
     ```
+
+## <a name="mixins">Примеси (mixins)</a>
+
+  - [Не используйте примеси](https://facebook.github.io/react/blog/2016/07/13/mixins-considered-harmful.html).
+
+  > Почему? Примеcи вносят неявные зависимости, становятся причиной конфликтов имен и быстрого роста сложностей. Для большинства случаев, в которых используются примеси, можно более эффективно применить компоненты, компоненты высшего порядка или вспомогательные модули.
 
 ## <a name="naming">Именование</a>
 
@@ -412,9 +419,9 @@
     }
     ```
 
-## Tags
+## <a name="tags">Теги</a>
 
-  - Always self-close tags that have no children. eslint: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
+  - Всегда используйте самозакрывающиеся теги, если у элемента нет дочерних. eslint: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
 
     ```jsx
     // плохо
@@ -424,7 +431,7 @@
     <Foo className="stuff" />
     ```
 
-  - If your component has multi-line properties, close its tag on a new line. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
+  - Если ваш компонент имеет множество свойств, которые располагаются на нескольких строчках, то закрывайте тег на новой строке. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
     ```jsx
     // плохо
@@ -605,9 +612,9 @@
 
 ## `isMounted`
 
-  - Do not use `isMounted`. eslint: [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md)
+  - Не используйте `isMounted`. eslint: [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md)
 
-  > Why? [`isMounted` is an anti-pattern][anti-pattern], is not available when using ES6 classes, and is on its way to being officially deprecated.
+  > Почему? [`isMounted` — это антипаттерн][anti-pattern], который недоступен при использовании ES6 классов и который планируют официально признать устаревшим.
 
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
 
