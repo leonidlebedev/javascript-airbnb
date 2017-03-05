@@ -16,7 +16,7 @@
   1. [Ссылки (Refs)](#refs)
   1. [Круглые скобки](#parentheses)
   1. [Теги](#tags)
-  1. [Methods](#methods)
+  1. [Методы](#methods)
   1. [Последовательность](#ordering)
   1. [`isMounted`](#ismounted)
   1. [Переводы](#translation)
@@ -446,9 +446,9 @@
     />
     ```
 
-## Methods
+## <a name="methods">Методы</a>
 
-  - Use arrow functions to close over local variables.
+  - Используйте стрелочные функции для замыкания локальных переменных.
 
     ```jsx
     function ItemList(props) {
@@ -465,15 +465,15 @@
     }
     ```
 
-  - Bind event handlers for the render method in the constructor. eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
+  - Привязывайте обработчики событий для метода `render` в конструкторе. eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
 
-  > Why? A bind call in the render path creates a brand new function on every single render.
+  > Почему? Вызов `bind` в методе `render` создает новую функцию при каждой перерисовке.
 
     ```jsx
     // плохо
     class extends React.Component {
       onClickDiv() {
-        // do stuff
+        // ...
       }
 
       render() {
@@ -490,7 +490,7 @@
       }
 
       onClickDiv() {
-        // do stuff
+        // ...
       }
 
       render() {
@@ -499,30 +499,30 @@
     }
     ```
 
-  - Do not use underscore prefix for internal methods of a React component.
-  > Why? Underscore prefixes are sometimes used as a convention in other languages to denote privacy. But, unlike those languages, there is no native support for privacy in JavaScript, everything is public. Regardless of your intentions, adding underscore prefixes to your properties does not actually make them private, and any property (underscore-prefixed or not) should be treated as being public. See issues [#1024](https://github.com/airbnb/javascript/issues/1024), and [#490](https://github.com/airbnb/javascript/issues/490) for a more in-depth discussion.
+  - Не используйте префикс подчеркивание для именнования внутренних методов React компонента.
+  > Почему? Префиксы подчеркивания иногда используются в других языках как соглашение о приватности. Но, в отличие от этих языков, в Javascript нет нативной поддержки приватности, все публично. Независимо от ваших намерений, добавление префикса подчеркивания к вашим свойства не делает их приватными, и любые свойства (с подчеркиванием или без) должны рассматриваться как публичные. Смотрите вопросы [#1024](https://github.com/airbnb/javascript/issues/1024), и [#490](https://github.com/airbnb/javascript/issues/490) для более глубокого обсуждения.
 
     ```jsx
     // плохо
     React.createClass({
       _onClickSubmit() {
-        // do stuff
+        // ...
       },
 
-      // other stuff
+      // ...
     });
 
     // хорошо
     class extends React.Component {
       onClickSubmit() {
-        // do stuff
+        // ...
       }
 
-      // other stuff
+      // ...
     }
     ```
 
-  - Be sure to return a value in your `render` methods. eslint: [`react/require-render-return`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md)
+  - Всегда возвращайте значение в методах `render`. eslint: [`react/require-render-return`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md)
 
     ```jsx
     // плохо
