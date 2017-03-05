@@ -28,7 +28,7 @@
   - Всегда используйте JSX синтаксис.
   - Не используйте `React.createElement`, если вы только не инициализируете программу из файла, который не является JSX.
 
-## <a name="#class-vs-reactcreateclass-vs-stateless">## Class против `React.createClass` против компонента без состояния (stateless)</a>
+## <a name="#class-vs-reactcreateclass-vs-stateless">Class против `React.createClass` против компонента без состояния (stateless)</a>
 
   - Если у вас есть внутреннее состояние (`state`) и/или ссылки (`refs`), отдавайте предпочтение `class extends React.Component` вместо `React.createClass`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
 
