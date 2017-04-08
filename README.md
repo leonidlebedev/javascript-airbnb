@@ -4,7 +4,7 @@
 
 [![Скачать](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Скачать](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Другие руководства
  - [React](react/)
@@ -408,6 +408,43 @@
 
       return false;
     });
+    ```
+
+  <a name="arrays--bracket-newline"></a><a name="4.6"></a>
+  - [4.6](#arrays--bracket-newline) Если массив располагается на нескольких строках, то используйте разрывы строк после открытия и перед закрытием скобок.
+
+    ```javascript
+    // плохо
+    const arr = [
+      [0, 1], [2, 3], [4, 5],
+    ];
+
+    const objectInArray = [{
+      id: 1,
+    }, {
+      id: 2,
+    }];
+
+    const numberInArray = [
+      1, 2,
+    ];
+
+    // хорошо
+    const arr = [[0, 1], [2, 3], [4, 5]];
+
+    const objectInArray = [
+      {
+        id: 1,
+      },
+      {
+        id: 2,
+      },
+    ];
+
+    const numberInArray = [
+      1,
+      2,
+    ];
     ```
 
 **[⬆ к оглавлению](#Оглавление)**
@@ -1438,7 +1475,7 @@
 ## <a name="variables">Переменные</a>
 
   <a name="variables--const"></a><a name="13.1"></a>
-  - [13.1](#variables--const) Всегда используйте `const` для объявления переменных. Невыполнение этого требования приведет к появлению глобальных переменных. Необходимо избегать загрязнения глобального пространства имен. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
+  - [13.1](#variables--const) Всегда используйте `const` или `let` для объявления переменных. Невыполнение этого требования приведет к появлению глобальных переменных. Необходимо избегать загрязнения глобального пространства имен. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
 
     ```javascript
     // плохо
@@ -1449,7 +1486,7 @@
     ```
 
   <a name="variables--one-const"></a><a name="13.2"></a>
-  - [13.2](#variables--one-const) Используйте объявление `const` для каждой переменной. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
+  - [13.2](#variables--one-const) Используйте объявление `const` или `let` для каждой переменной. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
 
     > Почему? Таким образом проще добавить новые переменные. Также вы никогда не будете беспокоиться о перемещении `;` и `,` и об отображении изменений в пунктуации. Вы также можете пройтись по каждому объявлению с помощью откладчика, вместо того, чтобы прыгать через все сразу.
 
@@ -3078,6 +3115,7 @@
     + [ESlint](http://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
     + [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/.jshintrc)
     + [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json) (Устарело,  пожалуйста, используйте  [ESlint](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base))
+  - Neutrino preset - [neutrino-preset-airbnb-base](https://neutrino.js.org/presets/neutrino-preset-airbnb-base/)
 
 **Другие руководства**
 
@@ -3149,6 +3187,7 @@
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
+  - **AltSchool**: [AltSchool/javascript](https://github.com/AltSchool/javascript)
   - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
   - **Ascribe**: [ascribe/javascript](https://github.com/ascribe/javascript)
   - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
@@ -3197,6 +3236,7 @@
   - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
   - **Nimbl3**: [nimbl3/javascript](https://github.com/nimbl3/javascript)
   - **Nulogy**: [nulogy/javascript](https://github.com/nulogy/javascript)
+  - **Orange Hill Development**: [orangehill/javascript](https://github.com/orangehill/javascript)
   - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
   - **OutBoxSoft**: [OutBoxSoft/javascript](https://github.com/OutBoxSoft/javascript)
   - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
@@ -3207,6 +3247,7 @@
   - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
   - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
+  - **Sourcetoad**: [sourcetoad/javascript](https://github.com/sourcetoad/javascript)
   - **Springload**: [springload/javascript](https://github.com/springload/javascript)
   - **StratoDem Analytics**: [stratodem/javascript](https://github.com/stratodem/javascript)
   - **SteelKiwi Development**: [steelkiwi/javascript](https://github.com/steelkiwi/javascript)
