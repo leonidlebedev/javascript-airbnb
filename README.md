@@ -1,6 +1,6 @@
 # Руководство по написанию JavaScript кода от [Airbnb](https://github.com/airbnb/javascript/)() {
 
-*В основном разумный подход к написанию JavaScript кода*
+*Наиболее разумный подход к написанию JavaScript кода*
 
 [![Скачать](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Скачать](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
