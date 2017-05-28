@@ -477,7 +477,7 @@
       }
 
       render() {
-        return <div onClick={this.onClickDiv.bind(this)} />
+        return <div onClick={this.onClickDiv.bind(this)} />;
       }
     }
 
@@ -494,7 +494,7 @@
       }
 
       render() {
-        return <div onClick={this.onClickDiv} />
+        return <div onClick={this.onClickDiv} />;
       }
     }
     ```
@@ -577,7 +577,7 @@
       }
 
       render() {
-        return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
+        return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>;
       }
     }
 
