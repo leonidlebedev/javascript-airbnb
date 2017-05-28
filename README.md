@@ -584,7 +584,7 @@
     ```
 
   <a name="strings--eval"></a><a name="6.4"></a>
-  - [6.4](#strings--eval) Никогда не используйте `eval()`, т.к. это открывает множество уязвимостей.
+  - [6.4](#strings--eval) Никогда не используйте `eval()`, т.к. это открывает множество уязвимостей. eslint: [`no-eval`](http://eslint.org/docs/rules/no-eval)
 
   <a name="strings--escaping"></a><a name="6.5"></a>
   - [6.5](#strings--escaping) Не используйте в строках необязательные экранирующие символы. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
