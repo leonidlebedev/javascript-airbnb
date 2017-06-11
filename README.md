@@ -7,6 +7,7 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Другие руководства
+
  - [React](react/)
 
 ## Оглавление
@@ -52,11 +53,11 @@
   <a name="types--primitives"></a><a name="1.1"></a>
   - [1.1](#types--primitives) **Простые типы**: Когда вы взаимодействуете с простым типом, вы напрямую работаете с его значением.
 
-    + `string`
-    + `number`
-    + `boolean`
-    + `null`
-    + `undefined`
+    - `string`
+    - `number`
+    - `boolean`
+    - `null`
+    - `undefined`
 
     ```javascript
     const foo = 1;
@@ -70,9 +71,9 @@
   <a name="types--complex"></a><a name="1.2"></a>
   - [1.2](#types--complex)  **Сложные типы**: Когда вы взаимодействуете со сложным типом, вы работаете с ссылкой на его значение.
 
-    + `object`
-    + `array`
-    + `function`
+    - `object`
+    - `array`
+    - `function`
 
     ```javascript
     const foo = [1, 2];
@@ -516,7 +517,6 @@
     const { left, top } = processInput(input);
     ```
 
-
 **[⬆ к оглавлению](#Оглавление)**
 
 ## <a name="strings">Строки</a>
@@ -601,7 +601,6 @@
     ```
 
 **[⬆ к оглавлению](#Оглавление)**
-
 
 ## <a name="functions">Функции</a>
 
@@ -1008,7 +1007,6 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-
 ## <a name="classes--constructors">Классы и конструкторы</a>
 
   <a name="constructors--use-class"></a><a name="9.1"></a>
@@ -1026,7 +1024,6 @@
       this.queue.splice(0, 1);
       return value;
     };
-
 
     // хорошо
     class Queue {
@@ -1102,7 +1099,6 @@
       .setHeight(20);
     ```
 
-
   <a name="constructors--tostring"></a><a name="9.4"></a>
   - [9.4](#constructors--tostring) Вы можете определить свой собственный метод `toString()`, просто убедитесь, что он успешно работает и не создает никаких побочных эффектов.
 
@@ -1174,9 +1170,7 @@
     }
     ```
 
-
 **[⬆ к оглавлению](#Оглавление)**
-
 
 ## <a name="modules">Модули</a>
 
@@ -1434,7 +1428,6 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-
 ## <a name="properties">Свойства</a>
 
   <a name="properties--dot"></a><a name="12.1"></a>
@@ -1470,7 +1463,6 @@
     ```
 
 **[⬆ к оглавлению](#Оглавление)**
-
 
 ## <a name="variables">Переменные</a>
 
@@ -1641,7 +1633,6 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-
 ## <a name="hoisting">Подъем</a>
 
   <a name="hoisting--about"></a><a name="14.1"></a>
@@ -1741,7 +1732,6 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-
 ## <a name="comparison-operators--equality">Операторы сравнения и равенства</a>
 
   <a name="comparison--eqeqeq"></a><a name="15.1"></a>
@@ -1749,12 +1739,12 @@
 
   <a name="comparison--if"></a><a name="15.2"></a>
   - [15.2](#comparison--if) Условные операторы, такие как `if`, вычисляются путем приведения к логическому типу `Boolean` через абстрактный метод `ToBoolean` и всегда следуют следующим правилам:
-    + **Object** соответствует **true**
-    + **Undefined** соответствует **false**
-    + **Null** соответствует **false**
-    + **Boolean** соответствует **значению булева типа**
-    + **Number** соответствует **false**, если **+0, -0, or NaN**, в остальных случаях **true**
-    + **String** соответствует **false**, если строка пустая `''`, в остальных случаях **true**
+    - **Object** соответствует **true**
+    - **Undefined** соответствует **false**
+    - **Null** соответствует **false**
+    - **Boolean** соответствует **значению булева типа**
+    - **Number** соответствует **false**, если **+0, -0, or NaN**, в остальных случаях **true**
+    - **String** соответствует **false**, если строка пустая `''`, в остальных случаях **true**
 
     ```javascript
     if ([0] && []) {
@@ -1888,7 +1878,6 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-
 ## <a name="blocks">Блоки</a>
 
   <a name="blocks--braces"></a><a name="16.1"></a>
@@ -1938,9 +1927,7 @@
     }
     ```
 
-
 **[⬆ к оглавлению](#Оглавление)**
-
 
 ## <a name="comments">Комментарии</a>
 
@@ -2081,7 +2068,6 @@
     ```
 
 **[⬆ к оглавлению](#Оглавление)**
-
 
 ## <a name="whitespace">Пробелы</a>
 
@@ -2543,7 +2529,6 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-
 ## <a name="semicolons">Точка с запятой</a>
 
   <a name="semicolons--required"></a><a name="20.1"></a>
@@ -2573,7 +2558,6 @@
     [Читать подробнее](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214).
 
 **[⬆ к оглавлению](#Оглавление)**
-
 
 ## <a name="type-casting--coercion">Приведение типов</a>
 
@@ -2660,7 +2644,6 @@
     ```
 
 **[⬆ к оглавлению](#Оглавление)**
-
 
 ## <a name="naming-conventions">Соглашение об именовании</a>
 
@@ -2762,7 +2745,7 @@
     ```
 
   <a name="naming--filename-matches-export"></a><a name="22.6"></a>
-  - [22.6](#naming--filename-matches-export) Название файла точно должно совпадать с именем его экспорта по умолчанию.  
+  - [22.6](#naming--filename-matches-export) Название файла точно должно совпадать с именем его экспорта по умолчанию.
 
     ```javascript
     // содержание файла 1
@@ -2852,7 +2835,6 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-
 ## <a name="accessors">Аксессоры</a>
 
   <a name="accessors--not-required"></a><a name="23.1"></a>
@@ -2922,7 +2904,6 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-
 ## <a name="events">События</a>
 
   <a name="events--hash"></a><a name="24.1"></a>
@@ -2953,7 +2934,6 @@
     ```
 
   **[⬆ к оглавлению](#Оглавление)**
-
 
 ## <a name="jquery">jQuery</a>
 
@@ -3024,7 +3004,6 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-
 ## <a name="ecmascript-5-compatibility">Поддержка ECMAScript 5</a>
 
   <a name="es5-compat--kangax"></a><a name="26.1"></a>
@@ -3071,15 +3050,14 @@
 
   <a name="testing--for-real"></a><a name="28.2"></a>
   - [28.2](#testing--for-real) **Нет, но серьезно**:
-   - Какой бы фреймворк вы не использовали, вы должны писать тесты!
-   - Стремитесь к тому, чтобы написать много маленьких чистых функций, и к тому, чтобы свести к минимуму места, где происходят мутации.
-   - Будьте осторожны со стабами (stubs) и моками (mocks) — они могут сделать ваше тестирование хрупким.
-   - Мы в первую очередь советуем вам использовать [`mocha`](https://www.npmjs.com/package/mocha) от Airbnb. [`tape`](https://www.npmjs.com/package/tape) также иногда используется для небольших, отдельных модулей.
-   - 100% покрытие тестами — это хорошая цель, к которой надо стремиться, даже если это не всегда практично.
-   - Всякий раз, когда вы исправляете ошибку, _пишите регрессионный тест_. Исправленная ошибка без регрессионного тестирования почти наверняка всплывет в будущем.
+    - Какой бы фреймворк вы не использовали, вы должны писать тесты!
+    - Стремитесь к тому, чтобы написать много маленьких чистых функций, и к тому, чтобы свести к минимуму места, где происходят мутации.
+    - Будьте осторожны со стабами (stubs) и моками (mocks) — они могут сделать ваше тестирование хрупким.
+    - Мы в первую очередь советуем вам использовать [`mocha`](https://www.npmjs.com/package/mocha) от Airbnb. [`tape`](https://www.npmjs.com/package/tape) также иногда используется для небольших, отдельных модулей.
+    - 100% покрытие тестами — это хорошая цель, к которой надо стремиться, даже если это не всегда практично.
+    - Всякий раз, когда вы исправляете ошибку, _пишите регрессионный тест_. Исправленная ошибка без регрессионного тестирования почти наверняка всплывет в будущем.
 
 **[⬆ к оглавлению](#Оглавление)**
-
 
 ## <a name="performance">Производительность</a>
 
@@ -3094,7 +3072,6 @@
   - Загрузка...
 
 **[⬆ к оглавлению](#Оглавление)**
-
 
 ## <a name="resources">Ресурсы</a>
 
@@ -3112,9 +3089,9 @@
 **Инструменты**
 
   - Линтеры
-    + [ESlint](http://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
-    + [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/.jshintrc)
-    + [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json) (Устарело,  пожалуйста, используйте  [ESlint](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base))
+    - [ESlint](http://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
+    - [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/.jshintrc)
+    - [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json) (Устарело,  пожалуйста, используйте  [ESlint](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base))
   - Neutrino preset - [neutrino-preset-airbnb-base](https://neutrino.js.org/presets/neutrino-preset-airbnb-base/)
 
 **Другие руководства**
@@ -3174,7 +3151,6 @@
 
   - [JavaScript Air](https://javascriptair.com/)
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
-
 
 **[⬆ к оглавлению](#Оглавление)**
 
@@ -3269,7 +3245,7 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## <a name="in-the-wild">В реальной жизни</a>
+## <a name="translation">Переводы</a>
 
   Это руководство также переведено на другие языки:
 
@@ -3298,7 +3274,6 @@
 ## <a name="contributors">Участники перевода</a>
 
   - [Посмотреть всех](https://github.com/leonidlebedev/javascript-airbnb/graphs/contributors)
-
 
 ## <a name="license">Лицензия</a>
 
