@@ -28,6 +28,7 @@
   1. [Подъем](#hoisting)
   1. [Операторы сравнения и равенства](#comparison-operators--equality)
   1. [Блоки](#blocks)
+  1. [Управляющие операторы](#control-statements)
   1. [Комментарии](#comments)
   1. [Пробелы](#whitespace)
   1. [Запятые](#commas)
@@ -1929,10 +1930,66 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
+## <a name="control-statements">Управляющие операторы</a>
+
+   <a name="control-statements"></a>
+   - [17.1](#control-statements) Если ваш управляющий оператор (`if`, `while` и т.д.) слишком длинный или превышает максимальную длину строки, то каждое (сгруппированное) условие можно поместить на новую строку. Вам решать, где будет располагаться логический оператор (в начале или в конце строки).
+
+     ```javascript
+     // плохо
+     if ((foo === 123 || bar === 'abc') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
+       thing1();
+     }
+
+     // плохо
+     if (foo === 123 &&
+       bar === 'abc') {
+       thing1();
+     }
+
+     // плохо
+     if (foo === 123
+       && bar === 'abc') {
+       thing1();
+     }
+
+     // хорошо
+     if (
+       (foo === 123 || bar === "abc") &&
+       doesItLookGoodWhenItBecomesThatLong() &&
+       isThisReallyHappening()
+     ) {
+       thing1();
+     }
+
+     // хорошо
+     if (foo === 123 && bar === 'abc') {
+       thing1();
+     }
+
+     // хорошо
+     if (
+       foo === 123 &&
+       bar === 'abc'
+     ) {
+       thing1();
+     }
+
+     // хорошо
+     if (
+       foo === 123
+       && bar === 'abc'
+     ) {
+       thing1();
+     }
+     ```
+
+**[⬆ к оглавлению](#Оглавление)**
+
 ## <a name="comments">Комментарии</a>
 
-  <a name="comments--multiline"></a><a name="17.1"></a>
-  - [17.1](#comments--multiline) Используйте конструкцию `/** ... */` для многострочных комментариев.
+  <a name="comments--multiline"></a><a name="18.1"></a>
+  - [18.1](#comments--multiline) Используйте конструкцию `/** ... */` для многострочных комментариев.
 
     ```javascript
     // плохо
@@ -1961,8 +2018,8 @@
     }
     ```
 
-  <a name="comments--singleline"></a><a name="17.2"></a>
-  - [17.2](#comments--singleline) Используйте двойной слэш `//` для однострочных комментариев. Располагайте такие комментарии отдельной строкой над кодом, который хотите пояснить. Если комментарий не является первой строкой блока, добавьте сверху пустую строку.
+  <a name="comments--singleline"></a><a name="18.2"></a>
+  - [18.2](#comments--singleline) Используйте двойной слэш `//` для однострочных комментариев. Располагайте такие комментарии отдельной строкой над кодом, который хотите пояснить. Если комментарий не является первой строкой блока, добавьте сверху пустую строку.
 
     ```javascript
     // плохо
@@ -2000,7 +2057,7 @@
     }
     ```
 
-  - [17.3](#comments--spaces) Начинайте все комментарии с пробела, так их проще читать. eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
+  - [18.3](#comments--spaces) Начинайте все комментарии с пробела, так их проще читать. eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
 
     ```javascript
     // плохо
@@ -2036,11 +2093,11 @@
     }
     ```
 
-  <a name="comments--actionitems"></a><a name="17.3"></a>
-  - [17.4](#comments--actionitems) Если комментарий начинается со слов `FIXME` или `TODO`, то это помогает другим разработчикам быстро понять, когда вы хотите указать на проблему, которую надо решить, или когда вы предлагаете решение проблемы, которое надо реализовать. Такие комментарии, в отличие от обычных, побуждают к действию: `FIXME: -- нужно разобраться с этим` или `TODO: -- нужно реализовать`.
+  <a name="comments--actionitems"></a><a name="18.4"></a>
+  - [18.4](#comments--actionitems) Если комментарий начинается со слов `FIXME` или `TODO`, то это помогает другим разработчикам быстро понять, когда вы хотите указать на проблему, которую надо решить, или когда вы предлагаете решение проблемы, которое надо реализовать. Такие комментарии, в отличие от обычных, побуждают к действию: `FIXME: -- нужно разобраться с этим` или `TODO: -- нужно реализовать`.
 
-  <a name="comments--fixme"></a><a name="17.4"></a>
-  - [17.5](#comments--fixme) Используйте `// FIXME:`, чтобы описать проблему.
+  <a name="comments--fixme"></a><a name="18.5"></a>
+  - [18.5](#comments--fixme) Используйте `// FIXME:`, чтобы описать проблему.
 
     ```javascript
     class Calculator extends Abacus {
@@ -2053,8 +2110,8 @@
     }
     ```
 
-  <a name="comments--todo"></a><a name="17.5"></a>
-  - [17.6](#comments--todo) Используйте `// TODO:`, чтобы описать решение проблемы.
+  <a name="comments--todo"></a><a name="18.6"></a>
+  - [18.6](#comments--todo) Используйте `// TODO:`, чтобы описать решение проблемы.
 
     ```javascript
     class Calculator extends Abacus {
@@ -2071,8 +2128,8 @@
 
 ## <a name="whitespace">Пробелы</a>
 
-  <a name="whitespace--spaces"></a><a name="18.1"></a>
-  - [18.1](#whitespace--spaces) Используйте мягкую табуляцию (символ пробела) шириной в 2 пробела. eslint: [`indent`](http://eslint.org/docs/rules/indent.html) jscs: [`validateIndentation`](http://jscs.info/rule/validateIndentation)
+  <a name="whitespace--spaces"></a><a name="19.1"></a>
+  - [19.1](#whitespace--spaces) Используйте мягкую табуляцию (символ пробела) шириной в 2 пробела. eslint: [`indent`](http://eslint.org/docs/rules/indent.html) jscs: [`validateIndentation`](http://jscs.info/rule/validateIndentation)
 
     ```javascript
     // плохо
@@ -2091,8 +2148,8 @@
     }
     ```
 
-  <a name="whitespace--before-blocks"></a><a name="18.2"></a>
-  - [18.2](#whitespace--before-blocks) Ставьте 1 пробел перед открывающей фигурной скобкой у блока. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
+  <a name="whitespace--before-blocks"></a><a name="19.2"></a>
+  - [19.2](#whitespace--before-blocks) Ставьте 1 пробел перед открывающей фигурной скобкой у блока. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
 
     ```javascript
     // плохо
@@ -2118,8 +2175,8 @@
     });
     ```
 
-  <a name="whitespace--around-keywords"></a><a name="18.3"></a>
-  - [18.3](#whitespace--around-keywords) Ставьте 1 пробел перед открывающей круглой скобкой в операторах управления (`if`, `while` и т.п.). Не оставляйте пробелов между списком аргументов и названием в объявлениях и вызовах функций. eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html) jscs: [`requireSpaceAfterKeywords`](http://jscs.info/rule/requireSpaceAfterKeywords)
+  <a name="whitespace--around-keywords"></a><a name="19.3"></a>
+  - [19.3](#whitespace--around-keywords) Ставьте 1 пробел перед открывающей круглой скобкой в операторах управления (`if`, `while` и т.п.). Не оставляйте пробелов между списком аргументов и названием в объявлениях и вызовах функций. eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html) jscs: [`requireSpaceAfterKeywords`](http://jscs.info/rule/requireSpaceAfterKeywords)
 
     ```javascript
     // плохо
@@ -2143,8 +2200,8 @@
     }
     ```
 
-  <a name="whitespace--infix-ops"></a><a name="18.4"></a>
-  - [18.4](#whitespace--infix-ops) Разделяйте операторы пробелами. eslint: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html) jscs: [`requireSpaceBeforeBinaryOperators`](http://jscs.info/rule/requireSpaceBeforeBinaryOperators), [`requireSpaceAfterBinaryOperators`](http://jscs.info/rule/requireSpaceAfterBinaryOperators)
+  <a name="whitespace--infix-ops"></a><a name="19.4"></a>
+  - [19.4](#whitespace--infix-ops) Разделяйте операторы пробелами. eslint: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html) jscs: [`requireSpaceBeforeBinaryOperators`](http://jscs.info/rule/requireSpaceBeforeBinaryOperators), [`requireSpaceAfterBinaryOperators`](http://jscs.info/rule/requireSpaceAfterBinaryOperators)
 
     ```javascript
     // плохо
@@ -2154,8 +2211,8 @@
     const x = y + 5;
     ```
 
-  <a name="whitespace--newline-at-end"></a><a name="18.5"></a>
-  - [18.5](#whitespace--newline-at-end) В конце файла оставляйте одну пустую строку. eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
+  <a name="whitespace--newline-at-end"></a><a name="19.5"></a>
+  - [19.5](#whitespace--newline-at-end) В конце файла оставляйте одну пустую строку. eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
 
     ```javascript
     // плохо
@@ -2179,8 +2236,8 @@
     export default es6;↵
     ```
 
-  <a name="whitespace--chains"></a><a name="18.6"></a>
-  - [18.6](#whitespace--chains) Используйте переносы строк и отступы, когда делаете длинные цепочки методов (больше 2-х методов). Ставьте точку в начале строки, чтобы дать понять, что это не новая инструкция, а продолжение цепочки. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
+  <a name="whitespace--chains"></a><a name="19.6"></a>
+  - [19.6](#whitespace--chains) Используйте переносы строк и отступы, когда делаете длинные цепочки методов (больше 2-х методов). Ставьте точку в начале строки, чтобы дать понять, что это не новая инструкция, а продолжение цепочки. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
 
     ```javascript
     // плохо
@@ -2222,8 +2279,8 @@
     const leds = stage.selectAll('.led').data(data);
     ```
 
-  <a name="whitespace--after-blocks"></a><a name="18.7"></a>
-  - [18.7](#whitespace--after-blocks) Оставляйте пустую строку между блоком кода и следующей инструкцией. jscs: [`requirePaddingNewLinesAfterBlocks`](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks)
+  <a name="whitespace--after-blocks"></a><a name="19.7"></a>
+  - [19.7](#whitespace--after-blocks) Оставляйте пустую строку между блоком кода и следующей инструкцией. jscs: [`requirePaddingNewLinesAfterBlocks`](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks)
 
     ```javascript
     // плохо
@@ -2280,8 +2337,8 @@
     return arr;
     ```
 
-  <a name="whitespace--padded-blocks"></a><a name="18.8"></a>
-  - [18.8](#whitespace--padded-blocks) Не добавляйте отступы до или после кода внутри блока. eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html) jscs:  [`disallowPaddingNewlinesInBlocks`](http://jscs.info/rule/disallowPaddingNewlinesInBlocks)
+  <a name="whitespace--padded-blocks"></a><a name="19.8"></a>
+  - [19.8](#whitespace--padded-blocks) Не добавляйте отступы до или после кода внутри блока. eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html) jscs:  [`disallowPaddingNewlinesInBlocks`](http://jscs.info/rule/disallowPaddingNewlinesInBlocks)
 
     ```javascript
     // плохо
@@ -2313,8 +2370,8 @@
     }
     ```
 
-  <a name="whitespace--in-parens"></a><a name="18.9"></a>
-  - [18.9](#whitespace--in-parens) Не добавляйте пробелы между круглыми скобками и их содержимым. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html) jscs: [`disallowSpacesInsideParentheses`](http://jscs.info/rule/disallowSpacesInsideParentheses)
+  <a name="whitespace--in-parens"></a><a name="19.9"></a>
+  - [19.9](#whitespace--in-parens) Не добавляйте пробелы между круглыми скобками и их содержимым. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html) jscs: [`disallowSpacesInsideParentheses`](http://jscs.info/rule/disallowSpacesInsideParentheses)
 
     ```javascript
     // плохо
@@ -2338,8 +2395,8 @@
     }
     ```
 
-  <a name="whitespace--in-brackets"></a><a name="18.10"></a>
-  - [18.10](#whitespace--in-brackets) Не добавляйте пробелы между квадратными скобками и их содержимым. eslint: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html) jscs: [`disallowSpacesInsideArrayBrackets`](http://jscs.info/rule/disallowSpacesInsideArrayBrackets)
+  <a name="whitespace--in-brackets"></a><a name="19.10"></a>
+  - [19.10](#whitespace--in-brackets) Не добавляйте пробелы между квадратными скобками и их содержимым. eslint: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html) jscs: [`disallowSpacesInsideArrayBrackets`](http://jscs.info/rule/disallowSpacesInsideArrayBrackets)
 
     ```javascript
     // плохо
@@ -2351,8 +2408,8 @@
     console.log(foo[0]);
     ```
 
-  <a name="whitespace--in-braces"></a><a name="18.11"></a>
-  - [18.11](#whitespace--in-braces) Добавляйте пробелы между фигурными скобками и их содержимым. eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html) jscs: [`requireSpacesInsideObjectBrackets`](http://jscs.info/rule/requireSpacesInsideObjectBrackets)
+  <a name="whitespace--in-braces"></a><a name="19.11"></a>
+  - [19.11](#whitespace--in-braces) Добавляйте пробелы между фигурными скобками и их содержимым. eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html) jscs: [`requireSpacesInsideObjectBrackets`](http://jscs.info/rule/requireSpacesInsideObjectBrackets)
 
     ```javascript
     // плохо
@@ -2362,8 +2419,8 @@
     const foo = { clark: 'kent' };
     ```
 
-  <a name="whitespace--max-len"></a><a name="18.12"></a>
-  - [18.12](#whitespace--max-len) Старайтесь не допускать, чтобы строки были длиннее 100 символов (включая пробелы). Замечание: согласно [пункту выше](#strings--line-length), длинные строки с текстом освобождаются от этого правила и не должны разбиваться на несколько строк. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
+  <a name="whitespace--max-len"></a><a name="19.12"></a>
+  - [19.12](#whitespace--max-len) Старайтесь не допускать, чтобы строки были длиннее 100 символов (включая пробелы). Замечание: согласно [пункту выше](#strings--line-length), длинные строки с текстом освобождаются от этого правила и не должны разбиваться на несколько строк. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
 
     > Почему? Это обеспечивает удобство чтения и поддержки кода.
 
@@ -2396,8 +2453,8 @@
 
 ## <a name="commas">Запятые</a>
 
-<a name="commas--leading-trailing"></a><a name="19.1"></a>
-  - [19.1](#commas--leading-trailing) Не начинайте строку с запятой. eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
+<a name="commas--leading-trailing"></a><a name="20.1"></a>
+  - [20.1](#commas--leading-trailing) Не начинайте строку с запятой. eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
 
     ```javascript
     // плохо
@@ -2431,8 +2488,8 @@
     };
     ```
 
-  <a name="commas--dangling"></a><a name="19.2"></a>
-  - [19.2](#commas--dangling) Добавляйте висячие запятые. eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
+  <a name="commas--dangling"></a><a name="20.2"></a>
+  - [20.2](#commas--dangling) Добавляйте висячие запятые. eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/requireTrailingComma)
 
     > Почему? Такой подход дает понятную разницу при просмотре изменений. Кроме того, транспиляторы типа Babel удалят висячие запятые из собранного кода, поэтому вы можете не беспокоиться о [проблемах](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) в старых браузерах.
 
@@ -2531,8 +2588,8 @@
 
 ## <a name="semicolons">Точка с запятой</a>
 
-  <a name="semicolons--required"></a><a name="20.1"></a>
-  - [20.1](#semicolons--required) **Да.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
+  <a name="semicolons--required"></a><a name="21.1"></a>
+  - [21.1](#semicolons--required) **Да.** eslint: [`semi`](http://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
 
     ```javascript
     // плохо
@@ -2561,11 +2618,11 @@
 
 ## <a name="type-casting--coercion">Приведение типов</a>
 
-  <a name="coercion--explicit"></a><a name="21.1"></a>
-  - [21.1](#coercion--explicit) Выполняйте приведение типов в начале инструкции.
+  <a name="coercion--explicit"></a><a name="22.1"></a>
+  - [22.1](#coercion--explicit) Выполняйте приведение типов в начале инструкции.
 
-  <a name="coercion--strings"></a><a name="21.2"></a>
-  - [21.2](#coercion--strings)  Строки:
+  <a name="coercion--strings"></a><a name="22.2"></a>
+  - [22.2](#coercion--strings)  Строки:
 
     ```javascript
     // => this.reviewScore = 9;
@@ -2580,8 +2637,8 @@
     const totalScore = String(this.reviewScore);
     ```
 
-  <a name="coercion--numbers"></a><a name="21.3"></a>
-  - [21.3](#coercion--numbers) Числа: Используйте `Number` и `parseInt` с основанием системы счисления. eslint: [`radix`](http://eslint.org/docs/rules/radix)
+  <a name="coercion--numbers"></a><a name="22.3"></a>
+  - [22.3](#coercion--numbers) Числа: Используйте `Number` и `parseInt` с основанием системы счисления. eslint: [`radix`](http://eslint.org/docs/rules/radix)
 
     ```javascript
     const inputValue = '4';
@@ -2605,8 +2662,8 @@
     const val = parseInt(inputValue, 10);
     ```
 
-  <a name="coercion--comment-deviations"></a><a name="21.4"></a>
-  - [21.4](#coercion--comment-deviations) Если по какой-то причине вы делаете что-то настолько безумное, что `parseInt` является слабым местом и вам нужно использовать побитовый сдвиг из-за [вопросов производительности](https://jsperf.com/coercion-vs-casting/3), оставьте комментарий объясняющий почему и что вы делаете.
+  <a name="coercion--comment-deviations"></a><a name="22.4"></a>
+  - [22.4](#coercion--comment-deviations) Если по какой-то причине вы делаете что-то настолько безумное, что `parseInt` является слабым местом и вам нужно использовать побитовый сдвиг из-за [вопросов производительности](https://jsperf.com/coercion-vs-casting/3), оставьте комментарий объясняющий почему и что вы делаете.
 
     ```javascript
     // хорошо
@@ -2618,8 +2675,8 @@
     const val = inputValue >> 0;
     ```
 
-  <a name="coercion--bitwise"></a><a name="21.5"></a>
-  - [21.5](#coercion--bitwise) **Примечание:** Будьте осторожны с побитовыми операциями. Числа в JavaScript являются [64-битными значениями](https://es5.github.io/#x4.3.19), но побитовые операции всегда возвращают 32-битные значенения ([источник](https://es5.github.io/#x11.7)). Побитовый сдвиг может привести к неожиданному поведению для значений больше, чем 32 бита. [Discussion](https://github.com/airbnb/javascript/issues/109). Верхний предел — 2 147 483 647:
+  <a name="coercion--bitwise"></a><a name="22.5"></a>
+  - [22.5](#coercion--bitwise) **Примечание:** Будьте осторожны с побитовыми операциями. Числа в JavaScript являются [64-битными значениями](https://es5.github.io/#x4.3.19), но побитовые операции всегда возвращают 32-битные значенения ([источник](https://es5.github.io/#x11.7)). Побитовый сдвиг может привести к неожиданному поведению для значений больше, чем 32 бита. [Discussion](https://github.com/airbnb/javascript/issues/109). Верхний предел — 2 147 483 647:
 
     ```javascript
     2147483647 >> 0; // => 2147483647
@@ -2627,8 +2684,8 @@
     2147483649 >> 0; // => -2147483647
     ```
 
-  <a name="coercion--booleans"></a><a name="21.6"></a>
-  - [21.6](#coercion--booleans) Логические типы:
+  <a name="coercion--booleans"></a><a name="22.6"></a>
+  - [22.6](#coercion--booleans) Логические типы:
 
     ```javascript
     const age = 0;
@@ -2647,8 +2704,8 @@
 
 ## <a name="naming-conventions">Соглашение об именовании</a>
 
-  <a name="naming--descriptive"></a><a name="22.1"></a>
-  - [22.1](#naming--descriptive) Избегайте названий из одной буквы. Имя должно быть наглядным. eslint: [`id-length`](http://eslint.org/docs/rules/id-length)
+  <a name="naming--descriptive"></a><a name="23.1"></a>
+  - [23.1](#naming--descriptive) Избегайте названий из одной буквы. Имя должно быть наглядным. eslint: [`id-length`](http://eslint.org/docs/rules/id-length)
 
     ```javascript
     // плохо
@@ -2662,8 +2719,8 @@
     }
     ```
 
-  <a name="naming--camelCase"></a><a name="22.2"></a>
-  - [22.2](#naming--camelCase) Используйте `camelCase` для именования объектов, функций и экземпляров. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
+  <a name="naming--camelCase"></a><a name="23.2"></a>
+  - [23.2](#naming--camelCase) Используйте `camelCase` для именования объектов, функций и экземпляров. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
 
     ```javascript
     // плохо
@@ -2676,8 +2733,8 @@
     function thisIsMyFunction() {}
     ```
 
-  <a name="naming--PascalCase"></a><a name="22.3"></a>
-  - [22.3](#naming--PascalCase) Используйте `PascalCase` только для именования конструкторов и классов. eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html) jscs: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors)
+  <a name="naming--PascalCase"></a><a name="23.3"></a>
+  - [23.3](#naming--PascalCase) Используйте `PascalCase` только для именования конструкторов и классов. eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html) jscs: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors)
 
     ```javascript
     // плохо
@@ -2701,8 +2758,8 @@
     });
     ```
 
-  <a name="naming--leading-underscore"></a><a name="22.4"></a>
-  - [22.4](#naming--leading-underscore) Не используйте `_` в начале или в конце названий. eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html) jscs: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores)
+  <a name="naming--leading-underscore"></a><a name="23.4"></a>
+  - [23.4](#naming--leading-underscore) Не используйте `_` в начале или в конце названий. eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html) jscs: [`disallowDanglingUnderscores`](http://jscs.info/rule/disallowDanglingUnderscores)
 
     > Почему? JavaScript не имеет концепции приватности свойств или методов. Хотя подчеркивание в начале имени является распространенным соглашением, которое показывает “приватность”, фактически эти свойства являются такими же доступными, как и часть вашего публичного API. Это соглашение может привести к тому, что разработчики будут ошибочно думать, что изменения не приведут к поломке или что тесты не нужны. Итог: если вы хотите, чтобы что-то было “приватным”, то оно не должно быть доступно извне.
 
@@ -2716,8 +2773,8 @@
     this.firstName = 'Panda';
     ```
 
-  <a name="naming--self-this"></a><a name="22.5"></a>
-  - [22.5](#naming--self-this) Не сохраняйте ссылку на `this`. Используйте стрелочные функции или [метод bind()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
+  <a name="naming--self-this"></a><a name="23.5"></a>
+  - [23.5](#naming--self-this) Не сохраняйте ссылку на `this`. Используйте стрелочные функции или [метод bind()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). jscs: [`disallowNodeTypes`](http://jscs.info/rule/disallowNodeTypes)
 
     ```javascript
     // плохо
@@ -2744,8 +2801,8 @@
     }
     ```
 
-  <a name="naming--filename-matches-export"></a><a name="22.6"></a>
-  - [22.6](#naming--filename-matches-export) Название файла точно должно совпадать с именем его экспорта по умолчанию.
+  <a name="naming--filename-matches-export"></a><a name="23.6"></a>
+  - [23.6](#naming--filename-matches-export) Название файла точно должно совпадать с именем его экспорта по умолчанию.
 
     ```javascript
     // содержание файла 1
@@ -2780,8 +2837,8 @@
     // ^ поддерживает оба варианта: insideDirectory.js и insideDirectory/index.js
     ```
 
-  <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
-  - [22.7](#naming--camelCase-default-export) Используйте `camelCase`, когда экспортируете функцию по умолчанию. Ваш файл должен называться так же, как и имя функции.
+  <a name="naming--camelCase-default-export"></a><a name="23.7"></a>
+  - [23.7](#naming--camelCase-default-export) Используйте `camelCase`, когда экспортируете функцию по умолчанию. Ваш файл должен называться так же, как и имя функции.
     ```javascript
     function makeStyleGuide() {
       // ...
@@ -2790,8 +2847,8 @@
     export default makeStyleGuide;
     ```
 
-  <a name="naming--PascalCase-singleton"></a><a name="22.8"></a>
-  - [22.8](#naming--PascalCase-singleton) Используйте `PascalCase`, когда экспортируете конструктор / класс / синглтон / библиотечную функцию / объект.
+  <a name="naming--PascalCase-singleton"></a><a name="23.8"></a>
+  - [23.8](#naming--PascalCase-singleton) Используйте `PascalCase`, когда экспортируете конструктор / класс / синглтон / библиотечную функцию / объект.
 
     ```javascript
     const AirbnbStyleGuide = {
@@ -2803,7 +2860,7 @@
     ```
 
   <a name="naming--Acronyms-and-Initialisms"></a>
-  - [22.9](#naming--Acronyms-and-Initialisms) Сокращения или буквенные аббревиатуры всегда должны писаться заглавными буквами или строчными.
+  - [23.9](#naming--Acronyms-and-Initialisms) Сокращения или буквенные аббревиатуры всегда должны писаться заглавными буквами или строчными.
 
     > Почему? Имена для удобства чтения, а не для удовлетворения компьютерных алгоритмов.
 
@@ -2837,11 +2894,11 @@
 
 ## <a name="accessors">Аксессоры</a>
 
-  <a name="accessors--not-required"></a><a name="23.1"></a>
-  - [23.1](#accessors--not-required) Функции-аксессоры для свойств объекта больше не нужны.
+  <a name="accessors--not-required"></a><a name="24.1"></a>
+  - [24.1](#accessors--not-required) Функции-аксессоры для свойств объекта больше не нужны.
 
-  <a name="accessors--no-getters-setters"></a><a name="23.2"></a>
-  - [23.2](#accessors--no-getters-setters) Не используйте геттеры/сеттеры, т.к. они вызывают неожиданные побочные эффекты, а также их тяжело тестировать, поддерживать и понимать. Вместо этого создавайте методы `getVal()` и `setVal('hello')`.
+  <a name="accessors--no-getters-setters"></a><a name="24.2"></a>
+  - [24.2](#accessors--no-getters-setters) Не используйте геттеры/сеттеры, т.к. они вызывают неожиданные побочные эффекты, а также их тяжело тестировать, поддерживать и понимать. Вместо этого создавайте методы `getVal()` и `setVal('hello')`.
 
     ```javascript
     // плохо
@@ -2867,8 +2924,8 @@
     }
     ```
 
-  <a name="accessors--boolean-prefix"></a><a name="23.3"></a>
-  - [23.3](#accessors--boolean-prefix) Если свойство/метод возвращает логический тип, то используйте названия `isVal()` или `hasVal()`.
+  <a name="accessors--boolean-prefix"></a><a name="24.3"></a>
+  - [24.3](#accessors--boolean-prefix) Если свойство/метод возвращает логический тип, то используйте названия `isVal()` или `hasVal()`.
 
     ```javascript
     // плохо
@@ -2882,8 +2939,8 @@
     }
     ```
 
-  <a name="accessors--consistent"></a><a name="23.4"></a>
-  - [23.4](#accessors--consistent) Можно создавать функции `get()` и `set()`, но нужно быть последовательным.
+  <a name="accessors--consistent"></a><a name="24.4"></a>
+  - [24.4](#accessors--consistent) Можно создавать функции `get()` и `set()`, но нужно быть последовательным.
 
     ```javascript
     class Jedi {
@@ -2906,8 +2963,8 @@
 
 ## <a name="events">События</a>
 
-  <a name="events--hash"></a><a name="24.1"></a>
-  - [24.1](#events--hash) Когда привязываете данные к событию (например, события `DOM` или какие-то собственные события, как `Backbone` события), передавайте объект вместо простого значения. Это позволяет другим разработчикам добавлять больше данных без поиска и изменения каждого обработчика события. К примеру, вместо:
+  <a name="events--hash"></a><a name="25.1"></a>
+  - [25.1](#events--hash) Когда привязываете данные к событию (например, события `DOM` или какие-то собственные события, как `Backbone` события), передавайте объект вместо простого значения. Это позволяет другим разработчикам добавлять больше данных без поиска и изменения каждого обработчика события. К примеру, вместо:
 
     ```javascript
     // плохо
@@ -2937,8 +2994,8 @@
 
 ## <a name="jquery">jQuery</a>
 
-  <a name="jquery--dollar-prefix"></a><a name="25.1"></a>
-  - [25.1](#jquery--dollar-prefix) Начинайте названия переменных, хранящих объект jQuery, со знака `$`. jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
+  <a name="jquery--dollar-prefix"></a><a name="26.1"></a>
+  - [26.1](#jquery--dollar-prefix) Начинайте названия переменных, хранящих объект jQuery, со знака `$`. jscs: [`requireDollarBeforejQueryAssignment`](http://jscs.info/rule/requireDollarBeforejQueryAssignment)
 
     ```javascript
     // плохо
@@ -2951,8 +3008,8 @@
     const $sidebarBtn = $('.sidebar-btn');
     ```
 
-  <a name="jquery--cache"></a><a name="25.2"></a>
-  - [25.2](#jquery--cache) Кэшируйте jQuery-поиски.
+  <a name="jquery--cache"></a><a name="26.2"></a>
+  - [26.2](#jquery--cache) Кэшируйте jQuery-поиски.
 
     ```javascript
     // плохо
@@ -2979,11 +3036,11 @@
     }
     ```
 
-  <a name="jquery--queries"></a><a name="25.3"></a>
-  - [25.3](#jquery--queries) Для поиска в DOM используйте каскады `$('.sidebar ul')` или селектор родитель > ребенок `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  <a name="jquery--queries"></a><a name="26.3"></a>
+  - [26.3](#jquery--queries) Для поиска в DOM используйте каскады `$('.sidebar ul')` или селектор родитель > ребенок `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
 
-  <a name="jquery--find"></a><a name="25.4"></a>
-  - [25.4](#jquery--find) Используйте функцию `find` для поиска в сохраненных jQuery-объектах.
+  <a name="jquery--find"></a><a name="26.4"></a>
+  - [26.4](#jquery--find) Используйте функцию `find` для поиска в сохраненных jQuery-объектах.
 
     ```javascript
     // плохо
@@ -3006,15 +3063,15 @@
 
 ## <a name="ecmascript-5-compatibility">Поддержка ECMAScript 5</a>
 
-  <a name="es5-compat--kangax"></a><a name="26.1"></a>
-  - [26.1](#es5-compat--kangax) Можно посмотреть в [таблице поддержки](https://kangax.github.io/es5-compat-table/) ES5 от пользователя [Kangax](https://twitter.com/kangax/) .
+  <a name="es5-compat--kangax"></a><a name="27.1"></a>
+  - [27.1](#es5-compat--kangax) Можно посмотреть в [таблице поддержки](https://kangax.github.io/es5-compat-table/) ES5 от пользователя [Kangax](https://twitter.com/kangax/) .
 
 **[⬆ к оглавлению](#Оглавление)**
 
 ## <a name="ecmascript-6-es-2015-styles">Возможности ECMAScript 6+ (ES 2015+)</a>
 
-  <a name="es6-styles"></a><a name="27.1"></a>
-  - [27.1](#es6-styles) Здесь собраны ссылки на различные возможности ES6.
+  <a name="es6-styles"></a><a name="28.1"></a>
+  - [28.1](#es6-styles) Здесь собраны ссылки на различные возможности ES6.
 
 1. [Стрелочные функции](#arrow-functions)
 1. [Классы и конструкторы](#classes--constructors)
@@ -3031,7 +3088,7 @@
 1. [Модули](#modules)
 
   <a name="tc39-proposals"></a>
-  - [27.2](#tc39-proposals) Не используйте [предложения TC39](https://github.com/tc39/proposals), которые не перешли на 3 стадию.
+  - [28.2](#tc39-proposals) Не используйте [предложения TC39](https://github.com/tc39/proposals), которые не перешли на 3 стадию.
 
     > Почему? [Они ещё не закончены](https://tc39.github.io/process-document/) и  могут быть изменены или полностью изъяты. Мы хотим использовать JavaScript, а предложения еще не стали частью JavaScript.
 
@@ -3039,8 +3096,8 @@
 
 ## <a name="testing">Тестирование</a>
 
-  <a name="testing--yup"></a><a name="28.1"></a>
-  - [28.1](#testing--yup) **Ага.**
+  <a name="testing--yup"></a><a name="29.1"></a>
+  - [29.1](#testing--yup) **Ага.**
 
     ```javascript
     function foo() {
@@ -3048,8 +3105,8 @@
     }
     ```
 
-  <a name="testing--for-real"></a><a name="28.2"></a>
-  - [28.2](#testing--for-real) **Нет, но серьезно**:
+  <a name="testing--for-real"></a><a name="29.2"></a>
+  - [29.2](#testing--for-real) **Нет, но серьезно**:
     - Какой бы фреймворк вы не использовали, вы должны писать тесты!
     - Стремитесь к тому, чтобы написать много маленьких чистых функций, и к тому, чтобы свести к минимуму места, где происходят мутации.
     - Будьте осторожны со стабами (stubs) и моками (mocks) — они могут сделать ваше тестирование хрупким.
