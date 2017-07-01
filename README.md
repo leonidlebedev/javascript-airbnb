@@ -909,7 +909,7 @@
     ```
 
   <a name="arrows--implicit-return"></a><a name="8.2"></a>
-  - [8.2](#arrows--implicit-return) Если тело функции состоит из одного выражения, то опустите фигурные скобки и используйте неявное возвращение. В противном случае, сохраните фигурные скобки и используйте оператор `return`. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
+  - [8.2](#arrows--implicit-return) Если тело функции состоит из одного оператора, возвращающего [выражение](https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators#Выражения) без побочных эффектов, то опустите фигурные скобки и используйте неявное возвращение. В противном случае, сохраните фигурные скобки и используйте оператор `return`. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [`requireShorthandArrowFunctions`](http://jscs.info/rule/requireShorthandArrowFunctions)
 
     > Почему? Синтаксический сахар. Когда несколько функций соединены вместе, то это читается лучше.
 
@@ -933,6 +933,24 @@
     [1, 2, 3].map((number, index) => ({
       [index]: number,
     }));
+
+    // Неявный возврат с побочными эффектами
+    function foo(callback) {
+      const val = callback();
+      if (val === true) {
+        // Сделать что-то, если функция обратного вызова вернет true
+      }
+    }
+
+    let bool = false;
+
+    // плохо
+    foo(() => bool = true);
+
+    // хорошо
+    foo(() => {
+      bool = true;
+    });
     ```
 
   <a name="arrows--paren-wrap"></a><a name="8.3"></a>
@@ -1347,7 +1365,9 @@
 
     // хорошо
     let sum = 0;
-    numbers.forEach(num => sum += num);
+    numbers.forEach((num) => {
+      sum += num;
+    });
     sum === 15;
 
     // отлично (используйте силу функций)
@@ -1362,7 +1382,9 @@
 
     // хорошо
     const increasedByOne = [];
-    numbers.forEach(num => increasedByOne.push(num + 1));
+    numbers.forEach((num) => { 
+      increasedByOne.push(num + 1)
+    });
 
     // отлично (продолжайте в том же духе)
     const increasedByOne = numbers.map(num => num + 1);
