@@ -559,7 +559,8 @@
   - Как определять `propTypes`, `defaultProps`, `contextTypes`, и т.д.
 
     ```jsx
-    import React, { PropTypes } from 'react';
+    import React from 'react';
+    import Proptypes from 'prop-types';
 
     const propTypes = {
       id: PropTypes.number.isRequired,
