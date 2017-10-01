@@ -2,6 +2,8 @@
 
 *Наиболее разумный подход к написанию JavaScript кода*
 
+> **Замечание**: этот гид подразумевает использование [Babel](https://babeljs.io) вместе с [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) или аналогом. Он также подразумевает установленный shims/polyfills в вашем приложении, такой как [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) или аналог.
+
 [![Скачать](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Скачать](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
@@ -40,6 +42,7 @@
   1. [jQuery](#jquery)
   1. [Поддержка ECMAScript 5](#ecmascript-5-compatibility)
   1. [Возможности ECMAScript 6+ (ES 2015+)](#ecmascript-6-es-2015-styles)
+  1. [Стандартная библиотека](#standard-library)
   1. [Тестирование](#testing)
   1. [Производительность](#performance)
   1. [Ресурсы](#resources)
@@ -356,15 +359,31 @@
     ```
 
   <a name="arrays--from"></a><a name="4.4"></a>
-  - [4.4](#arrays--from) Чтобы преобразовать массиво-подобный объект в массив, используйте [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+  - [4.4](#arrays--from) Для преобразования массиво-подобного объекта в массив используйте оператор расширения `...` вместо [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
+
+    // хорошо
     const nodes = Array.from(foo);
+
+    // отлично
+    const nodes = [...foo];
     ```
 
-  <a name="arrays--callback-return"></a><a name="4.5"></a>
-  - [4.5](#arrays--callback-return) Используйте операторы `return` внутри функций обратного вызова в методах массива. Можно опустить `return`, когда тело функции состоит из одной инструкции, возврщающей выражение без побочных эффектов. [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
+  <a name="arrays--mapping"></a><a name="4.5"></a>
+  - [4.5](#arrays--mapping) Используйте [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) вместо оператора расширения `...` для применения отображения на элементы, это позволит избежать создания промежуточного массива.
+
+    ```javascript
+    // плохо
+    const bar = [...foo].map(bar);
+
+    // хорошо
+    const bar = Array.from(foo, bar);
+    ```
+
+  <a name="arrays--callback-return"></a><a name="4.6"></a>
+  - [4.6](#arrays--callback-return) Используйте операторы `return` внутри функций обратного вызова в методах массива. Можно опустить `return`, когда тело функции состоит из одной инструкции, возврщающей выражение без побочных эффектов. [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
 
     ```javascript
     // хорошо
@@ -412,8 +431,8 @@
     });
     ```
 
-  <a name="arrays--bracket-newline"></a><a name="4.6"></a>
-  - [4.6](#arrays--bracket-newline) Если массив располагается на нескольких строках, то используйте разрывы строк после открытия и перед закрытием скобок.
+  <a name="arrays--bracket-newline"></a><a name="4.7"></a>
+  - [4.7](#arrays--bracket-newline) Если массив располагается на нескольких строках, то используйте разрывы строк после открытия и перед закрытием скобок.
 
     ```javascript
     // плохо
@@ -1484,6 +1503,17 @@
     }
 
     const isJedi = getProp('jedi');
+    ```
+
+  <a name="es2016-properties--exponentiation-operator"></a><a name="12.3"></a>
+  - [12.3](#es2016-properties--exponentiation-operator) Используйте оператор `**` для возведения в степень. eslint: [`no-restricted-properties`](http://eslint.org/docs/rules/no-restricted-properties).
+
+    ```javascript
+    // плохо
+    const binary = Math.pow(2, 10);
+
+    // хорошо
+    const binary = 2 ** 10;
     ```
 
 **[⬆ к оглавлению](#Оглавление)**
@@ -3117,10 +3147,51 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
+## <a name="standard-library">Стандартная библиотека</a>
+
+  [Стандартная библиотека](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects)
+  содержит утилиты, функциональность которых сломана, но они остались для поддержки старого кода.
+
+  <a name="standard-library--isnan"></a>
+  - [29.1](#standard-library--isnan) Используйте `Number.isNaN` вместо глобального `isNaN`.
+    eslint: [`no-restricted-globals`](http://eslint.org/docs/rules/no-restricted-globals)
+
+    > Почему? Глобальная функция `isNaN` приводит не-числа к числам, возвращая true для всего что приводится к NaN.
+    > Если такое поведение необходимо, сделайте его явным.
+
+    ```javascript
+    // плохо
+    isNaN('1.2'); // false
+    isNaN('1.2.3'); // true
+
+    // хорошо
+    Number.isNaN('1.2.3'); // false
+    Number.isNaN(Number('1.2.3')); // true
+    ```
+
+  <a name="standard-library--isfinite"></a>
+  - [29.2](#standard-library--isfinite) Используйте `Number.isFinite` вместо глобального `isFinite`.
+    eslint: [`no-restricted-globals`](http://eslint.org/docs/rules/no-restricted-globals)
+
+    > Почему? Глобальная функция `isFinite` приводит не-числа к числам, возвращая true для всего что приводится к конечному числу.
+    > Если такое поведение необходимо, сделайте его явным.
+
+    ```javascript
+    // плохо
+    isFinite('2e3'); // true
+
+    // хорошо
+    Number.isFinite('2e3'); // false
+    Number.isFinite(parseInt('2e3', 10)); // true
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+
 ## <a name="testing">Тестирование</a>
 
-  <a name="testing--yup"></a><a name="29.1"></a>
-  - [29.1](#testing--yup) **Ага.**
+  <a name="testing--yup"></a><a name="30.1"></a>
+  - [30.1](#testing--yup) **Ага.**
 
     ```javascript
     function foo() {
@@ -3128,8 +3199,8 @@
     }
     ```
 
-  <a name="testing--for-real"></a><a name="29.2"></a>
-  - [29.2](#testing--for-real) **Нет, но серьезно**:
+  <a name="testing--for-real"></a><a name="30.2"></a>
+  - [30.2](#testing--for-real) **Нет, но серьезно**:
     - Какой бы фреймворк вы не использовали, вы должны писать тесты!
     - Стремитесь к тому, чтобы написать много маленьких чистых функций, и к тому, чтобы свести к минимуму места, где происходят мутации.
     - Будьте осторожны со стабами (stubs) и моками (mocks) — они могут сделать ваше тестирование хрупким.
@@ -3273,6 +3344,7 @@
   - **Generation Tux**: [GenerationTux/javascript](https://github.com/generationtux/styleguide)
   - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
   - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
+  - **Grupo-Abraxas**: [Grupo-Abraxas/javascript](https://github.com/Grupo-Abraxas/javascript)
   - **Honey**: [honeyscience/javascript](https://github.com/honeyscience/javascript)
   - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript-style-guide)
   - **Huballin**: [huballin/javascript](https://github.com/huballin/javascript)
@@ -3282,8 +3354,10 @@
   - **Jam3**: [Jam3/Javascript-Code-Conventions](https://github.com/Jam3/Javascript-Code-Conventions)
   - **JeopardyBot**: [kesne/jeopardy-bot](https://github.com/kesne/jeopardy-bot/blob/master/STYLEGUIDE.md)
   - **JSSolutions**: [JSSolutions/javascript](https://github.com/JSSolutions/javascript)
+  - **Kaplan Komputing**: [kaplankomputing/javascript](https://github.com/kaplankomputing/javascript)
   - **KickorStick**: [kickorstick/javascript](https://github.com/kickorstick/javascript)
   - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/Javascript-style-guide)
+  - **LEINWAND**: [LEINWAND/javascript](https://github.com/LEINWAND/javascript)
   - **Lonely Planet**: [lonelyplanet/javascript](https://github.com/lonelyplanet/javascript)
   - **M2GEN**: [M2GEN/javascript](https://github.com/M2GEN/javascript)
   - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
@@ -3301,7 +3375,7 @@
   - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
   - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
   - **reddit**: [reddit/styleguide/javascript](https://github.com/reddit/styleguide/tree/master/javascript)
-  - **React**: [/facebook/react/blob/master/CONTRIBUTING.md#style-guide](https://github.com/facebook/react/blob/master/CONTRIBUTING.md#style-guide)
+  - **React**: [facebook.github.io/react/contributing/how-to-contribute.html#style-guide](https://facebook.github.io/react/contributing/how-to-contribute.html#style-guide)
   - **REI**: [reidev/js-style-guide](https://github.com/rei/code-style-guides/blob/master/docs/javascript.md)
   - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
   - **Sainsbury's Supermarkets**: [jsainsburyplc](https://github.com/jsainsburyplc)
@@ -3312,6 +3386,7 @@
   - **StratoDem Analytics**: [stratodem/javascript](https://github.com/stratodem/javascript)
   - **SteelKiwi Development**: [steelkiwi/javascript](https://github.com/steelkiwi/javascript)
   - **StudentSphere**: [studentsphere/javascript](https://github.com/studentsphere/guide-javascript)
+  - **SwoopApp**: [swoopapp/javascript](https://github.com/swoopapp/javascript)
   - **SysGarage**: [sysgarage/javascript-style-guide](https://github.com/sysgarage/javascript-style-guide)
   - **Syzygy Warsaw**: [syzygypl/javascript](https://github.com/syzygypl/javascript)
   - **Target**: [target/javascript](https://github.com/target/javascript)
@@ -3343,6 +3418,7 @@
   - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Русский**: [leonidlebedev/javascript-airbnb](https://github.com/leonidlebedev/javascript-airbnb)
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Испанский**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
   - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Тайский**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
+  - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Украинский**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript)
   - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Вьетнамский**: [hngiang/javascript-style-guide](https://github.com/hngiang/javascript-style-guide)
 
 **[⬆ к оглавлению](#Оглавление)**
@@ -3381,5 +3457,9 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 **[⬆ к оглавлению](#Оглавление)**
+
+## <a name="amendments">Поправки</a>
+
+Мы рекомендуем вам сделать форк этого руководства и изменить его под стиль вашей команды. Ниже вы можете перечислить свои изменения в руководстве. Это позволяет периодически обновлять его, не сталкиваясь с конфликтами слияний.
 
 # };
