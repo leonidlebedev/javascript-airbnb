@@ -2,7 +2,7 @@
 
 *Наиболее разумный подход к написанию JavaScript кода*
 
-> **Замечание**: этот гид подразумевает использование [Babel](https://babeljs.io) вместе с [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) или аналогом. Он также подразумевает установленный shims/polyfills в вашем приложении, такой как [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) или аналог.
+> **Замечание**: это руководство подразумевает использование [Babel](https://babeljs.io) вместе с [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) или аналогом. Оно также предполагает установленный shims/polyfills в вашем приложении, такой как [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) или аналог.
 
 [![Скачать](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Скачать](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
@@ -359,7 +359,7 @@
     ```
 
   <a name="arrays--from"></a><a name="4.4"></a>
-  - [4.4](#arrays--from) Для преобразования массиво-подобного объекта в массив используйте оператор расширения `...` вместо [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+  - [4.4](#arrays--from) Для преобразования массиво-подобного объекта в массив используйте оператор расширения `...` вместо [Array.from](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
@@ -372,7 +372,7 @@
     ```
 
   <a name="arrays--mapping"></a><a name="4.5"></a>
-  - [4.5](#arrays--mapping) Используйте [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) вместо оператора расширения `...` для применения отображения на элементы, это позволит избежать создания промежуточного массива.
+  - [4.5](#arrays--mapping) Используйте [Array.from](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/from) вместо оператора расширения `...` для маппинга итерируемых объектов, это позволяет избежать создания промежуточного массива.
 
     ```javascript
     // плохо
@@ -3149,14 +3149,14 @@
 
 ## <a name="standard-library">Стандартная библиотека</a>
 
-  [Стандартная библиотека](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects)
+  [Стандартная библиотека](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects)
   содержит утилиты, функциональность которых сломана, но они остались для поддержки старого кода.
 
   <a name="standard-library--isnan"></a>
   - [29.1](#standard-library--isnan) Используйте `Number.isNaN` вместо глобального `isNaN`.
     eslint: [`no-restricted-globals`](http://eslint.org/docs/rules/no-restricted-globals)
 
-    > Почему? Глобальная функция `isNaN` приводит не-числа к числам, возвращая true для всего что приводится к NaN.
+    > Почему? Глобальная функция `isNaN` приводит не числа к числам, возвращая `true` для всего, что приводится к `NaN`.
     > Если такое поведение необходимо, сделайте его явным.
 
     ```javascript
@@ -3173,7 +3173,7 @@
   - [29.2](#standard-library--isfinite) Используйте `Number.isFinite` вместо глобального `isFinite`.
     eslint: [`no-restricted-globals`](http://eslint.org/docs/rules/no-restricted-globals)
 
-    > Почему? Глобальная функция `isFinite` приводит не-числа к числам, возвращая true для всего что приводится к конечному числу.
+    > Почему? Глобальная функция `isFinite` приводит не числа к числам, возвращая `true` для всего, что приводится к конечному числу.
     > Если такое поведение необходимо, сделайте его явным.
 
     ```javascript
@@ -3185,7 +3185,7 @@
     Number.isFinite(parseInt('2e3', 10)); // true
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ к оглавлению](#Оглавление)**
 
 
 ## <a name="testing">Тестирование</a>
@@ -3460,6 +3460,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## <a name="amendments">Поправки</a>
 
-Мы рекомендуем вам сделать форк этого руководства и изменить его под стиль вашей команды. Ниже вы можете перечислить свои изменения в руководстве. Это позволяет периодически обновлять его, не сталкиваясь с конфликтами слияний.
+Мы рекомендуем вам сделать форк этого руководства и изменить его правила под стиль вашей команды. Ниже вы можете перечислить свои изменения в руководстве. Это позволит вам обновлять его время от времени, не сталкиваясь с конфликтами слияний.
 
 # };
