@@ -1929,6 +1929,38 @@
     const baz = !c;
     ```
 
+  <a name="comparison--no-mixed-operators"></a><a name="15.8"></a>
+  - [15.8](#comparison--no-mixed-operators) Помещайте операторы в круглые скобки, когда они смешаны в выражении. При смешивании арифметических операторов, не мешайте `**` и `%` друг с другом или с `+`, `-`, `*`, и `/`. eslint: [`no-mixed-operators`](http://eslint.org/docs/rules/no-mixed-operators.html)
+
+    > Почему? Это улучшает читаемость и уточняет намерения разработчика.
+
+    ```javascript
+    // плохо
+    const foo = a && b < 0 || c > 0 || d + 1 === 0;
+
+    // плохо
+    const bar = a ** b - 5 % d;
+
+    // плохо
+    if (a || b && c) {
+      return d;
+    }
+
+    // хорошо
+    const foo = (a && b < 0) || c > 0 || (d + 1 === 0);
+
+    // хорошо
+    const bar = (a ** b) - (5 % d);
+
+    // хорошо
+    if ((a || b) && c) {
+      return d;
+    }
+
+    // хорошо
+    const bar = a + b / c * d;
+    ```
+
 **[⬆ к оглавлению](#Оглавление)**
 
 ## <a name="blocks">Блоки</a>
