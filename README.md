@@ -474,7 +474,7 @@
 ## <a name="destructuring">Деструктуризация</a>
 
   <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) При обращении к нескольким свойствам объекта используйте деструктуризацию объекта. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
+  - [5.1](#destructuring--object) При обращении к нескольким свойствам объекта используйте деструктуризацию объекта. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
 
     > Почему? Деструктуризация избавляет вас от создания временных переменных для этих свойств.
 
@@ -500,7 +500,7 @@
     ```
 
   <a name="destructuring--array"></a><a name="5.2"></a>
-  - [5.2](#destructuring--array) Используйте деструктуризацию массивов. jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
+  - [5.2](#destructuring--array) Используйте деструктуризацию массивов. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring) jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
 
     ```javascript
     const arr = [1, 2, 3, 4];
@@ -1984,57 +1984,59 @@
 
 ## <a name="control-statements">Управляющие операторы</a>
 
-   <a name="control-statements"></a>
-   - [17.1](#control-statements) Если ваш управляющий оператор (`if`, `while` и т.д.) слишком длинный или превышает максимальную длину строки, то каждое (сгруппированное) условие можно поместить на новую строку. Вам решать, где будет располагаться логический оператор (в начале или в конце строки).
+  <a name="control-statements"></a>
+  - [17.1](#control-statements) Если ваш управляющий оператор (`if`, `while` и т.д.) слишком длинный или превышает максимальную длину строки, то каждое (сгруппированное) условие можно поместить на новую строку. Логический оператор должен располагаться в начале строки.
 
-     ```javascript
-     // плохо
-     if ((foo === 123 || bar === 'abc') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
-       thing1();
-     }
+  > Почему? Это обеспечивает читаемость
 
-     // плохо
-     if (foo === 123 &&
-       bar === 'abc') {
-       thing1();
-     }
+    ```javascript
+    // плохо
+    if ((foo === 123 || bar === 'abc') && doesItLookGoodWhenItBecomesThatLong() && isThisReallyHappening()) {
+      thing1();
+    }
 
-     // плохо
-     if (foo === 123
-       && bar === 'abc') {
-       thing1();
-     }
+    // плохо
+    if (foo === 123 &&
+      bar === 'abc') {
+      thing1();
+    }
 
-     // хорошо
-     if (
-       (foo === 123 || bar === "abc") &&
-       doesItLookGoodWhenItBecomesThatLong() &&
-       isThisReallyHappening()
-     ) {
-       thing1();
-     }
+    // плохо
+    if (foo === 123
+      && bar === 'abc') {
+      thing1();
+    }
 
-     // хорошо
-     if (foo === 123 && bar === 'abc') {
-       thing1();
-     }
+    // плохо
+    if (
+      foo === 123 &&
+      bar === 'abc'
+    ) {
+      thing1();
+    }
 
-     // хорошо
-     if (
-       foo === 123 &&
-       bar === 'abc'
-     ) {
-       thing1();
-     }
+    // хорошо
+    if (
+      foo === 123
+      && bar === 'abc'
+    ) {
+      thing1();
+    }
 
-     // хорошо
-     if (
-       foo === 123
-       && bar === 'abc'
-     ) {
-       thing1();
-     }
-     ```
+    // хорошо
+    if (
+      (foo === 123 || bar === "abc")
+      && doesItLookGoodWhenItBecomesThatLong()
+      && isThisReallyHappening()
+    ) {
+      thing1();
+    }
+
+    // хорошо
+    if (foo === 123 && bar === 'abc') {
+      thing1();
+    }
+    ```
 
 **[⬆ к оглавлению](#Оглавление)**
 
