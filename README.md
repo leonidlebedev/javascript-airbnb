@@ -784,7 +784,7 @@
     // плохо
     var add = new Function('a', 'b', 'return a + b');
 
-    // всё ещё плохо
+    // все еще плохо
     var subtract = Function('a', 'b', 'return a - b');
     ```
 
@@ -908,11 +908,11 @@
 ## <a name="arrow-functions">Стрелочные функции</a>
 
   <a name="arrows--use-them"></a><a name="8.1"></a>
-  - [8.1](#arrows--use-them) Когда вам необходимо использовать функциональное выражение (например, анонимную функцию), используйте стрелочную функцию. eslint: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions)
+  - [8.1](#arrows--use-them) Когда вам необходимо использовать анонимную функцию (например, при передаче встроенной функции обратного вызова), используйте стрелочную функцию. eslint: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions)
 
     > Почему? Таким образом создается функция, которая выполняется в контексте `this`, который мы обычно хотим, а также это более короткий синтаксис.
 
-    > Почему бы и нет? Если у вас есть довольно сложная функция, вы можете переместить её логику внутрь собственного объявления.
+    > Почему бы и нет? Если у вас есть довольно сложная функция, вы можете переместить эту логику внутрь ее собственного именновоного функционального выражения.
 
     ```javascript
     // плохо
@@ -3149,7 +3149,7 @@
   <a name="tc39-proposals"></a>
   - [28.2](#tc39-proposals) Не используйте [предложения TC39](https://github.com/tc39/proposals), которые не перешли на 3 стадию.
 
-    > Почему? [Они ещё не закончены](https://tc39.github.io/process-document/) и  могут быть изменены или полностью изъяты. Мы хотим использовать JavaScript, а предложения еще не стали частью JavaScript.
+    > Почему? [Они еще не закончены](https://tc39.github.io/process-document/) и могут быть изменены или полностью изъяты. Мы хотим использовать JavaScript, а предложения еще не стали частью JavaScript.
 
 **[⬆ к оглавлению](#Оглавление)**
 
