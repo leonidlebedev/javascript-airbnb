@@ -2934,11 +2934,16 @@
       // ...
     ];
 
+    // также хорошо
+    const httpRequests = [
+      // ...
+    ];
+
     // отлично
     import TextMessageContainer from './containers/TextMessageContainer';
 
     // отлично
-    const Requests = [
+    const requests = [
       // ...
     ];
     ```

@@ -270,6 +270,9 @@
     <Foo
       hidden
     />
+
+    // хорошо
+    <Foo hidden />
     ```
 
   - Всегда добавляйте свойство `alt` для тегов `<img>`. Если изображение является презентационным, `alt` может быть пустой строкой или `<img>` обязан иметь `role="presentation"`. eslint: [`jsx-a11y/alt-text`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md)
