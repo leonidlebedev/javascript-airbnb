@@ -51,6 +51,7 @@
   1. [Пообщаться с разработчиками Airbnb](#chat-with-us-about-javascript)
   1. [Участники перевода](#contributors)
   1. [Лицензия](#license)
+  1. [Поправки](#amendments)
 
 ## <a name="types">Типы</a>
 
@@ -376,10 +377,10 @@
 
     ```javascript
     // плохо
-    const bar = [...foo].map(bar);
+    const baz = [...foo].map(bar);
 
     // хорошо
-    const bar = Array.from(foo, bar);
+    const baz = Array.from(foo, bar);
     ```
 
   <a name="arrays--callback-return"></a><a name="4.6"></a>
@@ -395,18 +396,18 @@
     // хорошо
     [1, 2, 3].map(x => x + 1);
 
-    // плохо
+    // плохо - нет возвращаемого значения, следовательно, `memo` становится `undefined` после первой итерации
     const flat = {};
     [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
       const flatten = memo.concat(item);
-      flat[index] = flatten;
+      memo[index] = flatten;
     });
 
     // хорошо
     const flat = {};
     [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
       const flatten = memo.concat(item);
-      flat[index] = flatten;
+      memo[index] = flatten;
       return flatten;
     });
 
@@ -1902,7 +1903,7 @@
       ? "bar"
       : value1 > value2 ? "baz" : null;
 
-    // лучше
+    // разбит на два отдельных тернарных выражения
     const maybeNull = value1 > value2 ? 'baz' : null;
 
     const foo = maybe1 > maybe2
@@ -1910,8 +1911,6 @@
       : maybeNull;
 
     // отлично
-    const maybeNull = value1 > value2 ? 'baz' : null;
-
     const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
     ```
 
@@ -3314,6 +3313,7 @@
 
   Это список организаций, которые используют данное руководство. Отправьте нам пулреквест и мы добавим вас в этот список.
 
+  - **123erfasst**: [123erfasst/javascript](https://github.com/123erfasst/javascript)
   - **3blades**: [3Blades/javascript](https://github.com/3blades/javascript)
   - **4Catalyzer**: [4Catalyzer/javascript](https://github.com/4Catalyzer/javascript)
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
