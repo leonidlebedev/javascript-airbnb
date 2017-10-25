@@ -397,14 +397,12 @@
     [1, 2, 3].map(x => x + 1);
 
     // плохо - нет возвращаемого значения, следовательно, `memo` становится `undefined` после первой итерации
-    const flat = {};
     [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
       const flatten = memo.concat(item);
       memo[index] = flatten;
     });
 
     // хорошо
-    const flat = {};
     [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
       const flatten = memo.concat(item);
       memo[index] = flatten;
