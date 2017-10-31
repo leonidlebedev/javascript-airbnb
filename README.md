@@ -2774,10 +2774,13 @@
   - [22.1](#coercion--explicit) Выполняйте приведение типов в начале инструкции.
 
   <a name="coercion--strings"></a><a name="22.2"></a>
-  - [22.2](#coercion--strings)  Строки:
+  - [22.2](#coercion--strings) Строки: eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
 
     ```javascript
     // => this.reviewScore = 9;
+
+    // плохо
+    const totalScore = new String(this.reviewScore); // тип totalScore будет "object", а не "string"
 
     // плохо
     const totalScore = this.reviewScore + ''; // вызывает this.reviewScore.valueOf()
@@ -2790,7 +2793,7 @@
     ```
 
   <a name="coercion--numbers"></a><a name="22.3"></a>
-  - [22.3](#coercion--numbers) Числа: Используйте `Number` и `parseInt` с основанием системы счисления. eslint: [`radix`](http://eslint.org/docs/rules/radix)
+  - [22.3](#coercion--numbers) Числа: Используйте `Number` и `parseInt` с основанием системы счисления. eslint: [`radix`](http://eslint.org/docs/rules/radix) [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
 
     ```javascript
     const inputValue = '4';
@@ -2837,7 +2840,7 @@
     ```
 
   <a name="coercion--booleans"></a><a name="22.6"></a>
-  - [22.6](#coercion--booleans) Логические типы:
+  - [22.6](#coercion--booleans) Логические типы: eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
 
     ```javascript
     const age = 0;
