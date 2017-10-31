@@ -1621,7 +1621,7 @@
     }
     ```
   <a name="variables--no-chain-assignment"></a><a name="13.5"></a>
-  - [13.5](#variables--no-chain-assignment) Не создавайте цепочки присваивания переменных.
+  - [13.5](#variables--no-chain-assignment) Не создавайте цепочки присваивания переменных. eslint: [`no-multi-assign`](https://eslint.org/docs/rules/no-multi-assign)
 
     > Почему? Такие цепочки создают неявные глобальные переменные.
 
