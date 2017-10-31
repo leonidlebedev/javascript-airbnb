@@ -144,6 +144,9 @@
     // плохо
     <MyComponent style="fancy" />
 
+    // плохо
+    <MyComponent className="fancy" />
+
     // хорошо
     <MyComponent variant="fancy" />
     ```
@@ -401,7 +404,7 @@
     ```jsx
     // плохо
     render() {
-      return <MyComponent className="long body" foo="bar">
+      return <MyComponent variant="long body" foo="bar">
                <MyChild />
              </MyComponent>;
     }
@@ -409,7 +412,7 @@
     // хорошо
     render() {
       return (
-        <MyComponent className="long body" foo="bar">
+        <MyComponent variant="long body" foo="bar">
           <MyChild />
         </MyComponent>
       );
@@ -428,10 +431,10 @@
 
     ```jsx
     // плохо
-    <Foo className="stuff"></Foo>
+    <Foo variant="stuff"></Foo>
 
     // хорошо
-    <Foo className="stuff" />
+    <Foo variant="stuff" />
     ```
 
   - Если ваш компонент имеет множество свойств, которые располагаются на нескольких строчках, то закрывайте тег на новой строке. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
