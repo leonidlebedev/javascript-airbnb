@@ -1967,7 +1967,7 @@
 ## <a name="blocks">Блоки</a>
 
   <a name="blocks--braces"></a><a name="16.1"></a>
-  - [16.1](#blocks--braces) Используйте фигурные скобки, когда блок кода занимает несколько строк.
+  - [16.1](#blocks--braces) Используйте фигурные скобки, когда блок кода занимает несколько строк. eslint: [`nonblock-statement-body-position`](https://eslint.org/docs/rules/nonblock-statement-body-position)
 
     ```javascript
     // плохо
