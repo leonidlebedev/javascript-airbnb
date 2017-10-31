@@ -196,7 +196,7 @@
 
 ## <a name="quotes">Кавычки</a>
 
-  - Всегда используйте двойные кавычки (`"`) для JSX-атрибутов, а одинарные кавычки (`'`) для всего остального JS. eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
+  - Всегда используйте двойные кавычки (`"`) для JSX-атрибутов, а одинарные кавычки (`'`) для всего остального JS. eslint: [`jsx-quotes`](https://eslint.org/docs/rules/jsx-quotes)
 
     > Почему? Для стандартных HTML-атрибутов обычно используются двойные кавычки, а не одинарные, и JSX-атрибуты тоже следуют этому соглашению.
 
@@ -216,7 +216,7 @@
 
 ## <a name="spacing">Пробелы</a>
 
-  - Всегда вставляйте один пробел в ваш самозакрывающийся тег. eslint: [`no-multi-spaces`](http://eslint.org/docs/rules/no-multi-spaces), [`react/jsx-tag-spacing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-tag-spacing.md)
+  - Всегда вставляйте один пробел в ваш самозакрывающийся тег. eslint: [`no-multi-spaces`](https://eslint.org/docs/rules/no-multi-spaces), [`react/jsx-tag-spacing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-tag-spacing.md)
 
     ```jsx
     // плохо
