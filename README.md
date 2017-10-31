@@ -2209,6 +2209,7 @@
     }
     ```
 
+  <a name="comments--spaces"></a>
   - [18.3](#comments--spaces) Начинайте все комментарии с пробела, так их проще читать. eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
 
     ```javascript
