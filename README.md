@@ -1743,8 +1743,8 @@
     }
     ```
 
-  <a name="hoisting--named-expresions"></a><a name="14.3"></a>
-  - [14.3](#hoisting--named-expresions) Для именованных функциональных выражений наверх области видимости поднимается название переменной, но не имя или тело функции.
+  <a name="hoisting--named-expressions"></a><a name="hoisting--named-expressions"></a><a name="14.3"></a>
+  - [14.3](#hoisting--named-expressions) Для именованных функциональных выражений наверх области видимости поднимается название переменной, но не имя или тело функции.
 
     ```javascript
     function example() {
