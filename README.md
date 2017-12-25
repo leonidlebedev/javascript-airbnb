@@ -1188,7 +1188,7 @@
     }
     ```
 
-  <a name="classes--no-duplicate-members"></a>
+  <a name="classes--no-duplicate-members"></a><a name="9.6"></a>
   - [9.6](#classes--no-duplicate-members) Избегайте дублирующих членов класса. eslint: [`no-dupe-class-members`](https://eslint.org/docs/rules/no-dupe-class-members)
 
     > Почему? Если объявление члена класса повторяется, без предупреждения будет использовано последнее. Наличие дубликатов скорее всего приведет к ошибке.
@@ -1299,7 +1299,7 @@
     export { foo };
     ```
 
-  <a name="modules--prefer-default-export"></a>
+  <a name="modules--prefer-default-export"></a><a name="10.6"></a>
   - [10.6](#modules--prefer-default-export) В модулях с единственным экспортом предпочтительнее использовать экспорт по умолчанию, а не экспорт по имени.
  eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
     > Почему? Для того чтобы поощрять создание множества файлов, которые бы экспортировали одну сущность, т.к. это лучше для читабельности и поддержки кода.
@@ -1312,7 +1312,7 @@
     export default function foo() {}
     ```
 
-  <a name="modules--imports-first"></a>
+  <a name="modules--imports-first"></a><a name="10.7"></a>
   - [10.7](#modules--imports-first) Поместите все импорты выше остальных инструкций.
  eslint: [`import/first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md)
     > Почему? Так как `import` обладает подъемом, то хранение их всех в начале файла предотвращает от неожиданного поведения.
@@ -1331,7 +1331,7 @@
     foo.init();
     ```
 
-  <a name="modules--multiline-imports-over-newlines"></a>
+  <a name="modules--multiline-imports-over-newlines"></a><a name="10.8"></a>
   - [10.8](#modules--multiline-imports-over-newlines) Импорты на нескольких строках должны быть с отступами как у многострочных литералов массива и объекта.
 
     > Почему? Фигурные скобки следуют тем же правилам отступа как и любая другая фигурная скобка блока в этом руководстве, тоже самое касается висячих запятых.
@@ -1350,7 +1350,7 @@
     } from 'path';
     ```
 
-  <a name="modules--no-webpack-loader-syntax"></a>
+  <a name="modules--no-webpack-loader-syntax"></a><a name="10.9"></a>
   - [10.9](#modules--no-webpack-loader-syntax) Запретите синтаксис загрузчика Webpack в импорте.
  eslint: [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
     > Почему? Использование Webpack синтаксиса связывает код с упаковщиком модулей. Предпочтительно использовать синтаксис загрузчика в `webpack.config.js`.
@@ -2084,7 +2084,7 @@
 
 ## <a name="control-statements">Управляющие операторы</a>
 
-  <a name="control-statements"></a>
+  <a name="control-statements"></a><a name="17.1"></a>
   - [17.1](#control-statements) Если ваш управляющий оператор (`if`, `while` и т.д.) слишком длинный или превышает максимальную длину строки, то каждое (сгруппированное) условие можно поместить на новую строку. Логический оператор должен располагаться в начале строки.
 
     > Почему? Наличие операторов в начале строки приводит к выравниванию операторов и напоминает цепочку методов. Это также улучшает читаемость, упрощая визуальное отслеживание сложной логики.
@@ -2211,7 +2211,7 @@
     }
     ```
 
-  <a name="comments--spaces"></a>
+  <a name="comments--spaces"></a><a name="18.3"></a>
   - [18.3](#comments--spaces) Начинайте все комментарии с пробела, так их проще читать. eslint: [`spaced-comment`](https://eslint.org/docs/rules/spaced-comment)
 
     ```javascript
@@ -2608,7 +2608,7 @@
 
 ## <a name="commas">Запятые</a>
 
-<a name="commas--leading-trailing"></a><a name="20.1"></a>
+  <a name="commas--leading-trailing"></a><a name="20.1"></a>
   - [20.1](#commas--leading-trailing) Не начинайте строку с запятой. eslint: [`comma-style`](https://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
 
     ```javascript
@@ -3017,7 +3017,7 @@
     export default AirbnbStyleGuide;
     ```
 
-  <a name="naming--Acronyms-and-Initialisms"></a>
+  <a name="naming--Acronyms-and-Initialisms"></a><a name="23.9"></a>
   - [23.9](#naming--Acronyms-and-Initialisms) Сокращения или буквенные аббревиатуры всегда должны писаться заглавными буквами или строчными.
 
     > Почему? Имена для удобства чтения, а не для удовлетворения компьютерных алгоритмов.
@@ -3153,7 +3153,7 @@
     });
     ```
 
-  **[⬆ к оглавлению](#Оглавление)**
+**[⬆ к оглавлению](#Оглавление)**
 
 ## <a name="jquery">jQuery</a>
 
@@ -3236,22 +3236,22 @@
   <a name="es6-styles"></a><a name="28.1"></a>
   - [28.1](#es6-styles) Здесь собраны ссылки на различные возможности ES6.
 
-1. [Стрелочные функции](#arrow-functions)
-1. [Классы и конструкторы](#classes--constructors)
-1. [Сокращенная запись методов объекта](#es6-object-shorthand)
-1. [Сокращенная запись свойств объекта](#es6-object-concise)
-1. [Вычисляемые имена свойств объекта](#es6-computed-properties)
-1. [Шаблонные строки](#es6-template-literals)
-1. [Деструктуризация](#destructuring)
-1. [Параметры по умолчанию](#es6-default-parameters)
-1. [Оставшиеся параметры](#es6-rest)
-1. [Оператор расширения](#es6-array-spreads)
-1. [Let и Const](#references)
-1. [Итераторы и генераторы](#iterators-and-generators)
-1. [Модули](#modules)
+  1. [Стрелочные функции](#arrow-functions)
+  1. [Классы и конструкторы](#classes--constructors)
+  1. [Сокращенная запись методов объекта](#es6-object-shorthand)
+  1. [Сокращенная запись свойств объекта](#es6-object-concise)
+  1. [Вычисляемые имена свойств объекта](#es6-computed-properties)
+  1. [Шаблонные строки](#es6-template-literals)
+  1. [Деструктуризация](#destructuring)
+  1. [Параметры по умолчанию](#es6-default-parameters)
+  1. [Оставшиеся параметры](#es6-rest)
+  1. [Оператор расширения](#es6-array-spreads)
+  1. [Let и Const](#references)
+  1. [Итераторы и генераторы](#iterators-and-generators)
+  1. [Модули](#modules)
 
   <a name="tc39-proposals"></a>
-  - [28.2](#tc39-proposals) Не используйте [предложения TC39](https://github.com/tc39/proposals), которые не перешли на 3 стадию.
+  - [28.2](#tc39-proposals) Не используйте [предложения TC39](https://github.com/tc39/proposals), которые не перешли на 3-ю стадию.
 
     > Почему? [Они еще не закончены](https://tc39.github.io/process-document/) и могут быть изменены или полностью изъяты. Мы хотим использовать JavaScript, а предложения еще не стали частью JavaScript.
 
@@ -3262,7 +3262,7 @@
   [Стандартная библиотека](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects)
   содержит утилиты, функциональность которых сломана, но они остались для поддержки старого кода.
 
-  <a name="standard-library--isnan"></a>
+  <a name="standard-library--isnan"></a><a name="29.1"></a>
   - [29.1](#standard-library--isnan) Используйте `Number.isNaN` вместо глобального `isNaN`.
     eslint: [`no-restricted-globals`](https://eslint.org/docs/rules/no-restricted-globals)
 
@@ -3279,7 +3279,7 @@
     Number.isNaN(Number('1.2.3')); // true
     ```
 
-  <a name="standard-library--isfinite"></a>
+  <a name="standard-library--isfinite"></a><a name="29.2"></a>
   - [29.2](#standard-library--isfinite) Используйте `Number.isFinite` вместо глобального `isFinite`.
     eslint: [`no-restricted-globals`](https://eslint.org/docs/rules/no-restricted-globals)
 
@@ -3296,7 +3296,6 @@
     ```
 
 **[⬆ к оглавлению](#Оглавление)**
-
 
 ## <a name="testing">Тестирование</a>
 
