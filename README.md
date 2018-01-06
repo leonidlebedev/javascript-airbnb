@@ -2746,18 +2746,18 @@
   <a name="semicolons--required"></a><a name="21.1"></a>
   - [21.1](#semicolons--required) **Да.** eslint: [`semi`](https://eslint.org/docs/rules/semi.html) jscs: [`requireSemicolons`](http://jscs.info/rule/requireSemicolons)
 
-    > Почему? Когда JavaScript встречает перенос строки без точки с запятой, он ипользует правило под названием [Автоматическая Вставка Точки с запятой (Automatic Semicolon Insertion)](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion), чтобы определить стоит ли считать этот перенос строки как конец выражения, и (как следует из названия) поместить точку с запятой в вашем коде до переноса строки, если он так думает. Однако, ASI содержит несколько странных форм поведения, и ваш код может быть сломан, если JavaScript неверно истолкует ваш перенос строки. Эти правила станут сложнее, когда новые возможности станут частью JavaScript. Явное завершение ваших выражений и настройка вашего линтера для улавливания пропущенных точек с запятыми помогут предотвратить вас от возникновение проблем.
+    > Почему? Когда JavaScript встречает перенос строки без точки с запятой, он ипользует правило под названием [Автоматическая Вставка Точки с запятой (Automatic Semicolon Insertion)](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion), чтобы определить стоит ли считать этот перенос строки как конец выражения, и (как следует из названия) поместить точку с запятой в вашем коде до переноса строки. Однако, ASI содержит несколько странных форм поведения, и ваш код может быть сломан, если JavaScript неверно истолкует ваш перенос строки. Эти правила станут сложнее, когда новые возможности станут частью JavaScript. Явное завершение ваших выражений и настройка вашего линтера для улавливания пропущенных точек с запятыми помогут предотвратить вас от возникновение проблем.
 
     ```javascript
-    // плохо - возникает исключение
+    // плохо - выбрасывает исключение
     const luke = {}
     const leia = {}
     [luke, leia].forEach(jedi => jedi.father = 'vader')
 
-    // плохо - возникает исключение
-    const reaction = "No! That's impossible!"
+    // плохо - выбрасывает исключение
+    const reaction = 'No! That's impossible!'
     (async function meanwhileOnTheFalcon(){
-      // обращаемся к `leia`, `lando`, `chewie`, `r2`, `c3p0`
+      // переносимся к `leia`, `lando`, `chewie`, `r2`, `c3p0`
       // ...
     }())
 
@@ -2775,9 +2775,9 @@
     });
 
     // хорошо
-    const reaction = "No! That's impossible!";
+    const reaction = 'No! That's impossible!';
     (async function meanwhileOnTheFalcon(){
-      // handle `leia`, `lando`, `chewie`, `r2`, `c3p0`
+      // переносимся к `leia`, `lando`, `chewie`, `r2`, `c3p0`
       // ...
       }());
 
