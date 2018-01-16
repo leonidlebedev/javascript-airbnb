@@ -1932,7 +1932,7 @@
     ```
 
   <a name="comparison--no-mixed-operators"></a><a name="15.8"></a>
-  - [15.8](#comparison--no-mixed-operators) Помещайте операторы в круглые скобки, когда они смешаны в выражении. При смешивании арифметических операторов, не мешайте `**` и `%` друг с другом или с `+`, `-`, `*`, и `/`. eslint: [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
+  - [15.8](#comparison--no-mixed-operators) При смешивании операторов, помещайте их в круглые скобки. Единственное исключение — это стандартные арифметические операторы (`+`, `-`, `*` и `/`), так как их приоритет широко известен. eslint: [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
 
     > Почему? Это улучшает читаемость и уточняет намерения разработчика.
 
