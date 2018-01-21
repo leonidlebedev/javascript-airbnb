@@ -3155,8 +3155,8 @@
 
     // ...
 
-    $(this).on('listingUpdated', (e, listingId) => {
-      // делает что-то с listingId
+    $(this).on('listingUpdated', (e, listingID) => {
+      // делает что-то с listingID
     });
     ```
 
@@ -3164,12 +3164,12 @@
 
     ```javascript
     // хорошо
-    $(this).trigger('listingUpdated', { listingId: listing.id });
+    $(this).trigger('listingUpdated', { listingID: listing.id });
 
     // ...
 
     $(this).on('listingUpdated', (e, data) => {
-      // делает что-то с data.listingId
+      // делает что-то с data.listingID
     });
     ```
 
