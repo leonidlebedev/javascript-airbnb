@@ -381,6 +381,58 @@
     };
     ```
 
+  - Используйте оператор расширения для свойств осознанно.
+    > Почему? В противном случае вы скорее всего будете передавать внутрь компонента лишние свойства. А для React версии 15.6.1 и старше, вы можете [передать невалидные HTML-атрибуты в DOM](https://reactjs.org/blog/2017/09/08/dom-attributes-in-react-16.html).
+
+    Исключения:
+
+    - Компоненты высшего порядка, которые передают свойства внутрь дочернего компонента и поднимают propTypes.
+
+    ```jsx
+    function HOC(WrappedComponent) {
+      return class Proxy extends React.Component {
+        Proxy.propTypes = {
+          text: PropTypes.string,
+          isLoading: PropTypes.bool
+        };
+    
+        render() {
+          return <WrappedComponent {...this.props} />
+        }
+      }
+    }
+    ```
+
+    - Использование оператора расширения для известных, явно заданных свойств. Это может быть особенно полезно при тестировании компонентов React с конструкцией beforeEach из Mocha.
+
+    ```jsx
+    export default function Foo {
+      const props = {
+        text: '',
+        isPublished: false
+      }
+    
+      return (<div {...props} />);
+    }
+    ```
+
+    Примечания по использованию:
+    Если возможно, отфильтруйте ненужные свойства. Кроме того, используйте [prop-types-exact](https://www.npmjs.com/package/prop-types-exact), чтобы предотвратить ошибки.
+
+    ```jsx
+    // плохо
+    render() {
+      const { irrelevantProp, ...relevantProps } = this.props;
+      return <WrappedComponent {...this.props} />
+    }
+    
+    // хорошо
+    render() {
+      const { irrelevantProp, ...relevantProps } = this.props;
+      return <WrappedComponent {...relevantProps} />
+    }
+    ```
+
 ## <a name="refs">Ссылки (Refs)</a>
 
   - Всегда используйте функции обратного вызова. eslint: [`react/no-string-refs`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md)
