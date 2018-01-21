@@ -386,7 +386,7 @@
 
     Исключения:
 
-    - Компоненты высшего порядка, которые передают свойства внутрь дочернего компонента и поднимают propTypes
+    - Компоненты высшего порядка, которые передают свойства внутрь дочернего компонента и поднимают propTypes.
 
     ```jsx
     function HOC(WrappedComponent) {
@@ -420,16 +420,16 @@
     Если возможно, отфильтруйте ненужные свойства. Кроме того, используйте [prop-types-exact](https://www.npmjs.com/package/prop-types-exact), чтобы предотвратить ошибки.
 
     ```jsx
-    // хорошо
-    render() {
-      const { irrelevantProp, ...relevantProps  } = this.props;
-      return <WrappedComponent {...relevantProps} />
-    }
-    
     // плохо
     render() {
-      const { irrelevantProp, ...relevantProps  } = this.props;
+      const { irrelevantProp, ...relevantProps } = this.props;
       return <WrappedComponent {...this.props} />
+    }
+    
+    // хорошо
+    render() {
+      const { irrelevantProp, ...relevantProps } = this.props;
+      return <WrappedComponent {...relevantProps} />
     }
     ```
 
