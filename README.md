@@ -1688,6 +1688,28 @@
     const truthyCount = array.filter(Boolean).length;
     ```
 
+  - [13.7](#variables--linebreak) В присвоении избегайте разрывов строк до и после `=`. Если ваше присвоение нарушает правило [`max-len`](https://eslint.org/docs/rules/max-len.html), оберните значение в круглые скобки. eslint [`operator-linebreak`](https://eslint.org/docs/rules/operator-linebreak.html).
+  
+    > Почему? Разрывы строк до и после `=` могут приводить к путанице в понимании значения.
+
+    ```javascript
+    // плохо
+    const foo =
+      superLongLongLongLongLongLongLongLongFunctionName();
+
+    // плохо
+    const foo
+      = 'superLongLongLongLongLongLongLongLongString';
+
+    // хорошо
+    const foo = (
+      superLongLongLongLongLongLongLongLongFunctionName()
+    );
+
+    // хорошо
+    const foo = 'superLongLongLongLongLongLongLongLongString';
+    ```
+
 **[⬆ к оглавлению](#Оглавление)**
 
 ## <a name="hoisting">Подъем</a>
