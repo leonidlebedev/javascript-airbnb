@@ -399,16 +399,16 @@
     // хорошо
     [1, 2, 3].map(x => x + 1);
 
-    // плохо - нет возвращаемого значения, следовательно, `memo` становится `undefined` после первой итерации
-    [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
-      const flatten = memo.concat(item);
-      memo[index] = flatten;
+    // плохо - нет возвращаемого значения, следовательно, `acc` становится `undefined` после первой итерации
+    [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
+      const flatten = acc.concat(item);
+      acc[index] = flatten;
     });
 
     // хорошо
-    [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
-      const flatten = memo.concat(item);
-      memo[index] = flatten;
+    [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
+      const flatten = acc.concat(item);
+      acc[index] = flatten;
       return flatten;
     });
 
