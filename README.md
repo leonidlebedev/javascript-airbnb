@@ -3543,7 +3543,7 @@
   - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **Немецкий**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
   - ![it](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Итальянский**: [sinkswim/javascript-style-guide](https://github.com/sinkswim/javascript-style-guide)
   - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Японский**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide)
-  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Корейский**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
+  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [ParkSB/javascript-style-guide](https://github.com/ParkSB/javascript-style-guide)
   - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Русский**: [leonidlebedev/javascript-airbnb](https://github.com/leonidlebedev/javascript-airbnb)
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Испанский**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
   - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Тайский**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
