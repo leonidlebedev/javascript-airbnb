@@ -2973,6 +2973,11 @@
 
     // хорошо
     this.firstName = 'Panda';
+
+   // хорошо, в средах, где поддерживается WeakMaps
+   // смотрите https://kangax.github.io/compat-table/es6/#test-WeakMap
+   const firstNames = new WeakMap();
+   firstNames.set(this, 'Panda');
     ```
 
   <a name="naming--self-this"></a><a name="23.5"></a>
