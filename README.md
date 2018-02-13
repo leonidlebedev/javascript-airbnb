@@ -2162,6 +2162,20 @@
     }
     ```
 
+  <a name="control-statement--value-selection"></a>
+  - [17.2](#control-statements--value-selection) Не используйте операторы выбора вместо управляющих операторов.
+
+
+    ```javascript
+    // плохо
+    !isRunning && startRunning();
+
+    // хорошо
+    if (!isRunning) {
+      startRunning();
+    }
+    ```
+
 **[⬆ к оглавлению](#Оглавление)**
 
 ## <a name="comments">Комментарии</a>
@@ -2780,7 +2794,7 @@
 
     // плохо - выбрасывает исключение
     const reaction = 'No! That's impossible!'
-    (async function meanwhileOnTheFalcon(){
+    (async function meanwhileOnTheFalcon() {
       // переносимся к `leia`, `lando`, `chewie`, `r2`, `c3p0`
       // ...
     }())
@@ -2800,7 +2814,7 @@
 
     // хорошо
     const reaction = 'No! That's impossible!';
-    (async function meanwhileOnTheFalcon(){
+    (async function meanwhileOnTheFalcon() {
       // переносимся к `leia`, `lando`, `chewie`, `r2`, `c3p0`
       // ...
       }());
