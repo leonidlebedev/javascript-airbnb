@@ -2150,7 +2150,7 @@
 
     // хорошо
     if (
-      (foo === 123 || bar === "abc")
+      (foo === 123 || bar === 'abc')
       && doesItLookGoodWhenItBecomesThatLong()
       && isThisReallyHappening()
     ) {
