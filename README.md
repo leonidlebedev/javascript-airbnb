@@ -13,6 +13,7 @@
 Другие руководства
 
  - [React](react/)
+ - [CSS-in-JavaScript](css-in-javascript/)
 
 ## Оглавление
 
