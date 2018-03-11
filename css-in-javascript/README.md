@@ -4,27 +4,27 @@
 
 ## Оглавление
 
-1. [Naming](#naming)
+1. [Именование](#naming)
 1. [Ordering](#ordering)
 1. [Nesting](#nesting)
 1. [Inline](#inline)
 1. [Themes](#themes)
 
-## Naming
+## Именование
 
-  - Use camelCase for object keys (i.e. "selectors").
+  - Используйте верблюжийРегистр для ключей объекта (т.е. "селекторы").
 
-    > Why? We access these keys as properties on the `styles` object in the component, so it is most convenient to use camelCase.
+    > Почему? Мы получаем доступ к этим ключам, как свойства объекта `styles` в компоненте, поэтому удобнее использовать верблюжийРегистр.
 
     ```js
-    // bad
+    // плохо
     {
       'bermuda-triangle': {
         display: 'none',
       },
     }
 
-    // good
+    // хорошо
     {
       bermudaTriangle: {
         display: 'none',
@@ -32,12 +32,12 @@
     }
     ```
 
-  - Use an underscore for modifiers to other styles.
+  - Используйте подчеркивание для модификаторов других стилей.
 
-    > Why? Similar to BEM, this naming convention makes it clear that the styles are intended to modify the element preceded by the underscore. Underscores do not need to be quoted, so they are preferred over other characters, such as dashes.
+    > Почему? Подобно БЭМ, это солгашение дает понять, что стили предназначены для модификации элемента, которому предшествует символ подчеркивания. Подчеркивания не надо брать в кавычки, поэтому они предпочтительнее других символов, таких как тире.
 
     ```js
-    // bad
+    // плохо
     {
       bruceBanner: {
         color: 'pink',
@@ -49,7 +49,7 @@
       },
     }
 
-    // good
+    // хорошо
     {
       bruceBanner: {
         color: 'pink',
@@ -62,12 +62,12 @@
     }
     ```
 
-  - Use `selectorName_fallback` for sets of fallback styles.
+  - Используйте `selectorName_fallback` для набора резервных стилей.
 
-    > Why? Similar to modifiers, keeping the naming consistent helps reveal the relationship of these styles to the styles that override them in more adequate browsers.
+    > Почему? Подобно модификаторам, сохранение солгасованности имен помогает обнаружить взаимосвязь этих стилей и стилями, которые переопределяют их в подходящих браузерах.
 
     ```js
-    // bad
+    // плохо
     {
       muscles: {
         display: 'flex',
@@ -78,7 +78,7 @@
       },
     }
 
-    // good
+    // хорошо
     {
       muscles: {
         display: 'flex',
@@ -90,12 +90,12 @@
     }
     ```
 
-  - Use a separate selector for sets of fallback styles.
+  - Используйте отдельный селектор для наборов резервных стилей.
 
-    > Why? Keeping fallback styles contained in a separate object clarifies their purpose, which improves readability.
+    > Почему? Сохранение резервных стилей, содержащихся в отдельном объекте, разъясняет их цель, что улучшает читаемость.
 
     ```js
-    // bad
+    // плохо
     {
       muscles: {
         display: 'flex',
@@ -111,7 +111,7 @@
       },
     }
 
-    // good
+    // хорошо
     {
       muscles: {
         display: 'flex',
@@ -131,25 +131,27 @@
     }
     ```
 
-  - Use device-agnostic names (e.g. "small", "medium", and "large") to name media query breakpoints.
+  - Используйте абстрактные имена (т.к. "small", "medium" и "large"), чтобы назвать контрольные точки медиа выражений.
 
-    > Why? Commonly used names like "phone", "tablet", and "desktop" do not match the characteristics of the devices in the real world. Using these names sets the wrong expectations.
+    > Почему? Обычно используемые имена, такие как "phone", "tablet" и "desktop" не соответствуют характеристикам устройств в реальности. Использование этих имен задает неправильные ожидания.
 
     ```js
-    // bad
+    // плохо
     const breakpoints = {
       mobile: '@media (max-width: 639px)',
       tablet: '@media (max-width: 1047px)',
       desktop: '@media (min-width: 1048px)',
     };
 
-    // good
+    // хорошо
     const breakpoints = {
       small: '@media (max-width: 639px)',
       medium: '@media (max-width: 1047px)',
       large: '@media (min-width: 1048px)',
     };
     ```
+
+**[⬆ к оглавлению](#Оглавление)**
 
 ## Ordering
 
