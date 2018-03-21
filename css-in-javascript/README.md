@@ -5,8 +5,8 @@
 ## Оглавление
 
 1. [Именование](#naming)
-1. [Ordering](#ordering)
-1. [Nesting](#nesting)
+1. [Порядок](#ordering)
+1. [Вложенность](#nesting)
 1. [Inline](#inline)
 1. [Themes](#themes)
 
@@ -153,14 +153,14 @@
 
 **[⬆ к оглавлению](#Оглавление)**
 
-## Ordering
+## Порядок
 
-  - Define styles after the component.
+  - Определяйте стили после компонента.
 
-    > Why? We use a higher-order component to theme our styles, which is naturally used after the component definition. Passing the styles object directly to this function reduces indirection.
+    > Почему? Мы используем компонент высшего порядка для темизации наших стилей, которые естественно используются после определения компонента. Передача объекта стилей непосредственно в функции уменьшает косвенность.
 
     ```jsx
-    // bad
+    // плохо
     const styles = {
       container: {
         display: 'inline-block',
@@ -178,7 +178,7 @@
 
     export default withStyles(() => styles)(MyComponent);
 
-    // good
+    // хорошо
     function MyComponent({ styles }) {
       return (
         <div {...css(styles.container)}>
@@ -194,15 +194,17 @@
       },
     }))(MyComponent);
     ```
+ 
+**[⬆ к оглавлению](#Оглавление)**
 
-## Nesting
+## Вложенность
 
-  - Leave a blank line between adjacent blocks at the same indentation level.
+  - Оставляйте пустую строку между соседними блоками на одном и том же уровне отступов.
 
-    > Why? The whitespace improves readability and reduces the likelihood of merge conflicts.
+    > Почему? Пробельное пространство улучшает читаемость и уменьшает вероятность конфликтов при слиянии.
 
     ```js
-    // bad
+    // плохо
     {
       bigBang: {
         display: 'inline-block',
@@ -215,7 +217,7 @@
       },
     }
 
-    // good
+    // хорошо
     {
       bigBang: {
         display: 'inline-block',
@@ -230,6 +232,8 @@
       },
     }
     ```
+ 
+**[⬆ к оглавлению](#Оглавление)**
 
 ## Inline
 
