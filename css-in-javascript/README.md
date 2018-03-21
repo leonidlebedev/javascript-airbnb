@@ -5,7 +5,7 @@
 ## Оглавление
 
 1. [Naming](#naming)
-1. [Ordering](#ordering)
+1. [Порядок](#ordering)
 1. [Nesting](#nesting)
 1. [Inline](#inline)
 1. [Themes](#themes)
@@ -151,14 +151,14 @@
     };
     ```
 
-## Ordering
+## Порядок
 
-  - Define styles after the component.
+  - Определяйте стили после компонента.
 
-    > Why? We use a higher-order component to theme our styles, which is naturally used after the component definition. Passing the styles object directly to this function reduces indirection.
+    > Почему? Мы используем компонент высшего порядка для темизации наших стилей, которые естественно используются после определения компонента. Передача объекта стилей непосредственно в функции уменьшает косвенность.
 
     ```jsx
-    // bad
+    // плохо
     const styles = {
       container: {
         display: 'inline-block',
@@ -176,7 +176,7 @@
 
     export default withStyles(() => styles)(MyComponent);
 
-    // good
+    // хорошо
     function MyComponent({ styles }) {
       return (
         <div {...css(styles.container)}>
@@ -192,6 +192,8 @@
       },
     }))(MyComponent);
     ```
+ 
+ **[⬆ к оглавлению](#Оглавление)**
 
 ## Nesting
 
