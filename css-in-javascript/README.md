@@ -6,7 +6,7 @@
 
 1. [Naming](#naming)
 1. [Порядок](#ordering)
-1. [Nesting](#nesting)
+1. [Вложенность](#nesting)
 1. [Inline](#inline)
 1. [Themes](#themes)
 
@@ -195,14 +195,14 @@
  
  **[⬆ к оглавлению](#Оглавление)**
 
-## Nesting
+## Вложенность
 
-  - Leave a blank line between adjacent blocks at the same indentation level.
+  - Оставляйте пустую строку между соседними блоками на одном и том же уровне отступов.
 
-    > Why? The whitespace improves readability and reduces the likelihood of merge conflicts.
+    > Почему? Пробельное пространство улучшает читаемость и уменьшает вероятность конфликтов при слиянии.
 
     ```js
-    // bad
+    // плохо
     {
       bigBang: {
         display: 'inline-block',
@@ -215,7 +215,7 @@
       },
     }
 
-    // good
+    // хорошо
     {
       bigBang: {
         display: 'inline-block',
@@ -230,6 +230,8 @@
       },
     }
     ```
+ 
+ **[⬆ к оглавлению](#Оглавление)**
 
 ## Inline
 
