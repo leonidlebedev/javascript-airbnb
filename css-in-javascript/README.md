@@ -237,19 +237,19 @@
 
 ## Inline
 
-  - Use inline styles for styles that have a high cardinality (e.g. uses the value of a prop) and not for styles that have a low cardinality.
+  - Используйте inline стили для стилизации того, что имеет большую важность (например, используя значение свойства).
 
-    > Why? Generating themed stylesheets can be expensive, so they are best for discrete sets of styles.
+    > Почему? Создание темизировананных стилей может быть затратным, поэтому они лучше всего подходят для отдельных наборов.
 
     ```jsx
-    // bad
+    // плохо
     export default function MyComponent({ spacing }) {
       return (
         <div style={{ display: 'table', margin: spacing }} />
       );
     }
 
-    // good
+    // хорошо
     function MyComponent({ styles, spacing }) {
       return (
         <div {...css(styles.periodic, { margin: spacing })} />
@@ -261,6 +261,8 @@
       },
     }))(MyComponent);
     ```
+
+**[⬆ к оглавлению](#Оглавление)**
 
 ## Themes
 
