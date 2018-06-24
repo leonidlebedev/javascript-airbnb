@@ -306,7 +306,7 @@
     <img src="hello.jpg" alt="Me waving hello" />
     ```
 
-  - Используйте только валидные, не абстрактные [ARIA роли](https://www.w3.org/TR/wai-aria/roles#role_definitions). eslint: [`jsx-a11y/aria-role`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md)
+  - Используйте только валидные, не абстрактные [ARIA роли](https://www.w3.org/TR/wai-aria/#usage_intro). eslint: [`jsx-a11y/aria-role`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md)
 
     ```jsx
     // плохо - не ARIA роль
