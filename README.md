@@ -2795,7 +2795,7 @@
     [luke, leia].forEach(jedi => jedi.father = 'vader')
 
     // плохо - выбрасывает исключение
-    const reaction = 'No! That's impossible!'
+    const reaction = "No! That's impossible!"
     (async function meanwhileOnTheFalcon() {
       // переносимся к `leia`, `lando`, `chewie`, `r2`, `c3p0`
       // ...
@@ -2815,7 +2815,7 @@
     });
 
     // хорошо
-    const reaction = 'No! That's impossible!';
+    const reaction = "No! That's impossible!";
     (async function meanwhileOnTheFalcon() {
       // переносимся к `leia`, `lando`, `chewie`, `r2`, `c3p0`
       // ...
