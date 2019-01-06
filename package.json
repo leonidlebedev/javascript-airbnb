@@ -2,7 +2,8 @@
 	"name": "javascript-airbnb",
 	"version": "1.0.0",
 	"scripts": {
-		"lint": "markdownlint --config linters/.markdownlint.json README.md */README.md"
+		"lint": "markdownlint --config linters/.markdownlint.json README.md */README.md",
+		"speller": "yaspeller --config linters/.yaspeller.json ."
 	},
 	"repository": {
 		"type": "git",
@@ -28,11 +29,12 @@
 	"homepage": "https://github.com/leonidlebedev/javascript-airbnb",
 	"devDependencies": {
 		"husky": "^1.3.1",
-		"markdownlint-cli": "^0.13.0"
+		"markdownlint-cli": "^0.13.0",
+		"yaspeller": "^5.0.1"
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "npm run lint"
+			"pre-commit": "npm run lint && npm run speller"
 		}
 	}
 }
