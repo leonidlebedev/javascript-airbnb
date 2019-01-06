@@ -12,8 +12,8 @@
 
 Другие руководства
 
- - [React](react/)
- - [CSS-in-JavaScript](css-in-javascript/)
+  - [React](react/)
+  - [CSS-in-JavaScript](css-in-javascript/)
 
 ## Оглавление
 
@@ -1408,7 +1408,7 @@
 
     // хорошо
     const increasedByOne = [];
-    numbers.forEach((num) => { 
+    numbers.forEach((num) => {
       increasedByOne.push(num + 1);
     });
 
@@ -1693,7 +1693,7 @@
 
   <a name="variables--linebreak"></a><a name="13.7"></a>
   - [13.7](#variables--linebreak) В присвоении избегайте разрывов строк до и после `=`. Если ваше присвоение нарушает правило [`max-len`](https://eslint.org/docs/rules/max-len.html), оберните значение в круглые скобки. eslint [`operator-linebreak`](https://eslint.org/docs/rules/operator-linebreak.html).
-  
+
     > Почему? Разрывы строк до и после `=` могут приводить к путанице в понимании значения.
 
     ```javascript
@@ -1715,7 +1715,7 @@
     ```
 
 <a name="variables--no-unused-vars"></a>
- - [13.8](#variables--no-unused-vars) Запретить неиспользуемые переменные. eslint: [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)
+  - [13.8](#variables--no-unused-vars) Запретить неиспользуемые переменные. eslint: [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)
 
     > Почему? Переменные, которые объявлены и не используются в коде, скорее всего, являются ошибкой из-за незавершенного рефакторинга. Такие переменные занимают место в коде и могут привести к путанице при чтении.
 
@@ -2206,7 +2206,6 @@
 
   <a name="control-statement--value-selection"></a>
   - [17.2](#control-statements--value-selection) Не используйте операторы выбора вместо управляющих операторов.
-
 
     ```javascript
     // плохо
@@ -3030,10 +3029,10 @@
     // хорошо
     this.firstName = 'Panda';
 
-   // хорошо, в средах, где поддерживается WeakMaps
-   // смотрите https://kangax.github.io/compat-table/es6/#test-WeakMap
-   const firstNames = new WeakMap();
-   firstNames.set(this, 'Panda');
+    // хорошо, в средах, где поддерживается WeakMaps
+    // смотрите https://kangax.github.io/compat-table/es6/#test-WeakMap
+    const firstNames = new WeakMap();
+    firstNames.set(this, 'Panda');
     ```
 
   <a name="naming--self-this"></a><a name="23.5"></a>

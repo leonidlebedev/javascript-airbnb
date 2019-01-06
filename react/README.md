@@ -421,7 +421,7 @@
           text: PropTypes.string,
           isLoading: PropTypes.bool
         };
-    
+
         render() {
           return <WrappedComponent {...this.props} />
         }
@@ -437,7 +437,7 @@
         text: '',
         isPublished: false
       }
-    
+
       return <div {...props} />;
     }
     ```
@@ -451,7 +451,7 @@
       const { irrelevantProp, ...relevantProps } = this.props;
       return <WrappedComponent {...this.props} />
     }
-    
+
     // хорошо
     render() {
       const { irrelevantProp, ...relevantProps } = this.props;
