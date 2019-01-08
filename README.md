@@ -281,7 +281,7 @@
     ```
 
   <a name="objects--prototype-builtins"></a>
-  - [3.7](#objects--prototype-builtins) Не вызывайте напрямую методы `Object.prototype`, такие как `hasOwnProperty`, `propertyIsEnumerable`, и `isPrototypeOf`.
+  - [3.7](#objects--prototype-builtins) Не вызывайте напрямую методы `Object.prototype`, такие как `hasOwnProperty`, `propertyIsEnumerable`, и `isPrototypeOf`. eslint: [`no-prototype-builtins`](https://eslint.org/docs/rules/no-prototype-builtins)
 
     > Почему? Эти методы могут быть переопределены в свойствах объекта, который мы проверяем `{ hasOwnProperty: false }`, или этот объект может быть `null` (`Object.create(null)`).
 
@@ -365,8 +365,9 @@
     const itemsCopy = [...items];
     ```
 
-  <a name="arrays--from"></a><a name="4.4"></a>
-  - [4.4](#arrays--from) Для преобразования массивоподобного объекта в массив используйте оператор расширения `...` вместо [`Array.from`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+  <a name="arrays--from"></a>
+  <a name="arrays--from-iterable"></a><a name="4.4"></a>
+  - [4.4](#arrays--from-iterable) Для преобразования итерируемого объекта в массив используйте оператор расширения `...` вместо [`Array.from`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
@@ -378,8 +379,21 @@
     const nodes = [...foo];
     ```
 
-  <a name="arrays--mapping"></a><a name="4.5"></a>
-  - [4.5](#arrays--mapping) Используйте [Array.from](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/from) вместо оператора расширения `...` для маппинга итерируемых объектов, это позволяет избежать создания промежуточного массива.
+  <a name="arrays--from-array-like"></a>
+  - [4.5](#arrays--from-array-like) Используйте [`Array.from`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/from) для преобразования массивоподобного объекта в массив.
+
+    ```javascript
+    const arrLike = { 0: 'foo', 1: 'bar', 2: 'baz', length: 3 };
+
+    // плохо
+    const arr = Array.prototype.slice.call(arrLike);
+
+    // хорошо
+    const arr = Array.from(arrLike);
+    ```
+
+  <a name="arrays--mapping"></a>
+  - [4.6](#arrays--mapping) Используйте [`Array.from`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/from) вместо оператора расширения `...` для маппинга итерируемых объектов, это позволяет избежать создания промежуточного массива.
 
     ```javascript
     // плохо
@@ -389,8 +403,8 @@
     const baz = Array.from(foo, bar);
     ```
 
-  <a name="arrays--callback-return"></a><a name="4.6"></a>
-  - [4.6](#arrays--callback-return) Используйте операторы `return` внутри функций обратного вызова в методах массива. Можно опустить `return`, когда тело функции состоит из одной инструкции, возвращающей выражение без побочных эффектов. [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](https://eslint.org/docs/rules/array-callback-return)
+  <a name="arrays--callback-return"></a><a name="4.5"></a>
+  - [4.7](#arrays--callback-return) Используйте операторы `return` внутри функций обратного вызова в методах массива. Можно опустить `return`, когда тело функции состоит из одной инструкции, возвращающей выражение без побочных эффектов. [8.2](#arrows--implicit-return). eslint: [`array-callback-return`](https://eslint.org/docs/rules/array-callback-return)
 
     ```javascript
     // хорошо
@@ -436,8 +450,8 @@
     });
     ```
 
-  <a name="arrays--bracket-newline"></a><a name="4.7"></a>
-  - [4.7](#arrays--bracket-newline) Если массив располагается на нескольких строках, то используйте разрывы строк после открытия и перед закрытием скобок.
+  <a name="arrays--bracket-newline"></a>
+  - [4.8](#arrays--bracket-newline) Если массив располагается на нескольких строках, то используйте разрывы строк после открытия и перед закрытием скобок.
 
     ```javascript
     // плохо
@@ -1034,19 +1048,37 @@
 
     ```javascript
     // плохо
-    const itemHeight = item => item.height > 256 ? item.largeSize : item.smallSize;
+    const itemHeight = item => item.height <= 256 ? item.largeSize : item.smallSize;
 
     // плохо
-    const itemHeight = (item) => item.height > 256 ? item.largeSize : item.smallSize;
+    const itemHeight = (item) => item.height >= 256 ? item.largeSize : item.smallSize;
 
     // хорошо
-    const itemHeight = item => (item.height > 256 ? item.largeSize : item.smallSize);
+    const itemHeight = item => (item.height <= 256 ? item.largeSize : item.smallSize);
 
     // хорошо
     const itemHeight = (item) => {
       const { height, largeSize, smallSize } = item;
-      return height > 256 ? largeSize : smallSize;
+      return height <= 256 ? largeSize : smallSize;
     };
+    ```
+
+  <a name="whitespace--implicit-arrow-linebreak"></a>
+  - [8.6](#whitespace--implicit-arrow-linebreak) Зафиксируйте расположение тела стрелочной функции с неявным возвратом. eslint: [`implicit-arrow-linebreak`](https://eslint.org/docs/rules/implicit-arrow-linebreak)
+
+    ```javascript
+    // плохо
+    foo =>
+      bar;
+    foo =>
+      (bar);
+
+    // хорошо
+    foo => bar;
+    foo => (bar);
+    foo => (
+       bar
+    )
     ```
 
 **[⬆ к оглавлению](#Оглавление)**
@@ -1538,7 +1570,7 @@
     ```
 
   <a name="variables--one-const"></a><a name="13.2"></a>
-  - [13.2](#variables--one-const) Используйте объявление `const` или `let` для каждой переменной. eslint: [`one-var`](https://eslint.org/docs/rules/one-var.html)
+  - [13.2](#variables--one-const) Используйте объявление `const` или `let` для каждой переменной или присвоения. eslint: [`one-var`](https://eslint.org/docs/rules/one-var.html)
 
     > Почему? Таким образом проще добавить новые переменные. Также вы никогда не будете беспокоиться о перемещении `;` и `,` и об отображении изменений в пунктуации. Вы также можете пройтись по каждому объявлению с помощью откладчика, вместо того, чтобы прыгать через все сразу.
 
@@ -1714,7 +1746,7 @@
     const foo = 'superLongLongLongLongLongLongLongLongString';
     ```
 
-<a name="variables--no-unused-vars"></a>
+  <a name="variables--no-unused-vars"></a>
   - [13.8](#variables--no-unused-vars) Запретить неиспользуемые переменные. eslint: [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)
 
     > Почему? Переменные, которые объявлены и не используются в коде, скорее всего, являются ошибкой из-за незавершённого рефакторинга. Такие переменные занимают место в коде и могут привести к путанице при чтении.
@@ -1877,7 +1909,7 @@
     ```
 
   <a name="comparison--shortcuts"></a><a name="15.3"></a>
-  - [15.3](#comparison--shortcuts) Используйте сокращёния для булевских типов, а для строк и чисел применяйте явное сравнение.
+  - [15.3](#comparison--shortcuts) Используйте сокращения для булевских типов, а для строк и чисел применяйте явное сравнение.
 
     ```javascript
     // плохо
@@ -2204,7 +2236,7 @@
     }
     ```
 
-  <a name="control-statement--value-selection"></a>
+  <a name="control-statement--value-selection"></a><a name="control-statements--value-selection"></a>
   - [17.2](#control-statements--value-selection) Не используйте операторы выбора вместо управляющих операторов.
 
     ```javascript
@@ -2683,6 +2715,97 @@
       .fail(() => console.log('You have failed this city.'));
     ```
 
+  <a name="whitespace--block-spacing"></a>
+  - [19.13](#whitespace--block-spacing) Требуйте согласованного расстояния между открывающимся символом блока и следующим символом на одной и той же строке. Тоже самое касается расстояния между закрывающимся символом блока и предыдущим символом. eslint: [`block-spacing`](https://eslint.org/docs/rules/block-spacing)
+
+    ```javascript
+    // плохо
+    function foo() {return true;}
+    if (foo) { bar = 0;}
+
+    // хорошо
+    function foo() { return true; }
+    if (foo) { bar = 0; }
+    ```
+
+  <a name="whitespace--comma-spacing"></a>
+  - [19.14](#whitespace--comma-spacing) Избегайте пробелов перед запятыми и ставьте его после. eslint: [`comma-spacing`](https://eslint.org/docs/rules/comma-spacing)
+
+    ```javascript
+    // плохо
+    var foo = 1,bar = 2;
+    var arr = [1 , 2];
+
+    // хорошо
+    var foo = 1, bar = 2;
+    var arr = [1, 2];
+    ```
+
+  <a name="whitespace--computed-property-spacing"></a>
+  - [19.15](#whitespace--computed-property-spacing) Избегайте пробелов внутри скобок вычисляемого свойства. eslint: [`computed-property-spacing`](https://eslint.org/docs/rules/computed-property-spacing)
+
+    ```javascript
+    // плохо
+    obj[foo ]
+    obj[ 'foo']
+    var x = {[ b ]: a}
+    obj[foo[ bar ]]
+
+    // хорошо
+    obj[foo]
+    obj['foo']
+    var x = { [b]: a }
+    obj[foo[bar]]
+    ```
+
+  <a name="whitespace--func-call-spacing"></a>
+  - [19.16](#whitespace--func-call-spacing) Избегайте пробелов между функциями и их вызовами. eslint: [`func-call-spacing`](https://eslint.org/docs/rules/func-call-spacing)
+
+    ```javascript
+    // плохо
+    func ();
+
+    func
+    ();
+
+    // хорошо
+    func();
+    ```
+
+  <a name="whitespace--key-spacing"></a>
+  - [19.17](#whitespace--key-spacing) Обеспечьте согласованное расстояние между ключами и значениями в свойствах литералов объекта. eslint: [`key-spacing`](https://eslint.org/docs/rules/key-spacing)
+
+    ```javascript
+    // плохо
+    var obj = { "foo" : 42 };
+    var obj2 = { "foo":42 };
+
+    // хорошо
+    var obj = { "foo": 42 };
+    ```
+
+  <a name="whitespace--no-trailing-spaces"></a>
+  - [19.18](#whitespace--no-trailing-spaces) Избегайте пробелов в конце строки. eslint: [`no-trailing-spaces`](https://eslint.org/docs/rules/no-trailing-spaces)
+
+  <a name="whitespace--no-multiple-empty-lines"></a>
+  - [19.19](#whitespace--no-multiple-empty-lines) Избегайте множества пустых строк и делайте только одну пустую строку в конце файла. eslint: [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)
+
+    <!-- markdownlint-disable MD012 -->
+    ```javascript
+    // плохо
+    var x = 1;
+
+
+
+    var y = 2;
+
+    // хорошо
+    var x = 1;
+
+    var y = 2;
+    ```
+    <!-- markdownlint-enable MD012 -->
+
 **[⬆ к оглавлению](#Оглавление)**
 
 ## <a name="commas">Запятые</a>
@@ -2834,7 +2957,7 @@
     [luke, leia].forEach(jedi => jedi.father = 'vader')
 
     // плохо - выбрасывает исключение
-    const reaction = "No! That's impossible!"
+    const reaction = "No! That’s impossible!"
     (async function meanwhileOnTheFalcon() {
       // переносимся к `leia`, `lando`, `chewie`, `r2`, `c3p0`
       // ...
@@ -2854,7 +2977,7 @@
     });
 
     // хорошо
-    const reaction = "No! That's impossible!";
+    const reaction = "No! That’s impossible!";
     (async function meanwhileOnTheFalcon() {
       // переносимся к `leia`, `lando`, `chewie`, `r2`, `c3p0`
       // ...
@@ -3121,10 +3244,10 @@
     export default AirbnbStyleGuide;
     ```
 
-  <a name="naming--Acronyms-and-Initialisms"></a><a name="23.9"></a>
-  - [23.9](#naming--Acronyms-and-Initialisms) сокращёния или буквенные аббревиатуры всегда должны писаться заглавными буквами или строчными.
+  <a name="naming--Acronyms-and-Initialisms"></a>
+  - [23.9](#naming--Acronyms-and-Initialisms) Сокращения или буквенные аббревиатуры всегда должны быть в верхнем или нижнем регистре.
 
-    > Почему? Имена для удобства чтения, а не для удовлетворения компьютерных алгоритмов.
+    > Почему? Имена предназначены для удобства чтения.
 
     ```javascript
     // плохо
@@ -3455,7 +3578,7 @@
   - Линтеры
     - [ESlint](https://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
     - [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/.jshintrc)
-  - Neutrino preset - [neutrino-preset-airbnb-base](https://neutrino.js.org/presets/neutrino-preset-airbnb-base/)
+  - Neutrino Preset - [@neutrinojs/airbnb](https://neutrinojs.org/packages/airbnb/)
 
 **Другие руководства**
 
@@ -3496,7 +3619,7 @@
   - [Third Party JavaScript](https://www.manning.com/books/third-party-javascript) - Ben Vinegar and Anton Kovalyov
   - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](http://amzn.com/0321812182) - David Herman
   - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke
-  - [You Don't Know JS: ES6 & Beyond](http://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson
+  - [You Don’t Know JS: ES6 & Beyond](http://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson
 
 **Блоги**
 
@@ -3539,6 +3662,7 @@
   - **Bonhomme**: [bonhommeparis/javascript](https://github.com/bonhommeparis/javascript)
   - **Brainshark**: [brainshark/javascript](https://github.com/brainshark/javascript)
   - **CaseNine**: [CaseNine/javascript](https://github.com/CaseNine/javascript)
+  - **Cerner**: [Cerner](https://github.com/cerner/)
   - **Chartboost**: [ChartBoost/javascript-style-guide](https://github.com/ChartBoost/javascript-style-guide)
   - **ComparaOnline**: [comparaonline/javascript](https://github.com/comparaonline/javascript-style-guide)
   - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
@@ -3583,18 +3707,20 @@
   - **Muber**: [muber](https://github.com/muber/)
   - **National Geographic**: [natgeo](https://github.com/natgeo/)
   - **Nimbl3**: [nimbl3/javascript](https://github.com/nimbl3/javascript)
+  - **NullDev**: [NullDevCo/JavaScript-Styleguide](https://github.com/NullDevCo/JavaScript-Styleguide)
   - **Nulogy**: [nulogy/javascript](https://github.com/nulogy/javascript)
   - **Orange Hill Development**: [orangehill/javascript](https://github.com/orangehill/javascript)
   - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
   - **OutBoxSoft**: [OutBoxSoft/javascript](https://github.com/OutBoxSoft/javascript)
   - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
+  - **Pier 1**: [Pier1/javascript](https://github.com/pier1/javascript)
   - **Qotto**: [Qotto/javascript-style-guide](https://github.com/Qotto/javascript-style-guide)
   - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
   - **reddit**: [reddit/styleguide/javascript](https://github.com/reddit/styleguide/tree/master/javascript)
   - **React**: [facebook.github.io/react/contributing/how-to-contribute.html#style-guide](https://facebook.github.io/react/contributing/how-to-contribute.html#style-guide)
   - **REI**: [reidev/js-style-guide](https://github.com/rei/code-style-guides/)
   - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
-  - **Sainsbury's Supermarkets**: [jsainsburyplc](https://github.com/jsainsburyplc)
+  - **Sainsbury’s Supermarkets**: [jsainsburyplc](https://github.com/jsainsburyplc)
   - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
   - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
   - **Sourcetoad**: [sourcetoad/javascript](https://github.com/sourcetoad/javascript)
@@ -3606,9 +3732,11 @@
   - **SysGarage**: [sysgarage/javascript-style-guide](https://github.com/sysgarage/javascript-style-guide)
   - **Syzygy Warsaw**: [syzygypl/javascript](https://github.com/syzygypl/javascript)
   - **Target**: [target/javascript](https://github.com/target/javascript)
+  - **Terra**: [terra](https://github.com/cerner?utf8=%E2%9C%93&q=terra&type=&language=)
   - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
   - **The Nerdery**: [thenerdery/javascript-standards](https://github.com/thenerdery/javascript-standards)
   - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
+  - **UrbanSim**: [urbansim](https://github.com/urbansim/)
   - **VoxFeed**: [VoxFeed/javascript-style-guide](https://github.com/VoxFeed/javascript-style-guide)
   - **WeBox Studio**: [weboxstudio/javascript](https://github.com/weboxstudio/javascript)
   - **Weggo**: [Weggo/javascript](https://github.com/Weggo/javascript)
@@ -3624,7 +3752,7 @@
   - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Бразильский вариант португальского языка**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
   - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Болгарский**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
   - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Каталонский**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
-  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Китайский (Упрощённый)**: [yuche/javascript](https://github.com/yuche/javascript)
+  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Китайский (Упрощённый)**: [lin-123/javascript](https://github.com/lin-123/javascript)
   - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Китайский (Традиционный)**: [jigsawye/javascript](https://github.com/jigsawye/javascript)
   - ![fr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/France.png) **Французский**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
   - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **Немецкий**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
