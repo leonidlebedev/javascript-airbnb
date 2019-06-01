@@ -2,6 +2,9 @@
 
 *Наиболее разумный подход к написанию React и JSX*
 
+Это руководство основано на стандартах, которые в настоящее время преобладают в JavaScript сообществе, хотя некоторые соглашения (например, async/await или статические поля класса) могут все ещё быть включены или запрещены в каждом отдельном случае.
+В настоящее время что-либо, что не дошло до 3-ей стадии (stage 3) стандарта, не включено и не рекомендуется в этом руководстве.
+
 ## Оглавление
 
   1. [Основные правила](#basic-rules)
@@ -50,7 +53,7 @@
     }
     ```
 
-    И если у вас нет состояния (`state`) или ссылок (`refs`), отдавайте предпочтение нормальным функциям (не стрелочным функциям), а не классам:
+    И если у вас нет состояния (`state`) или ссылок (`refs`), отдавайте предпочтение нормальным функциям (не стрелочным) над классами:
 
     ```jsx
     // плохо
@@ -75,11 +78,11 @@
 
   - [Не используйте примеси](https://facebook.github.io/react/blog/2016/07/13/mixins-considered-harmful.html).
 
-    > Почему? Примеcи вносят неявные зависимости, становятся причиной конфликтов имен и быстрого роста сложностей. Для большинства случаев, в которых используются примеси, можно более эффективно применить компоненты, компоненты высшего порядка или вспомогательные модули.
+    > Почему? Примеси вносят неявные зависимости, становятся причиной конфликтов имён и быстрого роста сложности. Для большинства случаев, в которых используются примеси, можно более эффективно применить компоненты, компоненты высшего порядка или вспомогательные модули.
 
 ## <a name="naming">Именование</a>
 
-  - **Расширения**: Используйте расширение `.jsx` для компонентов React.
+  - **Расширения**: Используйте расширение `.jsx` для компонентов React. eslint: [`react/jsx-filename-extension`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md)
   - **Имя файла**: Используйте `PascalCase` для названий файлов, например, `ReservationCard.jsx`.
   - **Именование переменной**: Используйте `PascalCase` для компонентов React и `camelCase` для их экземпляров. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
@@ -138,7 +141,7 @@
 
   - **Названия свойств**: Избегайте использования названий свойств DOM-компонента для других целей.
 
-    > Почему? Люди ожидают, что такие свойства как `style` и `className` имеют одно определенное значение. Изменение этого API в вашем приложении ухудшает читабельность и поддержку кода, что может приводить к ошибкам.
+    > Почему? Люди ожидают, что такие свойства как `style` и `className` имеют одно определённое значение. Изменение этого API в вашем приложении ухудшает читабельность и поддержку кода, что может приводить к ошибкам.
 
     ```jsx
     // плохо
@@ -169,7 +172,7 @@
 
 ## <a name="alignment">Выравнивание</a>
 
-  - Следуйте приведенным ниже стилям для JSX-синтаксиса. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
+  - Следуйте приведённым ниже стилям для JSX-синтаксиса. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
     ```jsx
     // плохо
@@ -192,6 +195,25 @@
     >
       <Quux />
     </Foo>
+
+    // плохо
+    {showButton &&
+      <Button />
+    }
+
+    // плохо
+    {
+      showButton &&
+        <Button />
+    }
+
+    // хорошо
+    {showButton && (
+      <Button />
+    )}
+
+    // хорошо
+    {showButton && <Button />}
     ```
 
 ## <a name="quotes">Кавычки</a>
@@ -331,29 +353,33 @@
     <div />
     ```
 
-  - Не используйте индексы элементов массива в качестве свойства `key`. Отдавайте предпочтение уникальному ID. ([почему?](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318))
+  - Не используйте индексы элементов массива в качестве свойства `key`. Отдавайте предпочтение уникальному ID. eslint: [`react/no-array-index-key`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md)
 
-  ```jsx
-  // плохо
-  {todos.map((todo, index) =>
-    <Todo
-      {...todo}
-      key={index}
-    />
-  )}
+    > Почему? Неиспользование стабильного ID [является антипаттерном](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318), потому что это может негативно повлиять на производительность компонента и вызвать проблемы с его состоянием.
 
-  // хорошо
-  {todos.map(todo => (
-    <Todo
-      {...todo}
-      key={todo.id}
-    />
-  ))}
-  ```
+    Мы не рекомендуем использовать индексы для ключей, если порядок элементов может измениться.
 
-  - Всегда указывайте явные `defaultProps` для всех свойств, которые не указаны как необходимые.
+    ```jsx
+    // плохо
+    {todos.map((todo, index) =>
+      <Todo
+        {...todo}
+        key={index}
+      />
+    )}
 
-    > Почему? `propTypes` является способом документации, а предоставление `defaultProps` позволяет читателю вашего кода избежать множества неясностей. Кроме того, это может означать, что ваш код может пропустить определенные проверки типов.
+    // хорошо
+    {todos.map(todo => (
+      <Todo
+        {...todo}
+        key={todo.id}
+      />
+    ))}
+    ```
+
+  - Всегда указывайте подробные `defaultProps` для всех свойств, которые не указаны как необходимые.
+
+    > Почему? `propTypes` является способом документации, а предоставление `defaultProps` позволяет читателю вашего кода избежать множества неясностей. Кроме того, это может означать, что ваш код может пропустить определённые проверки типов.
 
     ```jsx
     // плохо
@@ -395,7 +421,7 @@
           text: PropTypes.string,
           isLoading: PropTypes.bool
         };
-    
+
         render() {
           return <WrappedComponent {...this.props} />
         }
@@ -411,8 +437,8 @@
         text: '',
         isPublished: false
       }
-    
-      return (<div {...props} />);
+
+      return <div {...props} />;
     }
     ```
 
@@ -425,7 +451,7 @@
       const { irrelevantProp, ...relevantProps } = this.props;
       return <WrappedComponent {...this.props} />
     }
-    
+
     // хорошо
     render() {
       const { irrelevantProp, ...relevantProps } = this.props;
@@ -489,7 +515,7 @@
     <Foo variant="stuff" />
     ```
 
-  - Если ваш компонент имеет множество свойств, которые располагаются на нескольких строчках, то закрывайте тег на новой строке. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
+  - Если ваш компонент имеет множество свойств, которые располагаются на нескольких строчках, то закрывайте тег на новой строке. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md) [`react/jsx-closing-tag-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md)
 
     ```jsx
     // плохо
@@ -525,7 +551,7 @@
 
   - Привязывайте обработчики событий для метода `render` в конструкторе. eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
 
-    > Почему? Вызов `bind` в методе `render` создает новую функцию при каждой перерисовке.
+    > Почему? Вызов `bind` в методе `render` создаёт новую функцию при каждой перерисовке.
 
     ```jsx
     // плохо
@@ -557,9 +583,9 @@
     }
     ```
 
-  - Не используйте префикс подчеркивания для именования внутренних методов React компонента.
+  - Не используйте префикс подчёркивания для именования внутренних методов React компонента.
 
-    > Почему? Префиксы подчеркивания иногда используются в других языках как соглашение о приватности. Но, в отличие от этих языков, в Javascript нет нативной поддержки приватности, все публично. Независимо от ваших намерений, добавление префикса подчеркивания к вашим свойства не делает их приватными, и любые свойства (с подчеркиванием или без) должны рассматриваться как публичные. Смотрите вопросы [#1024](https://github.com/airbnb/javascript/issues/1024), и [#490](https://github.com/airbnb/javascript/issues/490) для более глубокого обсуждения.
+    > Почему? Префиксы подчёркивания иногда используются в других языках как соглашение о приватности. Но, в отличие от этих языков, в Javascript нет нативной поддержки приватности, все публично. Независимо от ваших намерений, добавление префикса подчёркивания к вашим свойства не делает их приватными, и любые свойства (с подчёркиванием или без) должны рассматриваться как публичные. Смотрите вопросы [#1024](https://github.com/airbnb/javascript/issues/1024), и [#490](https://github.com/airbnb/javascript/issues/490) для более глубокого обсуждения.
 
     ```jsx
     // плохо
@@ -682,13 +708,17 @@
 
   Это JSX/React руководство также доступно и на других языках:
 
-  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Китайский (Упрощенный)**: [JasonBoy/javascript](https://github.com/JasonBoy/javascript/tree/master/react)
-  - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Польский**: [pietraszekl/javascript](https://github.com/pietraszekl/javascript/tree/master/react)
-  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Корейский**: [apple77y/javascript](https://github.com/apple77y/javascript/tree/master/react)
-  - ![Br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Португальский**: [ronal2do/javascript](https://github.com/ronal2do/airbnb-react-styleguide)
-  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Японский**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide/tree/master/react)
+  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Китайский (Упрощённый)**: [JasonBoy/javascript](https://github.com/JasonBoy/javascript/tree/master/react)
+  - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Китайский (Традиционный)**: [jigsawye/javascript](https://github.com/jigsawye/javascript/tree/master/react)
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Испанский**: [agrcrobles/javascript](https://github.com/agrcrobles/javascript/tree/master/react)
-  - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Украинский**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript/tree/master/react)
+  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Японский**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide/tree/master/react)
+  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Корейский**: [apple77y/javascript](https://github.com/apple77y/javascript/tree/master/react)
+  - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Польский**: [pietraszekl/javascript](https://github.com/pietraszekl/javascript/tree/master/react)
+  - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Португальский**: [ronal2do/javascript](https://github.com/ronal2do/airbnb-react-styleguide)
   - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Русский**: [leonidlebedev/javascript-airbnb](https://github.com/leonidlebedev/javascript-airbnb/tree/master/react)
+  - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Тайский**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide/tree/master/react)
+  - ![tr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Turkey.png) **Турецкий**: [alioguzhan/react-style-guide](https://github.com/alioguzhan/react-style-guide)
+  - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Украинский**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript/tree/master/react)
+  - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Вьетнамский**: [uetcodecamp/jsx-style-guide](https://github.com/UETCodeCamp/jsx-style-guide)
 
 **[⬆ к оглавлению](#Оглавление)**
