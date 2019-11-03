@@ -419,13 +419,11 @@
     // плохо - нет возвращаемого значения, следовательно, `acc` становится `undefined` после первой итерации
     [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
       const flatten = acc.concat(item);
-      acc[index] = flatten;
     });
 
     // хорошо
     [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
       const flatten = acc.concat(item);
-      acc[index] = flatten;
       return flatten;
     });
 
@@ -960,7 +958,7 @@
     });
 
     // хорошо
-    [1, 2, 3].map(number => `A string containing the ${number}.`);
+    [1, 2, 3].map(number => `A string containing the ${number + 1}.`);
 
     // хорошо
     [1, 2, 3].map((number) => {
