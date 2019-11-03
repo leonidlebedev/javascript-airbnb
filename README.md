@@ -3764,7 +3764,7 @@
   - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Тайский**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
   - ![tr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Turkey.png) **Турецкий**: [eraycetinay/javascript](https://github.com/eraycetinay/javascript)
   - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Украинский**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript)
-  - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Вьетнамский**: [hngiang/javascript-style-guide](https://github.com/hngiang/javascript-style-guide)
+  - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Вьетнамский**: [dangkyokhoang/javascript-style-guide](https://github.com/dangkyokhoang/javascript-style-guide)
 
 **[⬆ к оглавлению](#Оглавление)**
 
