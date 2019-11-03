@@ -30,6 +30,7 @@
     - Однако, разрешается несколько [компонентов без состояний (чистых)](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) в файле. eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
   - Всегда используйте JSX синтаксис.
   - Не используйте `React.createElement`, если вы только не инициализируете программу из файла, который не является JSX.
+  - [`react/forbid-prod-types`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md) разрешит `arrays` и `objects` только, если явно указано, что содержат `array` и `object`, используя `arrayOf`, `objectOf` или `shape`.
 
 ## <a name="#class-vs-reactcreateclass-vs-stateless">Class против `React.createClass` против компонента без состояния (stateless)</a>
 
