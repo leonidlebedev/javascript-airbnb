@@ -3724,6 +3724,7 @@
   - **CaseNine**: [CaseNine/javascript](https://github.com/CaseNine/javascript)
   - **Cerner**: [Cerner](https://github.com/cerner/)
   - **Chartboost**: [ChartBoost/javascript-style-guide](https://github.com/ChartBoost/javascript-style-guide)
+  - **Coeur d'Alene Tribe**: [www.cdatribe-nsn.gov](https://www.cdatribe-nsn.gov)
   - **ComparaOnline**: [comparaonline/javascript](https://github.com/comparaonline/javascript-style-guide)
   - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
   - **DailyMotion**: [dailymotion/javascript](https://github.com/dailymotion/javascript)
