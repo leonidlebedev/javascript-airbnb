@@ -294,10 +294,10 @@
 
     // отлично
     const has = Object.prototype.hasOwnProperty; // Кэшируем запрос в рамках модуля.
+    console.log(has.call(object, key));
     /* или */
     import has from 'has'; // https://www.npmjs.com/package/has
-    // ...
-    console.log(has.call(object, key));
+    console.log(has(object, key));
     ```
 
   <a name="objects--rest-spread"></a>
