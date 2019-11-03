@@ -533,7 +533,7 @@
 
 ## <a name="methods">Методы</a>
 
-  - Используйте стрелочные функции для замыкания локальных переменных.
+  - Используйте стрелочные функции для замыкания локальных переменных. Это удобно, когда вам нужно передать дополнительные данные в обработчик событий. Однако, убедитесь, что они [не сильно вредят производительности](https://www.bignerdranch.com/blog/choosing-the-best-approach-for-react-event-handlers/). В частности, могут быть ненужные перерисовки каждый раз, когда они будут передаваться PureComponent.
 
     ```jsx
     function ItemList(props) {
@@ -542,7 +542,7 @@
           {props.items.map((item, index) => (
             <Item
               key={item.key}
-              onClick={() => doSomethingWith(item.name, index)}
+              onClick={(event) => doSomethingWith(event, item.name, index)}
             />
           ))}
         </ul>
@@ -552,7 +552,7 @@
 
   - Привязывайте обработчики событий для метода `render` в конструкторе. eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
 
-    > Почему? Вызов `bind` в методе `render` создаёт новую функцию при каждой перерисовке.
+    > Почему? Вызов `bind` в методе `render` создаёт новую функцию при каждой перерисовке. Не используйте стрелочные функции в полях класса, поскольку это делает их [сложными для тестирования и отладки, и может негативно повлиять на производительность](https://medium.com/@charpeni/arrow-functions-in-class-properties-might-not-be-as-great-as-we-think-3b3551c440b1). К тому же концептуально поля класса предназначены для данных, а не для логики.
 
     ```jsx
     // плохо
@@ -563,6 +563,16 @@
 
       render() {
         return <div onClick={this.onClickDiv.bind(this)} />;
+      }
+    }
+
+    // очень плохо
+    class extends React.Component {
+      onClickDiv = () => {
+        // ...
+      }
+      render() {
+        return <div onClick={this.onClickDiv} />
       }
     }
 
