@@ -414,7 +414,7 @@
     });
 
     // хорошо
-    [1, 2, 3].map(x => x + 1);
+    [1, 2, 3].map((x) => x + 1);
 
     // плохо - нет возвращаемого значения, следовательно, `acc` становится `undefined` после первой итерации
     [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
@@ -952,13 +952,13 @@
 
     ```javascript
     // плохо
-    [1, 2, 3].map(number => {
+    [1, 2, 3].map((number) => {
       const nextNumber = number + 1;
       `A string containing the ${nextNumber}.`;
     });
 
     // хорошо
-    [1, 2, 3].map(number => `A string containing the ${number + 1}.`);
+    [1, 2, 3].map((number) => `A string containing the ${number + 1}.`);
 
     // хорошо
     [1, 2, 3].map((number) => {
@@ -997,14 +997,14 @@
 
     ```javascript
     // плохо
-    ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(
+    ['get', 'post', 'put'].map((httpMethod) => Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
         httpMethod,
       )
     );
 
     // хорошо
-    ['get', 'post', 'put'].map(httpMethod => (
+    ['get', 'post', 'put'].map((httpMethod) => (
       Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
         httpMethod,
@@ -1013,18 +1013,23 @@
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) Если ваша функция принимает один аргумент и не использует фигурные скобки, то опустите круглые скобки. В противном случае, всегда оборачивайте аргументы круглыми скобками для ясности и последовательности. Примечание: также допускается всегда использовать круглые скобки, в этом случае используйте [вариант "always"](https://eslint.org/docs/rules/arrow-parens#always) для eslint. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html)
-    > Почему? Меньше визуального беспорядка.
+  - [8.4](#arrows--one-arg-parens) Всегда оборачивайте аргументы круглыми скобками для ясности и согласованности. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html)
+    > Почему? Минимизирует различия при удалении или добавлении аргументы.
 
     ```javascript
     // плохо
-    [1, 2, 3].map((x) => x * x);
-
-    // хорошо
     [1, 2, 3].map(x => x * x);
 
     // хорошо
+    [1, 2, 3].map((x) => x * x);
+
+    // плохо
     [1, 2, 3].map(number => (
+      `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
+    ));
+
+    // хорошо
+    [1, 2, 3].map((number) => (
       `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
     ));
 
@@ -1046,13 +1051,13 @@
 
     ```javascript
     // плохо
-    const itemHeight = item => item.height <= 256 ? item.largeSize : item.smallSize;
+    const itemHeight = (item) => item.height <= 256 ? item.largeSize : item.smallSize;
 
     // плохо
     const itemHeight = (item) => item.height >= 256 ? item.largeSize : item.smallSize;
 
     // хорошо
-    const itemHeight = item => (item.height <= 256 ? item.largeSize : item.smallSize);
+    const itemHeight = (item) => (item.height <= 256 ? item.largeSize : item.smallSize);
 
     // хорошо
     const itemHeight = (item) => {
@@ -1066,15 +1071,15 @@
 
     ```javascript
     // плохо
-    foo =>
+    (foo) =>
       bar;
-    foo =>
+    (foo) =>
       (bar);
 
     // хорошо
-    foo => bar;
-    foo => (bar);
-    foo => (
+    (foo) => bar;
+    (foo) => (bar);
+    (foo) => (
        bar
     )
     ```
@@ -1443,7 +1448,7 @@
     });
 
     // отлично (продолжайте в том же духе)
-    const increasedByOne = numbers.map(num => num + 1);
+    const increasedByOne = numbers.map((num) => num + 1);
     ```
 
   <a name="generators--nope"></a><a name="11.2"></a>
@@ -2952,7 +2957,7 @@
     // плохо - выбрасывает исключение
     const luke = {}
     const leia = {}
-    [luke, leia].forEach(jedi => jedi.father = 'vader')
+    [luke, leia].forEach((jedi) => jedi.father = 'vader')
 
     // плохо - выбрасывает исключение
     const reaction = "No! That’s impossible!"
