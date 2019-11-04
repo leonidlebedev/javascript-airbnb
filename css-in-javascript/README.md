@@ -8,7 +8,7 @@
 1. [Порядок](#ordering)
 1. [Вложенность](#nesting)
 1. [Inline](#inline)
-1. [Themes](#themes)
+1. [Темы](#themes)
 
 ## Именование
 
@@ -237,19 +237,19 @@
 
 ## Inline
 
-  - Use inline styles for styles that have a high cardinality (e.g. uses the value of a prop) and not for styles that have a low cardinality.
+  - Используйте inline-стили там, где стили изменяют свои значения (например, через свойства (props)).
 
-    > Why? Generating themed stylesheets can be expensive, so they are best for discrete sets of styles.
+    > Почему? Создание темизированных таблиц стилей является дорогостоящей операцией, поэтому они лучше всего подходят для дискретных наборов стилей.
 
     ```jsx
-    // bad
+    // плохо
     export default function MyComponent({ spacing }) {
       return (
         <div style={{ display: 'table', margin: spacing }} />
       );
     }
 
-    // good
+    // хорошо
     function MyComponent({ styles, spacing }) {
       return (
         <div {...css(styles.periodic, { margin: spacing })} />
@@ -262,23 +262,23 @@
     }))(MyComponent);
     ```
 
-## Themes
+## Темы
 
-  - Use an abstraction layer such as [react-with-styles](https://github.com/airbnb/react-with-styles) that enables theming. *react-with-styles gives us things like `withStyles()`, `ThemedStyleSheet`, and `css()` which are used in some of the examples in this document.*
+  - Используйте абстрактный слой, такой как [react-with-styles](https://github.com/airbnb/react-with-styles), чтобы включить темизацию. *react-with-styles предоставляет такие инструменты, как `withStyles()`, `ThemedStyleSheet` и `css()`, которые используются в некоторых примерах в этой документации.*
 
-  > Why? It is useful to have a set of shared variables for styling your components. Using an abstraction layer makes this more convenient. Additionally, this can help prevent your components from being tightly coupled to any particular underlying implementation, which gives you more freedom.
+  > Почему? Полезно иметь набор общих переменных для стилизации компонентов. Использование слоя абстракции делает это более удобным. К тому же, это может помочь предотвратить тесную связь компонентов с какой-либо конкретной базовой реализацией, что даёт вам больше свободы.
 
-  - Define colors only in themes.
+  - Определяйте цвета только в темах.
 
     ```js
-    // bad
+    // плохо
     export default withStyles(() => ({
       chuckNorris: {
         color: '#bada55',
       },
     }))(MyComponent);
 
-    // good
+    // хорошо
     export default withStyles(({ color }) => ({
       chuckNorris: {
         color: color.badass,
@@ -286,17 +286,17 @@
     }))(MyComponent);
     ```
 
-  - Define fonts only in themes.
+  - Определяйте шрифты только в темах.
 
     ```js
-    // bad
+    // плохо
     export default withStyles(() => ({
       towerOfPisa: {
         fontStyle: 'italic',
       },
     }))(MyComponent);
 
-    // good
+    // хорошо
     export default withStyles(({ font }) => ({
       towerOfPisa: {
         fontStyle: font.italic,
@@ -304,10 +304,10 @@
     }))(MyComponent);
     ```
 
-  - Define fonts as sets of related styles.
+  - Определяйте шрифты как наборы связанных стилей.
 
     ```js
-    // bad
+    // плохо
     export default withStyles(() => ({
       towerOfPisa: {
         fontFamily: 'Italiana, "Times New Roman", serif',
@@ -317,7 +317,7 @@
       },
     }))(MyComponent);
 
-    // good
+    // хорошо
     export default withStyles(({ font }) => ({
       towerOfPisa: {
         ...font.italian,
@@ -325,35 +325,35 @@
     }))(MyComponent);
     ```
 
-  - Define base grid units in theme (either as a value or a function that takes a multiplier).
+  - Определяйте базовые единицы сетки в теме (либо как значение, либо как функцию, которая принимает множитель).
 
     ```js
-    // bad
+    // плохо
     export default withStyles(() => ({
       rip: {
-        bottom: '-6912px', // 6 feet
+        bottom: '-6912px', // 6 футов
       },
     }))(MyComponent);
 
-    // good
+    // хорошо
     export default withStyles(({ units }) => ({
       rip: {
-        bottom: units(864), // 6 feet, assuming our unit is 8px
+        bottom: units(864), // 6 футов, предполагая, что наш блок 8px
       },
     }))(MyComponent);
 
-    // good
+    // хорошо
     export default withStyles(({ unit }) => ({
       rip: {
-        bottom: 864 * unit, // 6 feet, assuming our unit is 8px
+        bottom: 864 * unit, // 6 футов, предполагая, что наш блок 8px
       },
     }))(MyComponent);
     ```
 
-  - Define media queries only in themes.
+  - Определяйте медиа запросы (media queries) только в темах.
 
     ```js
-    // bad
+    // плохо
     export default withStyles(() => ({
       container: {
         width: '100%',
@@ -364,7 +364,7 @@
       },
     }))(MyComponent);
 
-    // good
+    // хорошо
     export default withStyles(({ breakpoint }) => ({
       container: {
         width: '100%',
@@ -376,12 +376,12 @@
     }))(MyComponent);
     ```
 
-  - Define tricky fallback properties in themes.
+  - Определяйте сложные фолбэки в темах.
 
-    > Why? Many CSS-in-JavaScript implementations merge style objects together which makes specifying fallbacks for the same property (e.g. `display`) a little tricky. To keep the approach unified, put these fallbacks in the theme.
+    > Почему? Многие реализации CSS-in-JavaScript объединяют стили вместе, что делает определение фолбэка для одного и того же свойства (например, `display`) немного сложным. Чтобы сохранить подход единым, поместите эти фолбэки в тему.
 
     ```js
-    // bad
+    // плохо
     export default withStyles(() => ({
       .muscles {
         display: 'flex',
@@ -392,7 +392,7 @@
       },
     }))(MyComponent);
 
-    // good
+    // хорошо
     export default withStyles(({ fallbacks }) => ({
       .muscles {
         display: 'flex',
@@ -403,7 +403,7 @@
       },
     }))(MyComponent);
 
-    // good
+    // хорошо
     export default withStyles(({ fallback }) => ({
       .muscles {
         display: 'flex',
@@ -415,17 +415,17 @@
     }))(MyComponent);
     ```
 
-  - Create as few custom themes as possible. Many applications may only have one theme.
+  - Создайте как можно меньше пользовательских тем. Многие приложения могут иметь только одну тему.
 
-  - Namespace custom theme settings under a nested object with a unique and descriptive key.
+  - Пространство имён темы во вложенном объекте должно содержать уникальный и наглядный ключ.
 
     ```js
-    // bad
+    // плохо
     ThemedStyleSheet.registerTheme('mySection', {
       mySectionPrimaryColor: 'green',
     });
 
-    // good
+    // хорошо
     ThemedStyleSheet.registerTheme('mySection', {
       mySection: {
         primaryColor: 'green',
@@ -435,4 +435,4 @@
 
 ---
 
-CSS puns adapted from [Saijo George](https://saijogeorge.com/css-puns/).
+CSS каламбуры взяты из [Saijo George](https://saijogeorge.com/css-puns/).
