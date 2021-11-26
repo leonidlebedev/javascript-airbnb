@@ -28,9 +28,9 @@
 	},
 	"homepage": "https://github.com/leonidlebedev/javascript-airbnb",
 	"devDependencies": {
-		"husky": "^1.3.1",
-		"markdownlint-cli": "^0.13.0",
-		"yaspeller": "^5.0.1"
+		"husky": "7.0.4",
+		"markdownlint-cli": "0.30.0",
+		"yaspeller": "8.0.0"
 	},
 	"husky": {
 		"hooks": {
