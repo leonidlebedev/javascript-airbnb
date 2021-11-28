@@ -2885,11 +2885,11 @@
 
     ```javascript
     // плохо
-    var obj = { "foo" : 42 };
-    var obj2 = { "foo":42 };
+    var obj = { foo : 42 };
+    var obj2 = { foo:42 };
 
     // хорошо
-    var obj = { "foo": 42 };
+    var obj = { foo: 42 };
     ```
 
   <a name="whitespace--no-trailing-spaces"></a>
