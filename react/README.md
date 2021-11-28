@@ -269,7 +269,7 @@
 
 ## <a name="props">Свойства (Props)</a>
 
-  - Всегда используйте `camelCase` для названий свойств.
+  - Всегда используйте `camelCase` для названий свойств или `PascalCase`, если значение является React-компонентом.
 
     ```jsx
     // плохо
@@ -282,6 +282,7 @@
     <Foo
       userName="hello"
       phoneNumber={12345678}
+      Component={SomeComponent}
     />
     ```
 
