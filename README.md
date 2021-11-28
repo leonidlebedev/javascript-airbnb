@@ -493,7 +493,7 @@
   <a name="destructuring--object"></a><a name="5.1"></a>
   - [5.1](#destructuring--object) При обращении к нескольким свойствам объекта используйте деструктуризацию объекта. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
 
-    > Почему? Деструктуризация избавляет вас от создания временных переменных для этих свойств.
+    > Почему? Деструктуризация сохраняет вас от создания временных переменных для этих свойств и от повторного доступа к объекту. Повторный доступ к объектам создает более повторяющийся код, требует большего чтения и создает больше возможностей для ошибок. Деструктуризация объектов также обеспечивает единое местоположение определения структуры объекта, которое используется в блоке, вместо того, чтобы требовать чтения всего блока для определения того, что используется.
 
     ```javascript
     // плохо
@@ -3792,7 +3792,7 @@
   - **DailyMotion**: [dailymotion/javascript](https://github.com/dailymotion/javascript)
   - **DoSomething**: [DoSomething/eslint-config](https://github.com/DoSomething/eslint-config)
   - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
-  - **Drupal**: [www.drupal.org](https://www.drupal.org/project/drupal)
+  - **Drupal**: [www.drupal.org](https://git.drupalcode.org/project/drupal/blob/8.6.x/core/.eslintrc.json)
   - **Ecosia**: [ecosia/javascript](https://github.com/ecosia/javascript)
   - **Evernote**: [evernote/javascript-style-guide](https://github.com/evernote/javascript-style-guide)
   - **Evolution Gaming**: [evolution-gaming/javascript](https://github.com/evolution-gaming/javascript)
