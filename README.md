@@ -1434,6 +1434,22 @@
     import barCss from 'bar.css';
     ```
 
+  <a name="modules--import-extensions"></a>
+  - [10.10](#modules--import-extensions) Не указывайте JavaScript расширения файлов
+ eslint: [`import/extensions`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md)
+    > Почему? Добавление расширений препятствует рефакторингу и нецелесообразно жёстко программируются детали реализации модуля, который вы импортируете в каждом потребителе.
+
+    ```javascript
+    // bad
+    import foo from './foo.js';
+    import bar from './bar.jsx';
+    import baz from './baz/index.jsx';
+    // good
+    import foo from './foo';
+    import bar from './bar';
+    import baz from './baz';
+    ```
+
 **[⬆ к оглавлению](#Оглавление)**
 
 ## <a name="iterators-and-generators">Итераторы и генераторы</a>
