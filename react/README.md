@@ -216,6 +216,27 @@
 
     // хорошо
     {showButton && <Button />}
+
+    // хорошо
+    {someReallyLongConditional
+      && anotherLongConditional
+      && (
+        <Foo
+          superLongParam="bar"
+          anotherSuperLongParam="baz"
+        />
+      )
+    }
+
+    // хорошо
+    {someConditional ? (
+      <Foo />
+    ) : (
+      <Foo
+        superLongParam="bar"
+        anotherSuperLongParam="baz"
+      />
+    )}
     ```
 
 ## <a name="quotes">Кавычки</a>
