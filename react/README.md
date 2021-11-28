@@ -720,7 +720,7 @@
 
   Это JSX/React руководство также доступно и на других языках:
 
-  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Китайский (Упрощённый)**: [JasonBoy/javascript](https://github.com/JasonBoy/javascript/tree/master/react)
+  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Китайский (Упрощённый)**: [jhcccc/javascript](https://github.com/jhcccc/javascript/tree/master/react)
   - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Китайский (Традиционный)**: [jigsawye/javascript](https://github.com/jigsawye/javascript/tree/master/react)
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Испанский**: [agrcrobles/javascript](https://github.com/agrcrobles/javascript/tree/master/react)
   - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Японский**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide/tree/master/react)
