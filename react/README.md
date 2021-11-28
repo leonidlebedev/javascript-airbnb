@@ -669,7 +669,8 @@
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *обработчики кликов или событий*, такие как `onClickSubmit()` или `onChangeDescription()`
+  1. *обработчики событий, начинающие с 'handle'*, такие как `handleSubmit()` или `handleChangeDescription()`
+  1. *обработчики событий, начинающие с 'on'*, такие как `onClickSubmit()` или `onChangeDescription()`
   1. *getter методы для `render`*, такие как `getSelectReason()` или `getFooterContent()`
   1. *произвольные render методы*, такие как `renderNavigation()` или `renderProfilePicture()`
   1. `render`
