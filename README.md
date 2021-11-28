@@ -302,7 +302,7 @@
     ```
 
   <a name="objects--rest-spread"></a>
-  - [3.8](#objects--rest-spread) Используйте оператор расширения вместо [`Object.assign`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) для поверхностного копирования объектов. Используйте синтаксис оставшихся свойств, чтобы получить новый объект с некоторыми опущенными свойствами.
+  - [3.8](#objects--rest-spread) Используйте оператор расширения вместо [`Object.assign`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) для поверхностного копирования объектов. Используйте синтаксис оставшихся свойств, чтобы получить новый объект с некоторыми опущенными свойствами. eslint: [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread)
 
     ```javascript
     // очень плохо
