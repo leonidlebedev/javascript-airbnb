@@ -1019,7 +1019,7 @@
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
   - [8.4](#arrows--one-arg-parens) Всегда оборачивайте аргументы круглыми скобками для ясности и согласованности. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html)
-    > Почему? Минимизирует различия при удалении или добавлении аргументы.
+    > Почему? Минимизирует различия при удалении или добавлении аргументов.
 
     ```javascript
     // плохо
@@ -1264,7 +1264,7 @@
         console.log('bar');
       }
     }
-    // хорошо - this используется
+    // хорошо - используется this
     class Foo {
       bar() {
         console.log(this.bar);
