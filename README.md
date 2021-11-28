@@ -1440,11 +1440,12 @@
     > Почему? Добавление расширений препятствует рефакторингу и нецелесообразно жёстко программируются детали реализации модуля, который вы импортируете в каждом потребителе.
 
     ```javascript
-    // bad
+    // плохо
     import foo from './foo.js';
     import bar from './bar.jsx';
     import baz from './baz/index.jsx';
-    // good
+
+    // хорошо
     import foo from './foo';
     import bar from './bar';
     import baz from './baz';
@@ -2724,7 +2725,7 @@
       }
     }
 
-    // good
+    // хорошо
     class Person {
       constructor(fullName, email, birthday) {
         this.fullName = fullName;
