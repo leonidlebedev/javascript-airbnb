@@ -1843,7 +1843,7 @@
 ## <a name="hoisting">Подъём</a>
 
   <a name="hoisting--about"></a><a name="14.1"></a>
-  - [14.1](#hoisting--about) Объявления `var` поднимаются в начало области видимости ближайшей закрывающей их функции, а их присвоение нет. Объявления `const` и `let` работают по новой концепции называемой [Временные Мёртвые Зоны (Temporal Dead Zone)](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/let#Временные_мертвые_зоны_и_ошибки_при_использовании_let). Важно знать, почему использовать [typeof больше не безопасно](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
+  - [14.1](#hoisting--about) Объявления `var` поднимаются в начало области видимости ближайшей закрывающей их функции, а их присвоение нет. Объявления `const` и `let` работают по новой концепции называемой [Временные Мёртвые Зоны (Temporal Dead Zone)](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/let#Временные_мертвые_зоны_и_ошибки_при_использовании_let). Важно знать, почему использовать [typeof больше не безопасно](https://web.archive.org/web/20200121061528/http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
 
     ```javascript
     // мы знаем, что это не будет работать
