@@ -779,7 +779,7 @@
     ```
 
   <a name="functions--defaults-last"></a><a name="7.9"></a>
-  - [7.9](#functions--defaults-last) Всегда вставляйте последними параметры по умолчанию.
+  - [7.9](#functions--defaults-last) Всегда вставляйте последними параметры по умолчанию. eslint: [`default-param-last`](https://eslint.org/docs/rules/default-param-last)
 
     ```javascript
     // плохо
